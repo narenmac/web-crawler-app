@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="en-US">
+ <head>
+  <title>Home Page — ICANN Open Data</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Language" content="en-US">
+  <link rel="icon" href="https://s3.amazonaws.com/aws-ec2-us-east-1-opendatasoft-staticfileset/dataicann/favicon?tstamp=156088769833">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="/static/vendor/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/vendor/normalize/normalize.css">
+  <link rel="stylesheet" href="/static/pictos/odsui/odsui.css" type="text/css"><base href="/pages/home-page/">
+  <link rel="canonical" href="https://opendata.icann.org/pages/home-page/">
+  <meta name="description" content="ICANN's Open Data Portal">
+  <link rel="stylesheet" href="/css/front-angular.css?113" type="text/css">
+  <link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/aws-ec2-us-east-1-opendatasoft-staticfileset/dataicann/stylesheet/113.css">
+  <link type="text/css" href="/static/react-bundles/css/2872.6c61bc5e.css" rel="stylesheet">
+  <link type="text/css" href="/static/react-bundles/css/3696.0532af2f.css" rel="stylesheet">
+  <link type="text/css" href="/static/react-bundles/css/quickfind.4c1aa59b.css" rel="stylesheet">
+  <link type="text/css" href="/static/react-bundles/css/2872.6c61bc5e.css" rel="stylesheet">
+  <link type="text/css" href="/static/react-bundles/css/login-signup-header-buttons.c2edf6b7.css" rel="stylesheet">
+ </head>
+ <body>
+  <div class="ods-content">
+   <header class="ng-cloak" role="banner" ng-controller="HeaderController">
+    <nav breakpoint="1000" class="ods-front-header portal-header" ng-init="pop = { 'state': false }" ods-responsive-menu="">
+     <ods-responsive-menu-placeholder>
+      <a href="/"> <img alt="ICANN Open Data" class="ods-front-header__logo" src="https://s3.amazonaws.com/aws-ec2-us-east-1-opendatasoft-staticfileset/dataicann/logo?tstamp=158222574109"> </a>
+      <button aria-label="Search for a dataset" class="header-mobile-search-button" ng-click="pop.state = true" title="Search for a dataset" type="button"> <i class="fa fa-search fa-fw"></i> </button>
+     </ods-responsive-menu-placeholder>
+     <div class="container portal-header-container">
+      <ods-responsive-menu-collapsible>
+       <div class="portal-header-logo-container">
+        <a href="/"> <img alt="ICANN Open Data" class="ods-front-header__logo" src="https://s3.amazonaws.com/aws-ec2-us-east-1-opendatasoft-staticfileset/dataicann/logo?tstamp=158222574109"> </a>
+        <div class="portal-management-menu">
+         <a class="header-search-button" href="https://account.icann.org/login"> Back to ICANN Account </a> <button class="header-search-button" ng-click="pop.state = true" type="button"> SEARCH <i aria-hidden="true" class="fa fa-search fa-fw"></i> </button>
+         <ul class="ods-front-header__management-menu">
+          <li class="ods-front-header__management-menu-item">
+           <div class="ods-front-header__login-signup-buttons-button" data-login-signup-placeholder="" ng-non-bindable=""></div></li>
+         </ul>
+         <div class="header-social-links">
+          <a aria-label="Visit the ICANN Twitter page" class="header-social-link" href="https://twitter.com/icann" rel="noopener" target="_blank" title="Visit the ICANN Twitter page"> <i aria-hidden="true" class="fa fa-twitter fa-fw header-social-icon"></i> </a> <a aria-label="Visit the ICANN Facebook page" class="header-social-link" href="https://www.facebook.com/icannorg" rel="noopener" target="_blank" title="Visit the ICANN Facebook page"> <i aria-hidden="true" class="fa fa-facebook fa-fw header-social-icon"></i> </a> <a aria-label="Visit the ICANN LinkedIn page" class="header-social-link" href="https://www.linkedin.com/company/icann" rel="noopener" target="_blank" title="Visit the ICANN LinkedIn page"> <i aria-hidden="true" class="fa fa-linkedin fa-fw header-social-icon"></i> </a>
+         </div>
+        </div>
+       </div>
+       <div class="portal-navigation">
+        <ul class="ods-front-header__menu">
+         <li class="ods-front-header__menu-item ods-front-header__menu-item--active" ng-non-bindable=""><a aria-current="page" class="ods-front-header__menu-item-link ods-front-header__menu-item-link--active" href="/pages/home-page/"> Home </a></li>
+         <li class="ods-front-header__menu-item" ng-non-bindable=""><a class="ods-front-header__menu-item-link" href="/explore/"> Data </a></li>
+         <li class="ods-front-header__menu-item" ng-non-bindable=""><a class="ods-front-header__menu-item-link" href="/chart/"> Charts </a></li>
+         <li class="ods-front-header__menu-item" ng-non-bindable=""><a class="ods-front-header__menu-item-link" href="/api/"> API </a></li>
+         <li class="ods-front-header__menu-item" ng-non-bindable=""><a class="ods-front-header__menu-item-link" href="/pages/about/"> About </a></li>
+         <li class="ods-front-header__menu-item" ng-non-bindable=""><a class="ods-front-header__menu-item-link" href="/pages/help/"> Help </a></li>
+        </ul>
+       </div>
+       <div class="portal-management-menu-mobile">
+        <a class="header-search-button" href="https://account.icann.org/login"> Back to ICANN Account </a>
+        <ul class="ods-front-header__management-menu">
+         <li class="ods-front-header__management-menu-item">
+          <div class="ods-front-header__login-signup-buttons-button" data-login-signup-placeholder="" ng-non-bindable=""></div></li>
+        </ul>
+       </div>
+      </ods-responsive-menu-collapsible>
+     </div><my-custom-pop-in class="ods-pop-in" ng-if="pop.state">
+      <div class="ods-pop-in__container">
+       <button class="search-popin-close" ng-click="pop.state = false" title="Close popin window"> <i class="fa fa-times"></i> </button>
+       <h2 class="search-popin-title">Search</h2>
+       <div>
+        <ods-catalog-content context="catalog">
+         <div class="search-container">
+          <ods-searchbox context="catalog" form-id="myform " placeholder="Enter keyword(s)"></ods-searchbox> <button class="search-submit-button" form="myform" type="submit"> Search </button>
+         </div>
+        </ods-catalog-content>
+       </div>
+      </div>
+      <div class="ods-pop-in__backdrop" ng-click="pop.state = false"></div>
+     </my-custom-pop-in>
+    </nav>
+   </header>
+   <main id="main" role="main" class="main--page">
+    <div ng-app="ods.frontend" ng-controller="PageController">
+     <div class="page-layout ng-cloak">
+      <style type="text/css" ods-bind-angular-content="blocks.css"></style>
+      <div ods-bind-angular-content="blocks.html"></div>
+     </div>
+    </div>
+   </main>
+  </div>
+  <footer id="footer" role="contentinfo" ng-controller="FooterController">
+   <section class="ods-front-footer">
+    <div class="container">
+     <div class="row">
+      <div class="col-xs-12">
+       <div class="footer-logo-container">
+        <img alt="ICANN Logo" class="footer-logo" src="/assets/theme_image/logo-icann-white.svg">
+       </div>
+      </div>
+     </div>
+     <div class="row row-equal-height">
+      <div class="col-xs-12 col-md-8">
+       <div class="footer-items-container">
+        <h3 class="footer-subtitle">Other ICANN sites</h3>
+        <div class="row">
+         <div class="col-md-6">
+          <ul class="footer-items">
+           <li class="footer-item"><a class="footer-link" href="https://www.icann.org/" target="_blank" title="Visit ICANN.org website">ICANN.org</a></li>
+           <li class="footer-item"><a class="footer-link" href="https://aso.icann.org/" target="_blank" title="About OSBM">Address Supporting Organization (ASO)</a></li>
+           <li class="footer-item"><a class="footer-link" href="https://atlarge.icann.org/ " target="_blank" title="About At-Large">At-Large</a></li>
+           <li class="footer-item"><a class="footer-link" href="https://community.icann.org/" target="_blank" title="About ICANN Community Wiki">ICANN Community Wiki</a></li>
+           <li class="footer-item"><a class="footer-link" href="https://ccnso.icann.org/en " target="_blank" title="About Country Code Names Supporting Organization (ccNSO)">Country Code Names Supporting Organization (ccNSO)</a></li>
+          </ul>
+         </div>
+         <div class="col-md-6">
+          <ul class="footer-items">
+           <li class="footer-item"><a class="footer-link" href="http://gnso.icann.org/en/" target="_blank" title="About Generic Names Supporting Organization (GNSO)">Generic Names Supporting Organization (GNSO)</a></li>
+           <li class="footer-item"><a class="footer-link" href="https://gac.icann.org/ " target="_blank" title="About Governmental Advisory Committee (GAC)">Governmental Advisory Committee (GAC)</a></li>
+           <li class="footer-item"><a class="footer-link" href="https://www.icann.org/groups/rssac" target="_blank" title="About Root Server System Advisory Committee (RSSAC)">Root Server System Advisory Committee (RSSAC)</a></li>
+           <li class="footer-item"><a class="footer-link" href="https://www.icann.org/groups/ssac" target="_blank" title="About Security and Stability Advisory Committee (SSAC)">Security and Stability Advisory Committee (SSAC)</a></li>
+          </ul>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="col-xs-12 col-md-4">
+       <div class="footer-contact-container">
+        <h3 class="footer-subtitle">Connect with us</h3>
+        <div class="footer-social-links">
+         <a aria-label="Visit the ICANN Twitter page" class="footer-social-link" href="https://twitter.com/icann" rel="noopener" target="_blank" title="Visit the ICANN Twitter page"> <i aria-hidden="true" class="fa fa-twitter footer-social-icon"></i> </a> <a aria-label="Visit the ICANN LinkedIn page" class="footer-social-link" href="https://www.linkedin.com/company/icann" rel="noopener" target="_blank" title="Visit the ICANN LinkedIn page"> <i aria-hidden="true" class="fa fa-linkedin footer-social-icon"></i> </a> <a aria-label="Visit the ICANN Facebook page" class="footer-social-link" href="https://www.facebook.com/icannorg" rel="noopener" target="_blank" title="Visit the ICANN Facebook page"> <i aria-hidden="true" class="fa fa-facebook footer-social-icon"></i> </a> <a aria-label="Visit the ICANN YouTube page" class="footer-social-link" href="https://www.youtube.com/user/ICANNnews" rel="noopener" target="_blank" title="Visit the ICANN YouTube page"> <i alt="YouTube logo" class="fa fa-youtube footer-social-icon"></i> </a> <a aria-label="Visit the ICANN Instagram page" class="footer-social-link" href="https://www.instagram.com/icannorg/" rel="noopener" target="_blank" title="Visit the ICANN Instagram page"> <i aria-hidden="true" class="fa fa-instagram footer-social-icon"></i> </a> <a aria-label="Visit the ICANN Flickr page" class="footer-social-link" href="https://www.flickr.com/photos/icann/" rel="noopener" target="_blank" title="Visit the ICANN Flickr page"> <i aria-hidden="true" class="fa fa-flickr footer-social-icon"></i> </a> <a aria-label="Visit the ICANN Soundcloud page" class="footer-social-link" href="https://soundcloud.com/icann" rel="noopener" target="_blank" title="Visit the ICANN Soundcloud page"> <i aria-hidden="true" class="fa fa-soundcloud footer-social-icon"></i> </a>
+        </div>
+        <ul class="footer-items">
+         <li class="footer-item"><a class="footer-link" href="https://www.icann.org/resources/pages/customer-support-2015-06-22-en" target="_blank" title="Contact us">CONTACT US</a></li>
+         <li class="footer-item"><a class="footer-link" href="https://chj.tbe.taleo.net/chj06/ats/careers/v2/searchResults?org=ICANN&amp;cws=37" target="_blank" title="Careers at ICANN">CAREERS AT ICANN</a></li>
+        </ul>
+       </div>
+      </div>
+     </div>
+     <div class="footer-copyright">
+      <span>© 2021 Internet Corporation for Assigned Names and Numbers </span>
+      <div class="footer-copyright-links">
+       <a class="footer-copyright-link" href="https://www.icann.org/privacy/policy">Privacy Policy</a> <a class="footer-copyright-link" href="https://www.icann.org/privacy/cookies">Cookies Policy</a> <a class="footer-copyright-link" href="https://www.icann.org/privacy/tos">Terms of Service</a>
+      </div>
+     </div>
+    </div>
+   </section>
+  </footer>
+  <script src="/static/ods/js/supported-browsers-message.js" type="text/javascript"></script>
+  <script src="/static/compressed/js/output.ebb7fb5cf398.js"></script>
+  <script src="/static/vendor/angular-1.8.3/i18n/angular-locale_en-us.js" type="text/javascript"></script>
+  <script src="/static/compressed/js/output.9470c788f773.js"></script>
+  <script type="text/javascript">
+        var app = angular.module('ods.core.config', []);
+
+        app.factory("config", [function() {
+            return {
+                DATASET_ID: '',
+                LANGUAGE: 'en',
+                AVAILABLE_LANGUAGES: ["en"],
+                USER: null,
+                FQ_USERNAME: null,
+                BRAND_HOSTNAME: "opendatasoft.com",
+                DEFAULT_BASEMAP: {"provider": "jawg.streets", "jawg_apikey": "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH", "jawg_odsdomain": "dataicann"},
+            
+                DOMAIN_ID: 'dataicann',
+                ANONYMOUS_ACCESS_ENABLED: 'true',
+                FEEDBACK: false,
+                RESOURCE_DOWNLOAD_CONDITIONS: true,
+                PARENT_DOMAIN: true,
+                
+                
+                MINUTE_LEVEL_SCHEDULING: false,
+                CATALOG_SEARCH_BOOSTING_ENABLED: false,
+                CSV_DELIMITER: ';',
+            
+                CENTRALSTORE: true,
+                RECAPTCHA_PUBLIC_KEY: '6LfqeoUjAAAAAO5al6_pzMl6PS6XirvfEERg55qa'
+            }
+        }]);
+    </script>
+  <script type="text/javascript">
+        var ods = angular.module('ods.minimal', [
+            'ods.core.config',
+            'ods.core',
+            'ods.core.form.directives',
+        ]);
+
+        ods.config(['$locationProvider', function($locationProvider) {
+            $locationProvider.html5Mode(true).hashPrefix('');
+        }]);
+
+        // Add 'sms' to the default angular whitelist
+        ods.config(['$compileProvider', function ($compileProvider) {
+            $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|s?ftp|mailto|tel|file|sms):/);
+        }]);
+
+        ods.config(function($sceDelegateProvider, $sanitizeProvider) {
+            $sceDelegateProvider.resourceUrlWhitelist(["self", "*://www.youtube.com/embed/**", "//platform.twitter.com/widgets.js", "*://player.vimeo.com/video/**"]);
+            $sanitizeProvider.enableSvg(true);
+        });
+
+        ods.run(['gettextCatalog', '$http', function(gettextCatalog, $http){
+            
+            var translations = {
+    "Based on a spacial reference, compute distance between two geometries":{
+        "$$noContext":"Compute distance between two geometries"
+    },
+    "Case sensitive":{
+        "$$noContext":"Case sensitive"
+    },
+    "Compute Geo distance":{
+        "$$noContext":"Geo distance"
+    },
+    "Coordinates system conversion":{
+        "$$noContext":"Convert Degrees"
+    },
+    "Dataset url":{
+        "$$noContext":"Dataset url"
+    },
+    "Local key":{
+        "$$noContext":"Local key"
+    },
+    "One line":{
+        "$$noContext":"One line"
+    },
+    "Remote key":{
+        "$$noContext":"Remote key"
+    },
+    "Separator":{
+        "$$noContext":"Separator"
+    },
+    "User":{
+        "$$noContext":"User"
+    },
+    "double":{
+        "$$noContext":"decimal"
+    },
+    "geo":{
+        "$$noContext":"Geocoding"
+    },
+    "geo_point_2d":{
+        "$$noContext":"geo point"
+    },
+    "geo_shape":{
+        "$$noContext":"geo shape"
+    },
+    "int":{
+        "$$noContext":"integer"
+    },
+    "invalid epsg code":{
+        "$$noContext":"Invalid epsg code"
+    },
+    "invalid field name":{
+        "$$noContext":"Invalid field name"
+    },
+    "invalid key":{
+        "$$noContext":"Invalid key"
+    },
+    "invalid type":{
+        "$$noContext":"Invalid type"
+    },
+    "invalid url":{
+        "$$noContext":"Invalid url"
+    },
+    "misc":{
+        "$$noContext":"Miscellanous"
+    },
+    "string_operation":{
+        "$$noContext":"String operations"
+    },
+    "unauthorized":{
+        "$$noContext":"Unauthorized"
+    }
+};
+            
+            
+            var current_language = "en";
+
+            gettextCatalog.setStrings(current_language, translations);
+            gettextCatalog.setCurrentLanguage(current_language);
+
+            $http.defaults.xsrfCookieName = 'csrftoken';
+            $http.defaults.xsrfHeaderName = 'X-CSRFToken';
+        }]);
+    </script>
+  <script src="/static/compressed/js/output.12de4a20a20f.js"></script>
+  <script type="text/javascript">
+    (function() {
+        var app = angular.module('ods.core.config');
+
+        app.factory("domainConfig", [function() {
+            // explore.reuse has been renamed explore.enable_showcases
+            return {"explore.enable_api_tab": true, "explore.disable_analyze": null, "languages": ["en"], "explore.dataset_catalog_default_source_shared": null, "explore.enable_showcases": null, "explore.catalog.geonavigation": null, "enable_form_recaptcha": true};
+        }]);
+    })();
+</script>
+  <script type="text/javascript">
+    (function() {
+        var ods = angular.module('ods', [
+            'ods.minimal',
+            'ods.core.config',
+            'ods.core',
+            'ods.core.form.directives',
+            'ods-widgets',
+            'gettext',
+        ]);
+
+        
+        ods.config(function(ODSCurrentDomainProvider) {
+            ODSCurrentDomainProvider.setDomain('dataicann');
+        });
+        
+
+        ods.config(function(ODSWidgetsConfigProvider) {
+            ODSWidgetsConfigProvider.setConfig({
+            
+                disqusShortname: "",
+                basemaps: [{"provider": "jawg.streets", "label": "Jawg Streets", "id": "jawg.streets", "jawg_apikey": "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH", "jawg_odsdomain": "dataicann"}, {"provider": "jawg.light", "label": "Jawg Light", "id": "jawg.light", "jawg_apikey": "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH", "jawg_odsdomain": "dataicann"}, {"provider": "jawg.sunny", "label": "Watercolor", "id": "stamen.watercolor", "jawg_apikey": "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH", "jawg_odsdomain": "dataicann"}],
+                neutralBasemap: {"provider": "jawg.light", "jawg_apikey": "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH", "shortAttribution": true},
+                mapGeobox: false,
+                chartColors: null,
+                language: "en",
+                themes: {"default": {"url": "/static/ods/img/themes/odslogo.svg", "color": "#000000"}, "ICANN Data Asset Inventory": {"url": "/static/pictos/img/set-v3/pictos/database.svg", "color": "#032c49"}, "Governance": {"color": "#032c49", "url": "/static/pictos/img/set-v3/pictos/college.svg"}, "Identifier Technology": {"color": "#032c49", "url": "/static/pictos/img/set-v3/pictos/leaf.svg"}, "Domain Name System Market": {"url": "/static/pictos/img/set-v3/pictos/heavy_plane.svg", "color": "#032c49"}, "Policy Advice and Development": {"url": "/static/pictos/img/set-v3/pictos/bank.svg", "color": "#032c49"}, "Engagement": {"url": "/static/pictos/img/set-v3/pictos/police.svg", "color": "#032c49"}, "Accountability Activities": {"url": "/static/pictos/img/set-v3/pictos/computer.svg", "color": "#032c49"}, "Operations": {"url": "/static/pictos/img/set-v3/pictos/hospital.svg", "color": "#032c49"}, "Identifier Technology Health Indicator": {}},
+                basePath: '/static/ods-widgets/',
+                websiteName: "ICANN Open Data",
+                mapPrependAttribution: 'Powered by <a href="http://www.opendatasoft.com/" target="_blank">Opendatasoft</a>',
+                defaultMapLocation: "13,48.85377,2.3488",
+                isMultiAssets: false,
+                jawgGeocodingAPIKey: "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH",
+                allowExternalPictoUrls: false,
+                appendedURLQuerystring: ""
+            
+            });
+        });
+        ods.filter('isocode_to_language', function () {
+            var languages = {"en": "English", "fr": "French", "nl": "Dutch", "pt": "Portuguese", "it": "Italian", "ar": "Arabic", "de": "German", "es": "Spanish", "ca": "Catalan", "eu": "Basque", "sv": "Swedish"};
+            return function (code) {
+                if (!code) {
+                    return code;
+                }
+                if (angular.isDefined(languages[code])) {
+                    return languages[code];
+                } else {
+                    return code;
+                }
+            };
+        });
+
+        moment.locale("en-us");
+    })();
+</script>
+  <script type="text/javascript">
+    (function() {
+        var ods = angular.module('ods');
+
+        ods.config(function (ModuleLazyLoaderProvider) {
+            var loadingConfig = ModuleLazyLoaderProvider.getConfig();
+            // TODO: Better API to append a locale dependency? It's really ugly to define this list twice...
+
+            // We can't rely on CDNs, especially because some ITs are using a whitelist and won't add our CDNs in it.
+            // Let's use our local copies
+            loadingConfig.highcharts.js = [
+                ["/static/vendor/highcharts/highcharts.js"],
+                ["/static/vendor/highcharts/no-data-to-display.js"],
+                [
+                    "/static/vendor/highcharts-i18n/en-us.js",
+                    "/static/vendor/highcharts/highcharts-more.js",
+                    "/static/vendor/highcharts/treemap.js",
+                    "/static/vendor/highcharts/funnel.js"
+                ]
+            ];
+            loadingConfig['simple-statistics'] = {
+                'css': [],
+                'js': [
+                    'ss@/static/vendor/simple-statistics/simple-statistics.js'
+                ]
+            };
+            loadingConfig['html-entities'] = {
+                'css': [],
+                'js': [
+                    'he@/static/vendor/he/he.js'
+                ]
+            };
+            loadingConfig['ion.rangeSlider'] = {
+                'js': ['/static/vendor/ion-rangeslider-2.3.0/ion.rangeSlider.min.js'],
+                'css': ['/static/vendor/ion-rangeslider-2.3.0/ion.rangeSlider.min.css']
+            };
+            loadingConfig.leaflet = {
+                'css': [
+                    "/static/vendor/leaflet/leaflet.css",
+                    "libs/ods-map-fullscreen/ods-map-fullscreen.css",
+                    "/static/vendor/leaflet-locatecontrol/L.Control.Locate.css",
+                    "libs/leaflet-control-geocoder/Control.Geocoder.css",
+                    "libs/ods-vectormarker/vectormarker.css",
+                    "libs/ods-clustermarker/clustermarker.css",
+                    "libs/leaflet-label/leaflet.label.css",
+                    "libs/leaflet-draw/leaflet.draw.css"
+                ],
+                'js': [
+                    ["L@/static/vendor/leaflet/leaflet.js"],
+                    [
+                        "L.Control.ODSMapFullscreen@libs/ods-map-fullscreen/ods-map-fullscreen.js",
+                        "L.Control.Locate@/static/vendor/leaflet-locatecontrol/L.Control.Locate.js",
+                        "L.Label@libs/leaflet-label/leaflet.label.js",
+                        "L.ODSMap@libs/ods-map/ods-map.js",
+                        "L.ODSTileLayer@libs/ods-map/ods-tilelayer.js",
+                        "L.Control.Geocoder@libs/leaflet-control-geocoder/Control.Geocoder.js",
+                        "L.VectorMarker@libs/ods-vectormarker/vectormarker.js",
+                        "L.ClusterMarker@libs/ods-clustermarker/clustermarker.js",
+                        "L.Draw@libs/leaflet-draw/leaflet.draw.js",
+                        "L.HeatLayer@libs/leaflet-heat/leaflet-heat.js"
+                    ]
+                ]
+            };
+            loadingConfig['d3.scale'] = {
+                'js': [
+                    '/static/vendor/d3/d3-array.v2.min.js',
+                    '/static/vendor/d3/d3-color.v1.min.js',
+                    '/static/vendor/d3/d3-interpolate.v1.min.js',
+                    '/static/vendor/d3/d3-scale.v3.min.js'
+                ]
+            };
+        });
+    })();
+</script>
+  <script type="text/javascript" charset="utf-8">
+    if (window.L) L.Icon.Default.imagePath = '/static/vendor/leaflet/images/';
+</script>
+  <script src="/static/compressed/js/output.054dd0e8781f.js"></script>
+  <script src="/static/compressed/js/output.3cb46d3fbc15.js"></script>
+  <script type="text/javascript">
+    window.MIXPANEL_CUSTOM_LIB_URL = "/static/vendor/mixpanel-2.47.0/mixpanel.min.js";
+
+    (function(f,b){if(!b.__SV){var e,g,i,h;window.mixpanel=b;b._i=[];b.init=function(e,f,c){function g(a,d){var b=d.split(".");2==b.length&&(a=a[b[0]],d=b[1]);a[d]=function(){a.push([d].concat(Array.prototype.slice.call(arguments,0)))}}var a=b;"undefined"!==typeof c?a=b[c]=[]:c="mixpanel";a.people=a.people||[];a.toString=function(a){var d="mixpanel";"mixpanel"!==c&&(d+="."+c);a||(d+=" (stub)");return d};a.people.toString=function(){return a.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
+    for(h=0;h<i.length;h++)g(a,i[h]);var j="set set_once union unset remove delete".split(" ");a.get_group=function(){function b(c){d[c]=function(){call2_args=arguments;call2=[c].concat(Array.prototype.slice.call(call2_args,0));a.push([e,call2])}}for(var d={},e=["get_group"].concat(Array.prototype.slice.call(arguments,0)),c=0;c<j.length;c++)b(j[c]);return d};b._i.push([e,f,c])};b.__SV=1.2;e=f.createElement("script");e.type="text/javascript";e.async=!0;e.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===f.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";g=f.getElementsByTagName("script")[0];g.parentNode.insertBefore(e,g)}})(document,window.mixpanel||[]);
+
+    var config = {
+        track_pageview: false,
+        persistence: 'localStorage',
+        disable_persistence: true,
+        api_host: 'https://mpc.opendatasoft.com'
+    };
+
+    
+    // Disable IP tracking to prevent geographic information like city, country, and region from being sent to Mixpanel
+    config.ip = false;
+    // Mixpanel automatically captures default properties, but we don't want to capture any of them in the front office.
+    // Except "mp_processing_time_ms", "$mp_api_timestamp_ms" and "$insert_id".
+    // See: https://docs.mixpanel.com/docs/data-structure/property-reference#default-properties
+    config.property_blacklist = [
+        // Mixpanel default properties
+        "$city",
+        "$region",
+        "mp_country_code",
+        "$browser",
+        "$browser_version",
+        "$device",
+        "$device_id",
+        "$user_id",
+        "$current_url",
+        "$initial_referrer",
+        "$initial_referring_domain",
+        "$os",
+        "mp_lib",
+        "$referrer",
+        "$referring_domain",
+        "$screen_height",
+        "$screen_width",
+        "$search_engine",
+        "mp_keyword",
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "utm_content",
+        "utm_term",
+    ];
+    
+
+    mixpanel.init("3a6fdb48b4721a74c205a56a744a5484", config);
+    mixpanel.register({
+        "domainId": "dataicann",
+        "isAnonymous": true,
+        "origin": "FO",
+        "isInternalReferrer": false,
+        
+        "planName": "nonprofit",
+        
+        
+        "clientType": "paying",
+        
+    }, { persistent: false });
+
+    
+    mixpanel.identify("01abce376d9c3e9762f64fc4eab9c85f");
+    
+
+    
+</script>
+  <script type="text/javascript" src="/static/react-bundles/i18n/quickfind.en.3c35b4615a1d18bad78e.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/i18n/shared.en.3c35b4615a1d18bad78e.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/frontoffice-runtime.0bbc00cc.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/6847.d9112cb5.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/4870.7f2e4640.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/2870.0dd2afc8.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/9422.1f5f7e2d.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/2872.ad4572f5.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/7491.a2aad3c3.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/2751.3bee99b0.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/2148.f282a3b2.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/quickfind.0d3e5d9e.js"></script>
+  <script>
+            // We make sure this function is run after AngularJS bootstraps the header, otherwise it messes with event
+            // handlers added by React.
+            document.addEventListener('DOMContentLoaded', function() {
+                setupQuickFind(document.body, {
+                    i18n: {
+                        shortLanguageCode: 'en',
+                        languageCode: 'en-us',
+                    },
+                    config: {"defaultBasemap": {"provider": "jawg.streets", "jawg_apikey": "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH", "jawg_odsdomain": "dataicann"}, "defaultNeutralBasemap": {"provider": "jawg.light", "jawg_apikey": "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH", "shortAttribution": true}, "jawgAPIKey": "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH", "uploadMaxFileSize": 251658240, "recaptchaPublicKey": "6LfqeoUjAAAAAO5al6_pzMl6PS6XirvfEERg55qa"},
+                    domain: {"properties": {"access.anonymous": true, "ui#thunderforest#api_key": null, "ui#mapbox#access_token": null, "ui#cartograph#default_location": "13,48.85377,2.3488", "ui#basemaps": [{"provider": "jawg.streets", "label": {"en": "Jawg Streets"}}, {"provider": "jawg.light", "label": {"en": "Jawg Light"}}, {"provider": "stamen.watercolor", "label": {"en": "Watercolor"}}], "ui#enable_marketplace_experience": false, "ui#domain_title": "ICANN Open Data", "ui#registration_form_enabled": true, "ui#localized_registration_form_description": null, "ui#localized_registration_form_title": null, "ui#signup_force_message_enabled": false, "ui#signup_checkconditions_enabled": false, "users#signup_freeregistration_enabled": false, "auth#default_login_page": "saml_login", "ui.dataset_snapshots": null, "metadata.themes": [{"image": {"url": "/static/pictos/img/set-v3/pictos/database.svg", "color": "#032c49"}, "labels": {"en": "ICANN Data Asset Inventory"}, "id": "3979fed"}, {"image": {"color": "#032c49", "url": "/static/pictos/img/set-v3/pictos/college.svg"}, "labels": {"en": "Governance"}, "id": "77c13c4"}, {"image": {"color": "#032c49", "url": "/static/pictos/img/set-v3/pictos/leaf.svg"}, "labels": {"en": "Identifier Technology"}, "id": "69d1b00"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/heavy_plane.svg", "color": "#032c49"}, "labels": {"en": "Domain Name System Market"}, "id": "bebef2d"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/bank.svg", "color": "#032c49"}, "labels": {"en": "Policy Advice and Development"}, "id": "09f0d2f"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/police.svg", "color": "#032c49"}, "labels": {"en": "Engagement"}, "id": "1a5ec98"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/computer.svg", "color": "#032c49"}, "labels": {"en": "Accountability Activities"}, "id": "8d391a0"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/hospital.svg", "color": "#032c49"}, "labels": {"en": "Operations"}, "id": "0aed70f"}, {"image": {}, "labels": {"en": "Identifier Technology Health Indicator"}, "id": "lahiagx"}], "metadata.asset_categories": [{"id": "data", "labels": {"en": "Data"}, "image_url": "/static/pictos/img/mingcute/pictos/coin_2_line.svg", "color": "#CE0037"}, {"id": "visualizations", "labels": {"en": "Visualizations"}, "image_url": "/static/pictos/img/mingcute/pictos/classify_2_line.svg", "color": "#0F79D0"}, {"id": "applications", "labels": {"en": "Applications"}, "image_url": "/static/pictos/img/mingcute/pictos/profile_line.svg", "color": "#00C7B1"}], "ui.explore.catalog_default_sort": "title", "ui.show_login": true, "ui.show_signup": false, "users.registration_allowed": true, "ui.csv_delimiter": ";"}, "license": {"enable_multi_assets": false, "enable_static_exports": false, "enable_explore_data_with_ai": false}, "availableDomainPermissions": ["edit_domain", "edit_page", "edit_dataset", "publish_dataset", "manage_dataset", "create_dataset", "edit_reuse", "manage_subdomains", "edit_theme", "create_page", "manage_page", "edit_form", "explore_restricted_dataset", "explore_monitoring", "explore_restricted_page", "submit_private_form"], "theme_colors": {"highlight": "#002B49", "background": "#FFFFFF", "boxBackground": "#FFFFFF", "boxBorder": "#CCD5DB", "footerBackground": "#002B49", "footerLink": "#FFFFFF", "headerBackground": "#FFFFFF", "headerLink": "#002B49", "text": "#333333", "link": "#047BC1", "titleText": "#333333", "bigTitleText": "#FFFFFF", "bigTitleBackground": "#002B49", "chart": ["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]}, "style": {"general": {"title": {"h1": "#333333", "h2": "#333333", "h3": "#333333"}, "text": {"primary": "#333333", "secondary": "#333333"}, "link": "#047BC1", "accent": "#002B49", "background": "#FFFFFF", "section": {"background": "#FFFFFF", "border": "#CCD5DB"}}, "button": {"primary": {"default": {"background": "#002B49", "border": null, "text": "#FFFFFF"}, "hover": {"background": "#001a2c", "border": null, "text": "#FFFFFF"}}, "secondary": {"default": {"background": null, "border": "#002B49", "text": "#002B49"}, "hover": {"background": "#d9dfe4", "border": "#001a2c", "text": "#001a2c"}}, "tertiary": {"default": {"background": null, "border": null, "text": "#002B49"}, "hover": {"background": "#d9dfe4", "border": null, "text": "#001a2c"}}}, "header": {"background": "#FFFFFF", "link": "#002B49"}, "footer": {"background": "#002B49", "link": "#FFFFFF"}, "catalogCard": {"default": {"background": "#FFFFFF", "border": "#CCD5DB"}, "hover": {"background": "#FFFFFF", "border": "#002B49"}}, "legacy": {"bigTitleText": "#FFFFFF", "bigTitleBackground": "#002B49"}}, "domain_id": "dataicann", "is_frozen": false, "logo_login_path": "https://s3.amazonaws.com/aws-ec2-us-east-1-opendatasoft-staticfileset/dataicann/logo_login?tstamp=158222574896", "is_asset_access_request_active": false, "is_showcase_requests_active": false, "is_explore_data_with_ai_requests_limit_reached": false, "idps": {"ods": {"login_link": "/central_keycloak/authenticate/", "signup_link": "/central_keycloak/register/", "account_link": "https://account.opendatasoft.com?kc_locale=en"}, "saml": {"enabled": true, "login_link": "/saml2/login/", "login_link_label": {"en": "Sign in with your ICANN Account"}}, "oidc": {"enabled": false, "login_link": "/oidc/login/", "login_link_label": {}}}}
+                });
+            });
+        </script>
+  <script type="text/javascript" src="/static/react-bundles/i18n/login-signup-header-buttons.en.3c35b4615a1d18bad78e.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/i18n/shared.en.3c35b4615a1d18bad78e.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/frontoffice-runtime.0bbc00cc.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/6847.d9112cb5.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/4870.7f2e4640.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/9422.1f5f7e2d.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/2872.ad4572f5.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/2751.3bee99b0.js"></script>
+  <script type="text/javascript" src="/static/react-bundles/js/login-signup-header-buttons.62a5be35.js"></script>
+  <script>
+            // We make sure this function is run after AngularJS bootstraps the header, otherwise it messes with event
+            // handlers added by React.
+            document.addEventListener('DOMContentLoaded', function() {
+                setupLoginSignupHeader(document.body, {
+                    i18n: {
+                        shortLanguageCode: 'en',
+                        languageCode: 'en-us',
+                    },
+                    config: {"defaultBasemap": {"provider": "jawg.streets", "jawg_apikey": "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH", "jawg_odsdomain": "dataicann"}, "defaultNeutralBasemap": {"provider": "jawg.light", "jawg_apikey": "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH", "shortAttribution": true}, "jawgAPIKey": "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH", "uploadMaxFileSize": 251658240, "recaptchaPublicKey": "6LfqeoUjAAAAAO5al6_pzMl6PS6XirvfEERg55qa"},
+                    domain: {"properties": {"access.anonymous": true, "ui#thunderforest#api_key": null, "ui#mapbox#access_token": null, "ui#cartograph#default_location": "13,48.85377,2.3488", "ui#basemaps": [{"provider": "jawg.streets", "label": {"en": "Jawg Streets"}}, {"provider": "jawg.light", "label": {"en": "Jawg Light"}}, {"provider": "stamen.watercolor", "label": {"en": "Watercolor"}}], "ui#enable_marketplace_experience": false, "ui#domain_title": "ICANN Open Data", "ui#registration_form_enabled": true, "ui#localized_registration_form_description": null, "ui#localized_registration_form_title": null, "ui#signup_force_message_enabled": false, "ui#signup_checkconditions_enabled": false, "users#signup_freeregistration_enabled": false, "auth#default_login_page": "saml_login", "ui.dataset_snapshots": null, "metadata.themes": [{"image": {"url": "/static/pictos/img/set-v3/pictos/database.svg", "color": "#032c49"}, "labels": {"en": "ICANN Data Asset Inventory"}, "id": "3979fed"}, {"image": {"color": "#032c49", "url": "/static/pictos/img/set-v3/pictos/college.svg"}, "labels": {"en": "Governance"}, "id": "77c13c4"}, {"image": {"color": "#032c49", "url": "/static/pictos/img/set-v3/pictos/leaf.svg"}, "labels": {"en": "Identifier Technology"}, "id": "69d1b00"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/heavy_plane.svg", "color": "#032c49"}, "labels": {"en": "Domain Name System Market"}, "id": "bebef2d"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/bank.svg", "color": "#032c49"}, "labels": {"en": "Policy Advice and Development"}, "id": "09f0d2f"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/police.svg", "color": "#032c49"}, "labels": {"en": "Engagement"}, "id": "1a5ec98"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/computer.svg", "color": "#032c49"}, "labels": {"en": "Accountability Activities"}, "id": "8d391a0"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/hospital.svg", "color": "#032c49"}, "labels": {"en": "Operations"}, "id": "0aed70f"}, {"image": {}, "labels": {"en": "Identifier Technology Health Indicator"}, "id": "lahiagx"}], "metadata.asset_categories": [{"id": "data", "labels": {"en": "Data"}, "image_url": "/static/pictos/img/mingcute/pictos/coin_2_line.svg", "color": "#CE0037"}, {"id": "visualizations", "labels": {"en": "Visualizations"}, "image_url": "/static/pictos/img/mingcute/pictos/classify_2_line.svg", "color": "#0F79D0"}, {"id": "applications", "labels": {"en": "Applications"}, "image_url": "/static/pictos/img/mingcute/pictos/profile_line.svg", "color": "#00C7B1"}], "ui.explore.catalog_default_sort": "title", "ui.show_login": true, "ui.show_signup": false, "users.registration_allowed": true, "ui.csv_delimiter": ";"}, "license": {"enable_multi_assets": false, "enable_static_exports": false, "enable_explore_data_with_ai": false}, "availableDomainPermissions": ["edit_domain", "edit_page", "edit_dataset", "publish_dataset", "manage_dataset", "create_dataset", "edit_reuse", "manage_subdomains", "edit_theme", "create_page", "manage_page", "edit_form", "explore_restricted_dataset", "explore_monitoring", "explore_restricted_page", "submit_private_form"], "theme_colors": {"highlight": "#002B49", "background": "#FFFFFF", "boxBackground": "#FFFFFF", "boxBorder": "#CCD5DB", "footerBackground": "#002B49", "footerLink": "#FFFFFF", "headerBackground": "#FFFFFF", "headerLink": "#002B49", "text": "#333333", "link": "#047BC1", "titleText": "#333333", "bigTitleText": "#FFFFFF", "bigTitleBackground": "#002B49", "chart": ["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]}, "style": {"general": {"title": {"h1": "#333333", "h2": "#333333", "h3": "#333333"}, "text": {"primary": "#333333", "secondary": "#333333"}, "link": "#047BC1", "accent": "#002B49", "background": "#FFFFFF", "section": {"background": "#FFFFFF", "border": "#CCD5DB"}}, "button": {"primary": {"default": {"background": "#002B49", "border": null, "text": "#FFFFFF"}, "hover": {"background": "#001a2c", "border": null, "text": "#FFFFFF"}}, "secondary": {"default": {"background": null, "border": "#002B49", "text": "#002B49"}, "hover": {"background": "#d9dfe4", "border": "#001a2c", "text": "#001a2c"}}, "tertiary": {"default": {"background": null, "border": null, "text": "#002B49"}, "hover": {"background": "#d9dfe4", "border": null, "text": "#001a2c"}}}, "header": {"background": "#FFFFFF", "link": "#002B49"}, "footer": {"background": "#002B49", "link": "#FFFFFF"}, "catalogCard": {"default": {"background": "#FFFFFF", "border": "#CCD5DB"}, "hover": {"background": "#FFFFFF", "border": "#002B49"}}, "legacy": {"bigTitleText": "#FFFFFF", "bigTitleBackground": "#002B49"}}, "domain_id": "dataicann", "is_frozen": false, "logo_login_path": "https://s3.amazonaws.com/aws-ec2-us-east-1-opendatasoft-staticfileset/dataicann/logo_login?tstamp=158222574896", "is_asset_access_request_active": false, "is_showcase_requests_active": false, "is_explore_data_with_ai_requests_limit_reached": false, "idps": {"ods": {"login_link": "/central_keycloak/authenticate/", "signup_link": "/central_keycloak/register/", "account_link": "https://account.opendatasoft.com?kc_locale=en"}, "saml": {"enabled": true, "login_link": "/saml2/login/", "login_link_label": {"en": "Sign in with your ICANN Account"}}, "oidc": {"enabled": false, "login_link": "/oidc/login/", "login_link_label": {}}}},
+                    currentUser: null
+                });
+            });
+        </script>
+  <script type="text/javascript">
+        var app = angular.module('ods.frontend', ['ods', 'ods.core']);
+
+        app.value('PageConfig', {
+            pageId: 'home-page',
+        });
+
+        app.controller('PageController', function ($scope, domainConfig, config) {
+            $scope.blocks = {"html": "&lt;ods-catalog-context context=&quot;catalog&quot;&gt;\n\n    \n    &lt;div class=&quot;container&quot;&gt;\n        &lt;div class=&quot;hero&quot;&gt;\n            &lt;div class=&quot;hero-image&quot;&gt;\n                &lt;div class=&quot;hero-content&quot;&gt;\n                    &lt;h1 class=&quot;hero-heading&quot;&gt;Welcome to ICANN Open Data&lt;/h1&gt;\n                    &lt;p class=&quot;hero-text&quot;&gt;\n                        The goal of ICANN\u2019s Open Data Program is to provide the ICANN community with access to publicly available data. You can search, browse, view, download, and analyze the available data. Please visit the About page to learn more.&lt;/p&gt;\n                    &lt;a class=&quot;button ghost inverted&quot; href=&quot;https://account.icann.org/&quot;&gt;&lt;span&gt;Register to access available data and site features&lt;/span&gt; &lt;/a&gt;\n                &lt;/div&gt;\n            &lt;/div&gt;\n        &lt;/div&gt;\n    &lt;/div&gt;\n    \n\n\n    \n    &lt;div class=&quot;container&quot;&gt;\n        &lt;div class=&quot;row&quot;&gt;\n\n            \n            &lt;div class=&quot;col-xs-12 col-md-1&quot;&gt;\n                &lt;section&gt;\n                    &lt;h2 class=&quot;share-title&quot;&gt;\n                        Share\n                    &lt;/h2&gt;\n                    &lt;div class=&quot;share-icons-container&quot;&gt;\n                        \n                        &lt;a aria-label=&quot;Share on Twitter&quot; class=&quot;share-item&quot; href=&quot;https://twitter.com/intent/tweet/?text=&amp;amp;url=https%3A%2F%2Fopendata.icann.org%2Fpages%2Fhome-page%2F&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot; title=&quot;Share on Twitter&quot;&gt;\n                            &lt;img alt=&quot;Share on Twitter&quot; class=&quot;share-icon&quot; src=&quot;/assets/theme_image/twitter-circle.svg&quot;/&gt;\n                        &lt;/a&gt;\n\n                        \n                        &lt;a aria-label=&quot;Share on Facebook&quot; class=&quot;share-item&quot; href=&quot;https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fopendata.icann.org%2Fpages%2Fhome-page%2F&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot; title=&quot;Share on Facebook&quot;&gt;\n                            &lt;img alt=&quot;Share on Facebook&quot; class=&quot;share-icon&quot; src=&quot;/assets/theme_image/facebook-circle.svg&quot;/&gt;\n                        &lt;/a&gt;\n\n                        \n                        &lt;a aria-label=&quot;Share on LinkedIn&quot; class=&quot;share-item&quot; href=&quot;https://www.linkedin.com/shareArticle?mini=true&amp;amp;url=https%3A%2F%2Fopendata.icann.org%2Fpages%2Fhome-page%2F&amp;amp;title=&amp;amp;summary=&amp;amp;source=https%3A%2F%2Fopendata.icann.org%2Fpages%2Fhome-page%2F&quot; rel=&quot;noopener&quot; target=&quot;_blank&quot; title=&quot;Share on Facebook&quot;&gt;\n                            &lt;img alt=&quot;Share on LinkedIn&quot; class=&quot;share-icon&quot; src=&quot;/assets/theme_image/linkedin-circle.svg&quot;/&gt;\n                        &lt;/a&gt;\n\n                        \n                        &lt;a aria-label=&quot;Share via email&quot; class=&quot;share-item&quot; href=&quot;mailto:?subject=&amp;amp;body=https%3A%2F%2Fopendata.icann.org%2Fpages%2Fhome-page%2F&quot; rel=&quot;noopener&quot; target=&quot;_self&quot; title=&quot;Share via email&quot;&gt;\n                            &lt;img alt=&quot;Share via email&quot; class=&quot;share-icon&quot; src=&quot;/assets/theme_image/email-circle.svg&quot;/&gt;\n                        &lt;/a&gt;\n                    &lt;/div&gt;\n                &lt;/section&gt;\n            &lt;/div&gt;\n            \n\n            &lt;div class=&quot;col-xs-12 col-md-10&quot;&gt;\n                &lt;section ods-facet-results=&quot;keywords&quot; ods-facet-results-context=&quot;catalog&quot; ods-facet-results-facet-name=&quot;keyword&quot; ods-facet-results-sort=&quot;alphanum&quot;&gt;\n                    &lt;h2 class=&quot;section-title&quot;&gt;\n                        Open Data License\n                    &lt;/h2&gt;\n                    &lt;p&gt;ICANN Open Data provides access to data. By launching this, I agree to abide by the &lt;a href=&quot;https://opendatacommons.org/licenses/odbl/1.0/index.html&quot;&gt;Open Database License.&lt;/a&gt;&lt;p&gt;\n                    &lt;h2 class=&quot;section-title&quot;&gt;\n                        News\n                    &lt;/h2&gt;\n                    &lt;p&gt;&lt;strong&gt;Coming soon:&lt;/strong&gt; ICANN org will make Registry Reports available here on ICANN Open Data in beta. This beta period will give the community more time to adjust, create an API to ICANN Open Data, and test the new functionality.\u00a0During this beta period, Registry Reports will continue to be available on the ICANN website&lt;a href=&quot;https://www.icann.org/resources/pages/registry-reports&quot;&gt; here.&lt;/a&gt; ICANN org will use this beta period to work with the community if any issues are found.\u00a0\n                        ICANN org will provide advance notice before Registry Reports are permanently moved to &lt;a href=&quot;https://opendata.icann.org/pages/home-page/&quot;&gt;ICANN Open Data&lt;/a&gt;. Watch this page for the launch of the beta period.&lt;/p&gt;                        \n                    &lt;p&gt;Please continue to access &lt;a href=&quot;https://www.icann.org/resources/pages/registry-reports&quot;&gt;registry reports on https://icann.org&lt;/a&gt; as the definitive and most up-to-date source for activity and transaction reports.\u00a0&lt;/p&gt;\n                    &lt;h2 class=&quot;section-title&quot;&gt;\n                        Browse ICANN Datasets\n                    &lt;/h2&gt;\n                    &lt;p&gt;&lt;b&gt;IMPORTANT: &lt;/b&gt; You must be logged into your ICANN account to explore these datasets, and to access the latest updates, most downloads , and most API calls.&lt;/p&gt;\n                    &lt;div class=&quot;row row-equal-height&quot;&gt;\n                        &lt;div class=&quot;col-xs-12 col-md-3 home-card-wrapper&quot;&gt;\n                            &lt;a class=&quot;home-card&quot; href=&quot;/explore/?sort=title&amp;amp;refine.keyword=Domain+Name+Marketplace+Indicators&quot; title=&quot;Domain Name Marketplace Indicators&quot;&gt;\n                                &lt;h3 class=&quot;home-card-title&quot;&gt;\n                                    Domain Name Marketplace Indicators\n                                &lt;/h3&gt;\n                                &lt;div class=&quot;home-card-body&quot; ng-repeat=&quot;keyword in keywords&quot; ng-show=&quot;keyword.path===&#x27;Domain Name Marketplace Indicators&#x27;&quot;&gt;\n                                    &lt;span class=&quot;home-card-amount&quot;&gt;{{keyword.count}}&lt;/span&gt; dataset(s)\n                                &lt;/div&gt; \n                            &lt;/a&gt;\n                        &lt;/div&gt;\n\n                        &lt;div class=&quot;col-xs-12 col-md-3 home-card-wrapper&quot;&gt;\n                            &lt;a class=&quot;home-card home-card-dark&quot; href=&quot;/explore/?sort=title&amp;amp;refine.keyword=ITHI&quot; title=&quot;Identifier Technology Health Indicators (ITHI)&quot;&gt;\n                                &lt;h3 class=&quot;home-card-title&quot;&gt;\n                                    Identifier Technologies Health Indicators (ITHI)\n                                &lt;/h3&gt;\n                                &lt;div class=&quot;home-card-body&quot; ng-repeat=&quot;keyword in keywords&quot; ng-show=&quot;keyword.path===&#x27;ITHI&#x27;&quot;&gt;\n                                    &lt;span class=&quot;home-card-amount&quot;&gt;{{keyword.count}}&lt;/span&gt; dataset(s)\n                                &lt;/div&gt; \n                            &lt;/a&gt;\n                        &lt;/div&gt;\n\n                        &lt;div class=&quot;col-xs-12 col-md-3 home-card-wrapper&quot;&gt;\n                            &lt;a class=&quot;home-card&quot; href=&quot;/explore/?sort=title&amp;amp;refine.keyword=Functions&quot; title=&quot;Registry Functions Activity Report&quot;&gt;\n                                &lt;h3 class=&quot;home-card-title&quot;&gt;\n                                    Registry Functions Activity Reports\n                                &lt;/h3&gt;\n                                &lt;div class=&quot;home-card-body&quot; ng-repeat=&quot;keyword in keywords&quot; ng-show=&quot;keyword.path===&#x27;Functions&#x27;&quot;&gt;\n                                    &lt;span class=&quot;home-card-amount&quot;&gt;{{keyword.count}}&lt;/span&gt; dataset(s)\n                                &lt;/div&gt; \n                            &lt;/a&gt;\n                        &lt;/div&gt;\n\n                        &lt;div class=&quot;col-xs-12 col-md-3 home-card-wrapper&quot;&gt;\n                            &lt;a class=&quot;home-card home-card-dark&quot; href=&quot;/explore/?sort=title&amp;amp;refine.keyword=Transactions&quot; title=&quot;Registrar Transaction Reports&quot;&gt;\n                                &lt;h3 class=&quot;home-card-title&quot;&gt;\n                                    Per-Registrar Transactions Reports\n                                &lt;/h3&gt;\n                                &lt;div class=&quot;home-card-body&quot; ng-repeat=&quot;keyword in keywords&quot; ng-show=&quot;keyword.path===&#x27;Transactions&#x27;&quot;&gt;\n                                    &lt;span class=&quot;home-card-amount&quot;&gt;{{keyword.count}}&lt;/span&gt; dataset(s)\n                                &lt;/div&gt; \n                            &lt;/a&gt;\n                        &lt;/div&gt;\n                    &lt;/div&gt;                  \n                &lt;/p&gt;&lt;/p&gt;&lt;/section&gt;\n                \n\n                &lt;hr class=&quot;section-divider&quot;/&gt;\n\n\n                \n                &lt;section ng-if=&quot;user.is_authenticated&quot;&gt;\n                    &lt;div class=&quot;row row-equal-height&quot;&gt;\n                        &lt;div class=&quot;col-md-6&quot;&gt;\n                            &lt;div class=&quot;ods-box top-datasets-box&quot;&gt;\n                                &lt;h3 class=&quot;section-subtitle&quot; translate=&quot;&quot;&gt;\n                                    Latest Updates\n                                &lt;/h3&gt;\n                                &lt;ods-last-datasets-feed context=&quot;catalog&quot;&gt;&lt;/ods-last-datasets-feed&gt;\n                            &lt;/div&gt;\n                        &lt;/div&gt;\n                        &lt;div class=&quot;col-md-6&quot;&gt;\n                            &lt;div class=&quot;ods-box top-datasets-box&quot;&gt;\n                                &lt;h3 class=&quot;section-subtitle&quot; translate=&quot;&quot;&gt;\n                                    Most Downloaded\n                                &lt;/h3&gt;\n                                &lt;ods-most-popular-datasets context=&quot;catalog&quot;&gt;&lt;/ods-most-popular-datasets&gt;\n                            &lt;/div&gt;\n                        &lt;/div&gt;\n                        \n\n                                 \n                                \n\n\n                            \n                            \n                        &lt;/div&gt;\n                &lt;/section&gt;\n            \n\n        &lt;/div&gt;\n    &lt;/div&gt;\n    &lt;/div&gt;\n&lt;/ods-catalog-context&gt;\n\n\n\n", "css": "/* Shared\n========================================================================== */\n\nmain {\n    margin-top: 0;\n    margin-bottom: 0;\n}\n\n\n/* Hero banner\n========================================================================== */\n\n.hero {\n    background-color: #002B49;\n    color: #FFFFFF;\n    margin-bottom: 48px;\n}\n\n.hero-content {\n    padding: 140px 34px 42px 34px;\n\n}\n\n.hero-image {\n  /* Use &quot;linear-gradient&quot; to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */\n  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(&#x27;https://s3.amazonaws.com/aws-ec2-us-east-1-opendatasoft-staticfileset/dataicann/theme_image/ODPbanner1140x298px_color.png\t&#x27;);\n  /* Set a specific height */\n  height: 50%;\n  /* Position and center the image to scale nicely on all screens */\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n  position: relative;\n}\n@media screen and (min-width: 1000px) {\n    .hero-content {\n        padding: 36px 40px 42px 40px;\n        max-width: 50%;\n    }\n}\n\n.hero-heading {\n    font-size: 2rem;\n    margin: 0 0 4px 0;\n    color: #FFFFFF;\n    line-height: 1.3;\n}\n\n.hero-text {\n    margin-bottom: 16px;\n}\n\n\n.hero__text a.button { margin-top: 20px; }\n\na.button.ghost.inverted {\n    color: white;\n    border-color: #fff;\n    background: transparent;\n}\n\na.button.ghost.inverted:hover,\na.button.ghost.inverted:focus {\n    box-shadow: 0 0 0 5px rgba(255,255,255,0.2);\n}\n\n/* Browse by theme section\n========================================================================== */\n\n.home-card-wrapper {\n    margin-bottom: 20px;\n}\n\n.home-card {\n    background-color: #047BC1;\n    color: #FFF;\n    padding: 16px;\n    display: flex;\n    flex-direction: column;\n    text-decoration: none;\n    transition: all .2s;\n    height: 100%;\n    min-height: 145px;\n    margin-bottom: 20px;\n    justify-content: space-between;\n}\n\n.home-card:hover {\n    text-decoration: none;\n    transform: scale(1.02);\n}\n\n.home-card-dark {\n    background-color: #002B49;\n}\n\n.home-card-title {\n    color: inherit;\n    font-size: 1.2rem;\n    font-weight: bold;\n    margin-top: 0;\n    margin-bottom: 0;\n    letter-spacing: 0.11px;\n}\n\n.home-card-body {\n    font-weight: bold;\n    color: inherit;\n}\n\n.home-card-amount {\n    font-size: 1.8rem;\n    letter-spacing: .06rem;\n}\n\n/* Featured data stories\n========================================================================== */\n\n.featured-image {\n    display: block;\n    max-width: 100%;\n    height: auto;\n    border: 2px solid #CCD5DB;\n    margin-bottom: 16px;\n}\n\n.featured-link {\n    display: block;\n    font-weight: bold;\n    margin-bottom: 36px;\n}\n\n/* Most Popular / Last modified section\n========================================================================== */\n\n.odswidget-last-datasets-feed__dataset-details-title,\n.odswidget-most-popular-datasets__dataset-details-title {\n    font-size: 1rem;\n    font-weight: bold;\n    margin-bottom: 4px;\n}\n\n.odswidget-last-datasets-feed__dataset-details-modified,\n.odswidget-most-popular-datasets__dataset-details-count {\n    display: block;\n    font-size: .866rem;\n    border: none;\n}\n\n.odswidget-most-popular-datasets__dataset-details,\n.odswidget-last-datasets-feed__dataset-details {\n    margin-left: 0;\n}\n\n.odswidget-last-datasets-feed__dataset-details-modified .fa,\n.odswidget-most-popular-datasets__dataset-details-count .fa {\n    display: none;\n}\n\n.odswidget-most-popular-datasets__theme-picto,\n.odswidget-last-datasets-feed__theme-picto {\n    display: none;\n}\n\n.most-used-datasets {\n    list-style-type: none;\n    margin: 0;\n    padding: 0;\n}\n\n.most-used-datasets-item {\n    margin-bottom: 10px;\n}\n\n.most-used-datasets-item:last-child { \n    margin-bottom: 0\n}\n\n.most-used-datasets-item-title {\n    font-size: 1rem;\n    font-weight: bold;\n    margin-bottom: 4px;\n}\n\n.most-used-datasets-item-description {\n    font-size: .866rem;\n}\n\n.top-datasets-box {\n    height: 100%;\n}\n\n/* Submit Story\n========================================================================== */\n\n.submit-story {\n    background-color: #F2F4F6;\n}\n\n.submit-box {\n    background-color: #FFFFFF;\n    padding: 28px;\n    text-align: center;\n    border: 1px solid #CCD5DB;\n    border-radius: 3px;\n    margin-top: 48px;\n    margin-bottom: 48px;\n}\n\n.submit-title {\n    font-size: 1.56rem;\n    color: #333333;\n    margin-top: 0;\n    margin-bottom: 12px;\n}\n\n.submit-button {\n    padding: .5rem 2.5rem;\n}\n"};
+            $scope.pageId = 'home-page';
+            // explore.reuse has been renamed explore.enable_showcases
+            $scope.reusesEnabled = domainConfig['explore.enable_showcases'];
+            $scope.user = {
+                is_authenticated: config.USER !== null,
+            };
+            $scope.domain = {
+                languages: config.AVAILABLE_LANGUAGES,
+                current_language: config.LANGUAGE
+            };
+        });
+
+        var widgetsApp = angular.module('ods-widgets');
+        widgetsApp.config(function (ODSWidgetsConfigProvider) {
+            ODSWidgetsConfigProvider.setConfig({
+                defaultCustomViewConfig: {
+                    title: 'Custom view',
+                    slug: 'custom',
+                    icon: 'tachometer'
+                },
+                customAPIHeaders: {
+                    "ODS-API-Analytics-App": "page-home-page"
+                }
+            });
+        });
+    </script>
+  <script src="/static/compressed/js/output.3cc22069b68c.js"></script>
+  <script type="text/javascript">
+angular.module('ods.frontend').factory('odsLazyReactComponentFactory', ['ModuleLazyLoader', function lazyReactComponentFactory(ModuleLazyLoader) {
+    return function (componentName, props) {
+        return {
+            restrict: 'E',
+            priority: 0,
+            compile: function (tElem) {
+                tElem.attr('ng-non-bindable');
+
+                return function(scope, elem, attrs) {
+                    ModuleLazyLoader('react-searchbar').then(function() {
+                        window.ngReactWidgets.initialize(
+                            {
+                                config: {"defaultBasemap": {"provider": "jawg.streets", "jawg_apikey": "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH", "jawg_odsdomain": "dataicann"}, "defaultNeutralBasemap": {"provider": "jawg.light", "jawg_apikey": "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH", "shortAttribution": true}, "jawgAPIKey": "4cKtE4Rze1HrvxWa9a7mdolSk10lVThTFC8zadQYMIMxTjkpTeIDJAAmhReDGnCH", "uploadMaxFileSize": 251658240, "recaptchaPublicKey": "6LfqeoUjAAAAAO5al6_pzMl6PS6XirvfEERg55qa"},
+                                domain: {"properties": {"access.anonymous": true, "ui#thunderforest#api_key": null, "ui#mapbox#access_token": null, "ui#cartograph#default_location": "13,48.85377,2.3488", "ui#basemaps": [{"provider": "jawg.streets", "label": {"en": "Jawg Streets"}}, {"provider": "jawg.light", "label": {"en": "Jawg Light"}}, {"provider": "stamen.watercolor", "label": {"en": "Watercolor"}}], "ui#enable_marketplace_experience": false, "ui#domain_title": "ICANN Open Data", "ui#registration_form_enabled": true, "ui#localized_registration_form_description": null, "ui#localized_registration_form_title": null, "ui#signup_force_message_enabled": false, "ui#signup_checkconditions_enabled": false, "users#signup_freeregistration_enabled": false, "auth#default_login_page": "saml_login", "ui.dataset_snapshots": null, "metadata.themes": [{"image": {"url": "/static/pictos/img/set-v3/pictos/database.svg", "color": "#032c49"}, "labels": {"en": "ICANN Data Asset Inventory"}, "id": "3979fed"}, {"image": {"color": "#032c49", "url": "/static/pictos/img/set-v3/pictos/college.svg"}, "labels": {"en": "Governance"}, "id": "77c13c4"}, {"image": {"color": "#032c49", "url": "/static/pictos/img/set-v3/pictos/leaf.svg"}, "labels": {"en": "Identifier Technology"}, "id": "69d1b00"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/heavy_plane.svg", "color": "#032c49"}, "labels": {"en": "Domain Name System Market"}, "id": "bebef2d"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/bank.svg", "color": "#032c49"}, "labels": {"en": "Policy Advice and Development"}, "id": "09f0d2f"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/police.svg", "color": "#032c49"}, "labels": {"en": "Engagement"}, "id": "1a5ec98"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/computer.svg", "color": "#032c49"}, "labels": {"en": "Accountability Activities"}, "id": "8d391a0"}, {"image": {"url": "/static/pictos/img/set-v3/pictos/hospital.svg", "color": "#032c49"}, "labels": {"en": "Operations"}, "id": "0aed70f"}, {"image": {}, "labels": {"en": "Identifier Technology Health Indicator"}, "id": "lahiagx"}], "metadata.asset_categories": [{"id": "data", "labels": {"en": "Data"}, "image_url": "/static/pictos/img/mingcute/pictos/coin_2_line.svg", "color": "#CE0037"}, {"id": "visualizations", "labels": {"en": "Visualizations"}, "image_url": "/static/pictos/img/mingcute/pictos/classify_2_line.svg", "color": "#0F79D0"}, {"id": "applications", "labels": {"en": "Applications"}, "image_url": "/static/pictos/img/mingcute/pictos/profile_line.svg", "color": "#00C7B1"}], "ui.explore.catalog_default_sort": "title", "ui.show_login": true, "ui.show_signup": false, "users.registration_allowed": true, "ui.csv_delimiter": ";"}, "license": {"enable_multi_assets": false, "enable_static_exports": false, "enable_explore_data_with_ai": false}, "availableDomainPermissions": ["edit_domain", "edit_page", "edit_dataset", "publish_dataset", "manage_dataset", "create_dataset", "edit_reuse", "manage_subdomains", "edit_theme", "create_page", "manage_page", "edit_form", "explore_restricted_dataset", "explore_monitoring", "explore_restricted_page", "submit_private_form"], "theme_colors": {"highlight": "#002B49", "background": "#FFFFFF", "boxBackground": "#FFFFFF", "boxBorder": "#CCD5DB", "footerBackground": "#002B49", "footerLink": "#FFFFFF", "headerBackground": "#FFFFFF", "headerLink": "#002B49", "text": "#333333", "link": "#047BC1", "titleText": "#333333", "bigTitleText": "#FFFFFF", "bigTitleBackground": "#002B49", "chart": ["#66c2a5", "#fc8d62", "#8da0cb", "#e78ac3", "#a6d854", "#ffd92f", "#e5c494", "#b3b3b3"]}, "style": {"general": {"title": {"h1": "#333333", "h2": "#333333", "h3": "#333333"}, "text": {"primary": "#333333", "secondary": "#333333"}, "link": "#047BC1", "accent": "#002B49", "background": "#FFFFFF", "section": {"background": "#FFFFFF", "border": "#CCD5DB"}}, "button": {"primary": {"default": {"background": "#002B49", "border": null, "text": "#FFFFFF"}, "hover": {"background": "#001a2c", "border": null, "text": "#FFFFFF"}}, "secondary": {"default": {"background": null, "border": "#002B49", "text": "#002B49"}, "hover": {"background": "#d9dfe4", "border": "#001a2c", "text": "#001a2c"}}, "tertiary": {"default": {"background": null, "border": null, "text": "#002B49"}, "hover": {"background": "#d9dfe4", "border": null, "text": "#001a2c"}}}, "header": {"background": "#FFFFFF", "link": "#002B49"}, "footer": {"background": "#002B49", "link": "#FFFFFF"}, "catalogCard": {"default": {"background": "#FFFFFF", "border": "#CCD5DB"}, "hover": {"background": "#FFFFFF", "border": "#002B49"}}, "legacy": {"bigTitleText": "#FFFFFF", "bigTitleBackground": "#002B49"}}, "domain_id": "dataicann", "is_frozen": false, "logo_login_path": "https://s3.amazonaws.com/aws-ec2-us-east-1-opendatasoft-staticfileset/dataicann/logo_login?tstamp=158222574896", "is_asset_access_request_active": false, "is_showcase_requests_active": false, "is_explore_data_with_ai_requests_limit_reached": false, "idps": {"ods": {"login_link": "/central_keycloak/authenticate/", "signup_link": "/central_keycloak/register/", "account_link": "https://account.opendatasoft.com?kc_locale=en"}, "saml": {"enabled": true, "login_link": "/saml2/login/", "login_link_label": {"en": "Sign in with your ICANN Account"}}, "oidc": {"enabled": false, "login_link": "/oidc/login/", "login_link_label": {}}}}
+                            },
+                            {
+                                shortLanguageCode: 'en',
+                                languageCode: 'en-us',
+                                translations: window.ODSTranslations,
+                            }
+                        );
+                        renderReactComponentDirective(scope, elem, attrs, window.ngReactWidgets, componentName, props);
+                    });
+                }
+
+            }
+        }
+    }
+}]);
+</script>
+  <script type="text/javascript">
+    var mod = angular.module('ods.frontend');
+
+    mod.directive('odsCatalogSearch', function (odsLazyReactComponentFactory) {
+        return odsLazyReactComponentFactory('SearchBar', ['label', 'className']);
+    });
+</script>
+  <script type="text/javascript">
+    (function() {
+        var ods = angular.module('ods');
+
+        ods.config(function (ModuleLazyLoaderProvider) {
+            var loadingConfig = ModuleLazyLoaderProvider.getConfig();
+            loadingConfig['react-searchbar'] = {
+                js: ["/static/react-bundles/i18n/widget-searchbar.en.3c35b4615a1d18bad78e.js", "/static/react-bundles/i18n/shared.en.3c35b4615a1d18bad78e.js", "/static/react-bundles/js/frontoffice-runtime.0bbc00cc.js", "/static/react-bundles/js/6847.d9112cb5.js", "/static/react-bundles/js/4870.7f2e4640.js", "/static/react-bundles/js/2870.0dd2afc8.js", "/static/react-bundles/js/2872.ad4572f5.js", "/static/react-bundles/js/7491.a2aad3c3.js", "/static/react-bundles/js/2751.3bee99b0.js", "/static/react-bundles/js/2148.f282a3b2.js", "/static/react-bundles/js/widget-searchbar.96786005.js"],
+                css: ["/static/react-bundles/css/2872.6c61bc5e.css", "/static/react-bundles/css/3696.0532af2f.css", "/static/react-bundles/css/widget-searchbar.8ec7a54d.css"]
+            }
+        });
+    })();
+</script>
+ </body>
+</html>

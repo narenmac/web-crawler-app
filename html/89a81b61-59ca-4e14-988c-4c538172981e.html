@@ -1,0 +1,1021 @@
+<!doctype html>
+<html data-color-mode="auto" data-light-theme="light" data-dark-theme="dark" lang="en">
+ <head>
+  <meta charset="utf-8" data-next-head="">
+  <meta name="viewport" content="width=device-width, initial-scale=1" data-next-head="">
+  <link rel="icon" type="image/png" href="/assets/cb-345/images/site/favicon.png" data-next-head="">
+  <link href="/manifest.json" rel="manifest" data-next-head="">
+  <meta name="google-site-verification" content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY" data-next-head="">
+  <title data-next-head="">Understanding GitHub Code Search syntax - GitHub Docs</title>
+  <meta name="description" content="You can build search queries for the results you want with specialized code qualifiers, regular expressions, and boolean operations." data-next-head="">
+  <link rel="alternate" hreflang="es" href="https://docs.github.com/es/search-github/github-code-search/understanding-github-code-search-syntax" data-next-head="">
+  <link rel="alternate" hreflang="ja" href="https://docs.github.com/ja/search-github/github-code-search/understanding-github-code-search-syntax" data-next-head="">
+  <link rel="alternate" hreflang="pt" href="https://docs.github.com/pt/search-github/github-code-search/understanding-github-code-search-syntax" data-next-head="">
+  <link rel="alternate" hreflang="zh-Hans" href="https://docs.github.com/zh/search-github/github-code-search/understanding-github-code-search-syntax" data-next-head="">
+  <link rel="alternate" hreflang="ru" href="https://docs.github.com/ru/search-github/github-code-search/understanding-github-code-search-syntax" data-next-head="">
+  <link rel="alternate" hreflang="fr" href="https://docs.github.com/fr/search-github/github-code-search/understanding-github-code-search-syntax" data-next-head="">
+  <link rel="alternate" hreflang="ko" href="https://docs.github.com/ko/search-github/github-code-search/understanding-github-code-search-syntax" data-next-head="">
+  <link rel="alternate" hreflang="de" href="https://docs.github.com/de/search-github/github-code-search/understanding-github-code-search-syntax" data-next-head="">
+  <meta name="keywords" content="GitHub search" data-next-head="">
+  <meta name="path-language" content="en" data-next-head="">
+  <meta name="path-version" content="free-pro-team@latest" data-next-head="">
+  <meta name="path-product" content="search-github" data-next-head="">
+  <meta name="path-article" content="search-github/github-code-search/understanding-github-code-search-syntax" data-next-head="">
+  <meta name="page-document-type" content="article" data-next-head="">
+  <meta name="status" content="200" data-next-head="">
+  <meta property="og:site_name" content="GitHub Docs" data-next-head="">
+  <meta property="og:title" content="Understanding GitHub Code Search syntax - GitHub Docs" data-next-head="">
+  <meta property="og:type" content="article" data-next-head="">
+  <meta property="og:url" content="https://docs-internal.github.com/en/search-github/github-code-search/understanding-github-code-search-syntax" data-next-head="">
+  <meta property="og:image" content="/assets/cb-345/images/social-cards/default.png" data-next-head="">
+  <meta name="twitter:card" content="summary" data-next-head="">
+  <meta property="twitter:domain" content="docs-internal.github.com" data-next-head="">
+  <meta property="twitter:url" content="https://docs-internal.github.com/en/search-github/github-code-search/understanding-github-code-search-syntax" data-next-head="">
+  <meta name="twitter:title" content="Understanding GitHub Code Search syntax - GitHub Docs" data-next-head="">
+  <meta name="twitter:description" content="You can build search queries for the results you want with specialized code qualifiers, regular expressions, and boolean operations." data-next-head="">
+  <meta name="twitter:image" content="/assets/cb-345/images/social-cards/default.png" data-next-head="">
+  <link rel="preload" href="/_next/static/css/e4f8a7a6f69d3ceb.css" as="style">
+  <link rel="stylesheet" href="/_next/static/css/e4f8a7a6f69d3ceb.css" data-n-g="">
+  <link rel="preload" href="/_next/static/css/d36f5b013b6438ce.css" as="style">
+  <link rel="stylesheet" href="/_next/static/css/d36f5b013b6438ce.css" data-n-p="">
+  <noscript data-n-css=""></noscript>
+  <script defer nomodule="" src="/_next/static/chunks/polyfills-42372ed130431b0a.js"></script>
+  <script src="/_next/static/chunks/webpack-f32b41072d2497b6.js" defer></script>
+  <script src="/_next/static/chunks/framework-0c60951c7e834e29.js" defer></script>
+  <script src="/_next/static/chunks/main-9e7b6aae71901c27.js" defer></script>
+  <script src="/_next/static/chunks/pages/_app-ed2b58596cef9c4e.js" defer></script>
+  <script src="/_next/static/chunks/2911edaa-48f4fcf2afb436e9.js" defer></script>
+  <script src="/_next/static/chunks/3576-3db86df6a1bddc79.js" defer></script>
+  <script src="/_next/static/chunks/9347-aa6e73e0ec847549.js" defer></script>
+  <script src="/_next/static/chunks/2857-25a6393c526efdd4.js" defer></script>
+  <script src="/_next/static/chunks/3977-96790715750bc076.js" defer></script>
+  <script src="/_next/static/chunks/8575-500d47e6a0de54d6.js" defer></script>
+  <script src="/_next/static/chunks/8540-ec94b36b7152827e.js" defer></script>
+  <script src="/_next/static/chunks/1689-b90cb1accd4df51a.js" defer></script>
+  <script src="/_next/static/chunks/pages/%5BversionId%5D/%5BproductId%5D/%5B...restPage%5D-db6dcb5fd59b653f.js" defer></script>
+  <script src="/_next/static/GaljbBk5Zr73j-kZTn7PT/_buildManifest.js" defer></script>
+  <script src="/_next/static/GaljbBk5Zr73j-kZTn7PT/_ssgManifest.js" defer></script>
+  <style data-styled="" data-styled-version="5.3.5">.cEhRXB{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}/*!sc*/
+.dmdEgz{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;pointer-events:none;}/*!sc*/
+.Ywlla{list-style:none;}/*!sc*/
+.hROlum{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-flex:1;-webkit-flex-grow:1;-ms-flex-positive:1;flex-grow:1;min-width:0;}/*!sc*/
+.cUxMoC{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-webkit-flex-grow:1;-ms-flex-positive:1;flex-grow:1;}/*!sc*/
+.bmseMA{-webkit-box-flex:1;-webkit-flex-grow:1;-ms-flex-positive:1;flex-grow:1;font-weight:400;word-break:break-word;}/*!sc*/
+.lmYNOb{height:20px;-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;color:var(--fgColor-muted,var(--color-fg-muted,#656d76));margin-left:8px;font-weight:initial;}/*!sc*/
+[data-variant="danger"]:hover .Box-sc-g0xbh4-0,[data-variant="danger"]:active .lmYNOb{color:var(--fgColor-default,var(--color-fg-default,#1F2328));}/*!sc*/
+.gMkIpo{padding:0;margin:0;display:none;}/*!sc*/
+.gMkIpo *{font-size:14px;}/*!sc*/
+.enEvIH{padding:0;margin:0;display:block;}/*!sc*/
+.enEvIH *{font-size:14px;}/*!sc*/
+.ivpQTm{-webkit-box-flex:1;-webkit-flex-grow:1;-ms-flex-positive:1;flex-grow:1;font-weight:600;word-break:break-word;}/*!sc*/
+.eQiQea{grid-area:topper;}/*!sc*/
+.ijSsTo{grid-area:intro;}/*!sc*/
+.giVcWX{-webkit-align-self:flex-start;-ms-flex-item-align:start;align-self:flex-start;grid-area:sidebar;}/*!sc*/
+.kohLxz{grid-area:content;}/*!sc*/
+data-styled.g3[id="Box-sc-g0xbh4-0"]{content:"cEhRXB,dmdEgz,Ywlla,hROlum,cUxMoC,bmseMA,lmYNOb,gMkIpo,enEvIH,ivpQTm,eQiQea,ijSsTo,giVcWX,kohLxz,"}/*!sc*/
+.hXCKEr{border-radius:6px;border:1px solid;border-color:transparent;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-text-decoration:none;text-decoration:none;text-align:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;height:32px;padding:0 12px;gap:8px;min-width:-webkit-max-content;min-width:-moz-max-content;min-width:max-content;-webkit-transition:80ms cubic-bezier(0.65,0,0.35,1);transition:80ms cubic-bezier(0.65,0,0.35,1);-webkit-transition-property:color,fill,background-color,border-color;transition-property:color,fill,background-color,border-color;color:var(--button-default-fgColor-rest,var(--color-btn-text,#24292f));background-color:transparent;box-shadow:none;}/*!sc*/
+.hXCKEr:focus:not(:disabled){box-shadow:none;outline:2px solid var(--fgColor-accent,var(--color-accent-fg,#0969da));outline-offset:-2px;}/*!sc*/
+.hXCKEr:focus:not(:disabled):not(:focus-visible){outline:solid 1px transparent;}/*!sc*/
+.hXCKEr:focus-visible:not(:disabled){box-shadow:none;outline:2px solid var(--fgColor-accent,var(--color-accent-fg,#0969da));outline-offset:-2px;}/*!sc*/
+.hXCKEr[href]{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;}/*!sc*/
+.hXCKEr[href]:hover{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.hXCKEr:hover{-webkit-transition-duration:80ms;transition-duration:80ms;}/*!sc*/
+.hXCKEr:active{-webkit-transition:none;transition:none;}/*!sc*/
+.hXCKEr[data-inactive]{cursor:auto;}/*!sc*/
+.hXCKEr:disabled{cursor:not-allowed;box-shadow:none;color:var(--fgColor-disabled,var(--color-primer-fg-disabled,#8c959f));}/*!sc*/
+.hXCKEr:disabled [data-component=ButtonCounter],.hXCKEr:disabled [data-component="leadingVisual"],.hXCKEr:disabled [data-component="trailingAction"]{color:inherit;}/*!sc*/
+@media (forced-colors:active){.hXCKEr:focus{outline:solid 1px transparent;}}/*!sc*/
+.hXCKEr [data-component=ButtonCounter]{font-size:12px;}/*!sc*/
+.hXCKEr[data-component=IconButton]{display:inline-grid;padding:unset;place-content:center;width:32px;min-width:unset;}/*!sc*/
+.hXCKEr[data-size="small"]{padding:0 8px;height:28px;gap:4px;font-size:12px;}/*!sc*/
+.hXCKEr[data-size="small"] [data-component="text"]{line-height:calc(20 / 12);}/*!sc*/
+.hXCKEr[data-size="small"] [data-component=ButtonCounter]{font-size:12px;}/*!sc*/
+.hXCKEr[data-size="small"] [data-component="buttonContent"] > :not(:last-child){margin-right:4px;}/*!sc*/
+.hXCKEr[data-size="small"][data-component=IconButton]{width:28px;padding:unset;}/*!sc*/
+.hXCKEr[data-size="large"]{padding:0 16px;height:40px;gap:8px;}/*!sc*/
+.hXCKEr[data-size="large"] [data-component="buttonContent"] > :not(:last-child){margin-right:8px;}/*!sc*/
+.hXCKEr[data-size="large"][data-component=IconButton]{width:40px;padding:unset;}/*!sc*/
+.hXCKEr[data-block="block"]{width:100%;}/*!sc*/
+.hXCKEr[data-label-wrap="true"]{min-width:-webkit-fit-content;min-width:-moz-fit-content;min-width:fit-content;height:unset;min-height:var(--control-medium-size,2rem);}/*!sc*/
+.hXCKEr[data-label-wrap="true"] [data-component="buttonContent"]{-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;-webkit-align-self:stretch;-ms-flex-item-align:stretch;align-self:stretch;padding-block:calc(var(--control-medium-paddingBlock,0.375rem) - 2px);}/*!sc*/
+.hXCKEr[data-label-wrap="true"] [data-component="text"]{white-space:unset;word-break:break-word;}/*!sc*/
+.hXCKEr[data-label-wrap="true"][data-size="small"]{height:unset;min-height:var(--control-small-size,1.75rem);}/*!sc*/
+.hXCKEr[data-label-wrap="true"][data-size="small"] [data-component="buttonContent"]{padding-block:calc(var(--control-small-paddingBlock,0.25rem) - 2px);}/*!sc*/
+.hXCKEr[data-label-wrap="true"][data-size="large"]{height:unset;min-height:var(--control-large-size,2.5rem);padding-inline:var(--control-large-paddingInline-spacious,1rem);}/*!sc*/
+.hXCKEr[data-label-wrap="true"][data-size="large"] [data-component="buttonContent"]{padding-block:calc(var(--control-large-paddingBlock,0.625rem) - 2px);}/*!sc*/
+.hXCKEr[data-inactive]:not([disabled]){background-color:var(--button-inactive-bgColor,var(--button-inactive-bgColor-rest,var(--color-btn-inactive-bg,#eaeef2)));border-color:var(--button-inactive-bgColor,var(--button-inactive-bgColor-rest,var(--color-btn-inactive-bg,#eaeef2)));color:var(--button-inactive-fgColor,var(--button-inactive-fgColor-rest,var(--color-btn-inactive-text,#57606a)));}/*!sc*/
+.hXCKEr[data-inactive]:not([disabled]):focus-visible{box-shadow:none;}/*!sc*/
+.hXCKEr [data-component="leadingVisual"]{grid-area:leadingVisual;color:var(--fgColor-muted,var(--color-fg-muted,#656d76));}/*!sc*/
+.hXCKEr [data-component="text"]{grid-area:text;line-height:calc(20/14);white-space:nowrap;}/*!sc*/
+.hXCKEr [data-component="trailingVisual"]{grid-area:trailingVisual;}/*!sc*/
+.hXCKEr [data-component="trailingAction"]{margin-right:-4px;color:var(--fgColor-muted,var(--color-fg-muted,#656d76));}/*!sc*/
+.hXCKEr [data-component="buttonContent"]{-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto;display:grid;grid-template-areas:"leadingVisual text trailingVisual";grid-template-columns:min-content minmax(0,auto) min-content;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;}/*!sc*/
+.hXCKEr [data-component="buttonContent"] > :not(:last-child){margin-right:8px;}/*!sc*/
+.hXCKEr [data-component="loadingSpinner"]{grid-area:text;margin-right:0px !important;place-self:center;}/*!sc*/
+.hXCKEr [data-component="loadingSpinner"] + [data-component="text"]{visibility:hidden;}/*!sc*/
+.hXCKEr:hover:not([disabled]){background-color:var(--control-transparent-bgColor-hover,var(--color-action-list-item-default-hover-bg,rgba(208,215,222,0.32)));}/*!sc*/
+.hXCKEr:active:not([disabled]){background-color:var(--control-transparent-bgColor-active,var(--color-action-list-item-default-active-bg,rgba(208,215,222,0.48)));}/*!sc*/
+.hXCKEr[aria-expanded=true]{background-color:var(--control-transparent-bgColor-selected,var(--color-action-list-item-default-selected-bg,rgba(208,215,222,0.24)));}/*!sc*/
+.hXCKEr[data-component="IconButton"][data-no-visuals]{color:var(--fgColor-muted,var(--color-fg-muted,#656d76));}/*!sc*/
+.hXCKEr[data-no-visuals]{color:var(--fgColor-accent,var(--color-accent-fg,#0969da));}/*!sc*/
+.hXCKEr:has([data-component="ButtonCounter"]){color:var(--button-default-fgColor-rest,var(--color-btn-text,#24292f));}/*!sc*/
+.hXCKEr:disabled[data-no-visuals]{color:var(--fgColor-disabled,var(--color-primer-fg-disabled,#8c959f));}/*!sc*/
+.hXCKEr:disabled[data-no-visuals] [data-component=ButtonCounter]{color:inherit;}/*!sc*/
+.hXCKEr{height:auto;text-align:left;}/*!sc*/
+.hXCKEr span:first-child{display:inline;}/*!sc*/
+.jOdgLl{border-radius:6px;border:1px solid;border-color:var(--button-default-borderColor-rest,var(--button-default-borderColor-rest,var(--color-btn-border,rgba(31,35,40,0.15))));font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-text-decoration:none;text-decoration:none;text-align:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;height:32px;padding:0 12px;gap:8px;min-width:-webkit-max-content;min-width:-moz-max-content;min-width:max-content;-webkit-transition:80ms cubic-bezier(0.65,0,0.35,1);transition:80ms cubic-bezier(0.65,0,0.35,1);-webkit-transition-property:color,fill,background-color,border-color;transition-property:color,fill,background-color,border-color;color:var(--button-default-fgColor-rest,var(--color-btn-text,#24292f));background-color:var(--button-default-bgColor-rest,var(--color-btn-bg,#f6f8fa));box-shadow:var(--button-default-shadow-resting,var(--color-btn-shadow,0 1px 0 rgba(31,35,40,0.04))),var(--button-default-shadow-inset,var(--color-btn-inset-shadow,inset 0 1px 0 rgba(255,255,255,0.25)));}/*!sc*/
+.jOdgLl:focus:not(:disabled){box-shadow:none;outline:2px solid var(--fgColor-accent,var(--color-accent-fg,#0969da));outline-offset:-2px;}/*!sc*/
+.jOdgLl:focus:not(:disabled):not(:focus-visible){outline:solid 1px transparent;}/*!sc*/
+.jOdgLl:focus-visible:not(:disabled){box-shadow:none;outline:2px solid var(--fgColor-accent,var(--color-accent-fg,#0969da));outline-offset:-2px;}/*!sc*/
+.jOdgLl[href]{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;}/*!sc*/
+.jOdgLl[href]:hover{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.jOdgLl:hover{-webkit-transition-duration:80ms;transition-duration:80ms;}/*!sc*/
+.jOdgLl:active{-webkit-transition:none;transition:none;}/*!sc*/
+.jOdgLl[data-inactive]{cursor:auto;}/*!sc*/
+.jOdgLl:disabled{cursor:not-allowed;box-shadow:none;color:var(--fgColor-disabled,var(--color-primer-fg-disabled,#8c959f));border-color:var(--button-default-borderColor-disabled,var(--button-default-borderColor-rest,var(--color-btn-border,rgba(31,35,40,0.15))));background-color:var(--button-default-bgColor-disabled,var(--control-bgColor-disabled,var(--color-input-disabled-bg,rgba(175,184,193,0.2))));}/*!sc*/
+.jOdgLl:disabled [data-component=ButtonCounter]{color:inherit;}/*!sc*/
+@media (forced-colors:active){.jOdgLl:focus{outline:solid 1px transparent;}}/*!sc*/
+.jOdgLl [data-component=ButtonCounter]{font-size:12px;background-color:var(--buttonCounter-default-bgColor-rest,var(--color-btn-counter-bg,rgba(31,35,40,0.08)));}/*!sc*/
+.jOdgLl[data-component=IconButton]{display:inline-grid;padding:unset;place-content:center;width:32px;min-width:unset;}/*!sc*/
+.jOdgLl[data-size="small"]{padding:0 8px;height:28px;gap:4px;font-size:12px;}/*!sc*/
+.jOdgLl[data-size="small"] [data-component="text"]{line-height:calc(20 / 12);}/*!sc*/
+.jOdgLl[data-size="small"] [data-component=ButtonCounter]{font-size:12px;}/*!sc*/
+.jOdgLl[data-size="small"] [data-component="buttonContent"] > :not(:last-child){margin-right:4px;}/*!sc*/
+.jOdgLl[data-size="small"][data-component=IconButton]{width:28px;padding:unset;}/*!sc*/
+.jOdgLl[data-size="large"]{padding:0 16px;height:40px;gap:8px;}/*!sc*/
+.jOdgLl[data-size="large"] [data-component="buttonContent"] > :not(:last-child){margin-right:8px;}/*!sc*/
+.jOdgLl[data-size="large"][data-component=IconButton]{width:40px;padding:unset;}/*!sc*/
+.jOdgLl[data-block="block"]{width:100%;}/*!sc*/
+.jOdgLl[data-label-wrap="true"]{min-width:-webkit-fit-content;min-width:-moz-fit-content;min-width:fit-content;height:unset;min-height:var(--control-medium-size,2rem);}/*!sc*/
+.jOdgLl[data-label-wrap="true"] [data-component="buttonContent"]{-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;-webkit-align-self:stretch;-ms-flex-item-align:stretch;align-self:stretch;padding-block:calc(var(--control-medium-paddingBlock,0.375rem) - 2px);}/*!sc*/
+.jOdgLl[data-label-wrap="true"] [data-component="text"]{white-space:unset;word-break:break-word;}/*!sc*/
+.jOdgLl[data-label-wrap="true"][data-size="small"]{height:unset;min-height:var(--control-small-size,1.75rem);}/*!sc*/
+.jOdgLl[data-label-wrap="true"][data-size="small"] [data-component="buttonContent"]{padding-block:calc(var(--control-small-paddingBlock,0.25rem) - 2px);}/*!sc*/
+.jOdgLl[data-label-wrap="true"][data-size="large"]{height:unset;min-height:var(--control-large-size,2.5rem);padding-inline:var(--control-large-paddingInline-spacious,1rem);}/*!sc*/
+.jOdgLl[data-label-wrap="true"][data-size="large"] [data-component="buttonContent"]{padding-block:calc(var(--control-large-paddingBlock,0.625rem) - 2px);}/*!sc*/
+.jOdgLl[data-inactive]:not([disabled]){background-color:var(--button-inactive-bgColor,var(--button-inactive-bgColor-rest,var(--color-btn-inactive-bg,#eaeef2)));border-color:var(--button-inactive-bgColor,var(--button-inactive-bgColor-rest,var(--color-btn-inactive-bg,#eaeef2)));color:var(--button-inactive-fgColor,var(--button-inactive-fgColor-rest,var(--color-btn-inactive-text,#57606a)));}/*!sc*/
+.jOdgLl[data-inactive]:not([disabled]):focus-visible{box-shadow:none;}/*!sc*/
+.jOdgLl [data-component="leadingVisual"]{grid-area:leadingVisual;}/*!sc*/
+.jOdgLl [data-component="text"]{grid-area:text;line-height:calc(20/14);white-space:nowrap;}/*!sc*/
+.jOdgLl [data-component="trailingVisual"]{grid-area:trailingVisual;}/*!sc*/
+.jOdgLl [data-component="trailingAction"]{margin-right:-4px;}/*!sc*/
+.jOdgLl [data-component="buttonContent"]{-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto;display:grid;grid-template-areas:"leadingVisual text trailingVisual";grid-template-columns:min-content minmax(0,auto) min-content;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;}/*!sc*/
+.jOdgLl [data-component="buttonContent"] > :not(:last-child){margin-right:8px;}/*!sc*/
+.jOdgLl [data-component="loadingSpinner"]{grid-area:text;margin-right:0px !important;place-self:center;}/*!sc*/
+.jOdgLl [data-component="loadingSpinner"] + [data-component="text"]{visibility:hidden;}/*!sc*/
+.jOdgLl:hover:not([disabled]):not([data-inactive]){background-color:var(--button-default-bgColor-hover,var(--color-btn-hover-bg,#f3f4f6));border-color:var(--button-default-borderColor-hover,var(--button-default-borderColor-hover,var(--color-btn-hover-border,rgba(31,35,40,0.15))));}/*!sc*/
+.jOdgLl:active:not([disabled]):not([data-inactive]){background-color:var(--button-default-bgColor-active,var(--color-btn-active-bg,hsla(220,14%,93%,1)));border-color:var(--button-default-borderColor-active,var(--button-default-borderColor-active,var(--color-btn-active-border,rgba(31,35,40,0.15))));}/*!sc*/
+.jOdgLl[aria-expanded=true]{background-color:var(--button-default-bgColor-active,var(--color-btn-active-bg,hsla(220,14%,93%,1)));border-color:var(--button-default-borderColor-active,var(--button-default-borderColor-active,var(--color-btn-active-border,rgba(31,35,40,0.15))));}/*!sc*/
+.jOdgLl [data-component="leadingVisual"],.jOdgLl [data-component="trailingVisual"],.jOdgLl [data-component="trailingAction"]{color:var(--button-color,var(--fgColor-muted,var(--color-fg-muted,#656d76)));}/*!sc*/
+.jOdgLl[data-component="IconButton"][data-no-visuals]{color:var(--fgColor-muted,var(--color-fg-muted,#656d76));}/*!sc*/
+.jOdgLl[data-no-visuals]{border-top-left-radius:unset;border-bottom-left-radius:unset;}/*!sc*/
+.hmWbvh{border-radius:6px;border:1px solid;border-color:var(--button-default-borderColor-rest,var(--button-default-borderColor-rest,var(--color-btn-border,rgba(31,35,40,0.15))));font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-text-decoration:none;text-decoration:none;text-align:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;height:32px;padding:0 12px;gap:8px;min-width:-webkit-max-content;min-width:-moz-max-content;min-width:max-content;-webkit-transition:80ms cubic-bezier(0.65,0,0.35,1);transition:80ms cubic-bezier(0.65,0,0.35,1);-webkit-transition-property:color,fill,background-color,border-color;transition-property:color,fill,background-color,border-color;color:var(--button-default-fgColor-rest,var(--color-btn-text,#24292f));background-color:var(--button-default-bgColor-rest,var(--color-btn-bg,#f6f8fa));box-shadow:var(--button-default-shadow-resting,var(--color-btn-shadow,0 1px 0 rgba(31,35,40,0.04))),var(--button-default-shadow-inset,var(--color-btn-inset-shadow,inset 0 1px 0 rgba(255,255,255,0.25)));}/*!sc*/
+.hmWbvh:focus:not(:disabled){box-shadow:none;outline:2px solid var(--fgColor-accent,var(--color-accent-fg,#0969da));outline-offset:-2px;}/*!sc*/
+.hmWbvh:focus:not(:disabled):not(:focus-visible){outline:solid 1px transparent;}/*!sc*/
+.hmWbvh:focus-visible:not(:disabled){box-shadow:none;outline:2px solid var(--fgColor-accent,var(--color-accent-fg,#0969da));outline-offset:-2px;}/*!sc*/
+.hmWbvh[href]{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;}/*!sc*/
+.hmWbvh[href]:hover{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.hmWbvh:hover{-webkit-transition-duration:80ms;transition-duration:80ms;}/*!sc*/
+.hmWbvh:active{-webkit-transition:none;transition:none;}/*!sc*/
+.hmWbvh[data-inactive]{cursor:auto;}/*!sc*/
+.hmWbvh:disabled{cursor:not-allowed;box-shadow:none;color:var(--fgColor-disabled,var(--color-primer-fg-disabled,#8c959f));border-color:var(--button-default-borderColor-disabled,var(--button-default-borderColor-rest,var(--color-btn-border,rgba(31,35,40,0.15))));background-color:var(--button-default-bgColor-disabled,var(--control-bgColor-disabled,var(--color-input-disabled-bg,rgba(175,184,193,0.2))));}/*!sc*/
+.hmWbvh:disabled [data-component=ButtonCounter]{color:inherit;}/*!sc*/
+@media (forced-colors:active){.hmWbvh:focus{outline:solid 1px transparent;}}/*!sc*/
+.hmWbvh [data-component=ButtonCounter]{font-size:12px;background-color:var(--buttonCounter-default-bgColor-rest,var(--color-btn-counter-bg,rgba(31,35,40,0.08)));}/*!sc*/
+.hmWbvh[data-component=IconButton]{display:inline-grid;padding:unset;place-content:center;width:32px;min-width:unset;}/*!sc*/
+.hmWbvh[data-size="small"]{padding:0 8px;height:28px;gap:4px;font-size:12px;}/*!sc*/
+.hmWbvh[data-size="small"] [data-component="text"]{line-height:calc(20 / 12);}/*!sc*/
+.hmWbvh[data-size="small"] [data-component=ButtonCounter]{font-size:12px;}/*!sc*/
+.hmWbvh[data-size="small"] [data-component="buttonContent"] > :not(:last-child){margin-right:4px;}/*!sc*/
+.hmWbvh[data-size="small"][data-component=IconButton]{width:28px;padding:unset;}/*!sc*/
+.hmWbvh[data-size="large"]{padding:0 16px;height:40px;gap:8px;}/*!sc*/
+.hmWbvh[data-size="large"] [data-component="buttonContent"] > :not(:last-child){margin-right:8px;}/*!sc*/
+.hmWbvh[data-size="large"][data-component=IconButton]{width:40px;padding:unset;}/*!sc*/
+.hmWbvh[data-block="block"]{width:100%;}/*!sc*/
+.hmWbvh[data-label-wrap="true"]{min-width:-webkit-fit-content;min-width:-moz-fit-content;min-width:fit-content;height:unset;min-height:var(--control-medium-size,2rem);}/*!sc*/
+.hmWbvh[data-label-wrap="true"] [data-component="buttonContent"]{-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;-webkit-align-self:stretch;-ms-flex-item-align:stretch;align-self:stretch;padding-block:calc(var(--control-medium-paddingBlock,0.375rem) - 2px);}/*!sc*/
+.hmWbvh[data-label-wrap="true"] [data-component="text"]{white-space:unset;word-break:break-word;}/*!sc*/
+.hmWbvh[data-label-wrap="true"][data-size="small"]{height:unset;min-height:var(--control-small-size,1.75rem);}/*!sc*/
+.hmWbvh[data-label-wrap="true"][data-size="small"] [data-component="buttonContent"]{padding-block:calc(var(--control-small-paddingBlock,0.25rem) - 2px);}/*!sc*/
+.hmWbvh[data-label-wrap="true"][data-size="large"]{height:unset;min-height:var(--control-large-size,2.5rem);padding-inline:var(--control-large-paddingInline-spacious,1rem);}/*!sc*/
+.hmWbvh[data-label-wrap="true"][data-size="large"] [data-component="buttonContent"]{padding-block:calc(var(--control-large-paddingBlock,0.625rem) - 2px);}/*!sc*/
+.hmWbvh[data-inactive]:not([disabled]){background-color:var(--button-inactive-bgColor,var(--button-inactive-bgColor-rest,var(--color-btn-inactive-bg,#eaeef2)));border-color:var(--button-inactive-bgColor,var(--button-inactive-bgColor-rest,var(--color-btn-inactive-bg,#eaeef2)));color:var(--button-inactive-fgColor,var(--button-inactive-fgColor-rest,var(--color-btn-inactive-text,#57606a)));}/*!sc*/
+.hmWbvh[data-inactive]:not([disabled]):focus-visible{box-shadow:none;}/*!sc*/
+.hmWbvh [data-component="leadingVisual"]{grid-area:leadingVisual;}/*!sc*/
+.hmWbvh [data-component="text"]{grid-area:text;line-height:calc(20/14);white-space:nowrap;}/*!sc*/
+.hmWbvh [data-component="trailingVisual"]{grid-area:trailingVisual;}/*!sc*/
+.hmWbvh [data-component="trailingAction"]{margin-right:-4px;}/*!sc*/
+.hmWbvh [data-component="buttonContent"]{-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto;display:grid;grid-template-areas:"leadingVisual text trailingVisual";grid-template-columns:min-content minmax(0,auto) min-content;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;}/*!sc*/
+.hmWbvh [data-component="buttonContent"] > :not(:last-child){margin-right:8px;}/*!sc*/
+.hmWbvh [data-component="loadingSpinner"]{grid-area:text;margin-right:0px !important;place-self:center;}/*!sc*/
+.hmWbvh [data-component="loadingSpinner"] + [data-component="text"]{visibility:hidden;}/*!sc*/
+.hmWbvh:hover:not([disabled]):not([data-inactive]){background-color:var(--button-default-bgColor-hover,var(--color-btn-hover-bg,#f3f4f6));border-color:var(--button-default-borderColor-hover,var(--button-default-borderColor-hover,var(--color-btn-hover-border,rgba(31,35,40,0.15))));}/*!sc*/
+.hmWbvh:active:not([disabled]):not([data-inactive]){background-color:var(--button-default-bgColor-active,var(--color-btn-active-bg,hsla(220,14%,93%,1)));border-color:var(--button-default-borderColor-active,var(--button-default-borderColor-active,var(--color-btn-active-border,rgba(31,35,40,0.15))));}/*!sc*/
+.hmWbvh[aria-expanded=true]{background-color:var(--button-default-bgColor-active,var(--color-btn-active-bg,hsla(220,14%,93%,1)));border-color:var(--button-default-borderColor-active,var(--button-default-borderColor-active,var(--color-btn-active-border,rgba(31,35,40,0.15))));}/*!sc*/
+.hmWbvh [data-component="leadingVisual"],.hmWbvh [data-component="trailingVisual"],.hmWbvh [data-component="trailingAction"]{color:var(--button-color,var(--fgColor-muted,var(--color-fg-muted,#656d76)));}/*!sc*/
+.hmWbvh[data-component="IconButton"][data-no-visuals]{color:var(--fgColor-muted,var(--color-fg-muted,#656d76));}/*!sc*/
+.lkeyoI{border-radius:6px;border:1px solid;border-color:var(--button-default-borderColor-rest,var(--button-default-borderColor-rest,var(--color-btn-border,rgba(31,35,40,0.15))));font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-text-decoration:none;text-decoration:none;text-align:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;height:32px;padding:0 12px;gap:8px;min-width:-webkit-max-content;min-width:-moz-max-content;min-width:max-content;-webkit-transition:80ms cubic-bezier(0.65,0,0.35,1);transition:80ms cubic-bezier(0.65,0,0.35,1);-webkit-transition-property:color,fill,background-color,border-color;transition-property:color,fill,background-color,border-color;color:var(--button-default-fgColor-rest,var(--color-btn-text,#24292f));background-color:var(--button-default-bgColor-rest,var(--color-btn-bg,#f6f8fa));box-shadow:var(--button-default-shadow-resting,var(--color-btn-shadow,0 1px 0 rgba(31,35,40,0.04))),var(--button-default-shadow-inset,var(--color-btn-inset-shadow,inset 0 1px 0 rgba(255,255,255,0.25)));}/*!sc*/
+.lkeyoI:focus:not(:disabled){box-shadow:none;outline:2px solid var(--fgColor-accent,var(--color-accent-fg,#0969da));outline-offset:-2px;}/*!sc*/
+.lkeyoI:focus:not(:disabled):not(:focus-visible){outline:solid 1px transparent;}/*!sc*/
+.lkeyoI:focus-visible:not(:disabled){box-shadow:none;outline:2px solid var(--fgColor-accent,var(--color-accent-fg,#0969da));outline-offset:-2px;}/*!sc*/
+.lkeyoI[href]{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;}/*!sc*/
+.lkeyoI[href]:hover{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.lkeyoI:hover{-webkit-transition-duration:80ms;transition-duration:80ms;}/*!sc*/
+.lkeyoI:active{-webkit-transition:none;transition:none;}/*!sc*/
+.lkeyoI[data-inactive]{cursor:auto;}/*!sc*/
+.lkeyoI:disabled{cursor:not-allowed;box-shadow:none;color:var(--fgColor-disabled,var(--color-primer-fg-disabled,#8c959f));border-color:var(--button-default-borderColor-disabled,var(--button-default-borderColor-rest,var(--color-btn-border,rgba(31,35,40,0.15))));background-color:var(--button-default-bgColor-disabled,var(--control-bgColor-disabled,var(--color-input-disabled-bg,rgba(175,184,193,0.2))));}/*!sc*/
+.lkeyoI:disabled [data-component=ButtonCounter]{color:inherit;}/*!sc*/
+@media (forced-colors:active){.lkeyoI:focus{outline:solid 1px transparent;}}/*!sc*/
+.lkeyoI [data-component=ButtonCounter]{font-size:12px;background-color:var(--buttonCounter-default-bgColor-rest,var(--color-btn-counter-bg,rgba(31,35,40,0.08)));}/*!sc*/
+.lkeyoI[data-component=IconButton]{display:inline-grid;padding:unset;place-content:center;width:32px;min-width:unset;}/*!sc*/
+.lkeyoI[data-size="small"]{padding:0 8px;height:28px;gap:4px;font-size:12px;}/*!sc*/
+.lkeyoI[data-size="small"] [data-component="text"]{line-height:calc(20 / 12);}/*!sc*/
+.lkeyoI[data-size="small"] [data-component=ButtonCounter]{font-size:12px;}/*!sc*/
+.lkeyoI[data-size="small"] [data-component="buttonContent"] > :not(:last-child){margin-right:4px;}/*!sc*/
+.lkeyoI[data-size="small"][data-component=IconButton]{width:28px;padding:unset;}/*!sc*/
+.lkeyoI[data-size="large"]{padding:0 16px;height:40px;gap:8px;}/*!sc*/
+.lkeyoI[data-size="large"] [data-component="buttonContent"] > :not(:last-child){margin-right:8px;}/*!sc*/
+.lkeyoI[data-size="large"][data-component=IconButton]{width:40px;padding:unset;}/*!sc*/
+.lkeyoI[data-block="block"]{width:100%;}/*!sc*/
+.lkeyoI[data-label-wrap="true"]{min-width:-webkit-fit-content;min-width:-moz-fit-content;min-width:fit-content;height:unset;min-height:var(--control-medium-size,2rem);}/*!sc*/
+.lkeyoI[data-label-wrap="true"] [data-component="buttonContent"]{-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;-webkit-align-self:stretch;-ms-flex-item-align:stretch;align-self:stretch;padding-block:calc(var(--control-medium-paddingBlock,0.375rem) - 2px);}/*!sc*/
+.lkeyoI[data-label-wrap="true"] [data-component="text"]{white-space:unset;word-break:break-word;}/*!sc*/
+.lkeyoI[data-label-wrap="true"][data-size="small"]{height:unset;min-height:var(--control-small-size,1.75rem);}/*!sc*/
+.lkeyoI[data-label-wrap="true"][data-size="small"] [data-component="buttonContent"]{padding-block:calc(var(--control-small-paddingBlock,0.25rem) - 2px);}/*!sc*/
+.lkeyoI[data-label-wrap="true"][data-size="large"]{height:unset;min-height:var(--control-large-size,2.5rem);padding-inline:var(--control-large-paddingInline-spacious,1rem);}/*!sc*/
+.lkeyoI[data-label-wrap="true"][data-size="large"] [data-component="buttonContent"]{padding-block:calc(var(--control-large-paddingBlock,0.625rem) - 2px);}/*!sc*/
+.lkeyoI[data-inactive]:not([disabled]){background-color:var(--button-inactive-bgColor,var(--button-inactive-bgColor-rest,var(--color-btn-inactive-bg,#eaeef2)));border-color:var(--button-inactive-bgColor,var(--button-inactive-bgColor-rest,var(--color-btn-inactive-bg,#eaeef2)));color:var(--button-inactive-fgColor,var(--button-inactive-fgColor-rest,var(--color-btn-inactive-text,#57606a)));}/*!sc*/
+.lkeyoI[data-inactive]:not([disabled]):focus-visible{box-shadow:none;}/*!sc*/
+.lkeyoI [data-component="leadingVisual"]{grid-area:leadingVisual;}/*!sc*/
+.lkeyoI [data-component="text"]{grid-area:text;line-height:calc(20/14);white-space:nowrap;}/*!sc*/
+.lkeyoI [data-component="trailingVisual"]{grid-area:trailingVisual;}/*!sc*/
+.lkeyoI [data-component="trailingAction"]{margin-right:-4px;}/*!sc*/
+.lkeyoI [data-component="buttonContent"]{-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto;display:grid;grid-template-areas:"leadingVisual text trailingVisual";grid-template-columns:min-content minmax(0,auto) min-content;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;}/*!sc*/
+.lkeyoI [data-component="buttonContent"] > :not(:last-child){margin-right:8px;}/*!sc*/
+.lkeyoI [data-component="loadingSpinner"]{grid-area:text;margin-right:0px !important;place-self:center;}/*!sc*/
+.lkeyoI [data-component="loadingSpinner"] + [data-component="text"]{visibility:hidden;}/*!sc*/
+.lkeyoI:hover:not([disabled]):not([data-inactive]){background-color:var(--button-default-bgColor-hover,var(--color-btn-hover-bg,#f3f4f6));border-color:var(--button-default-borderColor-hover,var(--button-default-borderColor-hover,var(--color-btn-hover-border,rgba(31,35,40,0.15))));}/*!sc*/
+.lkeyoI:active:not([disabled]):not([data-inactive]){background-color:var(--button-default-bgColor-active,var(--color-btn-active-bg,hsla(220,14%,93%,1)));border-color:var(--button-default-borderColor-active,var(--button-default-borderColor-active,var(--color-btn-active-border,rgba(31,35,40,0.15))));}/*!sc*/
+.lkeyoI[aria-expanded=true]{background-color:var(--button-default-bgColor-active,var(--color-btn-active-bg,hsla(220,14%,93%,1)));border-color:var(--button-default-borderColor-active,var(--button-default-borderColor-active,var(--color-btn-active-border,rgba(31,35,40,0.15))));}/*!sc*/
+.lkeyoI [data-component="leadingVisual"],.lkeyoI [data-component="trailingVisual"],.lkeyoI [data-component="trailingAction"]{color:var(--button-color,var(--fgColor-muted,var(--color-fg-muted,#656d76)));}/*!sc*/
+.lkeyoI[data-component="IconButton"][data-no-visuals]{color:var(--fgColor-muted,var(--color-fg-muted,#656d76));}/*!sc*/
+.lkeyoI[data-no-visuals]{display:none;}/*!sc*/
+.htZXvk{border-radius:6px;border:1px solid;border-color:var(--button-default-borderColor-rest,var(--button-default-borderColor-rest,var(--color-btn-border,rgba(31,35,40,0.15))));font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-text-decoration:none;text-decoration:none;text-align:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;height:32px;padding:0 12px;gap:8px;min-width:-webkit-max-content;min-width:-moz-max-content;min-width:max-content;-webkit-transition:80ms cubic-bezier(0.65,0,0.35,1);transition:80ms cubic-bezier(0.65,0,0.35,1);-webkit-transition-property:color,fill,background-color,border-color;transition-property:color,fill,background-color,border-color;color:var(--button-default-fgColor-rest,var(--color-btn-text,#24292f));background-color:var(--button-default-bgColor-rest,var(--color-btn-bg,#f6f8fa));box-shadow:var(--button-default-shadow-resting,var(--color-btn-shadow,0 1px 0 rgba(31,35,40,0.04))),var(--button-default-shadow-inset,var(--color-btn-inset-shadow,inset 0 1px 0 rgba(255,255,255,0.25)));}/*!sc*/
+.htZXvk:focus:not(:disabled){box-shadow:none;outline:2px solid var(--fgColor-accent,var(--color-accent-fg,#0969da));outline-offset:-2px;}/*!sc*/
+.htZXvk:focus:not(:disabled):not(:focus-visible){outline:solid 1px transparent;}/*!sc*/
+.htZXvk:focus-visible:not(:disabled){box-shadow:none;outline:2px solid var(--fgColor-accent,var(--color-accent-fg,#0969da));outline-offset:-2px;}/*!sc*/
+.htZXvk[href]{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;}/*!sc*/
+.htZXvk[href]:hover{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.htZXvk:hover{-webkit-transition-duration:80ms;transition-duration:80ms;}/*!sc*/
+.htZXvk:active{-webkit-transition:none;transition:none;}/*!sc*/
+.htZXvk[data-inactive]{cursor:auto;}/*!sc*/
+.htZXvk:disabled{cursor:not-allowed;box-shadow:none;color:var(--fgColor-disabled,var(--color-primer-fg-disabled,#8c959f));border-color:var(--button-default-borderColor-disabled,var(--button-default-borderColor-rest,var(--color-btn-border,rgba(31,35,40,0.15))));background-color:var(--button-default-bgColor-disabled,var(--control-bgColor-disabled,var(--color-input-disabled-bg,rgba(175,184,193,0.2))));}/*!sc*/
+.htZXvk:disabled [data-component=ButtonCounter]{color:inherit;}/*!sc*/
+@media (forced-colors:active){.htZXvk:focus{outline:solid 1px transparent;}}/*!sc*/
+.htZXvk [data-component=ButtonCounter]{font-size:12px;background-color:var(--buttonCounter-default-bgColor-rest,var(--color-btn-counter-bg,rgba(31,35,40,0.08)));}/*!sc*/
+.htZXvk[data-component=IconButton]{display:inline-grid;padding:unset;place-content:center;width:32px;min-width:unset;}/*!sc*/
+.htZXvk[data-size="small"]{padding:0 8px;height:28px;gap:4px;font-size:12px;}/*!sc*/
+.htZXvk[data-size="small"] [data-component="text"]{line-height:calc(20 / 12);}/*!sc*/
+.htZXvk[data-size="small"] [data-component=ButtonCounter]{font-size:12px;}/*!sc*/
+.htZXvk[data-size="small"] [data-component="buttonContent"] > :not(:last-child){margin-right:4px;}/*!sc*/
+.htZXvk[data-size="small"][data-component=IconButton]{width:28px;padding:unset;}/*!sc*/
+.htZXvk[data-size="large"]{padding:0 16px;height:40px;gap:8px;}/*!sc*/
+.htZXvk[data-size="large"] [data-component="buttonContent"] > :not(:last-child){margin-right:8px;}/*!sc*/
+.htZXvk[data-size="large"][data-component=IconButton]{width:40px;padding:unset;}/*!sc*/
+.htZXvk[data-block="block"]{width:100%;}/*!sc*/
+.htZXvk[data-label-wrap="true"]{min-width:-webkit-fit-content;min-width:-moz-fit-content;min-width:fit-content;height:unset;min-height:var(--control-medium-size,2rem);}/*!sc*/
+.htZXvk[data-label-wrap="true"] [data-component="buttonContent"]{-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;-webkit-align-self:stretch;-ms-flex-item-align:stretch;align-self:stretch;padding-block:calc(var(--control-medium-paddingBlock,0.375rem) - 2px);}/*!sc*/
+.htZXvk[data-label-wrap="true"] [data-component="text"]{white-space:unset;word-break:break-word;}/*!sc*/
+.htZXvk[data-label-wrap="true"][data-size="small"]{height:unset;min-height:var(--control-small-size,1.75rem);}/*!sc*/
+.htZXvk[data-label-wrap="true"][data-size="small"] [data-component="buttonContent"]{padding-block:calc(var(--control-small-paddingBlock,0.25rem) - 2px);}/*!sc*/
+.htZXvk[data-label-wrap="true"][data-size="large"]{height:unset;min-height:var(--control-large-size,2.5rem);padding-inline:var(--control-large-paddingInline-spacious,1rem);}/*!sc*/
+.htZXvk[data-label-wrap="true"][data-size="large"] [data-component="buttonContent"]{padding-block:calc(var(--control-large-paddingBlock,0.625rem) - 2px);}/*!sc*/
+.htZXvk[data-inactive]:not([disabled]){background-color:var(--button-inactive-bgColor,var(--button-inactive-bgColor-rest,var(--color-btn-inactive-bg,#eaeef2)));border-color:var(--button-inactive-bgColor,var(--button-inactive-bgColor-rest,var(--color-btn-inactive-bg,#eaeef2)));color:var(--button-inactive-fgColor,var(--button-inactive-fgColor-rest,var(--color-btn-inactive-text,#57606a)));}/*!sc*/
+.htZXvk[data-inactive]:not([disabled]):focus-visible{box-shadow:none;}/*!sc*/
+.htZXvk [data-component="leadingVisual"]{grid-area:leadingVisual;}/*!sc*/
+.htZXvk [data-component="text"]{grid-area:text;line-height:calc(20/14);white-space:nowrap;}/*!sc*/
+.htZXvk [data-component="trailingVisual"]{grid-area:trailingVisual;}/*!sc*/
+.htZXvk [data-component="trailingAction"]{margin-right:-4px;}/*!sc*/
+.htZXvk [data-component="buttonContent"]{-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto;display:grid;grid-template-areas:"leadingVisual text trailingVisual";grid-template-columns:min-content minmax(0,auto) min-content;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;}/*!sc*/
+.htZXvk [data-component="buttonContent"] > :not(:last-child){margin-right:8px;}/*!sc*/
+.htZXvk [data-component="loadingSpinner"]{grid-area:text;margin-right:0px !important;place-self:center;}/*!sc*/
+.htZXvk [data-component="loadingSpinner"] + [data-component="text"]{visibility:hidden;}/*!sc*/
+.htZXvk:hover:not([disabled]):not([data-inactive]){background-color:var(--button-default-bgColor-hover,var(--color-btn-hover-bg,#f3f4f6));border-color:var(--button-default-borderColor-hover,var(--button-default-borderColor-hover,var(--color-btn-hover-border,rgba(31,35,40,0.15))));}/*!sc*/
+.htZXvk:active:not([disabled]):not([data-inactive]){background-color:var(--button-default-bgColor-active,var(--color-btn-active-bg,hsla(220,14%,93%,1)));border-color:var(--button-default-borderColor-active,var(--button-default-borderColor-active,var(--color-btn-active-border,rgba(31,35,40,0.15))));}/*!sc*/
+.htZXvk[aria-expanded=true]{background-color:var(--button-default-bgColor-active,var(--color-btn-active-bg,hsla(220,14%,93%,1)));border-color:var(--button-default-borderColor-active,var(--button-default-borderColor-active,var(--color-btn-active-border,rgba(31,35,40,0.15))));}/*!sc*/
+.htZXvk [data-component="leadingVisual"],.htZXvk [data-component="trailingVisual"],.htZXvk [data-component="trailingAction"]{color:var(--button-color,var(--fgColor-muted,var(--color-fg-muted,#656d76)));}/*!sc*/
+.htZXvk[data-component="IconButton"][data-no-visuals]{color:var(--fgColor-muted,var(--color-fg-muted,#656d76));}/*!sc*/
+.htZXvk[data-no-visuals]{margin-left:16px;}/*!sc*/
+@media (min-width:768px){.htZXvk[data-no-visuals]{margin-left:0;}}/*!sc*/
+@media (min-width:1012px){.htZXvk[data-no-visuals]{display:none;}}/*!sc*/
+.jCopKa{border-radius:6px;border:1px solid;border-color:transparent;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-text-decoration:none;text-decoration:none;text-align:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;height:32px;padding:0 12px;gap:8px;min-width:-webkit-max-content;min-width:-moz-max-content;min-width:max-content;-webkit-transition:80ms cubic-bezier(0.65,0,0.35,1);transition:80ms cubic-bezier(0.65,0,0.35,1);-webkit-transition-property:color,fill,background-color,border-color;transition-property:color,fill,background-color,border-color;color:var(--button-default-fgColor-rest,var(--color-btn-text,#24292f));background-color:transparent;box-shadow:none;}/*!sc*/
+.jCopKa:focus:not(:disabled){box-shadow:none;outline:2px solid var(--fgColor-accent,var(--color-accent-fg,#0969da));outline-offset:-2px;}/*!sc*/
+.jCopKa:focus:not(:disabled):not(:focus-visible){outline:solid 1px transparent;}/*!sc*/
+.jCopKa:focus-visible:not(:disabled){box-shadow:none;outline:2px solid var(--fgColor-accent,var(--color-accent-fg,#0969da));outline-offset:-2px;}/*!sc*/
+.jCopKa[href]{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;}/*!sc*/
+.jCopKa[href]:hover{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.jCopKa:hover{-webkit-transition-duration:80ms;transition-duration:80ms;}/*!sc*/
+.jCopKa:active{-webkit-transition:none;transition:none;}/*!sc*/
+.jCopKa[data-inactive]{cursor:auto;}/*!sc*/
+.jCopKa:disabled{cursor:not-allowed;box-shadow:none;color:var(--fgColor-disabled,var(--color-primer-fg-disabled,#8c959f));}/*!sc*/
+.jCopKa:disabled [data-component=ButtonCounter],.jCopKa:disabled [data-component="leadingVisual"],.jCopKa:disabled [data-component="trailingAction"]{color:inherit;}/*!sc*/
+@media (forced-colors:active){.jCopKa:focus{outline:solid 1px transparent;}}/*!sc*/
+.jCopKa [data-component=ButtonCounter]{font-size:12px;}/*!sc*/
+.jCopKa[data-component=IconButton]{display:inline-grid;padding:unset;place-content:center;width:32px;min-width:unset;}/*!sc*/
+.jCopKa[data-size="small"]{padding:0 8px;height:28px;gap:4px;font-size:12px;}/*!sc*/
+.jCopKa[data-size="small"] [data-component="text"]{line-height:calc(20 / 12);}/*!sc*/
+.jCopKa[data-size="small"] [data-component=ButtonCounter]{font-size:12px;}/*!sc*/
+.jCopKa[data-size="small"] [data-component="buttonContent"] > :not(:last-child){margin-right:4px;}/*!sc*/
+.jCopKa[data-size="small"][data-component=IconButton]{width:28px;padding:unset;}/*!sc*/
+.jCopKa[data-size="large"]{padding:0 16px;height:40px;gap:8px;}/*!sc*/
+.jCopKa[data-size="large"] [data-component="buttonContent"] > :not(:last-child){margin-right:8px;}/*!sc*/
+.jCopKa[data-size="large"][data-component=IconButton]{width:40px;padding:unset;}/*!sc*/
+.jCopKa[data-block="block"]{width:100%;}/*!sc*/
+.jCopKa[data-label-wrap="true"]{min-width:-webkit-fit-content;min-width:-moz-fit-content;min-width:fit-content;height:unset;min-height:var(--control-medium-size,2rem);}/*!sc*/
+.jCopKa[data-label-wrap="true"] [data-component="buttonContent"]{-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;-webkit-align-self:stretch;-ms-flex-item-align:stretch;align-self:stretch;padding-block:calc(var(--control-medium-paddingBlock,0.375rem) - 2px);}/*!sc*/
+.jCopKa[data-label-wrap="true"] [data-component="text"]{white-space:unset;word-break:break-word;}/*!sc*/
+.jCopKa[data-label-wrap="true"][data-size="small"]{height:unset;min-height:var(--control-small-size,1.75rem);}/*!sc*/
+.jCopKa[data-label-wrap="true"][data-size="small"] [data-component="buttonContent"]{padding-block:calc(var(--control-small-paddingBlock,0.25rem) - 2px);}/*!sc*/
+.jCopKa[data-label-wrap="true"][data-size="large"]{height:unset;min-height:var(--control-large-size,2.5rem);padding-inline:var(--control-large-paddingInline-spacious,1rem);}/*!sc*/
+.jCopKa[data-label-wrap="true"][data-size="large"] [data-component="buttonContent"]{padding-block:calc(var(--control-large-paddingBlock,0.625rem) - 2px);}/*!sc*/
+.jCopKa[data-inactive]:not([disabled]){background-color:var(--button-inactive-bgColor,var(--button-inactive-bgColor-rest,var(--color-btn-inactive-bg,#eaeef2)));border-color:var(--button-inactive-bgColor,var(--button-inactive-bgColor-rest,var(--color-btn-inactive-bg,#eaeef2)));color:var(--button-inactive-fgColor,var(--button-inactive-fgColor-rest,var(--color-btn-inactive-text,#57606a)));}/*!sc*/
+.jCopKa[data-inactive]:not([disabled]):focus-visible{box-shadow:none;}/*!sc*/
+.jCopKa [data-component="leadingVisual"]{grid-area:leadingVisual;color:var(--fgColor-muted,var(--color-fg-muted,#656d76));}/*!sc*/
+.jCopKa [data-component="text"]{grid-area:text;line-height:calc(20/14);white-space:nowrap;}/*!sc*/
+.jCopKa [data-component="trailingVisual"]{grid-area:trailingVisual;}/*!sc*/
+.jCopKa [data-component="trailingAction"]{margin-right:-4px;color:var(--fgColor-muted,var(--color-fg-muted,#656d76));}/*!sc*/
+.jCopKa [data-component="buttonContent"]{-webkit-flex:1 0 auto;-ms-flex:1 0 auto;flex:1 0 auto;display:grid;grid-template-areas:"leadingVisual text trailingVisual";grid-template-columns:min-content minmax(0,auto) min-content;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-align-content:center;-ms-flex-line-pack:center;align-content:center;}/*!sc*/
+.jCopKa [data-component="buttonContent"] > :not(:last-child){margin-right:8px;}/*!sc*/
+.jCopKa [data-component="loadingSpinner"]{grid-area:text;margin-right:0px !important;place-self:center;}/*!sc*/
+.jCopKa [data-component="loadingSpinner"] + [data-component="text"]{visibility:hidden;}/*!sc*/
+.jCopKa:hover:not([disabled]){background-color:var(--control-transparent-bgColor-hover,var(--color-action-list-item-default-hover-bg,rgba(208,215,222,0.32)));}/*!sc*/
+.jCopKa:active:not([disabled]){background-color:var(--control-transparent-bgColor-active,var(--color-action-list-item-default-active-bg,rgba(208,215,222,0.48)));}/*!sc*/
+.jCopKa[aria-expanded=true]{background-color:var(--control-transparent-bgColor-selected,var(--color-action-list-item-default-selected-bg,rgba(208,215,222,0.24)));}/*!sc*/
+.jCopKa[data-component="IconButton"][data-no-visuals]{color:var(--fgColor-muted,var(--color-fg-muted,#656d76));}/*!sc*/
+.jCopKa[data-no-visuals]{color:var(--fgColor-accent,var(--color-accent-fg,#0969da));}/*!sc*/
+.jCopKa:has([data-component="ButtonCounter"]){color:var(--button-default-fgColor-rest,var(--color-btn-text,#24292f));}/*!sc*/
+.jCopKa:disabled[data-no-visuals]{color:var(--fgColor-disabled,var(--color-primer-fg-disabled,#8c959f));}/*!sc*/
+.jCopKa:disabled[data-no-visuals] [data-component=ButtonCounter]{color:inherit;}/*!sc*/
+data-styled.g4[id="types__StyledButton-sc-ws60qy-0"]{content:"hXCKEr,jOdgLl,hmWbvh,lkeyoI,htZXvk,jCopKa,"}/*!sc*/
+.eiGLpS{display:none;}/*!sc*/
+.eiGLpS[popover]{position:absolute;padding:0.5em 0.75em;width:-webkit-max-content;width:-moz-max-content;width:max-content;margin:auto;-webkit-clip:auto;clip:auto;white-space:normal;font:normal normal 11px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";-webkit-font-smoothing:subpixel-antialiased;color:var(--fgColor-onEmphasis,var(--color-fg-on-emphasis,#ffffff));text-align:center;word-wrap:break-word;background:var(--bgColor-emphasis,var(--color-neutral-emphasis-plus,#24292f));border-radius:6px;border:0;opacity:0;max-width:250px;inset:auto;overflow:visible;}/*!sc*/
+.eiGLpS[popover]:popover-open{display:block;}/*!sc*/
+.eiGLpS[popover].\:popover-open{display:block;}/*!sc*/
+@media (forced-colors:active){.eiGLpS{outline:1px solid transparent;}}/*!sc*/
+.eiGLpS::after{position:absolute;display:block;right:0;left:0;height:var(--overlay-offset,0.25rem);content:'';}/*!sc*/
+.eiGLpS[data-direction='n']::after,.eiGLpS[data-direction='ne']::after,.eiGLpS[data-direction='nw']::after{top:100%;}/*!sc*/
+.eiGLpS[data-direction='s']::after,.eiGLpS[data-direction='se']::after,.eiGLpS[data-direction='sw']::after{bottom:100%;}/*!sc*/
+.eiGLpS[data-direction='w']::after{position:absolute;display:block;height:100%;width:8px;content:'';bottom:0;left:100%;}/*!sc*/
+.eiGLpS[data-direction='e']::after{position:absolute;display:block;height:100%;width:8px;content:'';bottom:0;right:100%;margin-left:-8px;}/*!sc*/
+@-webkit-keyframes tooltip-appear{from{opacity:0;}to{opacity:1;}}/*!sc*/
+@keyframes tooltip-appear{from{opacity:0;}to{opacity:1;}}/*!sc*/
+.eiGLpS:popover-open,.eiGLpS:popover-open::before{-webkit-animation-name:tooltip-appear;animation-name:tooltip-appear;-webkit-animation-duration:0.1s;animation-duration:0.1s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in;-webkit-animation-delay:0s;animation-delay:0s;}/*!sc*/
+.eiGLpS.\:popover-open,.eiGLpS.\:popover-open::before{-webkit-animation-name:tooltip-appear;animation-name:tooltip-appear;-webkit-animation-duration:0.1s;animation-duration:0.1s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in;-webkit-animation-delay:0s;animation-delay:0s;}/*!sc*/
+data-styled.g8[id="Tooltip__StyledTooltip-sc-e45c7z-0"]{content:"eiGLpS,"}/*!sc*/
+.daAEFx{-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);}/*!sc*/
+.gzcJGA{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg);}/*!sc*/
+data-styled.g11[id="Octicon-sc-9kayk9-0"]{content:"daAEFx,gzcJGA,"}/*!sc*/
+.bebFBv{font-weight:600;font-size:32px;margin:0;font-size:14px;}/*!sc*/
+@media (min-width:1012px) and (max-width:1400px){.bebFBv{margin-top:2rem;}}/*!sc*/
+data-styled.g28[id="Heading__StyledHeading-sc-1c1dgg0-0"]{content:"bebFBv,"}/*!sc*/
+.hgjakc{margin:0;padding-inline-start:0;padding-top:8px;padding-bottom:8px;}/*!sc*/
+data-styled.g29[id="List__ListBox-sc-1x7olzq-0"]{content:"hgjakc,"}/*!sc*/
+.itjSOb{position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding-left:8px;padding-right:8px;padding-top:6px;padding-bottom:6px;line-height:20px;min-height:5px;margin-left:8px;margin-right:8px;border-radius:6px;-webkit-transition:background 33.333ms linear;transition:background 33.333ms linear;color:var(--fgColor-default,var(--color-fg-default,#1F2328));cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;background:unset;border:unset;width:calc(100% - 16px);font-family:unset;text-align:unset;margin-top:unset;margin-bottom:unset;}/*!sc*/
+.itjSOb[data-loading]{cursor:default;}/*!sc*/
+.itjSOb[aria-disabled],.itjSOb[data-inactive]{cursor:not-allowed;}/*!sc*/
+.itjSOb[aria-disabled] [data-component="ActionList.Checkbox"],.itjSOb[data-inactive] [data-component="ActionList.Checkbox"]{cursor:not-allowed;background-color:var(--color-input-disabled-bg,rgba(175,184,193,0.2));border-color:var(--color-input-disabled-bg,rgba(175,184,193,0.2));}/*!sc*/
+@media (forced-colors:active){.itjSOb:focus,.itjSOb:focus-visible,.itjSOb > a.focus-visible{outline:solid 1px transparent !important;}}/*!sc*/
+.itjSOb [data-component="ActionList.Item--DividerContainer"]{position:relative;}/*!sc*/
+.itjSOb [data-component="ActionList.Item--DividerContainer"]::before{content:" ";display:block;position:absolute;width:100%;top:-7px;border:0 solid;border-top-width:0;border-color:var(--divider-color,transparent);}/*!sc*/
+.itjSOb:not(:first-of-type){--divider-color:var(--borderColor-muted,var(--color-action-list-item-inline-divider,rgba(208,215,222,0.48)));}/*!sc*/
+[data-component="ActionList.Divider"] + .Item__LiBox-sc-yeql7o-0{--divider-color:transparent !important;}/*!sc*/
+.itjSOb:hover:not([aria-disabled]):not([data-inactive]):not([data-loading]),.itjSOb[data-focus-visible-added]:not([aria-disabled]):not([data-inactive]){--divider-color:transparent;}/*!sc*/
+.itjSOb:hover:not([aria-disabled]):not([data-inactive]):not([data-loading]) + .Item__LiBox-sc-yeql7o-0,.itjSOb[data-focus-visible-added] + li{--divider-color:transparent;}/*!sc*/
+@media (hover:hover) and (pointer:fine){.itjSOb:hover:not([aria-disabled]):not([data-inactive]){background-color:var(--control-transparent-bgColor-hover,var(--color-action-list-item-default-hover-bg,rgba(208,215,222,0.32)));color:var(--fgColor-default,var(--color-fg-default,#1F2328));box-shadow:inset 0 0 0 max(1px,0.0625rem) var(--control-transparent-borderColor-active,var(--color-action-list-item-default-active-border,transparent));}.itjSOb:focus-visible,.itjSOb > a.focus-visible,.itjSOb:focus.focus-visible{outline:none;border:2 solid;box-shadow:0 0 0 2px var(--bgColor-accent-emphasis,var(--color-accent-emphasis,#0969da));}.itjSOb:active:not([aria-disabled]):not([data-inactive]){background-color:var(--control-transparent-bgColor-active,var(--color-action-list-item-default-active-bg,rgba(208,215,222,0.48)));color:var(--fgColor-default,var(--color-fg-default,#1F2328));}}/*!sc*/
+.lnYQME{position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding-left:0;padding-right:0;font-size:14px;padding-top:0;padding-bottom:0;line-height:20px;min-height:5px;margin-left:8px;margin-right:8px;border-radius:6px;-webkit-transition:background 33.333ms linear;transition:background 33.333ms linear;color:var(--fgColor-default,var(--color-fg-default,#1F2328));cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;background:unset;border:unset;width:calc(100% - 16px);font-family:unset;text-align:unset;margin-top:unset;margin-bottom:unset;}/*!sc*/
+.lnYQME[data-loading]{cursor:default;}/*!sc*/
+.lnYQME[aria-disabled],.lnYQME[data-inactive]{cursor:not-allowed;}/*!sc*/
+.lnYQME[aria-disabled] [data-component="ActionList.Checkbox"],.lnYQME[data-inactive] [data-component="ActionList.Checkbox"]{cursor:not-allowed;background-color:var(--color-input-disabled-bg,rgba(175,184,193,0.2));border-color:var(--color-input-disabled-bg,rgba(175,184,193,0.2));}/*!sc*/
+@media (forced-colors:active){.lnYQME:focus,.lnYQME:focus-visible,.lnYQME > a.focus-visible{outline:solid 1px transparent !important;}}/*!sc*/
+.lnYQME [data-component="ActionList.Item--DividerContainer"]{position:relative;}/*!sc*/
+.lnYQME [data-component="ActionList.Item--DividerContainer"]::before{content:" ";display:block;position:absolute;width:100%;top:-7px;border:0 solid;border-top-width:0;border-color:var(--divider-color,transparent);}/*!sc*/
+.lnYQME:not(:first-of-type){--divider-color:var(--borderColor-muted,var(--color-action-list-item-inline-divider,rgba(208,215,222,0.48)));}/*!sc*/
+[data-component="ActionList.Divider"] + .Item__LiBox-sc-yeql7o-0{--divider-color:transparent !important;}/*!sc*/
+.lnYQME:hover:not([aria-disabled]):not([data-inactive]):not([data-loading]),.lnYQME[data-focus-visible-added]:not([aria-disabled]):not([data-inactive]){--divider-color:transparent;}/*!sc*/
+.lnYQME:hover:not([aria-disabled]):not([data-inactive]):not([data-loading]) + .Item__LiBox-sc-yeql7o-0,.lnYQME[data-focus-visible-added] + li{--divider-color:transparent;}/*!sc*/
+@media (hover:hover) and (pointer:fine){.lnYQME:hover:not([aria-disabled]):not([data-inactive]){background-color:var(--control-transparent-bgColor-hover,var(--color-action-list-item-default-hover-bg,rgba(208,215,222,0.32)));color:var(--fgColor-default,var(--color-fg-default,#1F2328));box-shadow:inset 0 0 0 max(1px,0.0625rem) var(--control-transparent-borderColor-active,var(--color-action-list-item-default-active-border,transparent));}.lnYQME:focus-visible,.lnYQME > a.focus-visible,.lnYQME:focus.focus-visible{outline:none;border:2 solid;box-shadow:0 0 0 2px var(--bgColor-accent-emphasis,var(--color-accent-emphasis,#0969da));}.lnYQME:active:not([aria-disabled]):not([data-inactive]){background-color:var(--control-transparent-bgColor-active,var(--color-action-list-item-default-active-bg,rgba(208,215,222,0.48)));color:var(--fgColor-default,var(--color-fg-default,#1F2328));}}/*!sc*/
+.hTSEii{position:relative;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;padding-left:0;padding-right:0;font-size:14px;padding-top:0;padding-bottom:0;line-height:20px;min-height:5px;margin-left:8px;margin-right:8px;border-radius:6px;-webkit-transition:background 33.333ms linear;transition:background 33.333ms linear;color:var(--fgColor-default,var(--color-fg-default,#1F2328));cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;background:unset;border:unset;width:calc(100% - 16px);font-family:unset;text-align:unset;margin-top:unset;margin-bottom:unset;font-weight:600;background-color:var(--control-transparent-bgColor-selected,var(--color-action-list-item-default-selected-bg,rgba(208,215,222,0.24)));}/*!sc*/
+.hTSEii[data-loading]{cursor:default;}/*!sc*/
+.hTSEii[aria-disabled],.hTSEii[data-inactive]{cursor:not-allowed;}/*!sc*/
+.hTSEii[aria-disabled] [data-component="ActionList.Checkbox"],.hTSEii[data-inactive] [data-component="ActionList.Checkbox"]{cursor:not-allowed;background-color:var(--color-input-disabled-bg,rgba(175,184,193,0.2));border-color:var(--color-input-disabled-bg,rgba(175,184,193,0.2));}/*!sc*/
+@media (forced-colors:active){.hTSEii:focus,.hTSEii:focus-visible,.hTSEii > a.focus-visible{outline:solid 1px transparent !important;}}/*!sc*/
+.hTSEii [data-component="ActionList.Item--DividerContainer"]{position:relative;}/*!sc*/
+.hTSEii [data-component="ActionList.Item--DividerContainer"]::before{content:" ";display:block;position:absolute;width:100%;top:-7px;border:0 solid;border-top-width:0;border-color:var(--divider-color,transparent);}/*!sc*/
+.hTSEii:not(:first-of-type){--divider-color:var(--borderColor-muted,var(--color-action-list-item-inline-divider,rgba(208,215,222,0.48)));}/*!sc*/
+[data-component="ActionList.Divider"] + .Item__LiBox-sc-yeql7o-0{--divider-color:transparent !important;}/*!sc*/
+.hTSEii:hover:not([aria-disabled]):not([data-inactive]):not([data-loading]),.hTSEii[data-focus-visible-added]:not([aria-disabled]):not([data-inactive]){--divider-color:transparent;}/*!sc*/
+.hTSEii:hover:not([aria-disabled]):not([data-inactive]):not([data-loading]) + .Item__LiBox-sc-yeql7o-0,.hTSEii[data-focus-visible-added] + li{--divider-color:transparent;}/*!sc*/
+.hTSEii::after{position:absolute;top:calc(50% - 12px);left:-8px;width:4px;height:24px;content:"";background-color:var(--fgColor-accent,var(--color-accent-fg,#0969da));border-radius:6px;}/*!sc*/
+@media (hover:hover) and (pointer:fine){.hTSEii:hover:not([aria-disabled]):not([data-inactive]){background-color:var(--control-transparent-bgColor-hover,var(--color-action-list-item-default-hover-bg,rgba(208,215,222,0.32)));color:var(--fgColor-default,var(--color-fg-default,#1F2328));box-shadow:inset 0 0 0 max(1px,0.0625rem) var(--control-transparent-borderColor-active,var(--color-action-list-item-default-active-border,transparent));}.hTSEii:focus-visible,.hTSEii > a.focus-visible,.hTSEii:focus.focus-visible{outline:none;border:2 solid;box-shadow:0 0 0 2px var(--bgColor-accent-emphasis,var(--color-accent-emphasis,#0969da));}.hTSEii:active:not([aria-disabled]):not([data-inactive]){background-color:var(--control-transparent-bgColor-active,var(--color-action-list-item-default-active-bg,rgba(208,215,222,0.48)));color:var(--fgColor-default,var(--color-fg-default,#1F2328));}}/*!sc*/
+data-styled.g31[id="Item__LiBox-sc-yeql7o-0"]{content:"itjSOb,lnYQME,hTSEii,"}/*!sc*/
+.fuIgwR{color:var(--fgColor-accent,var(--color-accent-fg,#0969da));-webkit-text-decoration:none;text-decoration:none;padding-left:16px;padding-right:8px;padding-top:6px;padding-bottom:6px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-webkit-flex-grow:1;-ms-flex-positive:1;flex-grow:1;border-radius:6px;color:inherit;font-size:12px;font-weight:400;}/*!sc*/
+[data-a11y-link-underlines='true'] .Link__StyledLink-sc-14289xe-0[data-inline='true']{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.fuIgwR:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.fuIgwR:is(button){display:inline-block;padding:0;font-size:inherit;white-space:nowrap;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-color:transparent;border:0;-webkit-appearance:none;-moz-appearance:none;appearance:none;}/*!sc*/
+.fuIgwR:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cJbOew{color:var(--fgColor-accent,var(--color-accent-fg,#0969da));-webkit-text-decoration:none;text-decoration:none;padding-left:8px;padding-right:8px;padding-top:6px;padding-bottom:6px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-flex:1;-webkit-flex-grow:1;-ms-flex-positive:1;flex-grow:1;border-radius:6px;color:inherit;}/*!sc*/
+[data-a11y-link-underlines='true'] .Link__StyledLink-sc-14289xe-0[data-inline='true']{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.cJbOew:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.cJbOew:is(button){display:inline-block;padding:0;font-size:inherit;white-space:nowrap;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-color:transparent;border:0;-webkit-appearance:none;-moz-appearance:none;appearance:none;}/*!sc*/
+.cJbOew:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g32[id="Link__StyledLink-sc-14289xe-0"]{content:"fuIgwR,cJbOew,"}/*!sc*/
+.cnCOhW{font-size:14px;line-height:20px;color:var(--fgColor-default,var(--color-fg-default,#1F2328));vertical-align:middle;background-color:var(--bgColor-default,var(--color-canvas-default,#ffffff));border:1px solid var(--control-borderColor-rest,var(--borderColor-default,var(--color-border-default,#d0d7de)));border-radius:6px;outline:none;box-shadow:var(--shadow-inset,var(--color-primer-shadow-inset,inset 0 1px 0 rgba(208,215,222,0.2)));display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:stretch;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;min-height:32px;overflow:hidden;width:100%;height:2rem;-webkit-transition:width 0.3s ease-in-out;transition:width 0.3s ease-in-out;border-bottom-right-radius:unset;border-top-right-radius:unset;border-right:none;min-width:15rem;}/*!sc*/
+.cnCOhW input,.cnCOhW textarea{cursor:text;}/*!sc*/
+.cnCOhW select{cursor:pointer;}/*!sc*/
+.cnCOhW input::-webkit-input-placeholder,.cnCOhW textarea::-webkit-input-placeholder,.cnCOhW select::-webkit-input-placeholder{color:var(---control-fgColor-placeholder,var(--fgColor-muted,var(--color-fg-muted,#656d76)));}/*!sc*/
+.cnCOhW input::-moz-placeholder,.cnCOhW textarea::-moz-placeholder,.cnCOhW select::-moz-placeholder{color:var(---control-fgColor-placeholder,var(--fgColor-muted,var(--color-fg-muted,#656d76)));}/*!sc*/
+.cnCOhW input:-ms-input-placeholder,.cnCOhW textarea:-ms-input-placeholder,.cnCOhW select:-ms-input-placeholder{color:var(---control-fgColor-placeholder,var(--fgColor-muted,var(--color-fg-muted,#656d76)));}/*!sc*/
+.cnCOhW input::placeholder,.cnCOhW textarea::placeholder,.cnCOhW select::placeholder{color:var(---control-fgColor-placeholder,var(--fgColor-muted,var(--color-fg-muted,#656d76)));}/*!sc*/
+.cnCOhW:focus-within{border-color:var(--fgColor-accent,var(--color-accent-fg,#0969da));outline:2px solid var(--fgColor-accent,var(--color-accent-fg,#0969da));outline-offset:-1px;}/*!sc*/
+.cnCOhW > textarea{padding:12px;}/*!sc*/
+@media (min-width:768px){.cnCOhW{font-size:14px;}}/*!sc*/
+data-styled.g34[id="TextInputWrapper__TextInputBaseWrapper-sc-1mqhpbi-0"]{content:"cnCOhW,"}/*!sc*/
+.hmJNAM{background-repeat:no-repeat;background-position:right 8px center;padding-left:0;padding-right:0;width:100%;height:2rem;-webkit-transition:width 0.3s ease-in-out;transition:width 0.3s ease-in-out;border-bottom-right-radius:unset;border-top-right-radius:unset;border-right:none;min-width:15rem;}/*!sc*/
+.hmJNAM > :not(:last-child){margin-right:8px;}/*!sc*/
+.hmJNAM .TextInput-icon,.hmJNAM .TextInput-action{-webkit-align-self:center;-ms-flex-item-align:center;align-self:center;color:var(--fgColor-muted,var(--color-fg-muted,#656d76));-webkit-flex-shrink:0;-ms-flex-negative:0;flex-shrink:0;}/*!sc*/
+.hmJNAM > input,.hmJNAM > select{padding-left:12px;padding-right:12px;}/*!sc*/
+data-styled.g35[id="TextInputWrapper-sc-1mqhpbi-1"]{content:"hmJNAM,"}/*!sc*/
+.jvumlb{border:0;font-size:inherit;font-family:inherit;background-color:transparent;-webkit-appearance:none;color:inherit;width:100%;}/*!sc*/
+.jvumlb:focus{outline:0;}/*!sc*/
+data-styled.g36[id="UnstyledTextInput-sc-14ypya-0"]{content:"jvumlb,"}/*!sc*/
+</style>
+ </head>
+ <body>
+  <div id="__next">
+   <a href="#main-content" class="visually-hidden skip-button color-bg-accent-emphasis color-fg-on-emphasis">Skip to main content</a>
+   <div data-container="header" class="border-bottom d-unset color-border-muted no-print z-3 color-bg-default Header_header__frpqb">
+    <div data-container="notifications"></div>
+    <header class="color-bg-default p-2 position-sticky top-0 z-1 border-bottom" role="banner" aria-label="Main">
+     <div class="d-flex flex-justify-between p-2 flex-items-center flex-wrap" style="row-gap:1rem" data-testid="desktop-header">
+      <div tabindex="-1" class="Header_logoWithClosedSearch__zhF6Q" id="github-logo">
+       <a rel="" class="d-flex flex-items-center color-fg-default no-underline mr-3" href="/en">
+        <svg aria-hidden="true" focusable="false" class="octicon octicon-mark-github" viewBox="0 0 24 24" width="32" height="32" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+         <path d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z"></path>
+        </svg><span class="h4 text-semibold ml-2 mr-3">GitHub Docs</span></a>
+       <div class="hide-sm border-left pl-3">
+        <div data-testid="version-picker" class="">
+         <button type="button" aria-label="Select GitHub product version: current version is free-pro-team@latest" class="types__StyledButton-sc-ws60qy-0 hXCKEr color-fg-default width-full p-1 pl-2 pr-2" aria-haspopup="true" aria-expanded="false" tabindex="0" data-loading="false" aria-describedby=":Ripn6:-loading-announcement" id=":Ripn6:"><span data-component="buttonContent" class="Box-sc-g0xbh4-0 cEhRXB"><span data-component="text"><span style="white-space:pre-wrap">Version: </span><span class="f5 color-fg-muted text-normal" data-testid="field">Free, Pro, &amp; Team</span></span></span><span data-component="trailingAction" class="Box-sc-g0xbh4-0 dmdEgz">
+           <svg aria-hidden="true" focusable="false" class="octicon octicon-triangle-down" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+            <path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427Z"></path>
+           </svg></span></button>
+        </div>
+       </div>
+      </div>
+      <div class="d-flex flex-items-center">
+       <div class="OldHeaderSearchAndWidgets_searchContainerWithClosedSearch__Lkq6t mr-3">
+        <div data-testid="search">
+         <div class="position-relative z-2">
+          <form role="search" class="width-full d-flex">
+           <meta name="viewport" content="width=device-width initial-scale=1"><label class="text-normal width-full"><span class="visually-hidden" aria-describedby="Enter a search term to find it in the GitHub Docs.">Search GitHub Docs</span><span class="TextInputWrapper__TextInputBaseWrapper-sc-1mqhpbi-0 TextInputWrapper-sc-1mqhpbi-1 cnCOhW hmJNAM TextInput-wrapper" aria-busy="false"><input type="search" aria-required="true" data-testid="site-search-input" placeholder="Search GitHub Docs" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="512" aria-label="Search GitHub Docs" aria-describedby="Enter a search term to find it in the GitHub Docs." data-component="input" class="UnstyledTextInput-sc-14ypya-0 jvumlb" value=""></span></label><button data-component="IconButton" type="submit" data-loading="false" data-no-visuals="true" aria-describedby=":Rucpn6:-loading-announcement" aria-labelledby=":R6cpn6:" class="types__StyledButton-sc-ws60qy-0 jOdgLl">
+            <svg aria-hidden="true" focusable="false" class="octicon octicon-search" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+             <path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z"></path>
+            </svg></button><span data-direction="s" aria-hidden="true" id=":R6cpn6:" class="Tooltip__StyledTooltip-sc-e45c7z-0 eiGLpS">Search</span>
+          </form>
+         </div>
+        </div>
+       </div>
+       <div class="d-none d-lg-flex flex-items-center">
+        <div data-testid="language-picker" class="d-flex">
+         <button data-component="IconButton" type="button" aria-haspopup="true" aria-expanded="false" tabindex="0" data-loading="false" data-no-visuals="true" aria-describedby=":Rkpn6:-loading-announcement" aria-labelledby=":Rukpn6:" id=":Rkpn6:" class="types__StyledButton-sc-ws60qy-0 hmWbvh">
+          <svg aria-hidden="true" focusable="false" class="octicon octicon-globe" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+           <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM5.78 8.75a9.64 9.64 0 0 0 1.363 4.177c.255.426.542.832.857 1.215.245-.296.551-.705.857-1.215A9.64 9.64 0 0 0 10.22 8.75Zm4.44-1.5a9.64 9.64 0 0 0-1.363-4.177c-.307-.51-.612-.919-.857-1.215a9.927 9.927 0 0 0-.857 1.215A9.64 9.64 0 0 0 5.78 7.25Zm-5.944 1.5H1.543a6.507 6.507 0 0 0 4.666 5.5c-.123-.181-.24-.365-.352-.552-.715-1.192-1.437-2.874-1.581-4.948Zm-2.733-1.5h2.733c.144-2.074.866-3.756 1.58-4.948.12-.197.237-.381.353-.552a6.507 6.507 0 0 0-4.666 5.5Zm10.181 1.5c-.144 2.074-.866 3.756-1.58 4.948-.12.197-.237.381-.353.552a6.507 6.507 0 0 0 4.666-5.5Zm2.733-1.5a6.507 6.507 0 0 0-4.666-5.5c.123.181.24.365.353.552.714 1.192 1.436 2.874 1.58 4.948Z"></path>
+          </svg></button><span data-direction="s" aria-hidden="true" id=":Rukpn6:" class="Tooltip__StyledTooltip-sc-e45c7z-0 eiGLpS">Select language: current language is English</span>
+        </div>
+       </div><button data-component="IconButton" type="button" class="types__StyledButton-sc-ws60qy-0 hmWbvh hide-lg hide-xl d-flex flex-items-center" data-testid="mobile-search-button" aria-expanded="false" data-loading="false" data-no-visuals="true" aria-describedby=":R74pn6:-loading-announcement" aria-labelledby=":R14pn6:">
+        <svg aria-hidden="true" focusable="false" class="octicon octicon-search" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+         <path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z"></path>
+        </svg></button><span data-direction="s" aria-hidden="true" id=":R14pn6:" class="Tooltip__StyledTooltip-sc-e45c7z-0 eiGLpS">Open Search Bar</span><button data-component="IconButton" type="button" class="types__StyledButton-sc-ws60qy-0 lkeyoI px-3" data-testid="mobile-search-button" aria-expanded="false" data-loading="false" data-no-visuals="true" aria-describedby=":R7cpn6:-loading-announcement" aria-labelledby=":R1cpn6:">
+        <svg aria-hidden="true" focusable="false" class="octicon octicon-x" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+         <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z"></path>
+        </svg></button><span data-direction="s" aria-hidden="true" id=":R1cpn6:" class="Tooltip__StyledTooltip-sc-e45c7z-0 eiGLpS">Close Search Bar</span>
+       <div>
+        <button data-component="IconButton" type="button" data-testid="mobile-menu" aria-haspopup="true" aria-expanded="false" tabindex="0" data-loading="false" data-no-visuals="true" aria-describedby=":R1kpn6:-loading-announcement" aria-labelledby=":Rvkpn6:" id=":R1kpn6:" class="types__StyledButton-sc-ws60qy-0 htZXvk">
+         <svg aria-hidden="true" focusable="false" class="octicon octicon-kebab-horizontal" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+          <path d="M8 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM1.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm13 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"></path>
+         </svg></button><span data-direction="s" aria-hidden="true" id=":Rvkpn6:" class="Tooltip__StyledTooltip-sc-e45c7z-0 eiGLpS">Open Menu</span>
+       </div>
+      </div>
+     </div>
+     <div class="d-flex flex-items-center d-xxl-none mt-2" data-testid="header-subnav">
+      <div class="mr-2" data-testid="header-subnav-hamburger">
+       <button data-component="IconButton" type="button" data-testid="sidebar-hamburger" class="types__StyledButton-sc-ws60qy-0 jCopKa color-fg-muted" data-loading="false" data-no-visuals="true" aria-describedby=":R3b9n6:-loading-announcement" aria-labelledby=":Rb9n6:">
+        <svg aria-hidden="true" focusable="false" class="octicon octicon-three-bars" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+         <path d="M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75Zm0 5A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75ZM1.75 12h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Z"></path>
+        </svg></button><span data-direction="s" aria-hidden="true" id=":Rb9n6:" class="Tooltip__StyledTooltip-sc-e45c7z-0 eiGLpS">Open Sidebar</span>
+      </div>
+      <div class="mr-auto width-full" data-search="breadcrumbs">
+       <nav data-testid="breadcrumbs-header" class="f5 breadcrumbs Breadcrumbs_breadcrumbs__xAC4i" aria-label="Breadcrumb" data-container="breadcrumbs">
+        <ul>
+         <li class="d-inline-block"><a rel="" data-testid="breadcrumb-link" title="Search on GitHub" class="Link--primary mr-2 color-fg-muted" href="/en/search-github">Search on GitHub</a><span class="color-fg-muted pr-2">/</span></li>
+         <li class="d-inline-block"><a rel="" data-testid="breadcrumb-link" title="GitHub Code Search" class="Link--primary mr-2 color-fg-muted" href="/en/search-github/github-code-search">GitHub Code Search</a><span class="color-fg-muted pr-2">/</span></li>
+         <li class="d-inline-block"><a rel="" data-testid="breadcrumb-link" title="Code search syntax" class="Link--primary mr-2 color-fg-muted" href="/en/search-github/github-code-search/understanding-github-code-search-syntax">Code search syntax</a></li>
+        </ul>
+       </nav>
+      </div>
+     </div>
+    </header>
+   </div>
+   <div class="d-lg-flex">
+    <div data-container="nav" class="position-sticky d-none border-right d-xxl-block" style="width:326px;height:calc(100vh - 65px);top:65px">
+     <nav aria-labelledby="allproducts-menu">
+      <div class="d-none px-4 pb-3 border-bottom d-xxl-block">
+       <div class="mt-3">
+        <a rel="" class="f6 pl-2 pr-5 ml-n1 pb-1 Link--primary color-fg-default" href="/en">
+         <svg aria-hidden="true" focusable="false" class="octicon octicon-arrow-left mr-1" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+          <path d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06Z"></path>
+         </svg>Home</a>
+       </div>
+       <div class="mt-3" id="allproducts-menu">
+        <a rel="" data-testid="sidebar-product-xl" class="d-block pl-1 mb-2 h3 color-fg-default no-underline _product-title" href="/en/search-github">Search on GitHub</a>
+       </div>
+      </div>
+      <div class="border-right d-none d-xxl-block bg-primary overflow-y-auto flex-shrink-0" style="width:326px;height:calc(100vh - 175px);padding-bottom:185px">
+       <div data-testid="sidebar" style="overflow-y:auto" class="pt-3">
+        <div class="ml-3" data-testid="product-sidebar">
+         <nav aria-label="Product sidebar" class="NavList__NavBox-sc-1c8ygf7-0">
+          <ul class="List__ListBox-sc-1x7olzq-0 hgjakc">
+           <li aria-labelledby=":R3b6n6:" class="Box-sc-g0xbh4-0 Ywlla"><button tabindex="0" aria-labelledby=":R3b6n6:--label " id=":R3b6n6:" aria-expanded="false" aria-controls=":R3b6n6H1:" class="Item__LiBox-sc-yeql7o-0 itjSOb">
+             <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+              <div class="Box-sc-g0xbh4-0 cUxMoC">
+               <span id=":R3b6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Start with search on GitHub</span><span class="Box-sc-g0xbh4-0 lmYNOb">
+                <svg sx="[object Object]" aria-hidden="true" focusable="false" class="octicon octicon-chevron-down Octicon-sc-9kayk9-0 daAEFx" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+                 <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                </svg></span>
+              </div>
+             </div></button>
+            <div>
+             <ul id=":R3b6n6H1:" aria-labelledby=":R3b6n6:" class="Box-sc-g0xbh4-0 gMkIpo">
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":Rdbb6n6:--label " id=":Rdbb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/getting-started-with-searching-on-github/about-searching-on-github">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":Rdbb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">About searching on GitHub</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":Rlbb6n6:--label " id=":Rlbb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":Rlbb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Understand search syntax</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":Rtbb6n6:--label " id=":Rtbb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/getting-started-with-searching-on-github/troubleshooting-search-queries">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":Rtbb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Troubleshoot search queries</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":R15bb6n6:--label " id=":R15bb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/getting-started-with-searching-on-github/sorting-search-results">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":R15bb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Sorting search results</span>
+                </div></a></li>
+             </ul>
+            </div></li>
+           <li aria-labelledby=":R5b6n6:" class="Box-sc-g0xbh4-0 Ywlla"><button tabindex="0" aria-labelledby=":R5b6n6:--label " id=":R5b6n6:" aria-expanded="false" aria-controls=":R5b6n6H1:" class="Item__LiBox-sc-yeql7o-0 itjSOb">
+             <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+              <div class="Box-sc-g0xbh4-0 cUxMoC">
+               <span id=":R5b6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Searching on GitHub</span><span class="Box-sc-g0xbh4-0 lmYNOb">
+                <svg sx="[object Object]" aria-hidden="true" focusable="false" class="octicon octicon-chevron-down Octicon-sc-9kayk9-0 daAEFx" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+                 <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                </svg></span>
+              </div>
+             </div></button>
+            <div>
+             <ul id=":R5b6n6H1:" aria-labelledby=":R5b6n6:" class="Box-sc-g0xbh4-0 gMkIpo">
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":Rddb6n6:--label " id=":Rddb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/searching-on-github/finding-files-on-github">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":Rddb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Finding files on GitHub</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":Rldb6n6:--label " id=":Rldb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/searching-on-github/searching-for-repositories">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":Rldb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Search for repositories</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":Rtdb6n6:--label " id=":Rtdb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/searching-on-github/searching-topics">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":Rtdb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Searching topics</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":R15db6n6:--label " id=":R15db6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/searching-on-github/searching-code">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":R15db6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Searching code (legacy)</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":R1ddb6n6:--label " id=":R1ddb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/searching-on-github/searching-commits">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":R1ddb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Searching commits</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":R1ldb6n6:--label " id=":R1ldb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/searching-on-github/searching-issues-and-pull-requests">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":R1ldb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Search issues &amp; PRs</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":R1tdb6n6:--label " id=":R1tdb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/searching-on-github/searching-discussions">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":R1tdb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Searching discussions</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":R25db6n6:--label " id=":R25db6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/searching-on-github/searching-github-marketplace">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":R25db6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Search GitHub Marketplace</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":R2ddb6n6:--label " id=":R2ddb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/searching-on-github/searching-github-models">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":R2ddb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Search GitHub Models</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":R2ldb6n6:--label " id=":R2ldb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/searching-on-github/searching-users">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":R2ldb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Searching users</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":R2tdb6n6:--label " id=":R2tdb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/searching-on-github/searching-for-packages">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":R2tdb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Searching for packages</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":R35db6n6:--label " id=":R35db6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/searching-on-github/searching-wikis">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":R35db6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Searching wikis</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":R3ddb6n6:--label " id=":R3ddb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/searching-on-github/searching-in-forks">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":R3ddb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Searching in forks</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":R3ldb6n6:--label " id=":R3ldb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/searching-on-github/searching-gists">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":R3ldb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Searching gists</span>
+                </div></a></li>
+             </ul>
+            </div></li>
+           <li aria-labelledby=":R7b6n6:" class="Box-sc-g0xbh4-0 Ywlla"><button tabindex="0" aria-labelledby=":R7b6n6:--label " id=":R7b6n6:" aria-expanded="true" aria-controls=":R7b6n6H1:" class="Item__LiBox-sc-yeql7o-0 itjSOb">
+             <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+              <div class="Box-sc-g0xbh4-0 cUxMoC">
+               <span id=":R7b6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">GitHub Code Search</span><span class="Box-sc-g0xbh4-0 lmYNOb">
+                <svg sx="[object Object]" aria-hidden="true" focusable="false" class="octicon octicon-chevron-down Octicon-sc-9kayk9-0 gzcJGA" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+                 <path d="M12.78 5.22a.749.749 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.06 0L3.22 6.28a.749.749 0 1 1 1.06-1.06L8 8.939l3.72-3.719a.749.749 0 0 1 1.06 0Z"></path>
+                </svg></span>
+              </div>
+             </div></button>
+            <div>
+             <ul id=":R7b6n6H1:" aria-labelledby=":R7b6n6:" class="Box-sc-g0xbh4-0 enEvIH">
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":Rdfb6n6:--label " id=":Rdfb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/github-code-search/about-github-code-search">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":Rdfb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">About GitHub Code Search</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a sx="[object Object]" tabindex="0" aria-labelledby=":Rlfb6n6:--label " id=":Rlfb6n6:" aria-current="false" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/github-code-search/using-github-code-search">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":Rlfb6n6:--label" class="Box-sc-g0xbh4-0 bmseMA">Using GitHub Code Search</span>
+                </div></a></li>
+              <li class="Item__LiBox-sc-yeql7o-0 hTSEii"><a sx="[object Object]" tabindex="0" aria-labelledby=":Rtfb6n6:--label " id=":Rtfb6n6:" aria-current="page" class="Link__StyledLink-sc-14289xe-0 fuIgwR" href="/en/search-github/github-code-search/understanding-github-code-search-syntax">
+                <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+                 <span id=":Rtfb6n6:--label" class="Box-sc-g0xbh4-0 ivpQTm">Code search syntax</span>
+                </div></a></li>
+             </ul>
+            </div></li>
+          </ul>
+         </nav>
+        </div>
+       </div>
+      </div>
+     </nav>
+    </div>
+    <div class="flex-column flex-1 min-width-0">
+     <main id="main-content" style="scroll-margin-top:5rem">
+      <div class="container-xl px-3 px-md-6 my-4">
+       <div class="d-none d-xxl-block mt-3 mr-auto width-full">
+        <nav data-testid="breadcrumbs-in-article" class="f5 breadcrumbs Breadcrumbs_breadcrumbs__xAC4i" aria-label="Breadcrumb" data-container="breadcrumbs">
+         <ul>
+          <li class="d-inline-block"><a rel="" data-testid="breadcrumb-link" title="Search on GitHub" class="Link--primary mr-2 color-fg-muted" href="/en/search-github">Search on GitHub</a><span class="color-fg-muted pr-2">/</span></li>
+          <li class="d-inline-block"><a rel="" data-testid="breadcrumb-link" title="GitHub Code Search" class="Link--primary mr-2 color-fg-muted" href="/en/search-github/github-code-search">GitHub Code Search</a><span class="color-fg-muted pr-2">/</span></li>
+          <li class="d-inline-block"><a rel="" data-testid="breadcrumb-link" title="Code search syntax" class="Link--primary mr-2 color-fg-muted d-none" href="/en/search-github/github-code-search/understanding-github-code-search-syntax">Code search syntax</a></li>
+         </ul>
+        </nav>
+       </div>
+       <div class="ArticleGridLayout_containerBox__lLLio">
+        <div class="Box-sc-g0xbh4-0 eQiQea">
+         <div class="d-flex flex-items-baseline flex-justify-between" data-container="title">
+          <h1 id="title-h1" class="border-bottom-0">Understanding GitHub Code Search syntax</h1>
+         </div>
+        </div>
+        <div id="article-intro" class="Box-sc-g0xbh4-0 ijSsTo f4 pb-4">
+         <div class="f2 color-fg-muted mb-3 Lead_container__m3L5f _page-intro" data-container="lead" data-testid="lead" data-search="lead">
+          <p>You can build search queries for the results you want with specialized code qualifiers, regular expressions, and boolean operations.</p>
+         </div>
+        </div>
+        <div data-container="toc" class="Box-sc-g0xbh4-0 giVcWX ArticleGridLayout_sidebarBox__Cj_03 border-bottom border-lg-0 pb-4 mb-5 pb-xl-0 mb-xl-0">
+         <h2 id="in-this-article" class="Heading__StyledHeading-sc-1c1dgg0-0 bebFBv mb-1 ml-3" aria-label="In this article">In this article</h2>
+         <nav data-testid="minitoc" class="NavList__NavBox-sc-1c8ygf7-0 Minitocs_miniToc__NaGol my-2" aria-labelledby="in-this-article">
+          <ul class="List__ListBox-sc-1x7olzq-0 hgjakc">
+           <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a tabindex="0" aria-labelledby=":R4dkteqn6:--label " id=":R4dkteqn6:" aria-current="false" href="#about-code-search-query-structure" class="Link__StyledLink-sc-14289xe-0 cJbOew Minitocs_nested__JSAov">
+             <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+              <span id=":R4dkteqn6:--label" class="Box-sc-g0xbh4-0 bmseMA">About code search query structure</span>
+             </div></a></li>
+           <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a tabindex="0" aria-labelledby=":R4lkteqn6:--label " id=":R4lkteqn6:" aria-current="false" href="#query-for-an-exact-match" class="Link__StyledLink-sc-14289xe-0 cJbOew Minitocs_nested__JSAov">
+             <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+              <span id=":R4lkteqn6:--label" class="Box-sc-g0xbh4-0 bmseMA">Query for an exact match</span>
+             </div></a></li>
+           <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a tabindex="0" aria-labelledby=":R4tkteqn6:--label " id=":R4tkteqn6:" aria-current="false" href="#searching-for-quotes-and-backslashes" class="Link__StyledLink-sc-14289xe-0 cJbOew Minitocs_nested__JSAov">
+             <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+              <span id=":R4tkteqn6:--label" class="Box-sc-g0xbh4-0 bmseMA">Searching for quotes and backslashes</span>
+             </div></a></li>
+           <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a tabindex="0" aria-labelledby=":R55kteqn6:--label " id=":R55kteqn6:" aria-current="false" href="#using-boolean-operations" class="Link__StyledLink-sc-14289xe-0 cJbOew Minitocs_nested__JSAov">
+             <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+              <span id=":R55kteqn6:--label" class="Box-sc-g0xbh4-0 bmseMA">Using boolean operations</span>
+             </div></a></li>
+           <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a tabindex="0" aria-labelledby=":R5dkteqn6:--label " id=":R5dkteqn6:" aria-current="false" href="#using-qualifiers" class="Link__StyledLink-sc-14289xe-0 cJbOew Minitocs_nested__JSAov">
+             <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+              <span id=":R5dkteqn6:--label" class="Box-sc-g0xbh4-0 bmseMA">Using qualifiers</span>
+             </div></a></li>
+           <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a tabindex="0" aria-labelledby=":R5lkteqn6:--label " id=":R5lkteqn6:" aria-current="false" href="#using-regular-expressions" class="Link__StyledLink-sc-14289xe-0 cJbOew Minitocs_nested__JSAov">
+             <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+              <span id=":R5lkteqn6:--label" class="Box-sc-g0xbh4-0 bmseMA">Using regular expressions</span>
+             </div></a></li>
+           <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a tabindex="0" aria-labelledby=":R5tkteqn6:--label " id=":R5tkteqn6:" aria-current="false" href="#separating-search-terms" class="Link__StyledLink-sc-14289xe-0 cJbOew Minitocs_nested__JSAov">
+             <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+              <span id=":R5tkteqn6:--label" class="Box-sc-g0xbh4-0 bmseMA">Separating search terms</span>
+             </div></a></li>
+           <li class="Item__LiBox-sc-yeql7o-0 lnYQME"><a tabindex="0" aria-labelledby=":R65kteqn6:--label " id=":R65kteqn6:" aria-current="false" href="#case-sensitivity" class="Link__StyledLink-sc-14289xe-0 cJbOew Minitocs_nested__JSAov">
+             <div data-component="ActionList.Item--DividerContainer" class="Box-sc-g0xbh4-0 hROlum">
+              <span id=":R65kteqn6:--label" class="Box-sc-g0xbh4-0 bmseMA">Case sensitivity</span>
+             </div></a></li>
+          </ul>
+         </nav>
+        </div>
+        <div data-container="article" data-search="article-body" class="Box-sc-g0xbh4-0 kohLxz">
+         <div id="article-contents">
+          <div class="MarkdownContent_markdownBody__v5MYy markdown-body">
+           <h2 id="about-code-search-query-structure" tabindex="-1"><a class="heading-link" href="#about-code-search-query-structure">About code search query structure<span class="heading-link-symbol" aria-hidden="true"></span></a></h2>
+           <p>The search syntax in this article only applies to searching code with GitHub code search. Note that the syntax and qualifiers for searching for non-code content, such as issues, users, and discussions, is not the same as the syntax for code search. For more information on non-code search, see <a href="/en/search-github/getting-started-with-searching-on-github/about-searching-on-github">About searching on GitHub</a> and <a href="/en/search-github/searching-on-github">Searching on GitHub</a>.</p>
+           <p>Search queries consist of search terms, comprising text you want to search for, and qualifiers, which narrow down the search.</p>
+           <p>A bare term with no qualifiers will match either the content of a file or the file's path.</p>
+           <p>For example, the following query:</p>
+           <pre><code class="hljs language-text">http-push
+</code></pre>
+           <p>The above query will match the file <code>docs/http-push.txt</code>, even if it doesn't contain the term <code>http-push</code>. It will also match a file called <code>example.txt</code> if it contains the term <code>http-push</code>.</p>
+           <p>You can enter multiple terms separated by whitespace to search for documents that satisfy both terms.</p>
+           <p>For example, the following query:</p>
+           <pre><code class="hljs language-text">sparse index
+</code></pre>
+           <p>The search results would include all documents containing both the terms <code>sparse</code> and <code>index</code>, in any order. As examples, it would match a file containing <code>SparseIndexVector</code>, a file with the phrase <code>index for sparse trees</code>, and even a file named <code>index.txt</code> that contains the term <code>sparse</code>.</p>
+           <p>Searching for multiple terms separated by whitespace is the equivalent to the search <code>hello AND world</code>. Other boolean operations, such as <code>hello OR world</code>, are also supported. For more information about boolean operations, see <a href="#using-boolean-operations">Using boolean operations</a>.</p>
+           <p>Code search also supports searching for an exact string, including whitespace. For more information, see <a href="#query-for-an-exact-match">Query for an exact match</a>.</p>
+           <p>You can narrow your code search with specialized qualifiers, such as <code>repo:</code>, <code>language:</code> and <code>path:</code>. For more information on the qualifiers you can use in code search, see <a href="#using-qualifiers">Using qualifiers</a>.</p>
+           <p>You can also use regular expressions in your searches by surrounding the expression in slashes. For more information on using regular expressions, see <a href="#using-regular-expressions">Using regular expressions</a>.</p>
+           <h2 id="query-for-an-exact-match" tabindex="-1"><a class="heading-link" href="#query-for-an-exact-match">Query for an exact match<span class="heading-link-symbol" aria-hidden="true"></span></a></h2>
+           <p>To search for an exact string, including whitespace, you can surround the string in quotes. For example:</p>
+           <pre><code class="hljs language-text">"sparse index"
+</code></pre>
+           <p>You can also use quoted strings in qualifiers, for example:</p>
+           <pre><code class="hljs language-text">path:git language:"protocol buffers"
+</code></pre>
+           <h2 id="searching-for-quotes-and-backslashes" tabindex="-1"><a class="heading-link" href="#searching-for-quotes-and-backslashes">Searching for quotes and backslashes<span class="heading-link-symbol" aria-hidden="true"></span></a></h2>
+           <p>To search for code containing a quotation mark, you can escape the quotation mark using a backslash. For example, to find the exact string <code>name = "tensorflow"</code>, you can search:</p>
+           <pre><code class="hljs language-text">"name = \"tensorflow\""
+</code></pre>
+           <p>To search for code containing a backslash, <code>\</code>, use a double backslash, <code>\\</code>.</p>
+           <p>The two escape sequences <code>\\</code> and <code>\"</code> can be used outside of quotes as well. No other escape sequences are recognized, though. A backslash that isn't followed by either <code>"</code> or <code>\</code> is included in the search, unchanged.</p>
+           <p>Additional escape sequences, such as <code>\n</code> to match a newline character, are supported in regular expressions. See <a href="#using-regular-expressions">Using regular expressions</a>.</p>
+           <h2 id="using-boolean-operations" tabindex="-1"><a class="heading-link" href="#using-boolean-operations">Using boolean operations<span class="heading-link-symbol" aria-hidden="true"></span></a></h2>
+           <p>Code search supports boolean expressions. You can use the operators <code>AND</code>, <code>OR</code>, and <code>NOT</code> to combine search terms.</p>
+           <p>By default, adjacent terms separated by whitespace are equivalent to using the <code>AND</code> operator. For example, the search query <code>sparse index</code> is the same as <code>sparse AND index</code>, meaning that the search results will include all documents containing both the terms <code>sparse</code> and <code>index</code>, in any order.</p>
+           <p>To search for documents containing either one term or the other, you can use the <code>OR</code> operator. For example, the following query will match documents containing either <code>sparse</code> or <code>index</code>:</p>
+           <pre><code class="hljs language-text">sparse OR index
+</code></pre>
+           <p>To exclude files from your search results, you can use the <code>NOT</code> operator. For example, to exclude files in the <code>__testing__</code> directory, you can search:</p>
+           <pre><code class="hljs language-text">"fatal error" NOT path:__testing__
+</code></pre>
+           <p>You can use parentheses to express more complicated boolean expressions. For example:</p>
+           <pre><code class="hljs language-text">(language:ruby OR language:python) AND NOT path:"/tests/"
+</code></pre>
+           <h2 id="using-qualifiers" tabindex="-1"><a class="heading-link" href="#using-qualifiers">Using qualifiers<span class="heading-link-symbol" aria-hidden="true"></span></a></h2>
+           <p>You can use specialized keywords to qualify your search.</p>
+           <ul>
+            <li><a href="#repository-qualifier">Repository qualifier</a></li>
+            <li><a href="#organization-and-user-qualifiers">Organization and user qualifiers</a></li>
+            <li><a href="#language-qualifier">Language qualifier</a></li>
+            <li><a href="#path-qualifier">Path qualifier</a></li>
+            <li><a href="#symbol-qualifier">Symbol qualifier</a></li>
+            <li><a href="#content-qualifier">Content qualifier</a></li>
+            <li><a href="#is-qualifier">Is qualifier</a></li>
+           </ul>
+           <h3 id="repository-qualifier" tabindex="-1"><a class="heading-link" href="#repository-qualifier">Repository qualifier<span class="heading-link-symbol" aria-hidden="true"></span></a></h3>
+           <p>To search within a repository, use the <code>repo:</code> qualifier. You must provide the full repository name, including the owner. For example:</p>
+           <pre><code class="hljs language-text">repo:github-linguist/linguist
+</code></pre>
+           <p>To search within a set of repositories, you can combine multiple <code>repo:</code> qualifiers with the boolean operator <code>OR</code>. For example:</p>
+           <pre><code class="hljs language-text">repo:github-linguist/linguist OR repo:tree-sitter/tree-sitter
+</code></pre>
+           <div class="ghd-alert ghd-alert-accent">
+            <p class="ghd-alert-title">
+             <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon mr-2" aria-hidden>
+              <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path>
+             </svg>Note</p>
+            <p>Code search does not currently support regular expressions or partial matching for repository names, so you will have to type the entire repository name (including the user prefix) for the <code>repo:</code> qualifier to work.</p>
+           </div>
+           <h3 id="organization-and-user-qualifiers" tabindex="-1"><a class="heading-link" href="#organization-and-user-qualifiers">Organization and user qualifiers<span class="heading-link-symbol" aria-hidden="true"></span></a></h3>
+           <p>To search for files within an organization, use the <code>org:</code> qualifier. For example:</p>
+           <pre><code class="hljs language-text">org:github
+</code></pre>
+           <p>To search for files within a personal account, use the <code>user:</code> qualifier. For example:</p>
+           <pre><code class="hljs language-text">user:octocat
+</code></pre>
+           <div class="ghd-alert ghd-alert-accent">
+            <p class="ghd-alert-title">
+             <svg version="1.1" width="16" height="16" viewBox="0 0 16 16" class="octicon mr-2" aria-hidden>
+              <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path>
+             </svg>Note</p>
+            <p>Code search does not currently support regular expressions or partial matching for organization or user names, so you will have to type the entire organization or user name for the qualifier to work.</p>
+           </div>
+           <h3 id="language-qualifier" tabindex="-1"><a class="heading-link" href="#language-qualifier">Language qualifier<span class="heading-link-symbol" aria-hidden="true"></span></a></h3>
+           <p>To narrow down to a specific languages, use the <code>language:</code> qualifier. For example:</p>
+           <pre><code class="hljs language-text">language:ruby OR language:cpp OR language:csharp
+</code></pre>
+           <p>For a complete list of supported language names, see <a href="https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml">languages.yaml</a> in <a href="https://github.com/github-linguist/linguist">github-linguist/linguist</a>. If your preferred language is not on the list, you can open a pull request to add it.</p>
+           <h3 id="path-qualifier" tabindex="-1"><a class="heading-link" href="#path-qualifier">Path qualifier<span class="heading-link-symbol" aria-hidden="true"></span></a></h3>
+           <p>To search within file paths, use the <code>path:</code> qualifier. This will match files containing the term anywhere in their file path. For example, to find files containing the term <code>unit_tests</code> in their path, use:</p>
+           <pre><code class="hljs language-text">path:unit_tests
+</code></pre>
+           <p>The above query will match both <code>src/unit_tests/my_test.py</code> and <code>src/docs/unit_tests.md</code> since they both contain <code>unit_test</code> somewhere in their path.</p>
+           <p>To match only a specific filename (and not part of the path), you could use a regular expression:</p>
+           <pre><code class="hljs language-text">path:/(^|\/)README\.md$/
+</code></pre>
+           <p>Note that the <code>.</code> in the filename is escaped, since <code>.</code> has special meaning for regular expressions. For more information about using regular expressions, see <a href="#using-regular-expressions">Using regular expressions</a>.</p>
+           <br>
+           <p>You can also use some limited glob expressions in the <code>path:</code> qualifier.</p>
+           <p>For example, to search for files with the extension <code>txt</code>, you can use:</p>
+           <pre><code class="hljs language-text">path:*.txt
+</code></pre>
+           <br>
+            To search for JavaScript files within a `src` directory, you could use: 
+           <pre><code class="hljs language-text">path:src/*.js
+</code></pre>
+           <ul>
+            <li>
+             <p>By default, glob expressions are not anchored to the start of the path, so the above expression would still match a path like <code>app/src/main.js</code>. But if you prefix the expression with <code>/</code>, it will anchor to the start. For example:</p>
+             <pre><code class="hljs language-text">path:/src/*.js
+</code></pre></li>
+            <li>
+             <p>Note that <code>*</code> doesn't match the <code>/</code> character, so for the above example, all results will be direct descendants of the <code>src</code> directory. To match within subdirectories, so that results include deeply nested files such as <code>/src/app/testing/utils/example.js</code>, you can use <code>**</code>. For example:</p>
+             <pre><code class="hljs language-text">path:/src/**/*.js
+</code></pre></li>
+           </ul>
+           <br>
+           <p>You can also use the <code>?</code> global character. For example, to match the path <code>file.aac</code> or <code>file.abc</code>, you can use:</p>
+           <pre><code class="hljs language-text">path:*.a?c
+</code></pre>
+           <br>
+            To search for a filename which contains a special character like `*` or `?`, just use a quoted string: 
+           <pre><code class="hljs language-text">path:"file?"
+</code></pre>
+           <p>Glob expressions are disabled for quoted strings, so the above query will only match paths containing the literal string <code>file?</code>.</p>
+           <h3 id="symbol-qualifier" tabindex="-1"><a class="heading-link" href="#symbol-qualifier">Symbol qualifier<span class="heading-link-symbol" aria-hidden="true"></span></a></h3>
+           <p>You can search for symbol definitions in code, such as function or class definitions, using the <code>symbol:</code> qualifier. Symbol search is based on parsing your code using the open source <a href="https://github.com/tree-sitter">Tree-sitter</a> parser ecosystem, so no extra setup or build tool integration is required.</p>
+           <p>For example, to search for a symbol called <code>WithContext</code>:</p>
+           <pre><code class="hljs language-text">language:go symbol:WithContext
+</code></pre>
+           <p>In some languages, you can search for symbols using a prefix (e.g. a prefix of their class name). For example, for a method <code>deleteRows</code> on a struct <code>Maint</code>, you could search <code>symbol:Maint.deleteRows</code> if you are using Go, or <code>symbol:Maint::deleteRows</code> in Rust.</p>
+           <p>You can also use regular expressions with the symbol qualifier. For example, the following query would find conversions people have implemented in Rust for the <code>String</code> type:</p>
+           <pre><code class="hljs language-text">language:rust symbol:/^String::to_.*/
+</code></pre>
+           <p>Note that this qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. Symbol extraction is supported for the following languages:</p>
+           <ul>
+            <li>Bash</li>
+            <li>C</li>
+            <li>C#</li>
+            <li>C++</li>
+            <li>CodeQL</li>
+            <li>Elixir</li>
+            <li>Go</li>
+            <li>JSX</li>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>Lua</li>
+            <li>PHP</li>
+            <li>Protocol Buffers</li>
+            <li>Python</li>
+            <li>R</li>
+            <li>Ruby</li>
+            <li>Rust</li>
+            <li>Scala</li>
+            <li>Starlark</li>
+            <li>Swift</li>
+            <li>Typescript</li>
+           </ul>
+           <p>We are working on adding support for more languages. If you would like to help contribute to this effort, you can add support for your language in the open source <a href="https://github.com/tree-sitter">Tree-sitter</a> parser ecosystem, upon which symbol search is based.</p>
+           <h3 id="content-qualifier" tabindex="-1"><a class="heading-link" href="#content-qualifier">Content qualifier<span class="heading-link-symbol" aria-hidden="true"></span></a></h3>
+           <p>By default, bare terms search both paths and file content. To restrict a search to strictly match the content of a file and not file paths, use the <code>content:</code> qualifier. For example:</p>
+           <pre><code class="hljs language-text">content:README.md
+</code></pre>
+           <p>This query would only match files containing the term <code>README.md</code>, rather than matching files named <code>README.md</code>.</p>
+           <h3 id="is-qualifier" tabindex="-1"><a class="heading-link" href="#is-qualifier">Is qualifier<span class="heading-link-symbol" aria-hidden="true"></span></a></h3>
+           <p>To filter based on repository properties, you can use the <code>is:</code> qualifier. <code>is:</code> supports the following values:</p>
+           <ul>
+            <li><code>archived</code>: restricts the search to archived repositories.</li>
+            <li><code>fork</code>: restricts the search to forked repositories.</li>
+            <li><code>vendored</code>: restricts the search to content detected as vendored.</li>
+            <li><code>generated</code>: restricts the search to content detected as generated.</li>
+           </ul>
+           <p>For example:</p>
+           <pre><code class="hljs language-text">path:/^MIT.txt$/ is:archived
+</code></pre>
+           <p>Note that the <code>is:</code> qualifier can be inverted with the <code>NOT</code> operator. To search for non-archived repositories, you can search:</p>
+           <pre><code class="hljs language-text">log4j NOT is:archived
+</code></pre>
+           <p>To exclude forks from your results, you can search:</p>
+           <pre><code class="hljs language-text">log4j NOT is:fork
+</code></pre>
+           <h2 id="using-regular-expressions" tabindex="-1"><a class="heading-link" href="#using-regular-expressions">Using regular expressions<span class="heading-link-symbol" aria-hidden="true"></span></a></h2>
+           <p>Code search supports regular expressions to search for patterns in your code. You can use regular expressions in bare search terms as well as within many qualifiers, by surrounding the regex in slashes.</p>
+           <p>For example, to search for the regular expression <code>sparse.*index</code>, you would use:</p>
+           <pre><code class="hljs language-text">/sparse.*index/
+</code></pre>
+           <p>Note that you'll have to escape any forward slashes within the regular expression. For example, to search for files within the <code>App/src</code> directory, you would use:</p>
+           <pre><code class="hljs language-text">/^App\/src\//
+</code></pre>
+           <p>Inside a regular expression, <code>\n</code> stands for a newline character, <code>\t</code> stands for a tab, and <code>\x{hhhh}</code> can be used to escape any Unicode character. This means you can use regular expressions to search for exact strings that contain characters that you can't type into the search bar.</p>
+           <p>Most common regular expressions features work in code search. However, "look-around" assertions are not supported.</p>
+           <h2 id="separating-search-terms" tabindex="-1"><a class="heading-link" href="#separating-search-terms">Separating search terms<span class="heading-link-symbol" aria-hidden="true"></span></a></h2>
+           <p>All parts of a search, such as search terms, exact strings, regular expressions, qualifiers, parentheses, and the boolean keywords <code>AND</code>, <code>OR</code>, and <code>NOT</code>, must be separated from one another with spaces. The one exception is that items inside parentheses, <code>(</code> <code>)</code>, don't need to be separated from the parentheses.</p>
+           <p>If your search contains multiple components that aren't separated by spaces, or other text that does not follow the rules listed above, code search will try to guess what you mean. It often falls back on treating that component of your query as the exact text to search for. For example, the following query:</p>
+           <pre><code class="hljs language-text">printf("hello world\n");
+</code></pre>
+           <p>Code search will give up on interpreting the parentheses and quotes as special characters and will instead search for files containing that exact code.</p>
+           <p>If code search guesses wrong, you can always get the search you wanted by using quotes and spaces to make the meaning clear.</p>
+           <h2 id="case-sensitivity" tabindex="-1"><a class="heading-link" href="#case-sensitivity">Case sensitivity<span class="heading-link-symbol" aria-hidden="true"></span></a></h2>
+           <p>By default, code search is case-insensitive, and results will include both uppercase and lowercase results. You can do case-sensitive searches by using a regular expression with case insensitivity turned off. For example, to search for the string "True", you would use:</p>
+           <pre><code class="hljs language-text">/(?-i)True/
+</code></pre>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </main>
+     <footer data-container="footer">
+      <section class="container-xl mt-lg-8 mt-6 px-3 px-md-6 no-print mx-auto">
+       <h2 class="f3">Help and support</h2>
+       <div class="container-xl mx-auto py-6 py-lg-6 clearfix border-top border-color-secondary">
+        <div class="float-left pr-4 mb-6 mb-xl-0 col-12 col-lg-6 col-xl-3">
+         <form class="f5" data-testid="survey-form" aria-live="polite">
+          <h3 id="survey-title" class="f4 mb-3">Did you find what you needed?</h3><input type="text" class="d-none" name="survey-token" value="">
+          <div class="mb-2" role="radiogroup" aria-labelledby="survey-title">
+           <input class="Survey_visuallyHidden__Xh_nl Survey_customRadio__aNqUl" id="survey-yes" type="radio" name="survey-vote" aria-label="Yes" value="Y"><label class="btn mr-1" for="survey-yes">
+            <svg aria-hidden="true" focusable="false" class="octicon octicon-thumbsup color-fg-muted" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+             <path d="M8.347.631A.75.75 0 0 1 9.123.26l.238.04a3.25 3.25 0 0 1 2.591 4.098L11.494 6h.665a3.25 3.25 0 0 1 3.118 4.167l-1.135 3.859A2.751 2.751 0 0 1 11.503 16H6.586a3.75 3.75 0 0 1-2.184-.702A1.75 1.75 0 0 1 3 16H1.75A1.75 1.75 0 0 1 0 14.25v-6.5C0 6.784.784 6 1.75 6h3.417a.25.25 0 0 0 .217-.127ZM4.75 13.649l.396.33c.404.337.914.521 1.44.521h4.917a1.25 1.25 0 0 0 1.2-.897l1.135-3.859A1.75 1.75 0 0 0 12.159 7.5H10.5a.75.75 0 0 1-.721-.956l.731-2.558a1.75 1.75 0 0 0-1.127-2.14L6.69 6.611a1.75 1.75 0 0 1-1.523.889H4.75ZM3.25 7.5h-1.5a.25.25 0 0 0-.25.25v6.5c0 .138.112.25.25.25H3a.25.25 0 0 0 .25-.25Z"></path>
+            </svg><!-- -->Yes</label><input class="Survey_visuallyHidden__Xh_nl Survey_customRadio__aNqUl" id="survey-no" type="radio" name="survey-vote" aria-label="No" value="N"><label class="btn" for="survey-no">
+            <svg aria-hidden="true" focusable="false" class="octicon octicon-thumbsdown color-fg-muted" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+             <path d="M7.653 15.369a.75.75 0 0 1-.776.371l-.238-.04a3.25 3.25 0 0 1-2.591-4.099L4.506 10h-.665A3.25 3.25 0 0 1 .723 5.833l1.135-3.859A2.75 2.75 0 0 1 4.482 0H9.43c.78.003 1.538.25 2.168.702A1.752 1.752 0 0 1 12.989 0h1.272A1.75 1.75 0 0 1 16 1.75v6.5A1.75 1.75 0 0 1 14.25 10h-3.417a.25.25 0 0 0-.217.127ZM11.25 2.351l-.396-.33a2.248 2.248 0 0 0-1.44-.521H4.496a1.25 1.25 0 0 0-1.199.897L2.162 6.256A1.75 1.75 0 0 0 3.841 8.5H5.5a.75.75 0 0 1 .721.956l-.731 2.558a1.75 1.75 0 0 0 1.127 2.14L9.31 9.389a1.75 1.75 0 0 1 1.523-.889h.417Zm1.5 6.149h1.5a.25.25 0 0 0 .25-.25v-6.5a.25.25 0 0 0-.25-.25H13a.25.25 0 0 0-.25.25Z"></path>
+            </svg><!-- -->No</label>
+          </div><a rel="" class="f6 text-underline" target="_blank" href="/en/site-policy/privacy-policies/github-privacy-statement">Privacy policy</a>
+         </form>
+        </div>
+        <div class="float-left pr-4 mb-6 mb-xl-0 col-12 col-lg-6 col-xl-4 offset-xl-1">
+         <div class="f5 contribution">
+          <h3 class="f4 mb-3">Help us make these docs great!</h3>
+          <p class="max-w-xs color-fg-muted mb-3">All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.</p><a class="btn" href="https://github.com/github/docs/blob/main/content/search-github/github-code-search/understanding-github-code-search-syntax.md">
+           <svg aria-hidden="true" focusable="false" class="octicon octicon-git-pull-request octicon mr-1" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+            <path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path>
+           </svg>Make a contribution</a>
+          <p class="color-fg-muted f6 mt-2"><a class="text-underline" href="/contributing" target="_blank" rel="noopener">Learn how to contribute</a></p>
+         </div>
+        </div>
+        <div class="float-left pr-4 mb-6 mb-xl-0 col-12 col-lg-6 col-xl-3 offset-xl-1">
+         <div>
+          <h3 class="mb-3 f4">Still need help?</h3>
+          <div class="mb-2">
+           <a id="ask-community" href="https://github.com/orgs/community/discussions" class="text-underline">
+            <svg aria-hidden="true" focusable="false" class="octicon octicon-people octicon mr-1" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+             <path d="M2 5.5a3.5 3.5 0 1 1 5.898 2.549 5.508 5.508 0 0 1 3.034 4.084.75.75 0 1 1-1.482.235 4 4 0 0 0-7.9 0 .75.75 0 0 1-1.482-.236A5.507 5.507 0 0 1 3.102 8.05 3.493 3.493 0 0 1 2 5.5ZM11 4a3.001 3.001 0 0 1 2.22 5.018 5.01 5.01 0 0 1 2.56 3.012.749.749 0 0 1-.885.954.752.752 0 0 1-.549-.514 3.507 3.507 0 0 0-2.522-2.372.75.75 0 0 1-.574-.73v-.352a.75.75 0 0 1 .416-.672A1.5 1.5 0 0 0 11 5.5.75.75 0 0 1 11 4Zm-5.5-.5a2 2 0 1 0-.001 3.999A2 2 0 0 0 5.5 3.5Z"></path>
+            </svg>Ask the GitHub community</a>
+          </div>
+          <div>
+           <a id="support" href="https://support.github.com" class="text-underline">
+            <svg aria-hidden="true" focusable="false" class="octicon octicon-comment-discussion octicon mr-1" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+             <path d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1ZM1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"></path>
+            </svg>Contact support</a>
+          </div>
+         </div>
+        </div>
+       </div>
+      </section>
+      <section class="container-xl px-3 mt-6 pb-8 px-md-6 color-fg-muted">
+       <h2 class="f4 mb-2 col-12">Legal</h2>
+       <ul class="d-flex flex-wrap list-style-none">
+        <li class="mr-3">© <!-- -->2025<!-- --> GitHub, Inc.</li>
+        <li class="mr-3"><a class="text-underline" href="/en/site-policy/github-terms/github-terms-of-service">Terms</a></li>
+        <li class="mr-3"><a class="text-underline" href="/en/site-policy/privacy-policies/github-privacy-statement">Privacy</a></li>
+        <li class="mr-3"><a class="text-underline" href="https://www.githubstatus.com/">Status</a></li>
+        <li class="mr-3"><a class="text-underline" href="https://github.com/pricing">Pricing</a></li>
+        <li class="mr-3"><a class="text-underline" href="https://services.github.com">Expert services</a></li>
+        <li class="mr-3"><a class="text-underline" href="https://github.blog">Blog</a></li>
+       </ul>
+      </section>
+      <div role="tooltip" class="position-fixed bottom-0 mb-4 right-0 mr-4 z-1 ScrollButton_transition200__rLxBo ScrollButton_opacity0__vjKQD">
+       <button class="ghd-scroll-to-top tooltipped tooltipped-n tooltipped-no-delay btn circle border-1 d-flex flex-items-center flex-justify-center ScrollButton_customFocus__L3FsX" style="width:40px;height:40px" aria-label="Scroll to top">
+        <svg aria-hidden="true" focusable="false" class="octicon octicon-chevron-up" viewBox="0 0 16 16" width="16" height="16" fill="currentColor" display="inline-block" overflow="visible" style="vertical-align:text-bottom">
+         <path d="M3.22 10.53a.749.749 0 0 1 0-1.06l4.25-4.25a.749.749 0 0 1 1.06 0l4.25 4.25a.749.749 0 1 1-1.06 1.06L8 6.811 4.28 10.53a.749.749 0 0 1-1.06 0Z"></path>
+        </svg></button>
+      </div>
+     </footer>
+    </div>
+   </div>
+   <script type="application/json" id="__PRIMER_DATA_:R16:__">{"resolvedServerColorMode":"day"}</script>
+  </div>
+  <script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"mainContext":{"breadcrumbs":[{"href":"/en/search-github","title":"Search on GitHub"},{"href":"/en/search-github/github-code-search","title":"GitHub Code Search"},{"href":"/en/search-github/github-code-search/understanding-github-code-search-syntax","title":"Code search syntax"}],"communityRedirect":{},"currentProduct":{"id":"search-github","name":"Search on GitHub","href":"/search-github","dir":"content/search-github","toc":"content/search-github/index.md","wip":false,"hidden":false,"versions":["free-pro-team@latest","enterprise-cloud@latest","enterprise-server@3.16","enterprise-server@3.15","enterprise-server@3.14","enterprise-server@3.13","enterprise-server@3.12"]},"currentProductName":"Search on GitHub","isHomepageVersion":false,"error":"","data":{"ui":{"alerts":{"NOTE":"Note","IMPORTANT":"Important","WARNING":"Warning","TIP":"Tip","CAUTION":"Caution"},"header":{"github_docs":"GitHub Docs","contact":"Contact","notices":{"release_candidate":" is currently available as a \u003ca href=\"/admin/overview/about-upgrades-to-new-releases\"\u003erelease candidate\u003c/a\u003e.","early_access":"📣 Please \u003cb\u003edo not share\u003c/b\u003e this URL publicly. This page contains content about a private preview feature.","release_notes_use_latest":"Please use the latest release for the latest security, performance, and bug fixes.","ghes_release_notes_upgrade_patch_only":"📣 This is not the \u003ca href=\"#{{ latestPatch }}\"\u003elatest patch release\u003c/a\u003e of Enterprise Server.","ghes_release_notes_upgrade_release_only":"📣 This is not the \u003ca href=\"/enterprise-server@{{ latestRelease }}/admin/release-notes\"\u003elatest release\u003c/a\u003e of Enterprise Server.","ghes_release_notes_upgrade_patch_and_release":"📣 This is not the \u003ca href=\"#{{ latestPatch }}\"\u003elatest patch release\u003c/a\u003e of this release series, and this is not the \u003ca href=\"/enterprise-server@{{ latestRelease }}/admin/release-notes\"\u003elatest release\u003c/a\u003e of Enterprise Server."},"sign_up_cta":"Sign up","menu":"Menu","open_menu_label":"Open menu","go_home":"Home"},"search":{"input":{"aria_label":"Open search overlay","placeholder":"Search or ask {{icon}} Copilot","placeholder_no_icon":"Search or ask Copilot","shortcut":"Type {{icon}} to search"},"overlay":{"input_aria_label":"Search or ask Copilot","suggestions_list_aria_label":"Search suggestions","ai_suggestions_list_aria_label":"Copilot search suggestions","general_suggestions_list_aria_label":"Docs search suggestions","general_suggestions_list_heading":"Search docs","ai_autocomplete_list_heading":"Ask Copilot","give_feedback":"Give feedback","beta_tag":"Beta","return_to_search":"Return to search","clear_search_query":"Clear","view_all_search_results":"View more results","no_results_found":"No results found","search_docs_with_query":"Search docs for \"{{query}}\"","privacy_disclaimer":"For product and service improvement purposes, the GitHub Docs team will retain questions and answers generated in the Docs search function. Please see the \u003ca href=\"https://docs.github.com/privacy\"\u003eGitHub Privacy Statement\u003c/a\u003e to review how GitHub collects and uses your data."},"ai":{"disclaimer":"Copilot uses AI. Check for mistakes by reviewing the links in the response.","references":"Additional docs","loading_status_message":"Loading Copilot response...","done_loading_status_message":"Done loading Copilot response","unable_to_answer":"Sorry, I'm unable to answer that question. Check that you selected the correct GitHub version or try a different query.","copy_answer":"Copy answer","copied_announcement":"Copied!","thumbs_up":"This answer was helpful","thumbs_down":"This answer was not helpful","thumbs_announcement":"Thank you for your feedback!","back_to_search":"Back to search"},"failure":{"general_title":"There was an error loading search results.","ai_title":"There was an error loading Copilot.","description":"You can still use this field to search our docs."}},"old_search":{"description":"Enter a search term to find it in the GitHub Docs.","placeholder":"Search GitHub Docs","label":"Search GitHub Docs"},"survey":{"able_to_find":"Did you find what you needed?","yes":"Yes","no":"No","cancel":"Cancel","additional_feedback":"Can you tell us more about your rating? (Optional)","optional":"Optional","required":"Required","email_label":"Leave your email if we can contact you. (Optional)","email_validation":"Please enter a valid email address","send":"Send","feedback":"Thank you! We received your feedback.","not_support":"If you need a reply, please contact \u003ca href=\"https://support.github.com/\"\u003esupport\u003c/a\u003e.","privacy_policy":"Privacy policy","server_error":"Unable to process comment at the moment. Please try again."},"toc":{"getting_started":"Getting started","popular":"Popular","startHere":"Start here","whats_new":"What's new","videos":"Videos","all_changelogs":"All changelog posts"},"meta":{"default_description":"Get started, troubleshoot, and make the most of GitHub. Documentation for new users, developers, administrators, and all of GitHub's products."},"scroll_button":{"scroll_to_top":"Scroll to top"},"pages":{"article_version":"Article version","miniToc":"In this article","all_enterprise_releases":"All Enterprise Server releases","about_versions":"About versions","permissions_callout_title":"Who can use this feature?","video_from_transcript":"See video for this transcript"},"picker":{"language_picker_label":"Language","product_picker_default_text":"All products","version_picker_default_text":"Choose a version"},"footer":{"support_heading":"Help and support","legal_heading":"Legal","imprint":"Imprint","terms":"Terms","privacy":"Privacy","status":"Status","pricing":"Pricing","expert_services":"Expert services","blog":"Blog","machine":"Some of this content may be machine- or AI-translated."},"contribution_cta":{"title":"Help us make these docs great!","body":"All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.","button":"Make a contribution","to_guidelines":"Learn how to contribute"},"support":{"still_need_help":"Still need help?","contact_support":"Contact support","ask_community":"Ask the GitHub community"},"rest":{"banner":{"api_versioned":"The REST API is now versioned.","api_version_info":"For more information, see \"\u003ca href=\"{{ versionWithApiVersion }}/rest/overview/api-versions\"\u003eAbout API versioning\u003c/a\u003e.\"","ghes_api_versioned":"After a site administrator upgrades your Enterprise Server instance to {{ firstGhesReleaseWithApiVersions.versionTitle }} or later, the REST API will be versioned. To learn how to find your instance's version, see \"\u003ca href=\"/{{ currentVersion }}/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server\"\u003eAbout versions of GitHub Docs\u003c/a\u003e\".","redirect_notice":"We've recently moved some of the REST API documentation.","redirect_repo":"If you can't find what you're looking for, you might try the new {{ newRestPagesLinks }} REST API pages.","redirect_enterprise":"If you can't find what you're looking for, you might try the {{ actionsPageLink }} REST API page.","actions_api_title":"Actions"},"versioning":{"about_versions":"About REST API versions"},"overview":{"permissions":{"access":"Access","endpoints":"Endpoint","tokens":"Token types","additionalPermissions":"Additional permissions","uat":"UAT","iat":"IAT"}},"screen_reader_text_checkmark_icon":"Multiple permissions are required, or a different permission may be used. For more information about the permissions, see the documentation for this endpoint."},"domain_edit":{"name":"Domain name","edit":"Edit","edit_your":"Edit your domain name","experimental":"Experimental","your_name":"Your domain name","cancel":"Cancel","save":"Save","snippet_about":"Updating will include the new domain name in all code snippets across GitHub Docs.","learn_more":"Learn more","submission_failed":"Submission failed. Please try again in a minute."},"cookbook_landing":{"spotlight":"Spotlight","explore_articles":"Explore {{ number }} prompt articles","reset_filters":"Reset filters","search_articles":"Search articles","category":"Category","complexity":"Complexity"},"popovers":{"role_description":"hovercard link"}},"reusables":{},"variables":{"release_candidate":{"version":null}}},"currentCategory":"github-code-search","currentPathWithoutLanguage":"/search-github/github-code-search/understanding-github-code-search-syntax","page":{"documentType":"article","type":null,"title":"Understanding GitHub Code Search syntax","fullTitle":"Understanding GitHub Code Search syntax - GitHub Docs","topics":["GitHub search"],"introPlainText":"You can build search queries for the results you want with specialized code qualifiers, regular expressions, and boolean operations.","applicableVersions":["free-pro-team@latest","enterprise-cloud@latest"],"hidden":false,"noEarlyAccessBanner":false},"enterpriseServerReleases":{"isOldestReleaseDeprecated":true,"oldestSupported":"3.12","nextDeprecationDate":"2025-04-03","supported":["3.16","3.15","3.14","3.13","3.12"]},"enterpriseServerVersions":["enterprise-server@3.16","enterprise-server@3.15","enterprise-server@3.14","enterprise-server@3.13","enterprise-server@3.12"],"allVersions":{"free-pro-team@latest":{"version":"free-pro-team@latest","versionTitle":"Free, Pro, \u0026 Team","apiVersions":["2022-11-28"],"latestApiVersion":"2022-11-28"},"enterprise-cloud@latest":{"version":"enterprise-cloud@latest","versionTitle":"Enterprise Cloud","apiVersions":["2022-11-28"],"latestApiVersion":"2022-11-28"},"enterprise-server@3.16":{"version":"enterprise-server@3.16","versionTitle":"Enterprise Server 3.16","apiVersions":["2022-11-28"],"latestApiVersion":"2022-11-28","isGHES":true},"enterprise-server@3.15":{"version":"enterprise-server@3.15","versionTitle":"Enterprise Server 3.15","apiVersions":["2022-11-28"],"latestApiVersion":"2022-11-28","isGHES":true},"enterprise-server@3.14":{"version":"enterprise-server@3.14","versionTitle":"Enterprise Server 3.14","apiVersions":["2022-11-28"],"latestApiVersion":"2022-11-28","isGHES":true},"enterprise-server@3.13":{"version":"enterprise-server@3.13","versionTitle":"Enterprise Server 3.13","apiVersions":["2022-11-28"],"latestApiVersion":"2022-11-28","isGHES":true},"enterprise-server@3.12":{"version":"enterprise-server@3.12","versionTitle":"Enterprise Server 3.12","apiVersions":["2022-11-28"],"latestApiVersion":"2022-11-28","isGHES":true}},"currentVersion":"free-pro-team@latest","currentProductTree":null,"sidebarTree":{"href":"/en/search-github","title":"Search on GitHub","childPages":[{"href":"/en/search-github/getting-started-with-searching-on-github","title":"Start with search on GitHub","childPages":[{"href":"/en/search-github/getting-started-with-searching-on-github/about-searching-on-github","title":"About searching on GitHub","childPages":[]},{"href":"/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax","title":"Understand search syntax","childPages":[]},{"href":"/en/search-github/getting-started-with-searching-on-github/troubleshooting-search-queries","title":"Troubleshoot search queries","childPages":[]},{"href":"/en/search-github/getting-started-with-searching-on-github/sorting-search-results","title":"Sorting search results","childPages":[]}]},{"href":"/en/search-github/searching-on-github","title":"Searching on GitHub","childPages":[{"href":"/en/search-github/searching-on-github/finding-files-on-github","title":"Finding files on GitHub","childPages":[]},{"href":"/en/search-github/searching-on-github/searching-for-repositories","title":"Search for repositories","childPages":[]},{"href":"/en/search-github/searching-on-github/searching-topics","title":"Searching topics","childPages":[]},{"href":"/en/search-github/searching-on-github/searching-code","title":"Searching code (legacy)","childPages":[]},{"href":"/en/search-github/searching-on-github/searching-commits","title":"Searching commits","childPages":[]},{"href":"/en/search-github/searching-on-github/searching-issues-and-pull-requests","title":"Search issues \u0026 PRs","childPages":[]},{"href":"/en/search-github/searching-on-github/searching-discussions","title":"Searching discussions","childPages":[]},{"href":"/en/search-github/searching-on-github/searching-github-marketplace","title":"Search GitHub Marketplace","childPages":[]},{"href":"/en/search-github/searching-on-github/searching-github-models","title":"Search GitHub Models","childPages":[]},{"href":"/en/search-github/searching-on-github/searching-users","title":"Searching users","childPages":[]},{"href":"/en/search-github/searching-on-github/searching-for-packages","title":"Searching for packages","childPages":[]},{"href":"/en/search-github/searching-on-github/searching-wikis","title":"Searching wikis","childPages":[]},{"href":"/en/search-github/searching-on-github/searching-in-forks","title":"Searching in forks","childPages":[]},{"href":"/en/search-github/searching-on-github/searching-gists","title":"Searching gists","childPages":[]}]},{"href":"/en/search-github/github-code-search","title":"GitHub Code Search","childPages":[{"href":"/en/search-github/github-code-search/about-github-code-search","title":"About GitHub Code Search","childPages":[]},{"href":"/en/search-github/github-code-search/using-github-code-search","title":"Using GitHub Code Search","childPages":[]},{"href":"/en/search-github/github-code-search/understanding-github-code-search-syntax","title":"Code search syntax","childPages":[]}]}]},"featureFlags":{},"nonEnterpriseDefaultVersion":"free-pro-team@latest","status":200,"fullUrl":"https://docs-internal.github.com/en/search-github/github-code-search/understanding-github-code-search-syntax","currentLayoutName":"default","relativePath":"search-github/github-code-search/understanding-github-code-search-syntax.md"},"articleContext":{"title":"Understanding GitHub Code Search syntax","intro":"\u003cp\u003eYou can build search queries for the results you want with specialized code qualifiers, regular expressions, and boolean operations.\u003c/p\u003e","effectiveDate":"","renderedPage":"\u003ch2 id=\"about-code-search-query-structure\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#about-code-search-query-structure\"\u003eAbout code search query structure\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eThe search syntax in this article only applies to searching code with GitHub code search. Note that the syntax and qualifiers for searching for non-code content, such as issues, users, and discussions, is not the same as the syntax for code search. For more information on non-code search, see \u003ca href=\"/en/search-github/getting-started-with-searching-on-github/about-searching-on-github\"\u003eAbout searching on GitHub\u003c/a\u003e and \u003ca href=\"/en/search-github/searching-on-github\"\u003eSearching on GitHub\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eSearch queries consist of search terms, comprising text you want to search for, and qualifiers, which narrow down the search.\u003c/p\u003e\n\u003cp\u003eA bare term with no qualifiers will match either the content of a file or the file's path.\u003c/p\u003e\n\u003cp\u003eFor example, the following query:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003ehttp-push\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe above query will match the file \u003ccode\u003edocs/http-push.txt\u003c/code\u003e, even if it doesn't contain the term \u003ccode\u003ehttp-push\u003c/code\u003e. It will also match a file called \u003ccode\u003eexample.txt\u003c/code\u003e if it contains the term \u003ccode\u003ehttp-push\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eYou can enter multiple terms separated by whitespace to search for documents that satisfy both terms.\u003c/p\u003e\n\u003cp\u003eFor example, the following query:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003esparse index\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe search results would include all documents containing both the terms \u003ccode\u003esparse\u003c/code\u003e and \u003ccode\u003eindex\u003c/code\u003e, in any order. As examples, it would match a file containing \u003ccode\u003eSparseIndexVector\u003c/code\u003e, a file with the phrase \u003ccode\u003eindex for sparse trees\u003c/code\u003e, and even a file named \u003ccode\u003eindex.txt\u003c/code\u003e that contains the term \u003ccode\u003esparse\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eSearching for multiple terms separated by whitespace is the equivalent to the search \u003ccode\u003ehello AND world\u003c/code\u003e. Other boolean operations, such as \u003ccode\u003ehello OR world\u003c/code\u003e, are also supported. For more information about boolean operations, see \u003ca href=\"#using-boolean-operations\"\u003eUsing boolean operations\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eCode search also supports searching for an exact string, including whitespace. For more information, see \u003ca href=\"#query-for-an-exact-match\"\u003eQuery for an exact match\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eYou can narrow your code search with specialized qualifiers, such as \u003ccode\u003erepo:\u003c/code\u003e, \u003ccode\u003elanguage:\u003c/code\u003e and \u003ccode\u003epath:\u003c/code\u003e. For more information on the qualifiers you can use in code search, see \u003ca href=\"#using-qualifiers\"\u003eUsing qualifiers\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eYou can also use regular expressions in your searches by surrounding the expression in slashes. For more information on using regular expressions, see \u003ca href=\"#using-regular-expressions\"\u003eUsing regular expressions\u003c/a\u003e.\u003c/p\u003e\n\u003ch2 id=\"query-for-an-exact-match\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#query-for-an-exact-match\"\u003eQuery for an exact match\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eTo search for an exact string, including whitespace, you can surround the string in quotes. For example:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003e\"sparse index\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can also use quoted strings in qualifiers, for example:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003epath:git language:\"protocol buffers\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"searching-for-quotes-and-backslashes\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#searching-for-quotes-and-backslashes\"\u003eSearching for quotes and backslashes\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eTo search for code containing a quotation mark, you can escape the quotation mark using a backslash. For example, to find the exact string \u003ccode\u003ename = \"tensorflow\"\u003c/code\u003e, you can search:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003e\"name = \\\"tensorflow\\\"\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTo search for code containing a backslash, \u003ccode\u003e\\\u003c/code\u003e, use a double backslash, \u003ccode\u003e\\\\\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eThe two escape sequences \u003ccode\u003e\\\\\u003c/code\u003e and \u003ccode\u003e\\\"\u003c/code\u003e can be used outside of quotes as well. No other escape sequences are recognized, though. A backslash that isn't followed by either \u003ccode\u003e\"\u003c/code\u003e or \u003ccode\u003e\\\u003c/code\u003e is included in the search, unchanged.\u003c/p\u003e\n\u003cp\u003eAdditional escape sequences, such as \u003ccode\u003e\\n\u003c/code\u003e to match a newline character, are supported in regular expressions. See \u003ca href=\"#using-regular-expressions\"\u003eUsing regular expressions\u003c/a\u003e.\u003c/p\u003e\n\u003ch2 id=\"using-boolean-operations\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#using-boolean-operations\"\u003eUsing boolean operations\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eCode search supports boolean expressions. You can use the operators \u003ccode\u003eAND\u003c/code\u003e, \u003ccode\u003eOR\u003c/code\u003e, and \u003ccode\u003eNOT\u003c/code\u003e to combine search terms.\u003c/p\u003e\n\u003cp\u003eBy default, adjacent terms separated by whitespace are equivalent to using the \u003ccode\u003eAND\u003c/code\u003e operator. For example, the search query \u003ccode\u003esparse index\u003c/code\u003e is the same as \u003ccode\u003esparse AND index\u003c/code\u003e, meaning that the search results will include all documents containing both the terms \u003ccode\u003esparse\u003c/code\u003e and \u003ccode\u003eindex\u003c/code\u003e, in any order.\u003c/p\u003e\n\u003cp\u003eTo search for documents containing either one term or the other, you can use the \u003ccode\u003eOR\u003c/code\u003e operator. For example, the following query will match documents containing either \u003ccode\u003esparse\u003c/code\u003e or \u003ccode\u003eindex\u003c/code\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003esparse OR index\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTo exclude files from your search results, you can use the \u003ccode\u003eNOT\u003c/code\u003e operator. For example, to exclude files in the \u003ccode\u003e__testing__\u003c/code\u003e directory, you can search:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003e\"fatal error\" NOT path:__testing__\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eYou can use parentheses to express more complicated boolean expressions. For example:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003e(language:ruby OR language:python) AND NOT path:\"/tests/\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"using-qualifiers\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#using-qualifiers\"\u003eUsing qualifiers\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eYou can use specialized keywords to qualify your search.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#repository-qualifier\"\u003eRepository qualifier\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#organization-and-user-qualifiers\"\u003eOrganization and user qualifiers\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#language-qualifier\"\u003eLanguage qualifier\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#path-qualifier\"\u003ePath qualifier\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#symbol-qualifier\"\u003eSymbol qualifier\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#content-qualifier\"\u003eContent qualifier\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#is-qualifier\"\u003eIs qualifier\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"repository-qualifier\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#repository-qualifier\"\u003eRepository qualifier\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eTo search within a repository, use the \u003ccode\u003erepo:\u003c/code\u003e qualifier. You must provide the full repository name, including the owner. For example:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003erepo:github-linguist/linguist\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTo search within a set of repositories, you can combine multiple \u003ccode\u003erepo:\u003c/code\u003e qualifiers with the boolean operator \u003ccode\u003eOR\u003c/code\u003e. For example:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003erepo:github-linguist/linguist OR repo:tree-sitter/tree-sitter\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"ghd-alert ghd-alert-accent\"\u003e\u003cp class=\"ghd-alert-title\"\u003e\u003csvg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden\u003e\u003cpath d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"\u003e\u003c/path\u003e\u003c/svg\u003eNote\u003c/p\u003e\n\u003cp\u003e\nCode search does not currently support regular expressions or partial matching for repository names, so you will have to type the entire repository name (including the user prefix) for the \u003ccode\u003erepo:\u003c/code\u003e qualifier to work.\u003c/p\u003e\n\u003c/div\u003e\n\u003ch3 id=\"organization-and-user-qualifiers\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#organization-and-user-qualifiers\"\u003eOrganization and user qualifiers\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eTo search for files within an organization, use the \u003ccode\u003eorg:\u003c/code\u003e qualifier. For example:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003eorg:github\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTo search for files within a personal account, use the \u003ccode\u003euser:\u003c/code\u003e qualifier. For example:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003euser:octocat\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"ghd-alert ghd-alert-accent\"\u003e\u003cp class=\"ghd-alert-title\"\u003e\u003csvg version=\"1.1\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" class=\"octicon mr-2\" aria-hidden\u003e\u003cpath d=\"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z\"\u003e\u003c/path\u003e\u003c/svg\u003eNote\u003c/p\u003e\n\u003cp\u003e\nCode search does not currently support regular expressions or partial matching for organization or user names, so you will have to type the entire organization or user name for the qualifier to work.\u003c/p\u003e\n\u003c/div\u003e\n\u003ch3 id=\"language-qualifier\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#language-qualifier\"\u003eLanguage qualifier\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eTo narrow down to a specific languages, use the \u003ccode\u003elanguage:\u003c/code\u003e qualifier. For example:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003elanguage:ruby OR language:cpp OR language:csharp\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eFor a complete list of supported language names, see \u003ca href=\"https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml\"\u003elanguages.yaml\u003c/a\u003e in \u003ca href=\"https://github.com/github-linguist/linguist\"\u003egithub-linguist/linguist\u003c/a\u003e. If your preferred language is not on the list, you can open a pull request to add it.\u003c/p\u003e\n\u003ch3 id=\"path-qualifier\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#path-qualifier\"\u003ePath qualifier\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eTo search within file paths, use the \u003ccode\u003epath:\u003c/code\u003e qualifier. This will match files containing the term anywhere in their file path. For example, to find files containing the term \u003ccode\u003eunit_tests\u003c/code\u003e in their path, use:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003epath:unit_tests\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThe above query will match both \u003ccode\u003esrc/unit_tests/my_test.py\u003c/code\u003e and \u003ccode\u003esrc/docs/unit_tests.md\u003c/code\u003e since they both contain \u003ccode\u003eunit_test\u003c/code\u003e somewhere in their path.\u003c/p\u003e\n\u003cp\u003eTo match only a specific filename (and not part of the path), you could use a regular expression:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003epath:/(^|\\/)README\\.md$/\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNote that the \u003ccode\u003e.\u003c/code\u003e in the filename is escaped, since \u003ccode\u003e.\u003c/code\u003e has special meaning for regular expressions. For more information about using regular expressions, see \u003ca href=\"#using-regular-expressions\"\u003eUsing regular expressions\u003c/a\u003e.\u003c/p\u003e\n\u003cbr\u003e\n\u003cp\u003eYou can also use some limited glob expressions in the \u003ccode\u003epath:\u003c/code\u003e qualifier.\u003c/p\u003e\n\u003cp\u003eFor example, to search for files with the extension \u003ccode\u003etxt\u003c/code\u003e, you can use:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003epath:*.txt\n\u003c/code\u003e\u003c/pre\u003e\n\u003cbr\u003e\nTo search for JavaScript files within a `src` directory, you could use:\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003epath:src/*.js\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eBy default, glob expressions are not anchored to the start of the path, so the above expression would still match a path like \u003ccode\u003eapp/src/main.js\u003c/code\u003e. But if you prefix the expression with \u003ccode\u003e/\u003c/code\u003e, it will anchor to the start. For example:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003epath:/src/*.js\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eNote that \u003ccode\u003e*\u003c/code\u003e doesn't match the \u003ccode\u003e/\u003c/code\u003e character, so for the above example, all results will be direct descendants of the \u003ccode\u003esrc\u003c/code\u003e directory. To match within subdirectories, so that results include deeply nested files such as \u003ccode\u003e/src/app/testing/utils/example.js\u003c/code\u003e, you can use \u003ccode\u003e**\u003c/code\u003e. For example:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003epath:/src/**/*.js\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cbr\u003e\n\u003cp\u003eYou can also use the \u003ccode\u003e?\u003c/code\u003e global character. For example, to match the path \u003ccode\u003efile.aac\u003c/code\u003e or \u003ccode\u003efile.abc\u003c/code\u003e, you can use:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003epath:*.a?c\n\u003c/code\u003e\u003c/pre\u003e\n\u003cbr\u003e\nTo search for a filename which contains a special character like `*` or `?`, just use a quoted string:\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003epath:\"file?\"\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eGlob expressions are disabled for quoted strings, so the above query will only match paths containing the literal string \u003ccode\u003efile?\u003c/code\u003e.\u003c/p\u003e\n\u003ch3 id=\"symbol-qualifier\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#symbol-qualifier\"\u003eSymbol qualifier\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eYou can search for symbol definitions in code, such as function or class definitions, using the \u003ccode\u003esymbol:\u003c/code\u003e qualifier. Symbol search is based on parsing your code using the open source \u003ca href=\"https://github.com/tree-sitter\"\u003eTree-sitter\u003c/a\u003e parser ecosystem, so no extra setup or build tool integration is required.\u003c/p\u003e\n\u003cp\u003eFor example, to search for a symbol called \u003ccode\u003eWithContext\u003c/code\u003e:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003elanguage:go symbol:WithContext\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eIn some languages, you can search for symbols using a prefix (e.g. a prefix of their class name). For example, for a method \u003ccode\u003edeleteRows\u003c/code\u003e on a struct \u003ccode\u003eMaint\u003c/code\u003e, you could search \u003ccode\u003esymbol:Maint.deleteRows\u003c/code\u003e if you are using Go, or \u003ccode\u003esymbol:Maint::deleteRows\u003c/code\u003e in Rust.\u003c/p\u003e\n\u003cp\u003eYou can also use regular expressions with the symbol qualifier. For example, the following query would find conversions people have implemented in Rust for the \u003ccode\u003eString\u003c/code\u003e type:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003elanguage:rust symbol:/^String::to_.*/\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNote that this qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. Symbol extraction is supported for the following languages:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eBash\u003c/li\u003e\n\u003cli\u003eC\u003c/li\u003e\n\u003cli\u003eC#\u003c/li\u003e\n\u003cli\u003eC++\u003c/li\u003e\n\u003cli\u003eCodeQL\u003c/li\u003e\n\u003cli\u003eElixir\u003c/li\u003e\n\u003cli\u003eGo\u003c/li\u003e\n\u003cli\u003eJSX\u003c/li\u003e\n\u003cli\u003eJava\u003c/li\u003e\n\u003cli\u003eJavaScript\u003c/li\u003e\n\u003cli\u003eLua\u003c/li\u003e\n\u003cli\u003ePHP\u003c/li\u003e\n\u003cli\u003eProtocol Buffers\u003c/li\u003e\n\u003cli\u003ePython\u003c/li\u003e\n\u003cli\u003eR\u003c/li\u003e\n\u003cli\u003eRuby\u003c/li\u003e\n\u003cli\u003eRust\u003c/li\u003e\n\u003cli\u003eScala\u003c/li\u003e\n\u003cli\u003eStarlark\u003c/li\u003e\n\u003cli\u003eSwift\u003c/li\u003e\n\u003cli\u003eTypescript\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eWe are working on adding support for more languages. If you would like to help contribute to this effort, you can add support for your language in the open source \u003ca href=\"https://github.com/tree-sitter\"\u003eTree-sitter\u003c/a\u003e parser ecosystem, upon which symbol search is based.\u003c/p\u003e\n\u003ch3 id=\"content-qualifier\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#content-qualifier\"\u003eContent qualifier\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eBy default, bare terms search both paths and file content. To restrict a search to strictly match the content of a file and not file paths, use the \u003ccode\u003econtent:\u003c/code\u003e qualifier. For example:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003econtent:README.md\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eThis query would only match files containing the term \u003ccode\u003eREADME.md\u003c/code\u003e, rather than matching files named \u003ccode\u003eREADME.md\u003c/code\u003e.\u003c/p\u003e\n\u003ch3 id=\"is-qualifier\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#is-qualifier\"\u003eIs qualifier\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h3\u003e\n\u003cp\u003eTo filter based on repository properties, you can use the \u003ccode\u003eis:\u003c/code\u003e qualifier. \u003ccode\u003eis:\u003c/code\u003e supports the following values:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003earchived\u003c/code\u003e: restricts the search to archived repositories.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003efork\u003c/code\u003e: restricts the search to forked repositories.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003evendored\u003c/code\u003e: restricts the search to content detected as vendored.\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003egenerated\u003c/code\u003e: restricts the search to content detected as generated.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor example:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003epath:/^MIT.txt$/ is:archived\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNote that the \u003ccode\u003eis:\u003c/code\u003e qualifier can be inverted with the \u003ccode\u003eNOT\u003c/code\u003e operator. To search for non-archived repositories, you can search:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003elog4j NOT is:archived\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eTo exclude forks from your results, you can search:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003elog4j NOT is:fork\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch2 id=\"using-regular-expressions\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#using-regular-expressions\"\u003eUsing regular expressions\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eCode search supports regular expressions to search for patterns in your code. You can use regular expressions in bare search terms as well as within many qualifiers, by surrounding the regex in slashes.\u003c/p\u003e\n\u003cp\u003eFor example, to search for the regular expression \u003ccode\u003esparse.*index\u003c/code\u003e, you would use:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003e/sparse.*index/\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eNote that you'll have to escape any forward slashes within the regular expression. For example, to search for files within the \u003ccode\u003eApp/src\u003c/code\u003e directory, you would use:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003e/^App\\/src\\//\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eInside a regular expression, \u003ccode\u003e\\n\u003c/code\u003e stands for a newline character, \u003ccode\u003e\\t\u003c/code\u003e stands for a tab, and \u003ccode\u003e\\x{hhhh}\u003c/code\u003e can be used to escape any Unicode character. This means you can use regular expressions to search for exact strings that contain characters that you can't type into the search bar.\u003c/p\u003e\n\u003cp\u003eMost common regular expressions features work in code search. However, \"look-around\" assertions are not supported.\u003c/p\u003e\n\u003ch2 id=\"separating-search-terms\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#separating-search-terms\"\u003eSeparating search terms\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eAll parts of a search, such as search terms, exact strings, regular expressions, qualifiers, parentheses, and the boolean keywords \u003ccode\u003eAND\u003c/code\u003e, \u003ccode\u003eOR\u003c/code\u003e, and \u003ccode\u003eNOT\u003c/code\u003e, must be separated from one another with spaces. The one exception is that items inside parentheses, \u003ccode\u003e(\u003c/code\u003e \u003ccode\u003e)\u003c/code\u003e, don't need to be separated from the parentheses.\u003c/p\u003e\n\u003cp\u003eIf your search contains multiple components that aren't separated by spaces, or other text that does not follow the rules listed above, code search will try to guess what you mean. It often falls back on treating that component of your query as the exact text to search for. For example, the following query:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003eprintf(\"hello world\\n\");\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eCode search will give up on interpreting the parentheses and quotes as special characters and will instead search for files containing that exact code.\u003c/p\u003e\n\u003cp\u003eIf code search guesses wrong, you can always get the search you wanted by using quotes and spaces to make the meaning clear.\u003c/p\u003e\n\u003ch2 id=\"case-sensitivity\" tabindex=\"-1\"\u003e\u003ca class=\"heading-link\" href=\"#case-sensitivity\"\u003eCase sensitivity\u003cspan class=\"heading-link-symbol\" aria-hidden=\"true\"\u003e\u003c/span\u003e\u003c/a\u003e\u003c/h2\u003e\n\u003cp\u003eBy default, code search is case-insensitive, and results will include both uppercase and lowercase results. You can do case-sensitive searches by using a regular expression with case insensitivity turned off. For example, to search for the string \"True\", you would use:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"hljs language-text\"\u003e/(?-i)True/\n\u003c/code\u003e\u003c/pre\u003e","miniTocItems":[{"contents":{"href":"#about-code-search-query-structure","title":"About code search query structure"}},{"contents":{"href":"#query-for-an-exact-match","title":"Query for an exact match"}},{"contents":{"href":"#searching-for-quotes-and-backslashes","title":"Searching for quotes and backslashes"}},{"contents":{"href":"#using-boolean-operations","title":"Using boolean operations"}},{"contents":{"href":"#using-qualifiers","title":"Using qualifiers"}},{"contents":{"href":"#using-regular-expressions","title":"Using regular expressions"}},{"contents":{"href":"#separating-search-terms","title":"Separating search terms"}},{"contents":{"href":"#case-sensitivity","title":"Case sensitivity"}}],"permissions":"","includesPlatformSpecificContent":false,"includesToolSpecificContent":false,"defaultPlatform":"","defaultTool":"","product":"","productVideoUrl":"","currentLearningTrack":null,"detectedPlatforms":[],"detectedTools":[],"allTools":{"agents":"Agents","api":"API","azure_data_studio":"Azure Data Studio","bash":"Bash","cli":"GitHub CLI","codespaces":"Codespaces","curl":"curl","desktop":"Desktop","eclipse":"Eclipse","importer_cli":"GitHub Enterprise Importer CLI","javascript":"JavaScript","jetbrains":"JetBrains IDEs","jetbrains_beta":"JetBrains IDEs (Beta)","skillsets":"Skillsets","vimneovim":"Vim/Neovim","powershell":"PowerShell","visualstudio":"Visual Studio","vscode":"Visual Studio Code","webui":"Web browser","windowsterminal":"Windows Terminal","xcode":"Xcode"},"supportPortalVaIframeProps":{"supportPortalUrl":"https://support.github.com","vaFlowUrlParameter":""},"currentLayout":"default"}},"languagesContext":{"languages":{"en":{"name":"English","code":"en"},"es":{"name":"Spanish","code":"es","nativeName":"Español"},"ja":{"name":"Japanese","code":"ja","nativeName":"日本語"},"pt":{"name":"Portuguese","code":"pt","nativeName":"Português do Brasil"},"zh":{"name":"Simplified Chinese","code":"zh","hreflang":"zh-Hans","nativeName":"简体中文"},"ru":{"name":"Russian","code":"ru","nativeName":"Русский"},"fr":{"name":"French","code":"fr","nativeName":"Français"},"ko":{"name":"Korean","code":"ko","nativeName":"한국어"},"de":{"name":"German","code":"de","nativeName":"Deutsch"}}},"__N_SSP":true},"page":"/[versionId]/[productId]/[...restPage]","query":{"versionId":"free-pro-team@latest","productId":"search-github","restPage":["github-code-search","understanding-github-code-search-syntax"]},"buildId":"GaljbBk5Zr73j-kZTn7PT","isFallback":false,"isExperimentalCompile":false,"gssp":true,"appGip":true,"locale":"en","locales":["en","es","ja","pt","zh","ru","fr","ko","de"],"defaultLocale":"en","scriptLoader":[]}</script>
+ </body>
+</html>

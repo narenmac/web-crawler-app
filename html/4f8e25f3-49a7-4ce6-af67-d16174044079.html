@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="awa-expId" content="vscw_aaflight1016_treatment:103440;">
+  <meta name="awa-env" content="prod">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="hNs7DXrTySP_X-0P_AC0WulAXvUwgSXEmgfcO2r79dw"><!-- Twitter and Facebook OpenGraph Metadata-->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@code">
+  <meta name="description" content="Use chat agent mode in VS Code to start an agentic code editing session to autonomously make edits and invoke tools. Use built-in tools, MCP tools, or tools from extensions.">
+  <meta name="keywords" content="">
+  <meta name="ms.prod" content="vs-code">
+  <meta name="ms.TOCTitle" content="">
+  <meta name="ms.ContentId" content="57754e12-a134-41cc-9693-fb187729c49f">
+  <meta name="ms.date" content="04/03/2025">
+  <meta name="ms.topic" content="conceptual"><!-- Twitter and Facebook OpenGraph Metadata-->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:url" content="https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Use agent mode in VS Code">
+  <meta property="og:description" content="Use chat agent mode in VS Code to start an agentic code editing session to autonomously make edits and invoke tools. Use built-in tools, MCP tools, or tools from extensions.">
+  <meta property="og:image" content="https://code.visualstudio.com/assets/docs/copilot/shared/github-copilot-social.png">
+  <link rel="shortcut icon" href="/assets/favicon.ico" sizes="128x128">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <title>Use agent mode in VS Code</title>
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/dist/v2/style.css">
+  <script src="https://consentdeliveryfd.azurefd.net/mscc/lib/v2/wcp-consent.js"></script>
+  <script type="text/javascript" src="https://js.monitor.azure.com/scripts/c/ms.analytics-web-4.min.js"></script>
+  <script type="text/javascript">
+	// Leave as var; siteConsent is initialized and referenced elsewhere.
+	var siteConsent = null;
+	
+	const GPC_DataSharingOptIn = false;
+	WcpConsent.onInitCallback(function () {
+		window.appInsights = new oneDS.ApplicationInsights();
+		window.appInsights.initialize({
+			instrumentationKey: "1a3eb3104447440391ad5f2a6ee06a0a-62879566-bc58-4741-9650-302bf2af703f-7103",
+			propertyConfiguration: {
+				userConsented: false,
+				gpcDataSharingOptIn: false,
+				callback: {
+					userConsentDetails: siteConsent ? siteConsent.getConsent : undefined
+				},
+			},
+			cookieCfg: {
+				ignoreCookies: ["MSCC"]
+			},
+			webAnalyticsConfiguration:{ // Web Analytics Plugin configuration
+				urlCollectQuery: true,
+				urlCollectHash: true,
+				autoCapture: {
+					scroll: true,
+					pageView: true,
+					onLoad: true,
+					onUnload: true,
+					click: true,
+					resize: true,
+					jsError: true
+				}
+			}
+		}, []);
+	
+		window.appInsights.getPropertyManager().getPropertiesContext().web.gpcDataSharingOptIn = GPC_DataSharingOptIn;
+	});
+	</script>
+  <link rel="alternate" type="application/atom+xml" title="RSS Feed for code.visualstudio.com" href="/feed.xml">
+ </head>
+ <body>
+  <!-- Setting theme here to avoid FOUC -->
+  <script>
+		function setTheme(themeName) {
+			if (themeName === 'dark') {
+				document.documentElement.removeAttribute('data-theme'); // dark is default, so no data-theme attribute needed
+			}
+
+			if (themeName === 'light') {
+				document.documentElement.setAttribute('data-theme', themeName);
+			}
+			return;
+		}
+
+		// Determine initial theme: user preference or system preference
+		let theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+		setTheme(theme); // Apply the initial theme
+
+		// Listen for changes in the system theme preference
+		window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+			if (!localStorage.getItem('theme')) { // Only if no user preference is saved
+				setTheme(e.matches ? 'dark' : 'light');
+			}
+		});
+	</script>
+  <div id="main">
+   <div class="navbar-fixed-container">
+    <div class="navbar navbar-inverse navbar-fixed-top " data-spy="affix" data-offset-top="1">
+     <div id="cookie-banner"></div>
+     <nav role="navigation" aria-label="Top Level">
+      <div class="container">
+       <div class="nav navbar-header">
+        <a class="navbar-brand" href="/"><span>Visual Studio Code</span></a> <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" aria-label="Expand and Collapse Menu"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+       </div>
+       <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+         <li class="active"><a id="nav-docs" href="/docs">Docs</a></li>
+         <li><a id="nav-updates" href="/updates">Updates</a></li>
+         <li><a id="nav-blogs" href="/blogs">Blog</a></li>
+         <li><a id="nav-extend" href="/api">API</a></li>
+         <li><a href="https://marketplace.visualstudio.com/VSCode" target="_blank" rel="noopener" id="nav-extensions">Extensions</a></li>
+         <li><a id="nav-faqs" href="/docs/supporting/faq">FAQ</a></li>
+         <li class="search visible-xs visible-sm"><a href="/Search">Search</a></li>
+         <li><a id="nav-copilot" href="/docs/copilot/overview">GitHub Copilot</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" role="presentation">
+         <li><button type="button" class="theme-switch" id="theme-toggle"> <img class="theme-icon-light" src="/assets/icons/theme-light.svg" alt="Switch to the dark theme"> <img class="theme-icon-dark" src="/assets/icons/theme-dark.svg" alt="Switch to the light theme"> </button></li>
+         <li><a href="/Search" title="Search" class="btn search-btn" id="nav-search"> <img class="search-icon-light" src="/assets/icons/search.svg" width="16px" height="16px" alt="Search"> <img class="search-icon-dark" src="/assets/icons/search-dark.svg" width="16px" height="16px" alt="Search"> </a></li>
+         <li class="search" role="presentation">
+          <form class="nav-search search-form" role="search" aria-label="Search">
+           <div class="input-group" role="presentation">
+            <input type="text" name="q" class="search-box form-control" placeholder="Search Docs" aria-label="Search text"> <span class="input-group-btn"> <button tabindex="0" class="btn" type="submit" aria-label="Search"> <img class="search-icon-dark" src="/assets/icons/search-dark.svg" alt="Search"> <img class="search-icon-light" src="/assets/icons/search.svg" alt="Search"> </button> </span>
+           </div>
+          </form></li><!-- this was hiden in the home and download page, keeping it for now -->
+         <li><a class="link-button" href="/Download" id="nav-download"> <span>Download</span></a></li>
+        </ul>
+       </div>
+      </div>
+     </nav>
+    </div>
+   </div>
+   <div class="updates-banner  ">
+    <div class="container">
+     <p class="message">Join us for <a class="copilot-deep-link" href="https://aka.ms/VSCodeLiveAgentModeDay" id="banner-link-updates" rel="noopener" target="_blank">VS Code Live: Agent Mode Day</a> on April 16th!</p>
+    </div>
+    <div tabindex="0" role="button" title="Dismiss this update" class="dismiss-btn" id="banner-dismiss-btn">
+     <span class="sr-only">Dismiss this update</span><span aria-hidden="true" class="glyph-icon"></span>
+    </div>
+   </div><!-- This div wraps around the entire site --> <!-- The body itself should already have a main tag -->
+   <div id="main-content">
+    <script>
+    function closeReportIssue() {
+        var element = document.getElementById('surveypopup');
+        element.parentElement.removeChild(element);
+    }
+
+    function reportIssue(tutorial, page) {
+        var div = document.createElement('div');
+        div.innerHTML = '<div id="surveypopup" class="overlay visible"><div class="surveypopup"><div id="surveytitle">Tell us more<a href="javascript:void(0)" onclick="closeReportIssue()">X</a></div><div id="surveydiv"><iframe frameBorder="0" scrolling="0" src="https://www.research.net/r/PWZWZ52?tutorial=' + tutorial + '&step=' + page + '"></iframe></div></div></div>';
+        document.body.appendChild(div.children[0]);
+    }
+</script>
+    <div class="container body-content docs">
+     <div class="row">
+      <!-- left nav -->
+      <div class="col-xs-12 col-md-2 docs-navbar-container">
+       <nav id="docs-navbar" aria-label="Topics" class="docs-nav visible-md visible-lg">
+        <ul class="nav" id="main-nav">
+         <li><a class="docs-home" href="/docs">Overview</a></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#setup-articles" data-parent="#main-nav" data-toggle="collapse">Setup</a>
+          <ul id="setup-articles" class="collapse ">
+           <li><a href="/docs/setup/setup-overview">Overview</a></li>
+           <li><a href="/docs/setup/linux">Linux</a></li>
+           <li><a href="/docs/setup/mac">macOS</a></li>
+           <li><a href="/docs/setup/windows">Windows</a></li>
+           <li><a href="/docs/setup/vscode-web">VS Code for the Web</a></li>
+           <li><a href="/docs/setup/raspberry-pi">Raspberry Pi</a></li>
+           <li><a href="/docs/setup/network">Network</a></li>
+           <li><a href="/docs/setup/additional-components">Additional Components</a></li>
+           <li><a href="/docs/setup/enterprise">Enterprise</a></li>
+           <li><a href="/docs/setup/uninstall">Uninstall</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#getstarted-articles" data-parent="#main-nav" data-toggle="collapse">Get Started</a>
+          <ul id="getstarted-articles" class="collapse ">
+           <li><a href="/docs/getstarted/getting-started">VS Code Tutorial</a></li>
+           <li><a href="/docs/getstarted/copilot-quickstart">Copilot Quickstart</a></li>
+           <li><a href="/docs/getstarted/userinterface">User Interface</a></li>
+           <li><a href="/docs/getstarted/personalize-vscode">Personalize VS Code</a></li>
+           <li><a href="/docs/getstarted/extensions">Install Extensions</a></li>
+           <li><a href="/docs/getstarted/tips-and-tricks">Tips and Tricks</a></li>
+           <li><a href="/docs/getstarted/introvideos">Intro Videos</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#configure-articles" data-parent="#main-nav" data-toggle="collapse">Configure</a>
+          <ul id="configure-articles" class="collapse ">
+           <li><a href="/docs/configure/locales">Display Language</a></li>
+           <li><a href="/docs/configure/custom-layout">Layout</a></li>
+           <li><a href="/docs/configure/keybindings">Keyboard Shortcuts</a></li>
+           <li><a href="/docs/configure/settings">Settings</a></li>
+           <li><a href="/docs/configure/settings-sync">Settings Sync</a></li>
+           <li class="panel collapsed"><a class="area" role="button" href="#configure-extensions-articles" data-parent="#configure-articles" data-toggle="collapse">Extensions</a>
+            <ul id="configure-extensions-articles" class="collapse ">
+             <li><a href="/docs/configure/extensions/extension-marketplace">Extension Marketplace</a></li>
+             <li><a href="/docs/configure/extensions/extension-runtime-security">Extension Runtime Security</a></li>
+            </ul></li>
+           <li><a href="/docs/configure/themes">Themes</a></li>
+           <li><a href="/docs/configure/profiles">Profiles</a></li>
+           <li class="panel collapsed"><a class="area" role="button" href="#configure-accessibility-articles" data-parent="#configure-articles" data-toggle="collapse">Accessibility</a>
+            <ul id="configure-accessibility-articles" class="collapse ">
+             <li><a href="/docs/configure/accessibility/accessibility">Overview</a></li>
+             <li><a href="/docs/configure/accessibility/voice">Voice Interactions</a></li>
+            </ul></li>
+           <li><a href="/docs/configure/command-line">Command Line Interface</a></li>
+           <li><a href="/docs/configure/telemetry">Telemetry</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#editing-articles" data-parent="#main-nav" data-toggle="collapse">Edit code</a>
+          <ul id="editing-articles" class="collapse ">
+           <li><a href="/docs/editing/codebasics">Basic Editing</a></li>
+           <li><a href="/docs/editing/intellisense">IntelliSense</a></li>
+           <li><a href="/docs/editing/editingevolved">Code Navigation</a></li>
+           <li><a href="/docs/editing/refactoring">Refactoring</a></li>
+           <li><a href="/docs/editing/userdefinedsnippets">Snippets</a></li>
+           <li class="panel collapsed"><a class="area" role="button" href="#editing-workspaces-articles" data-parent="#editing-articles" data-toggle="collapse">Workspaces</a>
+            <ul id="editing-workspaces-articles" class="collapse ">
+             <li><a href="/docs/editing/workspaces/workspaces">Overview</a></li>
+             <li><a href="/docs/editing/workspaces/multi-root-workspaces">Multi-root Workspaces</a></li>
+             <li><a href="/docs/editing/workspaces/workspace-trust">Workspace Trust</a></li>
+            </ul></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#debugtest-articles" data-parent="#main-nav" data-toggle="collapse">Build, Debug, Test</a>
+          <ul id="debugtest-articles" class="collapse ">
+           <li><a href="/docs/debugtest/tasks">Tasks</a></li>
+           <li><a href="/docs/debugtest/debugging">Debugging</a></li>
+           <li><a href="/docs/debugtest/debugging-configuration">Debug Configuration</a></li>
+           <li><a href="/docs/debugtest/testing">Testing</a></li>
+           <li><a href="/docs/debugtest/port-forwarding">Port Forwarding</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#sourcecontrol-articles" data-parent="#main-nav" data-toggle="collapse">Source Control</a>
+          <ul id="sourcecontrol-articles" class="collapse ">
+           <li><a href="/docs/sourcecontrol/overview">Overview</a></li>
+           <li><a href="/docs/sourcecontrol/intro-to-git">Introduction to Git</a></li>
+           <li><a href="/docs/sourcecontrol/github">Collaborate on GitHub</a></li>
+           <li><a href="/docs/sourcecontrol/faq">FAQ</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#terminal-articles" data-parent="#main-nav" data-toggle="collapse">Terminal</a>
+          <ul id="terminal-articles" class="collapse ">
+           <li><a href="/docs/terminal/getting-started">Getting Started Tutorial</a></li>
+           <li><a href="/docs/terminal/basics">Terminal Basics</a></li>
+           <li><a href="/docs/terminal/profiles">Terminal Profiles</a></li>
+           <li><a href="/docs/terminal/shell-integration">Shell Integration</a></li>
+           <li><a href="/docs/terminal/appearance">Appearance</a></li>
+           <li><a href="/docs/terminal/advanced">Advanced</a></li>
+          </ul></li>
+         <li class="panel active expanded"><a class="area" role="button" href="#copilot-articles" data-parent="#main-nav" data-toggle="collapse">GitHub Copilot</a>
+          <ul id="copilot-articles" class="collapse in">
+           <li><a href="/docs/copilot/overview">Overview</a></li>
+           <li><a href="/docs/copilot/setup">Setup</a></li>
+           <li><a href="/docs/copilot/getting-started">Quickstart</a></li>
+           <li><a href="/docs/copilot/ai-powered-suggestions">Code Completions</a></li>
+           <li class="panel expanded"><a class="area" role="button" href="#copilot-chat-articles" data-parent="#copilot-articles" data-toggle="collapse">Chat</a>
+            <ul id="copilot-chat-articles" class="collapse in">
+             <li><a href="/docs/copilot/chat/copilot-chat">Overview</a></li>
+             <li><a href="/docs/copilot/chat/getting-started-chat">Tutorial</a></li>
+             <li><a href="/docs/copilot/chat/chat-ask-mode">Ask Mode</a></li>
+             <li><a href="/docs/copilot/chat/copilot-edits">Edit Mode</a></li>
+             <li class="active"><a href="/docs/copilot/chat/chat-agent-mode" aria-label="Current Page: Agent Mode">Agent Mode</a></li>
+             <li><a href="/docs/copilot/chat/mcp-servers">MCP Servers</a></li>
+             <li><a href="/docs/copilot/chat/inline-chat">Inline Chat</a></li>
+             <li><a href="/docs/copilot/chat/copilot-chat-context">Chat Context</a></li>
+             <li><a href="/docs/copilot/chat/prompt-crafting">Prompt Engineering</a></li>
+            </ul></li>
+           <li><a href="/docs/copilot/copilot-smart-actions">Smart Actions</a></li>
+           <li><a href="/docs/copilot/copilot-customization">Personalize Copilot</a></li>
+           <li><a href="/docs/copilot/language-models">Language Models</a></li>
+           <li class="panel collapsed"><a class="area" role="button" href="#copilot-guides-articles" data-parent="#copilot-articles" data-toggle="collapse">Guides</a>
+            <ul id="copilot-guides-articles" class="collapse ">
+             <li><a href="/docs/copilot/guides/test-with-copilot">Test with Copilot</a></li>
+             <li><a href="/docs/copilot/guides/debug-with-copilot">Debug with Copilot</a></li>
+            </ul></li>
+           <li><a href="/docs/copilot/copilot-tips-and-tricks">Tips and Tricks</a></li>
+           <li><a href="/docs/copilot/copilot-extensibility-overview">Copilot Extensibility</a></li>
+           <li><a href="/docs/copilot/faq">FAQ</a></li>
+           <li class="panel collapsed"><a class="area" role="button" href="#copilot-reference-articles" data-parent="#copilot-articles" data-toggle="collapse">Reference</a>
+            <ul id="copilot-reference-articles" class="collapse ">
+             <li><a href="/docs/copilot/reference/copilot-vscode-features">Copilot Cheat Sheet</a></li>
+             <li><a href="/docs/copilot/reference/copilot-settings">Settings Reference</a></li>
+             <li><a href="/docs/copilot/reference/workspace-context">Workspace Context</a></li>
+            </ul></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#languages-articles" data-parent="#main-nav" data-toggle="collapse">Languages</a>
+          <ul id="languages-articles" class="collapse ">
+           <li><a href="/docs/languages/overview">Overview</a></li>
+           <li><a href="/docs/languages/javascript">JavaScript</a></li>
+           <li><a href="/docs/languages/json">JSON</a></li>
+           <li><a href="/docs/languages/html">HTML</a></li>
+           <li><a href="/docs/languages/emmet">Emmet</a></li>
+           <li><a href="/docs/languages/css">CSS, SCSS and Less</a></li>
+           <li><a href="/docs/languages/typescript">TypeScript</a></li>
+           <li><a href="/docs/languages/markdown">Markdown</a></li>
+           <li><a href="/docs/languages/powershell">PowerShell</a></li>
+           <li><a href="/docs/languages/cpp">C++</a></li>
+           <li><a href="/docs/languages/java">Java</a></li>
+           <li><a href="/docs/languages/php">PHP</a></li>
+           <li><a href="/docs/languages/python">Python</a></li>
+           <li><a href="/docs/languages/julia">Julia</a></li>
+           <li><a href="/docs/languages/r">R</a></li>
+           <li><a href="/docs/languages/ruby">Ruby</a></li>
+           <li><a href="/docs/languages/rust">Rust</a></li>
+           <li><a href="/docs/languages/go">Go</a></li>
+           <li><a href="/docs/languages/tsql">T-SQL</a></li>
+           <li><a href="/docs/languages/csharp">C#</a></li>
+           <li><a href="/docs/languages/dotnet">.NET</a></li>
+           <li><a href="/docs/languages/polyglot">Polyglot</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#nodejs-articles" data-parent="#main-nav" data-toggle="collapse">Node.js / JavaScript</a>
+          <ul id="nodejs-articles" class="collapse ">
+           <li><a href="/docs/nodejs/working-with-javascript">Working with JavaScript</a></li>
+           <li><a href="/docs/nodejs/nodejs-tutorial">Node.js Tutorial</a></li>
+           <li><a href="/docs/nodejs/nodejs-debugging">Node.js Debugging</a></li>
+           <li><a href="/docs/nodejs/nodejs-deployment">Deploy Node.js Apps</a></li>
+           <li><a href="/docs/nodejs/browser-debugging">Browser Debugging</a></li>
+           <li><a href="/docs/nodejs/angular-tutorial">Angular Tutorial</a></li>
+           <li><a href="/docs/nodejs/reactjs-tutorial">React Tutorial</a></li>
+           <li><a href="/docs/nodejs/vuejs-tutorial">Vue Tutorial</a></li>
+           <li><a href="/docs/nodejs/debugging-recipes">Debugging Recipes</a></li>
+           <li><a href="/docs/nodejs/profiling">Performance Profiling</a></li>
+           <li><a href="/docs/nodejs/extensions">Extensions</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#typescript-articles" data-parent="#main-nav" data-toggle="collapse">TypeScript</a>
+          <ul id="typescript-articles" class="collapse ">
+           <li><a href="/docs/typescript/typescript-tutorial">Tutorial</a></li>
+           <li><a href="/docs/typescript/typescript-compiling">Compiling</a></li>
+           <li><a href="/docs/typescript/typescript-editing">Editing</a></li>
+           <li><a href="/docs/typescript/typescript-refactoring">Refactoring</a></li>
+           <li><a href="/docs/typescript/typescript-debugging">Debugging</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#python-articles" data-parent="#main-nav" data-toggle="collapse">Python</a>
+          <ul id="python-articles" class="collapse ">
+           <li><a href="/docs/python/python-quick-start">Quick Start</a></li>
+           <li><a href="/docs/python/python-tutorial">Tutorial</a></li>
+           <li><a href="/docs/python/run">Run Python Code</a></li>
+           <li><a href="/docs/python/editing">Editing</a></li>
+           <li><a href="/docs/python/linting">Linting</a></li>
+           <li><a href="/docs/python/formatting">Formatting</a></li>
+           <li><a href="/docs/python/debugging">Debugging</a></li>
+           <li><a href="/docs/python/environments">Environments</a></li>
+           <li><a href="/docs/python/testing">Testing</a></li>
+           <li><a href="/docs/python/jupyter-support-py">Python Interactive</a></li>
+           <li><a href="/docs/python/tutorial-django">Django Tutorial</a></li>
+           <li><a href="/docs/python/tutorial-fastapi">FastAPI Tutorial</a></li>
+           <li><a href="/docs/python/tutorial-flask">Flask Tutorial</a></li>
+           <li><a href="/docs/python/tutorial-create-containers">Create Containers</a></li>
+           <li><a href="/docs/python/python-on-azure">Deploy Python Apps</a></li>
+           <li><a href="/docs/python/python-web">Python in the Web</a></li>
+           <li><a href="/docs/python/settings-reference">Settings Reference</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#java-articles" data-parent="#main-nav" data-toggle="collapse">Java</a>
+          <ul id="java-articles" class="collapse ">
+           <li><a href="/docs/java/java-tutorial">Getting Started</a></li>
+           <li><a href="/docs/java/java-editing">Navigate and Edit</a></li>
+           <li><a href="/docs/java/java-refactoring">Refactoring</a></li>
+           <li><a href="/docs/java/java-linting">Formatting and Linting</a></li>
+           <li><a href="/docs/java/java-project">Project Management</a></li>
+           <li><a href="/docs/java/java-build">Build Tools</a></li>
+           <li><a href="/docs/java/java-debugging">Run and Debug</a></li>
+           <li><a href="/docs/java/java-testing">Testing</a></li>
+           <li><a href="/docs/java/java-spring-boot">Spring Boot</a></li>
+           <li><a href="/docs/java/java-tomcat-jetty">Application Servers</a></li>
+           <li><a href="/docs/java/java-on-azure">Deploy Java Apps</a></li>
+           <li><a href="/docs/java/java-gui">GUI Applications</a></li>
+           <li><a href="/docs/java/extensions">Extensions</a></li>
+           <li><a href="/docs/java/java-faq">FAQ</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#cpp-articles" data-parent="#main-nav" data-toggle="collapse">C++</a>
+          <ul id="cpp-articles" class="collapse ">
+           <li><a href="/docs/cpp/introvideos-cpp">Intro Videos</a></li>
+           <li><a href="/docs/cpp/config-linux">GCC on Linux</a></li>
+           <li><a href="/docs/cpp/config-mingw">GCC on Windows</a></li>
+           <li><a href="/docs/cpp/config-wsl">GCC on Windows Subsystem for Linux</a></li>
+           <li><a href="/docs/cpp/config-clang-mac">Clang on macOS</a></li>
+           <li><a href="/docs/cpp/config-msvc">Microsoft C++ on Windows</a></li>
+           <li><a href="/docs/cpp/build-with-cmake">Build with CMake</a></li>
+           <li><a href="/docs/cpp/cmake-linux">CMake Tools on Linux</a></li>
+           <li><a href="/docs/cpp/cmake-quickstart">CMake Quick Start</a></li>
+           <li><a href="/docs/cpp/cpp-ide">Editing and Navigating</a></li>
+           <li><a href="/docs/cpp/cpp-debug">Debugging</a></li>
+           <li><a href="/docs/cpp/launch-json-reference">Configure Debugging</a></li>
+           <li><a href="/docs/cpp/cpp-refactoring">Refactoring</a></li>
+           <li><a href="/docs/cpp/customize-default-settings-cpp">Settings</a></li>
+           <li><a href="/docs/cpp/configure-intellisense">Configure IntelliSense</a></li>
+           <li><a href="/docs/cpp/configure-intellisense-crosscompilation">Configure IntelliSense for Cross-Compiling</a></li>
+           <li><a href="/docs/cpp/faq-cpp">FAQ</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#csharp-articles" data-parent="#main-nav" data-toggle="collapse">C#</a>
+          <ul id="csharp-articles" class="collapse ">
+           <li><a href="/docs/csharp/introvideos-csharp">Intro Videos</a></li>
+           <li><a href="/docs/csharp/get-started">Get Started</a></li>
+           <li><a href="/docs/csharp/navigate-edit">Navigate and Edit</a></li>
+           <li><a href="/docs/csharp/intellicode">IntelliCode</a></li>
+           <li><a href="/docs/csharp/refactoring">Refactoring</a></li>
+           <li><a href="/docs/csharp/formatting-linting">Formatting and Linting</a></li>
+           <li><a href="/docs/csharp/project-management">Project Management</a></li>
+           <li><a href="/docs/csharp/build-tools">Build Tools</a></li>
+           <li><a href="/docs/csharp/package-management">Package Management</a></li>
+           <li><a href="/docs/csharp/debugging">Run and Debug</a></li>
+           <li><a href="/docs/csharp/testing">Testing</a></li>
+           <li><a href="/docs/csharp/cs-dev-kit-faq">FAQ</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#containers-articles" data-parent="#main-nav" data-toggle="collapse">Docker</a>
+          <ul id="containers-articles" class="collapse ">
+           <li><a href="/docs/containers/overview">Overview</a></li>
+           <li><a href="/docs/containers/quickstart-node">Node.js</a></li>
+           <li><a href="/docs/containers/quickstart-python">Python</a></li>
+           <li><a href="/docs/containers/quickstart-aspnet-core">ASP.NET Core</a></li>
+           <li><a href="/docs/containers/debug-common">Debug</a></li>
+           <li><a href="/docs/containers/docker-compose">Docker Compose</a></li>
+           <li><a href="/docs/containers/quickstart-container-registries">Registries</a></li>
+           <li><a href="/docs/containers/app-service">Deploy to Azure</a></li>
+           <li><a href="/docs/containers/choosing-dev-environment">Choose a Dev Environment</a></li>
+           <li><a href="/docs/containers/reference">Customize</a></li>
+           <li><a href="/docs/containers/bridge-to-kubernetes">Develop with Kubernetes</a></li>
+           <li><a href="/docs/containers/troubleshooting">Tips and Tricks</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#datascience-articles" data-parent="#main-nav" data-toggle="collapse">Data Science</a>
+          <ul id="datascience-articles" class="collapse ">
+           <li><a href="/docs/datascience/overview">Overview</a></li>
+           <li><a href="/docs/datascience/jupyter-notebooks">Jupyter Notebooks</a></li>
+           <li><a href="/docs/datascience/data-science-tutorial">Data Science Tutorial</a></li>
+           <li><a href="/docs/datascience/python-interactive">Python Interactive</a></li>
+           <li><a href="/docs/datascience/data-wrangler-quick-start">Data Wrangler Quick Start</a></li>
+           <li><a href="/docs/datascience/data-wrangler">Data Wrangler</a></li>
+           <li><a href="/docs/datascience/pytorch-support">PyTorch Support</a></li>
+           <li><a href="/docs/datascience/azure-machine-learning">Azure Machine Learning</a></li>
+           <li><a href="/docs/datascience/jupyter-kernel-management">Manage Jupyter Kernels</a></li>
+           <li><a href="/docs/datascience/notebooks-web">Jupyter Notebooks on the Web</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#intelligentapps-articles" data-parent="#main-nav" data-toggle="collapse">Intelligent Apps</a>
+          <ul id="intelligentapps-articles" class="collapse ">
+           <li><a href="/docs/intelligentapps/overview">AI Toolkit Overview</a></li>
+           <li><a href="/docs/intelligentapps/models">Models</a></li>
+           <li><a href="/docs/intelligentapps/playground">Playground</a></li>
+           <li><a href="/docs/intelligentapps/promptbuilder">Prompt Builder</a></li>
+           <li><a href="/docs/intelligentapps/bulkrun">Bulk Run</a></li>
+           <li><a href="/docs/intelligentapps/evaluation">Evaluation</a></li>
+           <li><a href="/docs/intelligentapps/finetune">Fine-tune</a></li>
+           <li><a href="/docs/intelligentapps/modelconversion">Model Conversion</a></li>
+           <li><a href="/docs/intelligentapps/faq">FAQ</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#azure-articles" data-parent="#main-nav" data-toggle="collapse">Azure</a>
+          <ul id="azure-articles" class="collapse ">
+           <li><a href="/docs/azure/overview">Overview</a></li>
+           <li><a href="/docs/azure/gettingstarted">Getting Started</a></li>
+           <li><a href="/docs/azure/deployment">Deployment</a></li>
+           <li><a href="/docs/azure/docker">Docker</a></li>
+           <li><a href="/docs/azure/aksextensions">Azure Kubernetes Service</a></li>
+           <li><a href="/docs/azure/kubernetes">Kubernetes</a></li>
+           <li><a href="/docs/azure/mongodb">MongoDB</a></li>
+           <li><a href="/docs/azure/remote-debugging">Remote Debugging for Node.js</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#remote-articles" data-parent="#main-nav" data-toggle="collapse">Remote</a>
+          <ul id="remote-articles" class="collapse ">
+           <li><a href="/docs/remote/remote-overview">Overview</a></li>
+           <li><a href="/docs/remote/ssh">SSH</a></li>
+           <li><a href="/docs/remote/dev-containers">Dev Containers</a></li>
+           <li><a href="/docs/remote/wsl">Windows Subsystem for Linux</a></li>
+           <li><a href="/docs/remote/codespaces">GitHub Codespaces</a></li>
+           <li><a href="/docs/remote/vscode-server">VS Code Server</a></li>
+           <li><a href="/docs/remote/tunnels">Tunnels</a></li>
+           <li><a href="/docs/remote/ssh-tutorial">SSH Tutorial</a></li>
+           <li><a href="/docs/remote/wsl-tutorial">WSL Tutorial</a></li>
+           <li><a href="/docs/remote/troubleshooting">Tips and Tricks</a></li>
+           <li><a href="/docs/remote/faq">FAQ</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#devcontainers-articles" data-parent="#main-nav" data-toggle="collapse">Dev Containers</a>
+          <ul id="devcontainers-articles" class="collapse ">
+           <li><a href="/docs/devcontainers/containers">Overview</a></li>
+           <li><a href="/docs/devcontainers/tutorial">Tutorial</a></li>
+           <li><a href="/docs/devcontainers/attach-container">Attach to Container</a></li>
+           <li><a href="/docs/devcontainers/create-dev-container">Create Dev Container</a></li>
+           <li><a href="/docs/devcontainers/containers-advanced">Advanced Containers</a></li>
+           <li><a href="/docs/devcontainers/devcontainerjson-reference">devcontainer.json</a></li>
+           <li><a href="/docs/devcontainers/devcontainer-cli">Dev Container CLI</a></li>
+           <li><a href="/docs/devcontainers/tips-and-tricks">Tips and Tricks</a></li>
+           <li><a href="/docs/devcontainers/faq">FAQ</a></li>
+          </ul></li>
+         <li class="panel collapsed"><a class="area" role="button" href="#reference-articles" data-parent="#main-nav" data-toggle="collapse">Reference</a>
+          <ul id="reference-articles" class="collapse ">
+           <li><a href="/docs/reference/default-keybindings">Default Keyboard Shortcuts</a></li>
+           <li><a href="/docs/reference/default-settings">Default Settings</a></li>
+           <li><a href="/docs/reference/variables-reference">Substitution Variables</a></li>
+           <li><a href="/docs/reference/tasks-appendix">Tasks Schema</a></li>
+          </ul></li>
+        </ul>
+       </nav>
+       <nav id="small-nav" aria-label="Topics" class="docs-nav hidden-md hidden-lg">
+        <label class="faux-h4" for="small-nav-dropdown">Topics</label> <select id="small-nav-dropdown" aria-label="topics"> <option value="/docs">Overview</option> <optgroup label="Setup"> <option value="/docs/setup/setup-overview">Overview</option> <option value="/docs/setup/linux">Linux</option> <option value="/docs/setup/mac">macOS</option> <option value="/docs/setup/windows">Windows</option> <option value="/docs/setup/vscode-web">VS Code for the Web</option> <option value="/docs/setup/raspberry-pi">Raspberry Pi</option> <option value="/docs/setup/network">Network</option> <option value="/docs/setup/additional-components">Additional Components</option> <option value="/docs/setup/enterprise">Enterprise</option> <option value="/docs/setup/uninstall">Uninstall</option> </optgroup> <optgroup label="Get Started"> <option value="/docs/getstarted/getting-started">VS Code Tutorial</option> <option value="/docs/getstarted/copilot-quickstart">Copilot Quickstart</option> <option value="/docs/getstarted/userinterface">User Interface</option> <option value="/docs/getstarted/personalize-vscode">Personalize VS Code</option> <option value="/docs/getstarted/extensions">Install Extensions</option> <option value="/docs/getstarted/tips-and-tricks">Tips and Tricks</option> <option value="/docs/getstarted/introvideos">Intro Videos</option> </optgroup> <optgroup label="Configure"> <option value="/docs/configure/locales">Display Language</option> <option value="/docs/configure/custom-layout">Layout</option> <option value="/docs/configure/keybindings">Keyboard Shortcuts</option> <option value="/docs/configure/settings">Settings</option> <option value="/docs/configure/settings-sync">Settings Sync</option> </optgroup><optgroup label="Configure - Extensions"> <option value="/docs/configure/extensions/extension-marketplace">Extension Marketplace</option> <option value="/docs/configure/extensions/extension-runtime-security">Extension Runtime Security</option> </optgroup> <option value="/docs/configure/themes">Themes</option> <option value="/docs/configure/profiles">Profiles</option> <optgroup label="Configure - Accessibility"> <option value="/docs/configure/accessibility/accessibility">Overview</option> <option value="/docs/configure/accessibility/voice">Voice Interactions</option> </optgroup> <option value="/docs/configure/command-line">Command Line Interface</option> <option value="/docs/configure/telemetry">Telemetry</option> <optgroup label="Edit code"> <option value="/docs/editing/codebasics">Basic Editing</option> <option value="/docs/editing/intellisense">IntelliSense</option> <option value="/docs/editing/editingevolved">Code Navigation</option> <option value="/docs/editing/refactoring">Refactoring</option> <option value="/docs/editing/userdefinedsnippets">Snippets</option> </optgroup><optgroup label="Edit code - Workspaces"> <option value="/docs/editing/workspaces/workspaces">Overview</option> <option value="/docs/editing/workspaces/multi-root-workspaces">Multi-root Workspaces</option> <option value="/docs/editing/workspaces/workspace-trust">Workspace Trust</option> </optgroup> <optgroup label="Build, Debug, Test"> <option value="/docs/debugtest/tasks">Tasks</option> <option value="/docs/debugtest/debugging">Debugging</option> <option value="/docs/debugtest/debugging-configuration">Debug Configuration</option> <option value="/docs/debugtest/testing">Testing</option> <option value="/docs/debugtest/port-forwarding">Port Forwarding</option> </optgroup> <optgroup label="Source Control"> <option value="/docs/sourcecontrol/overview">Overview</option> <option value="/docs/sourcecontrol/intro-to-git">Introduction to Git</option> <option value="/docs/sourcecontrol/github">Collaborate on GitHub</option> <option value="/docs/sourcecontrol/faq">FAQ</option> </optgroup> <optgroup label="Terminal"> <option value="/docs/terminal/getting-started">Getting Started Tutorial</option> <option value="/docs/terminal/basics">Terminal Basics</option> <option value="/docs/terminal/profiles">Terminal Profiles</option> <option value="/docs/terminal/shell-integration">Shell Integration</option> <option value="/docs/terminal/appearance">Appearance</option> <option value="/docs/terminal/advanced">Advanced</option> </optgroup> <optgroup label="GitHub Copilot"> <option value="/docs/copilot/overview">Overview</option> <option value="/docs/copilot/setup">Setup</option> <option value="/docs/copilot/getting-started">Quickstart</option> <option value="/docs/copilot/ai-powered-suggestions">Code Completions</option> </optgroup><optgroup label="GitHub Copilot - Chat"> <option value="/docs/copilot/chat/copilot-chat">Overview</option> <option value="/docs/copilot/chat/getting-started-chat">Tutorial</option> <option value="/docs/copilot/chat/chat-ask-mode">Ask Mode</option> <option value="/docs/copilot/chat/copilot-edits">Edit Mode</option> <option value="/docs/copilot/chat/chat-agent-mode" selected>Agent Mode</option> <option value="/docs/copilot/chat/mcp-servers">MCP Servers</option> <option value="/docs/copilot/chat/inline-chat">Inline Chat</option> <option value="/docs/copilot/chat/copilot-chat-context">Chat Context</option> <option value="/docs/copilot/chat/prompt-crafting">Prompt Engineering</option> </optgroup> <option value="/docs/copilot/copilot-smart-actions">Smart Actions</option> <option value="/docs/copilot/copilot-customization">Personalize Copilot</option> <option value="/docs/copilot/language-models">Language Models</option> <optgroup label="GitHub Copilot - Guides"> <option value="/docs/copilot/guides/test-with-copilot">Test with Copilot</option> <option value="/docs/copilot/guides/debug-with-copilot">Debug with Copilot</option> </optgroup> <option value="/docs/copilot/copilot-tips-and-tricks">Tips and Tricks</option> <option value="/docs/copilot/copilot-extensibility-overview">Copilot Extensibility</option> <option value="/docs/copilot/faq">FAQ</option> <optgroup label="GitHub Copilot - Reference"> <option value="/docs/copilot/reference/copilot-vscode-features">Copilot Cheat Sheet</option> <option value="/docs/copilot/reference/copilot-settings">Settings Reference</option> <option value="/docs/copilot/reference/workspace-context">Workspace Context</option> </optgroup> <optgroup label="Languages"> <option value="/docs/languages/overview">Overview</option> <option value="/docs/languages/javascript">JavaScript</option> <option value="/docs/languages/json">JSON</option> <option value="/docs/languages/html">HTML</option> <option value="/docs/languages/emmet">Emmet</option> <option value="/docs/languages/css">CSS, SCSS and Less</option> <option value="/docs/languages/typescript">TypeScript</option> <option value="/docs/languages/markdown">Markdown</option> <option value="/docs/languages/powershell">PowerShell</option> <option value="/docs/languages/cpp">C++</option> <option value="/docs/languages/java">Java</option> <option value="/docs/languages/php">PHP</option> <option value="/docs/languages/python">Python</option> <option value="/docs/languages/julia">Julia</option> <option value="/docs/languages/r">R</option> <option value="/docs/languages/ruby">Ruby</option> <option value="/docs/languages/rust">Rust</option> <option value="/docs/languages/go">Go</option> <option value="/docs/languages/tsql">T-SQL</option> <option value="/docs/languages/csharp">C#</option> <option value="/docs/languages/dotnet">.NET</option> <option value="/docs/languages/polyglot">Polyglot</option> </optgroup> <optgroup label="Node.js / JavaScript"> <option value="/docs/nodejs/working-with-javascript">Working with JavaScript</option> <option value="/docs/nodejs/nodejs-tutorial">Node.js Tutorial</option> <option value="/docs/nodejs/nodejs-debugging">Node.js Debugging</option> <option value="/docs/nodejs/nodejs-deployment">Deploy Node.js Apps</option> <option value="/docs/nodejs/browser-debugging">Browser Debugging</option> <option value="/docs/nodejs/angular-tutorial">Angular Tutorial</option> <option value="/docs/nodejs/reactjs-tutorial">React Tutorial</option> <option value="/docs/nodejs/vuejs-tutorial">Vue Tutorial</option> <option value="/docs/nodejs/debugging-recipes">Debugging Recipes</option> <option value="/docs/nodejs/profiling">Performance Profiling</option> <option value="/docs/nodejs/extensions">Extensions</option> </optgroup> <optgroup label="TypeScript"> <option value="/docs/typescript/typescript-tutorial">Tutorial</option> <option value="/docs/typescript/typescript-compiling">Compiling</option> <option value="/docs/typescript/typescript-editing">Editing</option> <option value="/docs/typescript/typescript-refactoring">Refactoring</option> <option value="/docs/typescript/typescript-debugging">Debugging</option> </optgroup> <optgroup label="Python"> <option value="/docs/python/python-quick-start">Quick Start</option> <option value="/docs/python/python-tutorial">Tutorial</option> <option value="/docs/python/run">Run Python Code</option> <option value="/docs/python/editing">Editing</option> <option value="/docs/python/linting">Linting</option> <option value="/docs/python/formatting">Formatting</option> <option value="/docs/python/debugging">Debugging</option> <option value="/docs/python/environments">Environments</option> <option value="/docs/python/testing">Testing</option> <option value="/docs/python/jupyter-support-py">Python Interactive</option> <option value="/docs/python/tutorial-django">Django Tutorial</option> <option value="/docs/python/tutorial-fastapi">FastAPI Tutorial</option> <option value="/docs/python/tutorial-flask">Flask Tutorial</option> <option value="/docs/python/tutorial-create-containers">Create Containers</option> <option value="/docs/python/python-on-azure">Deploy Python Apps</option> <option value="/docs/python/python-web">Python in the Web</option> <option value="/docs/python/settings-reference">Settings Reference</option> </optgroup> <optgroup label="Java"> <option value="/docs/java/java-tutorial">Getting Started</option> <option value="/docs/java/java-editing">Navigate and Edit</option> <option value="/docs/java/java-refactoring">Refactoring</option> <option value="/docs/java/java-linting">Formatting and Linting</option> <option value="/docs/java/java-project">Project Management</option> <option value="/docs/java/java-build">Build Tools</option> <option value="/docs/java/java-debugging">Run and Debug</option> <option value="/docs/java/java-testing">Testing</option> <option value="/docs/java/java-spring-boot">Spring Boot</option> <option value="/docs/java/java-tomcat-jetty">Application Servers</option> <option value="/docs/java/java-on-azure">Deploy Java Apps</option> <option value="/docs/java/java-gui">GUI Applications</option> <option value="/docs/java/extensions">Extensions</option> <option value="/docs/java/java-faq">FAQ</option> </optgroup> <optgroup label="C++"> <option value="/docs/cpp/introvideos-cpp">Intro Videos</option> <option value="/docs/cpp/config-linux">GCC on Linux</option> <option value="/docs/cpp/config-mingw">GCC on Windows</option> <option value="/docs/cpp/config-wsl">GCC on Windows Subsystem for Linux</option> <option value="/docs/cpp/config-clang-mac">Clang on macOS</option> <option value="/docs/cpp/config-msvc">Microsoft C++ on Windows</option> <option value="/docs/cpp/build-with-cmake">Build with CMake</option> <option value="/docs/cpp/cmake-linux">CMake Tools on Linux</option> <option value="/docs/cpp/cmake-quickstart">CMake Quick Start</option> <option value="/docs/cpp/cpp-ide">Editing and Navigating</option> <option value="/docs/cpp/cpp-debug">Debugging</option> <option value="/docs/cpp/launch-json-reference">Configure Debugging</option> <option value="/docs/cpp/cpp-refactoring">Refactoring</option> <option value="/docs/cpp/customize-default-settings-cpp">Settings</option> <option value="/docs/cpp/configure-intellisense">Configure IntelliSense</option> <option value="/docs/cpp/configure-intellisense-crosscompilation">Configure IntelliSense for Cross-Compiling</option> <option value="/docs/cpp/faq-cpp">FAQ</option> </optgroup> <optgroup label="C#"> <option value="/docs/csharp/introvideos-csharp">Intro Videos</option> <option value="/docs/csharp/get-started">Get Started</option> <option value="/docs/csharp/navigate-edit">Navigate and Edit</option> <option value="/docs/csharp/intellicode">IntelliCode</option> <option value="/docs/csharp/refactoring">Refactoring</option> <option value="/docs/csharp/formatting-linting">Formatting and Linting</option> <option value="/docs/csharp/project-management">Project Management</option> <option value="/docs/csharp/build-tools">Build Tools</option> <option value="/docs/csharp/package-management">Package Management</option> <option value="/docs/csharp/debugging">Run and Debug</option> <option value="/docs/csharp/testing">Testing</option> <option value="/docs/csharp/cs-dev-kit-faq">FAQ</option> </optgroup> <optgroup label="Docker"> <option value="/docs/containers/overview">Overview</option> <option value="/docs/containers/quickstart-node">Node.js</option> <option value="/docs/containers/quickstart-python">Python</option> <option value="/docs/containers/quickstart-aspnet-core">ASP.NET Core</option> <option value="/docs/containers/debug-common">Debug</option> <option value="/docs/containers/docker-compose">Docker Compose</option> <option value="/docs/containers/quickstart-container-registries">Registries</option> <option value="/docs/containers/app-service">Deploy to Azure</option> <option value="/docs/containers/choosing-dev-environment">Choose a Dev Environment</option> <option value="/docs/containers/reference">Customize</option> <option value="/docs/containers/bridge-to-kubernetes">Develop with Kubernetes</option> <option value="/docs/containers/troubleshooting">Tips and Tricks</option> </optgroup> <optgroup label="Data Science"> <option value="/docs/datascience/overview">Overview</option> <option value="/docs/datascience/jupyter-notebooks">Jupyter Notebooks</option> <option value="/docs/datascience/data-science-tutorial">Data Science Tutorial</option> <option value="/docs/datascience/python-interactive">Python Interactive</option> <option value="/docs/datascience/data-wrangler-quick-start">Data Wrangler Quick Start</option> <option value="/docs/datascience/data-wrangler">Data Wrangler</option> <option value="/docs/datascience/pytorch-support">PyTorch Support</option> <option value="/docs/datascience/azure-machine-learning">Azure Machine Learning</option> <option value="/docs/datascience/jupyter-kernel-management">Manage Jupyter Kernels</option> <option value="/docs/datascience/notebooks-web">Jupyter Notebooks on the Web</option> </optgroup> <optgroup label="Intelligent Apps"> <option value="/docs/intelligentapps/overview">AI Toolkit Overview</option> <option value="/docs/intelligentapps/models">Models</option> <option value="/docs/intelligentapps/playground">Playground</option> <option value="/docs/intelligentapps/promptbuilder">Prompt Builder</option> <option value="/docs/intelligentapps/bulkrun">Bulk Run</option> <option value="/docs/intelligentapps/evaluation">Evaluation</option> <option value="/docs/intelligentapps/finetune">Fine-tune</option> <option value="/docs/intelligentapps/modelconversion">Model Conversion</option> <option value="/docs/intelligentapps/faq">FAQ</option> </optgroup> <optgroup label="Azure"> <option value="/docs/azure/overview">Overview</option> <option value="/docs/azure/gettingstarted">Getting Started</option> <option value="/docs/azure/deployment">Deployment</option> <option value="/docs/azure/docker">Docker</option> <option value="/docs/azure/aksextensions">Azure Kubernetes Service</option> <option value="/docs/azure/kubernetes">Kubernetes</option> <option value="/docs/azure/mongodb">MongoDB</option> <option value="/docs/azure/remote-debugging">Remote Debugging for Node.js</option> </optgroup> <optgroup label="Remote"> <option value="/docs/remote/remote-overview">Overview</option> <option value="/docs/remote/ssh">SSH</option> <option value="/docs/remote/dev-containers">Dev Containers</option> <option value="/docs/remote/wsl">Windows Subsystem for Linux</option> <option value="/docs/remote/codespaces">GitHub Codespaces</option> <option value="/docs/remote/vscode-server">VS Code Server</option> <option value="/docs/remote/tunnels">Tunnels</option> <option value="/docs/remote/ssh-tutorial">SSH Tutorial</option> <option value="/docs/remote/wsl-tutorial">WSL Tutorial</option> <option value="/docs/remote/troubleshooting">Tips and Tricks</option> <option value="/docs/remote/faq">FAQ</option> </optgroup> <optgroup label="Dev Containers"> <option value="/docs/devcontainers/containers">Overview</option> <option value="/docs/devcontainers/tutorial">Tutorial</option> <option value="/docs/devcontainers/attach-container">Attach to Container</option> <option value="/docs/devcontainers/create-dev-container">Create Dev Container</option> <option value="/docs/devcontainers/containers-advanced">Advanced Containers</option> <option value="/docs/devcontainers/devcontainerjson-reference">devcontainer.json</option> <option value="/docs/devcontainers/devcontainer-cli">Dev Container CLI</option> <option value="/docs/devcontainers/tips-and-tricks">Tips and Tricks</option> <option value="/docs/devcontainers/faq">FAQ</option> </optgroup> <optgroup label="Reference"> <option value="/docs/reference/default-keybindings">Default Keyboard Shortcuts</option> <option value="/docs/reference/default-settings">Default Settings</option> <option value="/docs/reference/variables-reference">Substitution Variables</option> <option value="/docs/reference/tasks-appendix">Tasks Schema</option> </optgroup> </select>
+       </nav>
+      </div><!-- small right nav -->
+      <div class="col-xs-12 visible-xs">
+       <nav aria-labelledby="small-right-nav-label" class="small-nav docs-nav updates-nav">
+        <label class="faux-h4" for="small-right-nav-dropdown" id="small-right-nav-label">In this article</label> <select id="small-right-nav-dropdown" class="small-nav-select" aria-label="Sections"> <option value="#_use-agent-mode">Use agent mode</option> <option value="#_agent-mode-tools">Agent mode tools</option> <option value="#_accept-or-discard-edits">Accept or discard edits</option> <option value="#_revert-edits">Revert edits</option> <option value="#_interrupt-an-agent-mode-request">Interrupt an agent mode request</option> <option value="#_settings">Settings</option> <option value="#_frequently-asked-questions">Frequently asked questions</option> <option value="#_related-resources">Related resources</option> </select>
+       </nav>
+      </div><!-- main content -->
+      <main class="col-xs-12 col-sm-9 col-md-8 body">
+       <div class="edit-github pull-right">
+        <a href="https://vscode.dev/github/microsoft/vscode-docs/blob/main/docs/copilot/chat/chat-agent-mode.md" class="btn btn-default" title="Edit this document in vscode.dev"> <span class="glyphicon glyphicon-pencil"></span> <span class="hidden-xs">Edit</span> </a>
+       </div>
+       <h1>Use agent mode in VS Code</h1>
+       <p>With chat <em>agent mode</em> in Visual Studio Code, you can use natural language to define a high-level task and to start an agentic code editing session to accomplish that task. In agent mode, Copilot autonomously plans the work needed and determines the relevant files and context. It then makes edits to your codebase and invokes tools to accomplish the request you made. Agent mode monitors the outcome of edits and tools and iterates to resolve any issues that arise.</p>
+       <div class="markdown-alert tip" dir="auto">
+        <span>
+         <svg class="markdown-alert-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+          <path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z">
+          </path>
+         </svg> Tip </span>
+        <p>If you don't yet have a Copilot subscription, you can use Copilot for free by signing up for the <a href="https://github.com/github-copilot/signup" class="external-link" target="_blank">Copilot Free plan</a> and get a monthly limit of completions and chat interactions.</p>
+       </div>
+       <h2 id="_use-agent-mode" data-needslink="_use-agent-mode">Use agent mode</h2>
+       <p>In agent mode, Copilot operates autonomously and determines the relevant context for your prompt.</p>
+       <p>You can access agent mode from the chat mode dropdown in the Chat view (open in VS Code <a href="vscode://GitHub.Copilot-Chat/chat?mode=agent" class="external-link" target="_blank">Stable</a> or <a href="vscode-insiders://GitHub.Copilot-Chat/chat?mode=agent" class="external-link" target="_blank">Insiders</a>). Follow these steps to get started:</p>
+       <ol>
+        <li>
+         <p>Make sure that agent mode is enabled by configuring the <span class="setting"><a href="vscode://settings/chat.agent.enabled" codesetting="true"><span class="codicon codicon-settings-gear dynamic-setting-icon" title="Open 'chat.agent.enabled' in Settings Editor"></span>chat.agent.enabled</a></span> setting in the <a href="/docs/getstarted/personalize-vscode#_configure-settings">Settings editor</a> (requires VS Code 1.99 or later).</p></li>
+        <li>
+         <p>Open the Chat view by selecting <strong>Open Chat</strong> from the Copilot menu in the VS Code title bar, or use the <span class="dynamic-keybinding" data-commandid="workbench.action.chat.open" data-osx="⌃⌘I" data-win="Ctrl+Alt+I" data-linux="Ctrl+Alt+I"><span class="keybinding">⌃⌘I</span> (Windows, Linux <span class="keybinding">Ctrl+Alt+I</span>)</span> keyboard shortcut.</p></li>
+        <li>
+         <p>Select <strong>Agent</strong> from the chat mode dropdown in the Chat view.</p>
+         <p><img src="/assets/docs/copilot/chat/copilot-edits/copilot-edits-agent-mode.png" alt="Screenshot showing the Copilot Edits view, highlighting agent mode selected." loading="lazy"></p></li>
+        <li>
+         <p>Enter your prompt for making edits in the chat input field and select <strong>Send</strong> (<span class="dynamic-keybinding" data-commandid="workbench.action.edits.submit" data-osx="Enter" data-win="Enter" data-linux="Enter"><span class="keybinding">Enter</span></span>) to submit it.</p>
+         <p>You can specify a high-level requirement, and you don't have to specify which files to work on. In agent mode, Copilot determines the relevant context and files to edit autonomously.</p>
+         <p>Experiment with some of these example prompts to get started:</p>
+         <ul>
+          <li><code>Create a meal-planning web app using React and Node.js</code></li>
+          <li><code>Add social media sharing functionality</code></li>
+          <li><code>Replace current auth with OAuth</code></li>
+         </ul></li>
+        <li>
+         <p>Agent mode might invoke multiple <a href="#_agent-mode-tools">tools</a> to accomplish different tasks. Optionally, select the <strong>Tools</strong> icon to configure which tools can be used for responding to your request.</p>
+         <p><img src="/assets/docs/copilot/chat/copilot-edits/agent-mode-select-tools.png" alt="Screenshot showing the Copilot Edits view, highlighting the Tools icon in the chat input." loading="lazy"></p>
+         <div class="markdown-alert tip" dir="auto">
+          <span>
+           <svg class="markdown-alert-icon" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true">
+            <path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z">
+            </path>
+           </svg> Tip </span>
+          <p>You can also directly reference a tool in your prompt by typing <code>#</code> followed by the tool name. You can do this in all chat modes (ask, edit, and agent mode).</p>
+         </div></li>
+        <li>
+         <p>Confirm tool invocations and terminal commands.</p>
+         <p>Before running a terminal command or non-builtin tool, Copilot requests confirmation to continue. This is because tools might run locally on your machine and perform actions that modify files or data.</p>
+         <p>Use the <strong>Continue</strong> button dropdown options to automatically confirm the specific tool for the current session, workspace, or all future invocations. You can reset the tool confirmations by using the <strong>Chat: Reset Tool Confirmations</strong> command.</p>
+         <p><img src="/assets/docs/copilot/chat/mcp-servers/mcp-tool-confirmation.png" alt="MCP Tool Confirmation" loading="lazy"></p>
+         <p>If your project has configured <a href="/docs/debugtest/tasks">tasks</a> in <code>tasks.json</code>, agent mode tries to run the appropriate tasks. For example, if you've defined a build task, agent mode will run the build task before running the application. Enable or disable running workspace tasks with the <span class="setting"><a href="vscode://settings/github.copilot.chat.agent.runTasks" codesetting="true"><span class="codicon codicon-settings-gear dynamic-setting-icon" title="Open 'github.copilot.chat.agent.runTasks' in Settings Editor"></span>github.copilot.chat.agent.runTasks</a></span> setting.</p></li>
+        <li>
+         <p>Optionally, verify and edit the tool input parameters before running the tool.</p>
+         <p>Select the chevron next to the tool name to view its details and input parameters. You can edit the input parameters before running the tool.</p>
+         <p><img src="/assets/docs/copilot/chat/mcp-servers/mcp-tool-edit-parameters.png" alt="MCP Tool Input Parameters" loading="lazy"></p></li>
+        <li>
+         <p>Copilot Edits detects issues and problems in code edits and terminal commands and will iterate and perform additional actions to resolve them.</p>
+         <p>For example, agent mode might run unit tests as a result of a code edit. If the tests fail, it uses the test outcome to resolve the issue.</p>
+         <p>Copilot Edits agent mode iterates multiple times to resolve issues and problems. The <span class="setting"><a href="vscode://settings/chat.agent.maxRequests" codesetting="true"><span class="codicon codicon-settings-gear dynamic-setting-icon" title="Open 'chat.agent.maxRequests' in Settings Editor"></span>chat.agent.maxRequests</a></span> setting controls the maximum number of requests that Copilot Edits can make in agent mode.</p></li>
+        <li>
+         <p>As Copilot processes your request, notice that Copilot streams the suggested code edits directly in the editor.</p>
+         <p>The Chat view shows the list of files that were edited in bold text. The editor overlay controls enable you to navigate between the suggested edits.</p></li>
+        <li>
+         <p>Review the suggested edits and <a href="#_accept-or-discard-edits">accept or discard the suggested edits</a>.</p></li>
+        <li>
+         <p>Continue to iterate on the code changes to refine the edits or implement additional features.</p></li>
+       </ol>
+       <h2 id="_agent-mode-tools" data-needslink="_agent-mode-tools">Agent mode tools</h2>
+       <p>Agent mode uses tools to accomplish specialized tasks while processing a user request. Examples of such tasks are listing the files in a directory, editing a file in your workspace, running a terminal command, getting the output from the terminal, and more.</p>
+       <p>Agent mode can use the following tools:</p>
+       <ul>
+        <li>Built-in tools</li>
+        <li><a href="/docs/copilot/chat/mcp-servers">MCP tools</a></li>
+        <li><a href="/api/extension-guides/tools">Tools contributed by extensions</a></li>
+       </ul>
+       <p>You can view and manage the tools that can be used for responding to a request. Select the <strong>Tools</strong> icon in the Chat view to view and manage the tools that are available in agent mode.</p>
+       <p><img src="/assets/docs/copilot/chat/copilot-edits/agent-mode-select-tools.png" alt="Screenshot showing the Copilot Edits view, highlighting the Tools icon in the chat input." loading="lazy"></p>
+       <p>Based on the outcome of a tool, Copilot might invoke other tools to accomplish the overall request. For example, if a code edit results in syntax errors in the file, Copilot might explore another approach and suggest different code changes.</p>
+       <h2 id="_accept-or-discard-edits" data-needslink="_accept-or-discard-edits">Accept or discard edits</h2>
+       <p>Copilot lists the files that were edited in the list of the changed files in the Chat view. Files with pending edits also have an indicator in the Explorer view and editor tabs.</p>
+       <p><img src="/assets/docs/copilot/chat/copilot-edits/copilot-edits-changed-files-full.png" alt="Screenshot that shows the Copilot Edits view, highlighting the changed files list and the indicator in the Explorer view and editor tabs." loading="lazy"></p>
+       <p>With the editor overlay controls, you can navigate between the suggested edits by using the <span class="keybinding">Up</span> (<i class="codicon codicon-arrow-up"></i>) and <span class="keybinding">Down</span> (<i class="codicon codicon-arrow-down"></i>) controls. Use the <strong>Keep</strong> or <strong>Undo</strong> button to accept or reject the edits for a given file.</p>
+       <p><img src="/assets/docs/copilot/chat/copilot-edits/copilot-edits-file-review-controls.png" alt="Screenshot showing the Editor with proposed changes, highlighting the review controls in the editor overlay controls." loading="lazy"></p>
+       <p>Use the <strong>Keep</strong> or <strong>Undo</strong> controls in the editor or Chat view to accept or reject individual or all suggested edits.</p>
+       <p><img src="/assets/docs/copilot/chat/copilot-edits/copilot-edits-accept-discard.png" alt="Screenshot showing the Copilot Edits view, highlighting the Accept All and Discard All buttons." loading="lazy"></p>
+       <p>With the <span class="setting"><a href="vscode://settings/chat.editing.autoAcceptDelay" codesetting="true"><span class="codicon codicon-settings-gear dynamic-setting-icon" title="Open 'chat.editing.autoAcceptDelay' in Settings Editor"></span>chat.editing.autoAcceptDelay</a></span> setting, you can configure a delay after which the suggested edits are automatically accepted. Hover over the editor overlay controls to cancel the auto-accept countdown.</p>
+       <p>When you close VS Code, the status of the pending edits is remembered. When you reopen VS Code, the pending edits are restored, and you can still accept or discard the edits.</p>
+       <h2 id="_revert-edits" data-needslink="_revert-edits">Revert edits</h2>
+       <p>As you're sending requests to make edits to your code, you might want to roll back some of these changes, for example, because you want to use another implementation strategy or because Copilot starts walking down the wrong path when generating edits.</p>
+       <p>You can use the <strong>Undo Last Edit</strong> control in the Chat view title bar to revert the last edits and return to the state before sending the last request. After you perform an undo of the last edit, you can redo those edits again by using the <strong>Redo Last Edit</strong> control in the Chat view title bar.</p>
+       <p><img src="/assets/docs/copilot/chat/copilot-edits/copilot-edits-undo-redo.png" alt="Screenshot showing the Copilot Edits view, highlighting the Undo and Redo actions in the view title bar." loading="lazy"></p>
+       <p>You can also use the <strong>Undo Edits (Delete)</strong> control (<span class="keybinding">x</span> icon) when hovering over a request in the Copilot Edits view to revert all edits that were made from that request onwards.</p>
+       <p><img src="/assets/docs/copilot/chat/copilot-edits/copilot-edits-undo-request.png" alt="Screenshot showing the Copilot Edits view, highlighting the Undo Edits control for a specific request." loading="lazy"></p>
+       <h2 id="_interrupt-an-agent-mode-request" data-needslink="_interrupt-an-agent-mode-request">Interrupt an agent mode request</h2>
+       <p>To interrupt an ongoing request, you can either <strong>Pause</strong> it or <strong>Cancel</strong> it. When you pause a request, Copilot stops processing the request and waits for your input.</p>
+       <p>When you pause a request, you can either choose to enter a new prompt, which cancels the current request, or you can choose to resume the current request.</p>
+       <p>When you cancel a request, Copilot interrupts and ends the active request. You can still <a href="#_accept-or-discard-edits">review and accept or reject</a> the changes that were made up to that point.</p>
+       <h2 id="_settings" data-needslink="_settings">Settings</h2>
+       <p>The following list contains the settings related to agent mode. You can configure settings through the Settings editor (<span class="dynamic-keybinding" data-commandid="workbench.action.openSettings" data-osx="⌘," data-win="Ctrl+," data-linux="Ctrl+,"><span class="keybinding">⌘,</span> (Windows, Linux <span class="keybinding">Ctrl+,</span>)</span>).</p>
+       <ul>
+        <li><span class="setting"><a href="vscode://settings/chat.agent.enabled" codesetting="true"><span class="codicon codicon-settings-gear dynamic-setting-icon" title="Open 'chat.agent.enabled' in Settings Editor"></span>chat.agent.enabled</a></span>: enable or disable agent mode (default: <code>false</code>, requires VS Code 1.99 or later)</li>
+        <li><span class="setting"><a href="vscode://settings/chat.agent.maxRequests" codesetting="true"><span class="codicon codicon-settings-gear dynamic-setting-icon" title="Open 'chat.agent.maxRequests' in Settings Editor"></span>chat.agent.maxRequests</a></span>: maximum number of requests that Copilot Edits can make in agent mode (default: 5 for Copilot Free users, 15 for other users)</li>
+        <li><span class="setting"><a href="vscode://settings/github.copilot.chat.agent.runTasks" codesetting="true"><span class="codicon codicon-settings-gear dynamic-setting-icon" title="Open 'github.copilot.chat.agent.runTasks' in Settings Editor"></span>github.copilot.chat.agent.runTasks</a></span>: run workspace tasks when using agent mode in Copilot Edits (default: <code>true</code>)</li>
+        <li><span class="setting"><a href="vscode://settings/chat.mcp.discovery.enabled" codesetting="true"><span class="codicon codicon-settings-gear dynamic-setting-icon" title="Open 'chat.mcp.discovery.enabled' in Settings Editor"></span>chat.mcp.discovery.enabled</a></span>: enable or disable discovery of MCP servers configured in other tools (default: <code>true</code>)</li>
+       </ul>
+       <h2 id="_frequently-asked-questions" data-needslink="_frequently-asked-questions">Frequently asked questions</h2>
+       <h3 id="_why-would-i-use-agent-mode-instead-of-edit-mode" data-needslink="_why-would-i-use-agent-mode-instead-of-edit-mode">Why would I use agent mode instead of edit mode?</h3>
+       <p>Consider the following criteria to choose between edit mode and agent mode:</p>
+       <ul>
+        <li><strong>Edit scope</strong>: agent mode autonomously determines the relevant context and files to edit. In edit mode, you need to specify the context yourself.</li>
+        <li><strong>Task complexity</strong>: agent mode is better suited for complex tasks that require not only code edits but also the invocation of tools and terminal commands.</li>
+        <li><strong>Duration</strong>: agent mode involves multiple steps to process a request, so it might take longer to get a response. For example, to determine the relevant context and files to edit, determine the plan of action, and more.</li>
+        <li><strong>Self-healing</strong>: agent mode evaluates the outcome of the generated edits and might iterate multiple times to resolve intermediate issues.</li>
+        <li><strong>Request quota</strong>: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.</li>
+       </ul>
+       <h2 id="_related-resources" data-needslink="_related-resources">Related resources</h2>
+       <ul>
+        <li><a href="/docs/copilot/reference/copilot-vscode-features">Get a quick overview of the Copilot features in VS Code</a></li>
+        <li><a href="/docs/copilot/chat/copilot-chat">Use Copilot Chat for AI chat conversations</a></li>
+        <li><a href="/docs/copilot/chat/mcp-servers">Configure MCP servers to add tools to agent mode</a></li>
+        <li><a href="/docs/copilot/chat/copilot-edits">Start a multi-file coding session</a></li>
+       </ul>
+       <div class="feedback"></div>
+       <div class="body-footer">
+        04/03/2025
+       </div>
+      </main><!-- medium right nav -->
+      <div class="col-sm-3 col-md-2 hidden-xs docs-subnavbar-container">
+       <nav id="docs-subnavbar" aria-label="On Page" data-spy="affix" data-offset-top="20">
+        <h4><span class="sr-only">In this article there are 8 sections</span><span aria-hidden="true">In this article</span></h4>
+        <ul class="nav">
+         <li><a href="#_use-agent-mode">Use agent mode</a></li>
+         <li><a href="#_agent-mode-tools">Agent mode tools</a></li>
+         <li><a href="#_accept-or-discard-edits">Accept or discard edits</a></li>
+         <li><a href="#_revert-edits">Revert edits</a></li>
+         <li><a href="#_interrupt-an-agent-mode-request">Interrupt an agent mode request</a></li>
+         <li><a href="#_settings">Settings</a></li>
+         <li><a href="#_frequently-asked-questions">Frequently asked questions</a></li>
+         <li><a href="#_related-resources">Related resources</a></li>
+        </ul>
+        <div class="connect-widget"></div>
+       </nav>
+      </div><!-- end of page connect widget -->
+      <div class="col-xs-12 visible-xs">
+       <div class="connect-widget"></div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <footer role="contentinfo" class="container">
+   <div class="footer-container">
+    <div class="footer-row">
+     <div class="footer-social">
+      <ul class="links">
+       <li><a href="https://go.microsoft.com/fwlink/?LinkID=533687"><img src="/assets/icons/x-icon.svg" class="x-icon" alt="Follow us on X"></a></li>
+       <li><a href="https://github.com/microsoft/vscode"><img src="/assets/icons/github-icon.svg" alt="VS Code on Github"></a></li>
+       <li><a href="https://www.youtube.com/@code"><img src="/assets/icons/youtube-icon.svg" alt="VS Code on YouTube"></a></li>
+       <script>
+							function manageConsent() {
+								if (siteConsent && siteConsent.isConsentRequired) {
+									siteConsent.manageConsent();
+								}
+							}
+						</script>
+      </ul><a id="footer-microsoft-link" class="microsoft-logo" href="https://www.microsoft.com"> <img src="/assets/icons/microsoft.svg" alt="Microsoft homepage"> </a>
+     </div>
+    </div>
+    <div class="footer-row">
+     <ul class="links">
+      <li><a id="footer-support-link" href="https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=d66407ed-3967-b000-4cfb-2c318cad363d" target="_blank" rel="noopener">Support</a></li>
+      <li><a id="footer-privacy-link" href="https://go.microsoft.com/fwlink/?LinkId=521839" target="_blank" rel="noopener">Privacy</a></li>
+      <li style="display: none;"><a id="footer-cookie-link" style="cursor: pointer;" onclick="manageConsent()" target="_blank" rel="noopener">Manage Cookies</a></li>
+      <li><a id="footer-terms-link" href="https://www.microsoft.com/legal/terms-of-use" target="_blank" rel="noopener">Terms of Use</a></li>
+      <li><a id="footer-license-link" href="/License" target="_blank" rel="noopener">License</a></li>
+     </ul>
+    </div>
+   </div>
+  </footer>
+  <script type="module">
+		document.addEventListener('DOMContentLoaded', () => {
+			const copilotDeepLinks = document.querySelectorAll('.copilot-deep-link');
+			if (copilotDeepLinks.length === 0) {
+				return;
+			}
+			if (window.innerWidth < 992) {
+				for (const link of copilotDeepLinks) {
+					link.href = 'https://aka.ms/vscode-activatecopilotfree';
+				}
+			}
+		});
+	</script>
+  <script src="/dist/index.js"></script>
+  <script type="application/ld+json">
+		{
+			"@context" : "http://schema.org",
+			"@type" : "SoftwareApplication",
+			"name" : "Visual Studio Code",
+			"softwareVersion": "1.99",
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD"
+			},
+			"applicationCategory": "DeveloperApplication",
+			"applicationSubCategory": "Text Editor",
+			"alternateName": "VS Code",
+			"datePublished": "2021-11-03",
+			"operatingSystem": "Mac, Linux, Windows",
+			"logo": "https://code.visualstudio.com/assets/apple-touch-icon.png",
+			"screenshot": "https://code.visualstudio.com/assets/home/home-screenshot-win.png",
+			"releaseNotes": "https://code.visualstudio.com/updates",
+			"downloadUrl": "https://code.visualstudio.com/download",
+			"license": "https://code.visualstudio.com/license",
+			"softwareRequirements": "https://code.visualstudio.com/docs/supporting/requirements",
+			"url" : "https://code.visualstudio.com",
+			"author": {
+				"@type": "Organization",
+				"name": "Microsoft"
+			},
+			"publisher": {
+				"@type": "Organization",
+				"name": "Microsoft"
+			},
+			"maintainer": {
+				"@type": "Organization",
+				"name": "Microsoft"
+			},
+			"potentialAction": {
+				"@type": "SearchAction",
+				"target": "https://code.visualstudio.com/Search?q={search_term_string}",
+				"query-input": "required name=search_term_string"
+			},
+			"sameAs" : [
+				"https://en.wikipedia.org/wiki/Visual_Studio_Code",
+				"https://twitter.com/code",
+				"https://www.youtube.com/code",
+				"https://www.tiktok.com/@vscode",
+				"https://github.com/microsoft/vscode"
+			]
+		}
+	</script>
+ </body>
+</html>

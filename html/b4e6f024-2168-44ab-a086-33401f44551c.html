@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <!-- StartFormCustomCSS -->
+  <style type="text/css">
+        .elq-form .elq-required{color:red!important;display:inline;float:none;font-weight:700;margin:0;padding:0}.elq-form #elq-FormLastRow{position:absolute;left:-80%;top:-80%}.elq-form .elq-label{display:inline-block;max-width:100%;font-weight:400;box-sizing:border-box;margin-bottom:0}.elq-form .elq-label-top{padding-bottom:3px}.elq-form .elq-item-label{max-width:100%;font-weight:400;box-sizing:border-box}.elq-form .list-order{margin-left:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.elq-form .one-column{width:100%;clear:both}.elq-form .two-column{float:left;width:38%}.elq-form .three-column{float:left;width:30%}.elq-form .elq-item-textarea{resize:vertical;min-height:48px;max-height:360px;box-sizing:border-box}.elq-form .elq-item-input,.elq-form .elq-item-select,.elq-form .elq-item-textarea{font-family:inherit;font-size:inherit;line-height:inherit;color:inherit;font:inherit;margin:0}.elq-form .elq-item-select{text-transform:none}.elq-form .row.single-checkbox-row{margin-left:0}.elq-form .elq-field-style{padding-bottom:10px}.elq-form .elq-field-style input[type=submit]{-webkit-appearance:button}@-webkit-keyframes spin{0%{-webkit-transform:rotate(0deg)}to{-webkit-transform:rotate(1turn)}}@keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}.elq-form .loader{vertical-align:middle;display:inline-block;margin-left:10px;border:3px solid #f3f3f3;border-radius:50%;border-top:3px solid #3498db;width:20px;height:20px;-webkit-animation:spin 2s linear infinite;animation:spin 2s linear infinite}.elq-form input[type=checkbox],.elq-form input[type=radio]{margin:0}.elq-form .list-order input[type=radio]{margin-left:1px}.elq-form *,.elq-form :after,.elq-form :before{box-sizing:border-box}.elq-form html{font-size:10px;-webkit-tap-highlight-color:transparent}.elq-form body{font-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.42857;color:#333;background-color:#fff}.elq-form button,.elq-form input,.elq-form select,.elq-form textarea{font-family:inherit;font-size:inherit;line-height:inherit}.elq-form a{color:#337ab7;text-decoration:none}.elq-form a:focus,.elq-form a:hover{color:#23527c;text-decoration:underline}.elq-form a:focus{outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}.elq-form figure{margin:0}.elq-form img{vertical-align:middle}.elq-form .img-responsive{display:block;max-width:100%;height:auto}.elq-form .img-rounded{border-radius:6px}.elq-form .img-thumbnail{padding:4px;line-height:1.42857;background-color:#fff;border:1px solid #ddd;border-radius:4px;transition:all .2s ease-in-out;display:inline-block;max-width:100%;height:auto}.elq-form .img-circle{border-radius:50%}.elq-form hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eee}.elq-form .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}.elq-form .sr-only-focusable:active,.elq-form .sr-only-focusable:focus{position:static;width:auto;height:auto;margin:0;overflow:visible;clip:auto}.elq-form [role=button]{cursor:pointer}.elq-form .container{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}.elq-form .container:after,.elq-form .container:before{display:table;content:" "}.elq-form .container:after{clear:both}@media (min-width:768px){.elq-form .container{width:750px}}@media (min-width:992px){.elq-form .container{width:970px}}@media (min-width:1200px){.elq-form .container{width:1170px}}.elq-form .container-fluid{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}.elq-form .container-fluid:after,.elq-form .container-fluid:before{display:table;content:" "}.elq-form .container-fluid:after{clear:both}.elq-form .row{margin-right:-15px;margin-left:-15px}.elq-form .row:after,.elq-form .row:before{display:table;content:" "}.elq-form .row:after{clear:both}.elq-form .row-no-gutters{margin-right:0;margin-left:0}.elq-form .row-no-gutters [class*=col-]{padding-right:0;padding-left:0}.elq-form .col-lg-1,.elq-form .col-lg-2,.elq-form .col-lg-3,.elq-form .col-lg-4,.elq-form .col-lg-5,.elq-form .col-lg-6,.elq-form .col-lg-7,.elq-form .col-lg-8,.elq-form .col-lg-9,.elq-form .col-lg-10,.elq-form .col-lg-11,.elq-form .col-lg-12,.elq-form .col-md-1,.elq-form .col-md-2,.elq-form .col-md-3,.elq-form .col-md-4,.elq-form .col-md-5,.elq-form .col-md-6,.elq-form .col-md-7,.elq-form .col-md-8,.elq-form .col-md-9,.elq-form .col-md-10,.elq-form .col-md-11,.elq-form .col-md-12,.elq-form .col-sm-1,.elq-form .col-sm-2,.elq-form .col-sm-3,.elq-form .col-sm-4,.elq-form .col-sm-5,.elq-form .col-sm-6,.elq-form .col-sm-7,.elq-form .col-sm-8,.elq-form .col-sm-9,.elq-form .col-sm-10,.elq-form .col-sm-11,.elq-form .col-sm-12,.elq-form .col-xs-1,.elq-form .col-xs-2,.elq-form .col-xs-3,.elq-form .col-xs-4,.elq-form .col-xs-5,.elq-form .col-xs-6,.elq-form .col-xs-7,.elq-form .col-xs-8,.elq-form .col-xs-9,.elq-form .col-xs-10,.elq-form .col-xs-11,.elq-form .col-xs-12{position:relative;min-height:1px;padding-right:15px;padding-left:15px}.elq-form .col-xs-1,.elq-form .col-xs-2,.elq-form .col-xs-3,.elq-form .col-xs-4,.elq-form .col-xs-5,.elq-form .col-xs-6,.elq-form .col-xs-7,.elq-form .col-xs-8,.elq-form .col-xs-9,.elq-form .col-xs-10,.elq-form .col-xs-11,.elq-form .col-xs-12{float:left}.elq-form .col-xs-1{width:8.33333%}.elq-form .col-xs-2{width:16.66667%}.elq-form .col-xs-3{width:25%}.elq-form .col-xs-4{width:33.33333%}.elq-form .col-xs-5{width:41.66667%}.elq-form .col-xs-6{width:50%}.elq-form .col-xs-7{width:58.33333%}.elq-form .col-xs-8{width:66.66667%}.elq-form .col-xs-9{width:75%}.elq-form .col-xs-10{width:83.33333%}.elq-form .col-xs-11{width:91.66667%}.elq-form .col-xs-12{width:100%}.elq-form .col-xs-pull-0{right:auto}.elq-form .col-xs-pull-1{right:8.33333%}.elq-form .col-xs-pull-2{right:16.66667%}.elq-form .col-xs-pull-3{right:25%}.elq-form .col-xs-pull-4{right:33.33333%}.elq-form .col-xs-pull-5{right:41.66667%}.elq-form .col-xs-pull-6{right:50%}.elq-form .col-xs-pull-7{right:58.33333%}.elq-form .col-xs-pull-8{right:66.66667%}.elq-form .col-xs-pull-9{right:75%}.elq-form .col-xs-pull-10{right:83.33333%}.elq-form .col-xs-pull-11{right:91.66667%}.elq-form .col-xs-pull-12{right:100%}.elq-form .col-xs-push-0{left:auto}.elq-form .col-xs-push-1{left:8.33333%}.elq-form .col-xs-push-2{left:16.66667%}.elq-form .col-xs-push-3{left:25%}.elq-form .col-xs-push-4{left:33.33333%}.elq-form .col-xs-push-5{left:41.66667%}.elq-form .col-xs-push-6{left:50%}.elq-form .col-xs-push-7{left:58.33333%}.elq-form .col-xs-push-8{left:66.66667%}.elq-form .col-xs-push-9{left:75%}.elq-form .col-xs-push-10{left:83.33333%}.elq-form .col-xs-push-11{left:91.66667%}.elq-form .col-xs-push-12{left:100%}.elq-form .col-xs-offset-0{margin-left:0}.elq-form .col-xs-offset-1{margin-left:8.33333%}.elq-form .col-xs-offset-2{margin-left:16.66667%}.elq-form .col-xs-offset-3{margin-left:25%}.elq-form .col-xs-offset-4{margin-left:33.33333%}.elq-form .col-xs-offset-5{margin-left:41.66667%}.elq-form .col-xs-offset-6{margin-left:50%}.elq-form .col-xs-offset-7{margin-left:58.33333%}.elq-form .col-xs-offset-8{margin-left:66.66667%}.elq-form .col-xs-offset-9{margin-left:75%}.elq-form .col-xs-offset-10{margin-left:83.33333%}.elq-form .col-xs-offset-11{margin-left:91.66667%}.elq-form .col-xs-offset-12{margin-left:100%}@media (min-width:768px){.elq-form .col-sm-1,.elq-form .col-sm-2,.elq-form .col-sm-3,.elq-form .col-sm-4,.elq-form .col-sm-5,.elq-form .col-sm-6,.elq-form .col-sm-7,.elq-form .col-sm-8,.elq-form .col-sm-9,.elq-form .col-sm-10,.elq-form .col-sm-11,.elq-form .col-sm-12{float:left}.elq-form .col-sm-1{width:8.33333%}.elq-form .col-sm-2{width:16.66667%}.elq-form .col-sm-3{width:25%}.elq-form .col-sm-4{width:33.33333%}.elq-form .col-sm-5{width:41.66667%}.elq-form .col-sm-6{width:50%}.elq-form .col-sm-7{width:58.33333%}.elq-form .col-sm-8{width:66.66667%}.elq-form .col-sm-9{width:75%}.elq-form .col-sm-10{width:83.33333%}.elq-form .col-sm-11{width:91.66667%}.elq-form .col-sm-12{width:100%}.elq-form .col-sm-pull-0{right:auto}.elq-form .col-sm-pull-1{right:8.33333%}.elq-form .col-sm-pull-2{right:16.66667%}.elq-form .col-sm-pull-3{right:25%}.elq-form .col-sm-pull-4{right:33.33333%}.elq-form .col-sm-pull-5{right:41.66667%}.elq-form .col-sm-pull-6{right:50%}.elq-form .col-sm-pull-7{right:58.33333%}.elq-form .col-sm-pull-8{right:66.66667%}.elq-form .col-sm-pull-9{right:75%}.elq-form .col-sm-pull-10{right:83.33333%}.elq-form .col-sm-pull-11{right:91.66667%}.elq-form .col-sm-pull-12{right:100%}.elq-form .col-sm-push-0{left:auto}.elq-form .col-sm-push-1{left:8.33333%}.elq-form .col-sm-push-2{left:16.66667%}.elq-form .col-sm-push-3{left:25%}.elq-form .col-sm-push-4{left:33.33333%}.elq-form .col-sm-push-5{left:41.66667%}.elq-form .col-sm-push-6{left:50%}.elq-form .col-sm-push-7{left:58.33333%}.elq-form .col-sm-push-8{left:66.66667%}.elq-form .col-sm-push-9{left:75%}.elq-form .col-sm-push-10{left:83.33333%}.elq-form .col-sm-push-11{left:91.66667%}.elq-form .col-sm-push-12{left:100%}.elq-form .col-sm-offset-0{margin-left:0}.elq-form .col-sm-offset-1{margin-left:8.33333%}.elq-form .col-sm-offset-2{margin-left:16.66667%}.elq-form .col-sm-offset-3{margin-left:25%}.elq-form .col-sm-offset-4{margin-left:33.33333%}.elq-form .col-sm-offset-5{margin-left:41.66667%}.elq-form .col-sm-offset-6{margin-left:50%}.elq-form .col-sm-offset-7{margin-left:58.33333%}.elq-form .col-sm-offset-8{margin-left:66.66667%}.elq-form .col-sm-offset-9{margin-left:75%}.elq-form .col-sm-offset-10{margin-left:83.33333%}.elq-form .col-sm-offset-11{margin-left:91.66667%}.elq-form .col-sm-offset-12{margin-left:100%}}@media (min-width:992px){.elq-form .col-md-1,.elq-form .col-md-2,.elq-form .col-md-3,.elq-form .col-md-4,.elq-form .col-md-5,.elq-form .col-md-6,.elq-form .col-md-7,.elq-form .col-md-8,.elq-form .col-md-9,.elq-form .col-md-10,.elq-form .col-md-11,.elq-form .col-md-12{float:left}.elq-form .col-md-1{width:8.33333%}.elq-form .col-md-2{width:16.66667%}.elq-form .col-md-3{width:25%}.elq-form .col-md-4{width:33.33333%}.elq-form .col-md-5{width:41.66667%}.elq-form .col-md-6{width:50%}.elq-form .col-md-7{width:58.33333%}.elq-form .col-md-8{width:66.66667%}.elq-form .col-md-9{width:75%}.elq-form .col-md-10{width:83.33333%}.elq-form .col-md-11{width:91.66667%}.elq-form .col-md-12{width:100%}.elq-form .col-md-pull-0{right:auto}.elq-form .col-md-pull-1{right:8.33333%}.elq-form .col-md-pull-2{right:16.66667%}.elq-form .col-md-pull-3{right:25%}.elq-form .col-md-pull-4{right:33.33333%}.elq-form .col-md-pull-5{right:41.66667%}.elq-form .col-md-pull-6{right:50%}.elq-form .col-md-pull-7{right:58.33333%}.elq-form .col-md-pull-8{right:66.66667%}.elq-form .col-md-pull-9{right:75%}.elq-form .col-md-pull-10{right:83.33333%}.elq-form .col-md-pull-11{right:91.66667%}.elq-form .col-md-pull-12{right:100%}.elq-form .col-md-push-0{left:auto}.elq-form .col-md-push-1{left:8.33333%}.elq-form .col-md-push-2{left:16.66667%}.elq-form .col-md-push-3{left:25%}.elq-form .col-md-push-4{left:33.33333%}.elq-form .col-md-push-5{left:41.66667%}.elq-form .col-md-push-6{left:50%}.elq-form .col-md-push-7{left:58.33333%}.elq-form .col-md-push-8{left:66.66667%}.elq-form .col-md-push-9{left:75%}.elq-form .col-md-push-10{left:83.33333%}.elq-form .col-md-push-11{left:91.66667%}.elq-form .col-md-push-12{left:100%}.elq-form .col-md-offset-0{margin-left:0}.elq-form .col-md-offset-1{margin-left:8.33333%}.elq-form .col-md-offset-2{margin-left:16.66667%}.elq-form .col-md-offset-3{margin-left:25%}.elq-form .col-md-offset-4{margin-left:33.33333%}.elq-form .col-md-offset-5{margin-left:41.66667%}.elq-form .col-md-offset-6{margin-left:50%}.elq-form .col-md-offset-7{margin-left:58.33333%}.elq-form .col-md-offset-8{margin-left:66.66667%}.elq-form .col-md-offset-9{margin-left:75%}.elq-form .col-md-offset-10{margin-left:83.33333%}.elq-form .col-md-offset-11{margin-left:91.66667%}.elq-form .col-md-offset-12{margin-left:100%}}@media (min-width:1200px){.elq-form .col-lg-1,.elq-form .col-lg-2,.elq-form .col-lg-3,.elq-form .col-lg-4,.elq-form .col-lg-5,.elq-form .col-lg-6,.elq-form .col-lg-7,.elq-form .col-lg-8,.elq-form .col-lg-9,.elq-form .col-lg-10,.elq-form .col-lg-11,.elq-form .col-lg-12{float:left}.elq-form .col-lg-1{width:8.33333%}.elq-form .col-lg-2{width:16.66667%}.elq-form .col-lg-3{width:25%}.elq-form .col-lg-4{width:33.33333%}.elq-form .col-lg-5{width:41.66667%}.elq-form .col-lg-6{width:50%}.elq-form .col-lg-7{width:58.33333%}.elq-form .col-lg-8{width:66.66667%}.elq-form .col-lg-9{width:75%}.elq-form .col-lg-10{width:83.33333%}.elq-form .col-lg-11{width:91.66667%}.elq-form .col-lg-12{width:100%}.elq-form .col-lg-pull-0{right:auto}.elq-form .col-lg-pull-1{right:8.33333%}.elq-form .col-lg-pull-2{right:16.66667%}.elq-form .col-lg-pull-3{right:25%}.elq-form .col-lg-pull-4{right:33.33333%}.elq-form .col-lg-pull-5{right:41.66667%}.elq-form .col-lg-pull-6{right:50%}.elq-form .col-lg-pull-7{right:58.33333%}.elq-form .col-lg-pull-8{right:66.66667%}.elq-form .col-lg-pull-9{right:75%}.elq-form .col-lg-pull-10{right:83.33333%}.elq-form .col-lg-pull-11{right:91.66667%}.elq-form .col-lg-pull-12{right:100%}.elq-form .col-lg-push-0{left:auto}.elq-form .col-lg-push-1{left:8.33333%}.elq-form .col-lg-push-2{left:16.66667%}.elq-form .col-lg-push-3{left:25%}.elq-form .col-lg-push-4{left:33.33333%}.elq-form .col-lg-push-5{left:41.66667%}.elq-form .col-lg-push-6{left:50%}.elq-form .col-lg-push-7{left:58.33333%}.elq-form .col-lg-push-8{left:66.66667%}.elq-form .col-lg-push-9{left:75%}.elq-form .col-lg-push-10{left:83.33333%}.elq-form .col-lg-push-11{left:91.66667%}.elq-form .col-lg-push-12{left:100%}.elq-form .col-lg-offset-0{margin-left:0}.elq-form .col-lg-offset-1{margin-left:8.33333%}.elq-form .col-lg-offset-2{margin-left:16.66667%}.elq-form .col-lg-offset-3{margin-left:25%}.elq-form .col-lg-offset-4{margin-left:33.33333%}.elq-form .col-lg-offset-5{margin-left:41.66667%}.elq-form .col-lg-offset-6{margin-left:50%}.elq-form .col-lg-offset-7{margin-left:58.33333%}.elq-form .col-lg-offset-8{margin-left:66.66667%}.elq-form .col-lg-offset-9{margin-left:75%}.elq-form .col-lg-offset-10{margin-left:83.33333%}.elq-form .col-lg-offset-11{margin-left:91.66667%}.elq-form .col-lg-offset-12{margin-left:100%}}.elq-form .row{display:inherit}.LV_invalid_field,input.LV_invalid_field:active,input.LV_invalid_field:hover,textarea.LV_invalid_field:active,textarea.LV_invalid_field:hover{outline:1px solid #c00}.LV_validation_message{font-weight:700;margin:0 0 0 5px}.LV_valid{display:none}.LV_invalid{color:#c00;font-size:10px}.submit-button-style{padding:7px 20px;border:1px solid #979797;border-radius:3px;background-color:#fff;color:#4a4a4a;cursor:pointer}.checkbox-aligned{margin-left:5px;display:inline}.form-element-layout{padding:5px 10px}.form-element-instruction{font-size:10px}.form-element-form-text{margin:0}.form-field-visible-xs-block{display:none}.elq-form-design-field .list-order input[type=radio]{margin-left:1px}@media (max-width:767px){.form-field-visible-xs-block{display:block}}.form-field-hidden-xs{display:block}@media (max-width:767px){.form-field-hidden-xs{display:none}}.custom-overlay{margin-left:2px;background:#fff;box-shadow:0 0 4px 0 #777;border-radius:2px;max-width:256px}
+      </style><!-- EndFormCustomCSS -->
+  <title>Contact Sales</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="VMware by Broadcom delivers virtualization benefits via virtual machine, virtual server, and virtual pc solutions.">
+  <style type="text/css">html { scroll-behavior: smooth; }
+          body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; }
+          img { border:0;height:auto;line-height:100%; outline:none;text-decoration:none;-ms-interpolation-mode:bicubic; }
+          p { display:block;margin:13px 0; }</style><!--[if !mso]><!-->
+  <link href="https://client-data.knak.io/production/company_data/64fa20f70a224/custom-fonts/65b03a8710ee4/fonts.css" rel="stylesheet" type="text/css">
+  <style type="text/css">@import url(https://client-data.knak.io/production/company_data/64fa20f70a224/custom-fonts/65b03a8710ee4/fonts.css);</style><!--<![endif]-->
+  <style type="text/css">@media only screen and (min-width:768px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.mj-column-per-50 { width:50% !important; max-width: 50%; }
+.mj-column-per-21 { width:21% !important; max-width: 21%; }
+.mj-column-per-79 { width:79% !important; max-width: 79%; }
+      }</style>
+  <style type="text/css">.elq-form {
+               text-align: left;
+             }
+        
+        .links-D31041-underline a { color: #D31041; text-decoration: underline; }
+.links-1D428A a { color: #1D428A; text-decoration: none; }
+.links-005C85 a { color: #005C85; text-decoration: none; }
+        
+
+        
+            @media only screen and (min-width:768px) {        
+                .padding-20px-100px-20px-100px { padding: 20px 100px 20px 100px !important}
+.margin-0-auto-0-0 { margin: 0 auto 0 0 !important}
+.padding-15px-100px-10px-100px { padding: 15px 100px 10px 100px !important}
+.padding-0px-0px-0px-0px { padding: 0px 0px 0px 0px !important}
+.max-width-620px { max-width: 620px !important}
+.font-size-45px { font-size: 45px !important}
+.padding-60px-25px-20px-6px { padding: 60px 25px 20px 6px !important}
+.font-size-16px { font-size: 16px !important}
+.padding-20px-25px-10px-6px { padding: 20px 25px 10px 6px !important}
+.padding-0px-100px-30px-100px { padding: 0px 100px 30px 100px !important}
+.padding-0px-25px-0px-6px { padding: 0px 25px 0px 6px !important}
+.padding-26px-26px-26px-26px { padding: 26px 26px 26px 26px !important}
+.padding-10px-100px-10px-100px { padding: 10px 100px 10px 100px !important}
+.justify-content-flex-end { justify-content: flex-end !important}
+.text-align-right { text-align: right !important}
+            }</style>
+  <style type="text/css">p{margin: 0 0;}ul{display: block;}sup, sub{line-height:0;}body a{text-decoration: none; color: #D31041;}.image-highlight{transition: 0.3s;}.image-highlight:hover{filter: brightness(1.2);}@media only screen and (min-width: 768px) { .hide-on-mobile{display:block !important;}.hide-on-desktop{display:none !important;} }.hide-on-desktop{display:block;}.hide-on-mobile{display:none;}</style>
+  <link href="https://client-data.knak.io/production/email_assets/64fa20f70a224/tNzWUpulgYzlwraA1lvIZEjD4swGpPbLeRSsA6Rt.png" rel="shortcut icon" type="image/png"><!-- This stylesheet is added for forms styling and this file is hosted in Eloqua  -->
+  <link href="https://images.sw.broadcom.com/Web/CAInc2/{b66fe18a-91da-4fb4-8567-e468f36a24b9}_eloqua-knak-overrides.css" rel="stylesheet"><!-- This script is added for OneTrust Cookie model popup on every page -->
+  <script id="asset-specific-js">(function () {
+    const dependencyHandlerScriptSrc =
+      "https://images.sw.broadcom.com/Web/CAInc2/{0c332384-793f-4fe1-880d-36a83487c589}_js-handler@0.0.1.js";
+    const dependencyHandlerScript = document.createElement("script");
+    dependencyHandlerScript.setAttribute("src", dependencyHandlerScriptSrc);
+    document.head.append(dependencyHandlerScript);
+  })();</script>
+ </head>
+ <body style="background-color:#FFFFFF;">
+  <div style="background-color:#FFFFFF;background-position:center center;background-size:auto;background-repeat:repeat;">
+   <section style="background-color:transparent;background-position:center center;background-size:auto;background-repeat:no-repeat;width:100%;">
+    <div align="center">
+     <div style="background:transparent;background-color:transparent;Margin:0px auto;max-width:1500px;">
+      <div style="border:none;direction:ltr;font-size:0px;padding:20px 10px 20px 10px;text-align:center;vertical-align:top;" class="block-grid padding-20px-100px-20px-100px">
+       <div style="border:none;">
+        <div class="mj-column-per-100" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+         <div style="border-radius:0px;vertical-align:top;padding:0 0 0 0;">
+          <div width="100%">
+           <div class="img-container" style="font-size:0px;padding:0px 6px 0px 6px;word-break:break-word;text-align:center;">
+            <div style="width:100%" elq-edit="true">
+             <a href="https://www.vmware.com/?elqTrackId=95471fc07bc1491a8035d49681d3a952&amp;elqaid=379&amp;elqat=2&amp;elqak=8AF5AA71D7C6FED5C57BCC3BC9B92E34ED1219833E7C51121D7771412CD46B5F7D11" target="_blank" style="text-decoration: none; color: #D31041;"><img alt="VMWare Logo" height="auto" src="https://images.sw.broadcom.com/EloquaImages/clients/CAInc2/%7B455773b6-242c-4084-a64a-b4359185622b%7D_VMware_by_Broadcom_Black.png" style="border:none;border-radius:0;outline:none;text-decoration:none;height:auto;width:100%;max-width:140px;font-size:13px;margin:0 auto;display:block;" class="margin-0-auto-0-0"></a>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section background="https://client-data.knak.io/production/email_assets/64fa20f70a224/bvALrfyZPQJAncF7ggCXy8cj1f6UhsPkEDbarFiD.png" style="background-image:url(https://client-data.knak.io/production/email_assets/64fa20f70a224/bvALrfyZPQJAncF7ggCXy8cj1f6UhsPkEDbarFiD.png);background-position:center center;background-size:cover;background-repeat:no-repeat;width:100%;">
+    <div align="center">
+     <div style="Margin:0px auto;max-width:1500px;">
+      <div style="border:none;direction:ltr;font-size:0px;padding:0px;text-align:center;vertical-align:top;" class="block-grid">
+       <div style="border:none;">
+        <div class="mj-column-per-100" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+         <div style="border-radius:0px;vertical-align:top;padding:0 0 0 0;">
+          <div width="100%">
+           <div style="font-size:0px;padding:0 0 0 0;word-break:break-word;">
+            <div style="height:7px;">
+             &nbsp;
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section style="background-position:center center;background-size:contain;background-repeat:no-repeat;width:100%;">
+    <div align="center">
+     <div style="Margin:0px auto;max-width:1500px;">
+      <div style="border:none;direction:rtl;font-size:0px;padding:15px 10px 10px 10px;text-align:center;vertical-align:top;" class="block-grid padding-15px-100px-10px-100px">
+       <div style="border:none;">
+        <div class="mj-column-per-50" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+         <div style="border-radius:0px;vertical-align:top;padding:0px 0px 0px 0px;">
+          <div width="100%">
+           <div class="padding-0px-0px-0px-0px img-container" style="font-size:0px;padding:0px;word-break:break-word;text-align:center;">
+            <div style="width:100%" elq-edit="true">
+             <img alt="" height="auto" src="https://images.sw.broadcom.com/EloquaImages/clients/CAInc2/%7B26ae0089-d34e-4288-99ea-d04cc3beee8c%7D_hero-contact-sales-620x320-updated.png" style="border:none;outline:none;text-decoration:none;height:auto;width:100%;max-width:500px;font-size:13px;margin:0 auto;display:block;" class="max-width-620px">
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="mj-column-per-50" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+         <div style="border-radius:0px;vertical-align:top;padding:0 0 0 0;">
+          <div width="100%">
+           <div class="padding-60px-25px-20px-6px text-container" style="font-size:0px;padding:15px 15px 15px 15px;word-break:break-word;text-align:left;">
+            <div style="width:100%" elq-edit="true">
+             <div class="links-D31041-underline">
+              <div style="font-family:'Metropolis', Arial, sans-serif;font-size:38px;letter-spacing:none;line-height:1.2;text-align:left;color:#000000;" class="font-size-45px">
+               <p style="margin: 0 0;">Contact Sales</p>
+              </div>
+             </div>
+            </div>
+           </div>
+           <div class="padding-20px-25px-10px-6px text-container" style="font-size:0px;padding:10px 0px 10px 15px;word-break:break-word;text-align:left;">
+            <div style="width:100%" elq-edit="true">
+             <div class="links-D31041-underline">
+              <div style="font-family:'Metropolis', Arial, sans-serif;font-size:14px;letter-spacing:none;line-height:1.2;text-align:left;color:#000000;" class="font-size-16px">
+               <p style="margin: 0 0;"><span style="font-size: 16px;"><span style="color: rgb(85, 84, 84);">Complete the form below to have a sales person address your business needs</span>.</span></p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section style="background-position:center center;background-size:contain;background-repeat:no-repeat;width:100%;">
+    <div align="center">
+     <div style="Margin:0px auto;max-width:1500px;">
+      <div style="border:none;direction:ltr;font-size:0px;padding:0px 0px 30px 0px;text-align:center;vertical-align:top;" class="block-grid padding-0px-100px-30px-100px">
+       <div style="border:none;">
+        <div class="mj-column-per-50" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+         <div style="border-radius:0px;vertical-align:top;padding:0 0 0 0;">
+          <div width="100%">
+           <div class="padding-0px-25px-0px-6px text-container" style="font-size:0px;padding:0px 25px 0px 25px;word-break:break-word;text-align:left;">
+            <div style="width:100%" elq-edit="true">
+             <div class="links-D31041-underline">
+              <div style="font-family:'Metropolis', Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.2;text-align:left;color:#000000;">
+               <p style="margin: 0 0;"><span style="font-family: Metropolis, Arial, sans-serif; font-size: 16px; color: rgb(86, 86, 86);">Required Fields<span style="background-color: rgb(255, 255, 255); color: rgb(255, 0, 0);">*</span>&nbsp;</span></p>
+              </div>
+             </div>
+            </div>
+           </div>
+           <div align="left" style="font-size:0px;padding:0px 0px 0px 0px;word-break:break-word;">
+            <div style="max-width:100%;border-radius:0px;width:95%;" class="contact-us-page-form">
+             <div style="padding:10px 0 0px 0px;font-size:1rem;display:flex;flex-direction:column;align-items:flex-start;font-family:Arial, sans-serif;">
+              <div style="width:100%">
+               <div elqid="440" elqtype="UserForm" id="elq-form-container" elqformname="FM_440">
+                <form method="post" name="FM_440" action="https://go-vmware.broadcom.com/e/f2?LP=379" onsubmit="return handleFormSubmit(this)" id="form440" class="elq-form">
+                 <input value="FM_440" type="hidden" name="elqFormName"><input value="3805888" type="hidden" name="elqSiteId"><input value="" type="hidden" id="elqFormSubmissionToken" name="elqFormSubmissionToken"><input name="elqCampaignId" type="hidden">
+                 <div class="layout container-fluid">
+                  <div class="row">
+                   <div class="grid-layout-col">
+                    <div class="layout-col col-sm-12 col-xs-12">
+                     <div id="formElement0" class="elq-field-style form-element-layout row">
+                      <div style="text-align:left;" class="col-sm-12 col-xs-12">
+                       <label class="elq-label " for="fe12766">Who would you like to talk to?<span class="elq-required">*</span></label>
+                      </div>
+                      <div class="col-sm-12 col-xs-12">
+                       <div class="row">
+                        <div class="col-xs-12">
+                         <div class="field-control-wrapper">
+                          <select class="elq-item-select" id="fe12766" name="talkTo" style="width:100%;" data-value=""><option value="">Please Select…</option><option value="I'd like to talk to Sales">I'd like to talk to Sales</option><option value="I need help from Support">I need help from Support</option></select>
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="row">
+                   <div class="grid-layout-col">
+                    <div class="layout-col col-sm-12 col-xs-12">
+                     <div id="formElement1" class="elq-field-style form-element-layout row">
+                      <div style="text-align:left;" class="col-sm-12 col-xs-12">
+                       <label class="elq-label " for="fe12767">What is your solution of interest?<span class="elq-required">*</span></label>
+                      </div>
+                      <div class="col-sm-12 col-xs-12">
+                       <div class="row">
+                        <div class="col-xs-12">
+                         <div class="field-control-wrapper">
+                          <select class="elq-item-select" id="fe12767" name="solutionofInterest" style="width:100%;" data-value=""><option value="Please select from the lsit">Please Select...</option><option value="Carbon Black">Carbon Black</option><option value="CloudHealth">CloudHealth</option><option value="Cloud infrastructure">Cloud infrastructure</option><option value="Tanzu">Tanzu</option><option value="Zero-trust Security and Software-Defined Load Balancing">Zero-trust Security and Software-Defined Load Balancing</option></select>
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="row">
+                   <div class="grid-layout-col">
+                    <div class="layout-col col-sm-12 col-xs-12">
+                     <div id="formElement2" class="elq-field-style form-element-layout row">
+                      <div style="text-align:left;" class="col-sm-12 col-xs-12">
+                       <label class="elq-label " for="fe12737">First Name<span class="elq-required">*</span></label>
+                      </div>
+                      <div class="col-sm-12 col-xs-12">
+                       <div class="row">
+                        <div class="col-xs-12">
+                         <div class="field-control-wrapper">
+                          <input type="text" class="elq-item-input" name="firstName" id="fe12737" value="" style="width:100%;">
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="row">
+                   <div class="grid-layout-col">
+                    <div class="layout-col col-sm-12 col-xs-12">
+                     <div id="formElement3" class="elq-field-style form-element-layout row">
+                      <div style="text-align:left;" class="col-sm-12 col-xs-12">
+                       <label class="elq-label " for="fe12738">Last Name<span class="elq-required">*</span></label>
+                      </div>
+                      <div class="col-sm-12 col-xs-12">
+                       <div class="row">
+                        <div class="col-xs-12">
+                         <div class="field-control-wrapper">
+                          <input type="text" class="elq-item-input" name="lastName" id="fe12738" value="" style="width:100%;">
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="row">
+                   <div class="grid-layout-col">
+                    <div class="layout-col col-sm-12 col-xs-12">
+                     <div id="formElement4" class="elq-field-style form-element-layout row">
+                      <div style="text-align:left;" class="col-sm-12 col-xs-12">
+                       <label class="elq-label " for="fe12736">Company Email<span class="elq-required">*</span></label>
+                      </div>
+                      <div class="col-sm-12 col-xs-12">
+                       <div class="row">
+                        <div class="col-xs-12">
+                         <div class="field-control-wrapper">
+                          <input type="text" class="elq-item-input" name="emailAddress" id="fe12736" value="" style="width:100%;">
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="row">
+                   <div class="grid-layout-col">
+                    <div class="layout-col col-sm-12 col-xs-12">
+                     <div id="formElement5" class="elq-field-style form-element-layout row">
+                      <div style="text-align:left;" class="col-sm-12 col-xs-12">
+                       <label class="elq-label " for="fe12739">Company<span class="elq-required">*</span></label>
+                      </div>
+                      <div class="col-sm-12 col-xs-12">
+                       <div class="row">
+                        <div class="col-xs-12">
+                         <div class="field-control-wrapper">
+                          <input type="text" class="elq-item-input" name="company" id="fe12739" value="" style="width:100%;">
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="row">
+                   <div class="grid-layout-col">
+                    <div class="layout-col col-sm-12 col-xs-12">
+                     <div id="formElement6" class="elq-field-style form-element-layout row">
+                      <div style="text-align:left;" class="col-sm-12 col-xs-12">
+                       <label class="elq-label " for="fe12741">Job Title<span class="elq-required">*</span></label>
+                      </div>
+                      <div class="col-sm-12 col-xs-12">
+                       <div class="row">
+                        <div class="col-xs-12">
+                         <div class="field-control-wrapper">
+                          <input type="text" class="elq-item-input" name="jobTitle" id="fe12741" value="" style="width:100%;">
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="row">
+                   <div class="grid-layout-col">
+                    <div class="layout-col col-sm-12 col-xs-12">
+                     <div id="formElement7" class="elq-field-style form-element-layout row">
+                      <div style="text-align:left;" class="col-sm-12 col-xs-12">
+                       <label class="elq-label " for="fe12740">Phone Number<span class="elq-required">*</span></label>
+                      </div>
+                      <div class="col-sm-12 col-xs-12">
+                       <div class="row">
+                        <div class="col-xs-12">
+                         <div class="field-control-wrapper">
+                          <input type="text" class="elq-item-input" name="busPhone" id="fe12740" value="" style="width:100%;">
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="row">
+                   <div class="grid-layout-col">
+                    <div class="layout-col col-sm-12 col-xs-12">
+                     <div id="formElement8" class="elq-field-style form-element-layout row">
+                      <div style="text-align:left;" class="col-sm-12 col-xs-12">
+                       <label class="elq-label " for="fe12743">Country<span class="elq-required">*</span></label>
+                      </div>
+                      <div class="col-sm-12 col-xs-12">
+                       <div class="row">
+                        <div class="col-xs-12">
+                         <div class="field-control-wrapper">
+                          <select class="elq-item-select" id="fe12743" name="country" style="width:100%;" data-value=""><option value="">Please Select...</option><option value="US">United States of America</option><option value="AF">Afghanistan</option><option value="AX">Åland Islands</option><option value="AL">Albania</option><option value="DZ">Algeria</option><option value="AS">American Samoa</option><option value="AD">Andorra</option><option value="AO">Angola</option><option value="AI">Anguilla</option><option value="AQ">Antarctica</option><option value="AG">Antigua and Barbuda</option><option value="AR">Argentina</option><option value="AM">Armenia</option><option value="AW">Aruba</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AZ">Azerbaijan</option><option value="BS">Bahamas</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BB">Barbados</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BZ">Belize</option><option value="BJ">Benin</option><option value="BM">Bermuda</option><option value="BT">Bhutan</option><option value="BO">Bolivia (Plurinational State of)</option><option value="BQ">Bonaire, Sint Eustatius and Saba</option><option value="BA">Bosnia and Herzegovina</option><option value="BW">Botswana</option><option value="BV">Bouvet Island</option><option value="BR">Brazil</option><option value="IO">British Indian Ocean Territory</option><option value="BN">Brunei Darussalam</option><option value="BG">Bulgaria</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="CV">Cabo Verde</option><option value="KH">Cambodia</option><option value="CM">Cameroon</option><option value="CA">Canada</option><option value="KY">Cayman Islands</option><option value="CF">Central African Republic</option><option value="TD">Chad</option><option value="CL">Chile</option><option value="CN">China</option><option value="CX">Christmas Island</option><option value="CC">Cocos (Keeling) Islands</option><option value="CO">Colombia</option><option value="KM">Comoros</option><option value="CG">Congo</option><option value="CD">Congo, Democratic Republic of the</option><option value="CK">Cook Islands</option><option value="CR">Costa Rica</option><option value="CI">Côte d'Ivoire</option><option value="HR">Croatia</option><option value="CU">Cuba</option><option value="CW">Curaçao</option><option value="CY">Cyprus</option><option value="CZ">Czechia</option><option value="DK">Denmark</option><option value="DJ">Djibouti</option><option value="DM">Dominica</option><option value="DO">Dominican Republic</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="GQ">Equatorial Guinea</option><option value="ER">Eritrea</option><option value="EE">Estonia</option><option value="SZ">Eswatini</option><option value="ET">Ethiopia</option><option value="FK">Falkland Islands (Malvinas)</option><option value="FO">Faroe Islands</option><option value="FJ">Fiji</option><option value="FI">Finland</option><option value="FR">France</option><option value="GF">French Guiana</option><option value="PF">French Polynesia</option><option value="TF">French Southern Territories</option><option value="GA">Gabon</option><option value="GM">Gambia</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Greece</option><option value="GL">Greenland</option><option value="GD">Grenada</option><option value="GP">Guadeloupe</option><option value="GU">Guam</option><option value="GT">Guatemala</option><option value="GG">Guernsey</option><option value="GN">Guinea</option><option value="GW">Guinea-Bissau</option><option value="GY">Guyana</option><option value="HT">Haiti</option><option value="HM">Heard Island and McDonald Islands</option><option value="VA">Holy See</option><option value="HN">Honduras</option><option value="HK">Hong Kong</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IR">Iran (Islamic Republic of)</option><option value="IQ">Iraq</option><option value="IE">Ireland</option><option value="IM">Isle of Man</option><option value="IL">Israel</option><option value="IT">Italy</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JE">Jersey</option><option value="JO">Jordan</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KI">Kiribati</option><option value="KP">Korea (Democratic People's Republic of)</option><option value="KR">Korea, Republic of</option><option value="XK">Kosovo</option><option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LA">Lao People's Democratic Republic</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LS">Lesotho</option><option value="LR">Liberia</option><option value="LY">Libya</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MO">Macao</option><option value="MG">Madagascar</option><option value="MW">Malawi</option><option value="MY">Malaysia</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malta</option><option value="MH">Marshall Islands</option><option value="MQ">Martinique</option><option value="MR">Mauritania</option><option value="MU">Mauritius</option><option value="YT">Mayotte</option><option value="MX">Mexico</option><option value="FM">Micronesia (Federated States of)</option><option value="MD">Moldova, Republic of</option><option value="MC">Monaco</option><option value="MN">Mongolia</option><option value="ME">Montenegro</option><option value="MS">Montserrat</option><option value="MA">Morocco</option><option value="MZ">Mozambique</option><option value="MM">Myanmar</option><option value="NA">Namibia</option><option value="NR">Nauru</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="AN">Netherlands Antilles</option><option value="NC">New Caledonia</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigeria</option><option value="NU">Niue</option><option value="NF">Norfolk Island</option><option value="MK">North Macedonia</option><option value="MP">Northern Mariana Islands</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option><option value="PW">Palau</option><option value="PS">Palestine, State of</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PN">Pitcairn</option><option value="PL">Poland</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="RE">Réunion</option><option value="RO">Romania</option><option value="RU">Russian Federation</option><option value="RW">Rwanda</option><option value="BL">Saint Barthélemy</option><option value="SH">Saint Helena, Ascension and Tristan da Cunha</option><option value="KN">Saint Kitts and Nevis</option><option value="LC">Saint Lucia</option><option value="MF">Saint Martin (French part)</option><option value="PM">Saint Pierre and Miquelon</option><option value="VC">Saint Vincent and the Grenadines</option><option value="WS">Samoa</option><option value="SM">San Marino</option><option value="ST">Sao Tome and Principe</option><option value="SA">Saudi Arabia</option><option value="SN">Senegal</option><option value="RS">Serbia</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapore</option><option value="SX">Sint Maarten (Dutch part)</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="SB">Solomon Islands</option><option value="SO">Somalia</option><option value="ZA">South Africa</option><option value="GS">South Georgia and the South Sandwich Islands</option><option value="SS">South Sudan</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option><option value="SD">Sudan</option><option value="SR">Suriname</option><option value="SJ">Svalbard and Jan Mayen</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="SY">Syrian Arab Republic</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option><option value="TZ">Tanzania, United Republic of</option><option value="TH">Thailand</option><option value="TL">Timor-Leste</option><option value="TG">Togo</option><option value="TK">Tokelau</option><option value="TO">Tonga</option><option value="TT">Trinidad and Tobago</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TM">Turkmenistan</option><option value="TC">Turks and Caicos Islands</option><option value="TV">Tuvalu</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom of Great Britain and Northern Ireland</option><option value="UM">United States Minor Outlying Islands</option><option value="UY">Uruguay</option><option value="UZ">Uzbekistan</option><option value="VU">Vanuatu</option><option value="VE">Venezuela (Bolivarian Republic of)</option><option value="VN">Viet Nam</option><option value="VG">Virgin Islands (British)</option><option value="VI">Virgin Islands (U.S.)</option><option value="WF">Wallis and Futuna</option><option value="EH">Western Sahara</option><option value="YE">Yemen</option><option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option></select>
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="row">
+                   <div class="grid-layout-col">
+                    <div class="layout-col col-sm-12 col-xs-12">
+                     <div id="formElement9" class="elq-field-style form-element-layout row">
+                      <div style="text-align:left;" class="col-sm-12 col-xs-12">
+                       <label class="elq-label " for="fe12744">State or Province</label>
+                      </div>
+                      <div class="col-sm-12 col-xs-12">
+                       <div class="row">
+                        <div class="col-xs-12">
+                         <div class="field-control-wrapper">
+                          <select class="elq-item-select" id="fe12744" name="stateProv" style="width:100%;" data-value=""><option value="">Please Select...</option><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AS">American Samoa</option><option value="AR">Arkansas</option><option value="AZ">Arizona</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DC">D.C.</option><option value="DE">Delaware</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="GU">Guam</option><option value="HI">Hawaii</option><option value="IA">Iowa</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="MA">Massachusetts</option><option value="MD">Maryland</option><option value="ME">Maine</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MO">Missouri</option><option value="MP">Marianas</option><option value="MS">Mississippi</option><option value="MT">Montana</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="NE">Nebraska</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NV">Nevada</option><option value="NY">New York</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="PR">Puerto Rico</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UM">United States Minor Outlying Islands</option><option value="UT">Utah</option><option value="VA">Virginia</option><option value="VI">Virgin Islands</option><option value="VT">Vermont</option><option value="WA">Washington</option><option value="WI">Wisconsin</option><option value="WV">West Virginia</option><option value="WY">Wyoming</option></select>
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="row">
+                   <div class="grid-layout-col">
+                    <div class="layout-col col-sm-12 col-xs-12">
+                     <div id="formElement10" class="elq-field-style form-element-layout row">
+                      <div style="text-align:left;" class="col-sm-12 col-xs-12">
+                       <label class="elq-label " for="fe12742">Additional Information</label>
+                      </div>
+                      <div class="col-sm-12 col-xs-12">
+                       <div class="row">
+                        <div class="col-xs-12">
+                         <div class="field-control-wrapper">
+                          <textarea class="elq-item-textarea" style="width:100%;" name="comments1" id="fe12742"></textarea>
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="row">
+                   <div class="grid-layout-col">
+                    <div class="layout-col col-sm-12 col-xs-12">
+                     <div id="formElement11" class="elq-field-style form-element-layout row">
+                      <div class="col-sm-12 col-xs-12">
+                       <div class="row">
+                        <div class="col-xs-12">
+                         <div>
+                          <div class="single-checkbox-row row">
+                           <input type="checkbox" name="optIn" id="fe12745"><label class="checkbox-aligned elq-item-label" for="fe12745">Send me Broadcom communications</label>
+                          </div>
+                         </div>
+                        </div>
+                       </div>
+                       <div class="form-element-instruction">
+                        I agree to receive commercial messages from Broadcom. I understand my personal data is processed according to Broadcom's Privacy Policy and I may unsubscribe from emailed communications at any time.
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                  <div id="elq-FormLastRow" class="row">
+                   <div class="grid-layout-col">
+                    <div class="layout-col col-sm-12 col-xs-12">
+                     <div class="elq-field-style form-element-layout row">
+                      <div style="text-align:left;" class="col-sm-12 col-xs-12">
+                       <label class="elq-label">address1</label>
+                      </div>
+                      <div class="col-sm-12 col-xs-12">
+                       <div class="row">
+                        <div class="col-xs-12">
+                         <div class="field-control-wrapper">
+                          <input type="text" value="" tabindex="-1" autocomplete="off" style="width:100%;" class="elq-item-input" name="address1" id="honeypotFieldId">
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+                  <div class="row">
+                   <div class="grid-layout-col">
+                    <div class="layout-col col-sm-12 col-xs-12">
+                     <div id="formElement12" class="elq-field-style form-element-layout row">
+                      <div class="col-sm-12 col-xs-12">
+                       <div class="row">
+                        <div class="col-xs-12">
+                         <div>
+                          <input type="Submit" class="submit-button-style " value="Submit" id="fe12764">
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div><input type="hidden" name="hiddenFormName" id="fe12746" value="GEN_FY24_GEN_Contact-Us_0_Contact-Us_MKT_FM_440"><input type="hidden" name="hiddenDivision" id="fe12747" value="GEN"><input type="hidden" name="hiddenProductSolution" id="fe12748" value="GEN"><input type="hidden" name="hiddenProductFriendlyName" id="fe12749" value=""><input type="hidden" name="hiddenMarketingInitiativeType" id="fe12750" value="High Value Offer"><input type="hidden" name="hiddenCampaignID" id="fe12751" value=""><input type="hidden" name="hiddenUTMCampaign" id="fe12752" value=""><input type="hidden" name="hiddenUTMContent" id="fe12753" value=""><input type="hidden" name="hiddenUTMMedium" id="fe12754" value=""><input type="hidden" name="hiddenUTMSource" id="fe12755" value=""><input type="hidden" name="hiddenUTMTerm" id="fe12756" value=""><input type="hidden" name="hiddenUTMDateStamp" id="fe12757" value=""><input type="hidden" name="hiddenCurrentPageURL" id="fe12758" value=""><input type="hidden" name="hiddenReferringURL" id="fe12759" value=""><input type="hidden" name="hiddenOneTrustIPCountry" id="fe12760" value=""><input type="hidden" name="hiddenOneTrustIPState" id="fe12761" value=""><input type="hidden" name="hiddenGAGUID" id="fe12762" value=""><input type="hidden" name="hiddenConsentVerbiage" id="fe12763" value="">
+                 </div>
+                </form>
+                <script type="text/javascript" src="https://img.en25.com/i/livevalidation_standalone.compressed.js"></script>
+                <script>function handleFormSubmit(ele) { var submitButton = ele.querySelector('input[type=submit]'); var spinner = document.createElement('span'); spinner.setAttribute('class', 'loader'); submitButton.setAttribute('disabled', true); submitButton.style.cursor = 'wait'; submitButton.parentNode.appendChild(spinner); return true; }function resetSubmitButton(e){ var submitButtons = e.target.form.getElementsByClassName('submit-button'); for(var i=0;i<submitButtons.length;i++){  submitButtons[i].disabled = false; }  }function addChangeHandler(elements){  for(var i=0; i<elements.length; i++){   elements[i].addEventListener('change', resetSubmitButton); }  }var form = document.getElementById('form440'); addChangeHandler(form.getElementsByTagName('input')); addChangeHandler(form.getElementsByTagName('select')); addChangeHandler(form.getElementsByTagName('textarea'));var nodes = document.querySelectorAll('#form440 input[data-subscription]');  if (nodes) { for (var i = 0, len = nodes.length; i < len; i++) {var status = nodes[i].dataset ? nodes[i].dataset.subscription : nodes[i].getAttribute('data-subscription'); if(status ==='true') {nodes[i].checked = true;}}};var nodes = document.querySelectorAll('#form440 select[data-value]');   if (nodes) { for (var i = 0; i < nodes.length; i++) { var node = nodes[i]; var selectedValue = node.dataset ? node.dataset.value : node.getAttribute('data-value'); if (selectedValue) { for (var j = 0; j < node.options.length; j++) { if(node.options[j].value === selectedValue) { node.options[j].selected = 'selected';break;}}}}}this.getParentElement = function(list) { return list[list.length-1].parentElement};var dom0 = document.querySelector('#form440 #fe12766');var fe12766 = new LiveValidation(dom0, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe12766.add(Validate.Presence, {failureMessage:"This field is required"});var dom1 = document.querySelector('#form440 #fe12767');var fe12767 = new LiveValidation(dom1, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe12767.add(Validate.Presence, {failureMessage:"This field is required"});var dom2 = document.querySelector('#form440 #fe12737');var fe12737 = new LiveValidation(dom2, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe12737.add(Validate.Length, {tooShortMessage:"Invalid length for field value", tooLongMessage: "Invalid length for field value",  minimum: 1, maximum: 100});fe12737.add(Validate.Presence, {failureMessage:"This field is required"});var dom3 = document.querySelector('#form440 #fe12738');var fe12738 = new LiveValidation(dom3, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe12738.add(Validate.Length, {tooShortMessage:"Invalid length for field value", tooLongMessage: "Invalid length for field value",  minimum: 1, maximum: 100});fe12738.add(Validate.Presence, {failureMessage:"This field is required"});var dom4 = document.querySelector('#form440 #fe12736');var fe12736 = new LiveValidation(dom4, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe12736.add(Validate.Length, {tooShortMessage:"Invalid length for field value", tooLongMessage: "Invalid length for field value",  minimum: 1, maximum: 100});fe12736.add(Validate.Format, {pattern: /(^[A-Z0-9!#\$%&'\*\+\-\/=\?\^_`\{\|\}~][A-Z0-9!#\$%&'\*\+\-\/=\?\^_`\{\|\}~\.]{0,62}@(([A-Z0-9](?:[A-Z0-9\-]{0,61}[A-Z0-9])?)(\.[A-Z0-9](?:[A-Z0-9\-]{0,61}[A-Z0-9])?)+)$)/i, failureMessage: "A valid email address is required"});fe12736.add(Validate.Format, {pattern: /\.\.|\.@/i, failureMessage: "A valid email address is required", negate: "true"});fe12736.add(Validate.Presence, {failureMessage:"This field is required"});var dom5 = document.querySelector('#form440 #fe12739');var fe12739 = new LiveValidation(dom5, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe12739.add(Validate.Presence, {failureMessage:"This field is required"});fe12739.add(Validate.Length, {tooShortMessage:"Invalid length for field value", tooLongMessage: "Invalid length for field value",  minimum: 0, maximum: 100});var dom6 = document.querySelector('#form440 #fe12741');var fe12741 = new LiveValidation(dom6, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe12741.add(Validate.Presence, {failureMessage:"This field is required"});fe12741.add(Validate.Length, {tooShortMessage:"Invalid length for field value", tooLongMessage: "Invalid length for field value",  minimum: 0, maximum: 100});var dom7 = document.querySelector('#form440 #fe12740');var fe12740 = new LiveValidation(dom7, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe12740.add(Validate.Presence, {failureMessage:"This field is required"});fe12740.add(Validate.Length, {tooShortMessage:"Invalid length for field value", tooLongMessage: "Invalid length for field value",  minimum: 0, maximum: 100});var dom8 = document.querySelector('#form440 #fe12743');var fe12743 = new LiveValidation(dom8, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe12743.add(Validate.Presence, {failureMessage:"This field is required"});var dom9 = document.querySelector('#form440 #fe12744');var fe12744 = new LiveValidation(dom9, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});var dom10 = document.querySelector('#form440 #fe12742');var fe12742 = new LiveValidation(dom10, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe12742.add(Validate.Length, {tooShortMessage:"Invalid length for field value", tooLongMessage: "Invalid length for field value",  minimum: 0, maximum: 1024});var dom11 = document.querySelector('#form440 #fe12745');var fe12745 = new LiveValidation(dom11, {validMessage: "", onlyOnBlur: false, wait: 300, isPhoneField: false});fe12745.add(Validate.Custom, {against: function(value) {return !value.match(/(telnet|ftp|https?):\/\/(?:[a-z0-9][a-z0-9-]{0,61}[a-z0-9]\.|[a-z0-9]\.)+[a-z]{2,63}/i);}, failureMessage: "Value must not contain any URL's"});fe12745.add(Validate.Custom, {against: function(value) {return !value.match(/(<([^>]+)>)/ig);}, failureMessage: "Value must not contain any HTML"});</script>
+                <script>document.onload = handleDocumentLoad('form440','3805888');function handleDocumentLoad(b,a){window.getElqFormSubmissionToken(b,a);window.processLastFormField()}function getElqFormSubmissionToken(g,c){var e=new XMLHttpRequest();var b=document.getElementById(g);if(b&&b.elements.namedItem("elqFormSubmissionToken")){var f=b.action;var a=window.getHostName(f);a="https://"+a+"/e/formsubmittoken?elqSiteID="+c;if(a){e.onreadystatechange=function(){if(e.readyState===4){if(e.status===200){b.elements.namedItem("elqFormSubmissionToken").value=e.responseText}else{b.elements.namedItem("elqFormSubmissionToken").value=""}}};e.open("GET",a,true);e.send()}else{b.elements.namedItem("elqFormSubmissionToken").value=""}}}function getHostName(b){if(typeof window.URL==="function"){return new window.URL(b).hostname}else{var a=b.match(/:\/\/(www[0-9]?\.)?(.[^\/:]+)/i);if(a!==null&&a.length>2&&typeof a[2]==="string"&&a[2].length>0){return a[2]}else{return null}}}function processLastFormField(){var form = document.getElementById("form440");var lastFormField = form.querySelector("#elq-FormLastRow");lastFormField.style.display = "none";}</script>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="mj-column-per-50" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+         <div style="background-color:#F7F7F7;border-radius:0px;vertical-align:top;padding:0 0 0 0;">
+          <div width="100%">
+           <div class="padding-26px-26px-26px-26px img-container" style="font-size:0px;padding:25px;word-break:break-word;text-align:left;">
+            <div style="width:100%" elq-edit="true">
+             <img alt="Email icon" height="auto" src="https://client-data.knak.io/production/email_assets/64fa20f70a224/versions/3duwntFaLL46HWYRchii.png" style="border:none;outline:none;text-decoration:none;height:auto;width:100%;max-width:95px;font-size:13px;margin:0 auto 0 0;display:block;">
+            </div>
+           </div>
+           <div class="text-container" style="font-size:0px;padding:10px 25px 10px 25px;word-break:break-word;text-align:left;">
+            <div style="width:100%" elq-edit="true">
+             <div class="links-D31041-underline">
+              <div style="font-family:'Metropolis', Arial, sans-serif;font-size:24px;letter-spacing:none;line-height:1.2;text-align:left;color:#000000;">
+               <p style="margin: 0 0;"><span style="font-family: Metropolis, Arial, sans-serif;"><span style="font-size: 24px;">Contact Support</span></span></p>
+              </div>
+             </div>
+            </div>
+           </div>
+           <div class="text-container" style="font-size:0px;padding:10px 25px 10px 25px;word-break:break-word;text-align:left;">
+            <div style="width:100%" elq-edit="true">
+             <div class="links-D31041-underline">
+              <div style="font-family:'Metropolis', Arial, sans-serif;font-size:16px;letter-spacing:none;line-height:1.2;text-align:left;color:#000000;">
+               <p style="margin: 0 0;"><span style="font-family: Metropolis, Arial, sans-serif; color: rgb(86, 86, 86); font-size: 16px;">For customer service-related questions or product support, please visit Contact Support.</span></p>
+              </div>
+             </div>
+            </div>
+           </div>
+           <div class="text-container" style="font-size:0px;padding:10px 25px 10px 25px;word-break:break-word;text-align:left;">
+            <div style="width:100%" elq-edit="true">
+             <div class="links-1D428A">
+              <div style="font-family:'Metropolis', Arial, sans-serif;font-size:16px;font-weight:200;letter-spacing:none;line-height:1.2;text-align:left;color:#000000;">
+               <p style="margin: 0 0;"><span style="font-size: 16px;"><a href="https://support.broadcom.com/web/ecx/software-contact-support?elqTrackId=cd2d37508c474073b314a350d9b856ae&amp;elqaid=379&amp;elqat=2&amp;elqak=8AF527DC7FC64F8C02C73327A41F5F96AED7C900B24C919ADDBA54F639B81449555F" target="_blank" rel="noopener" style="color: rgb(29, 66, 138); text-decoration: none;">Click Here</a></span></p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section background="https://client-data.knak.io/production/email_assets/64fa20f70a224/bvALrfyZPQJAncF7ggCXy8cj1f6UhsPkEDbarFiD.png" style="background-image:url(https://client-data.knak.io/production/email_assets/64fa20f70a224/bvALrfyZPQJAncF7ggCXy8cj1f6UhsPkEDbarFiD.png);background-position:center center;background-size:cover;background-repeat:no-repeat;width:100%;">
+    <div align="center">
+     <div style="Margin:0px auto;max-width:1500px;">
+      <div style="border:none;direction:ltr;font-size:0px;padding:0px;text-align:center;vertical-align:top;" class="block-grid">
+       <div style="border:none;">
+        <div class="mj-column-per-100" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+         <div style="border-radius:0px;vertical-align:top;padding:0 0 0 0;">
+          <div width="100%">
+           <div style="font-size:0px;padding:0 0 0 0;word-break:break-word;">
+            <div style="height:7px;">
+             &nbsp;
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section style="background-color:transparent;background-position:center center;background-size:auto;background-repeat:no-repeat;width:100%;">
+    <div align="center">
+     <div style="background:transparent;background-color:transparent;Margin:0px auto;max-width:1500px;">
+      <div style="border:none;direction:ltr;font-size:0px;padding:10px 10px 10px 10px;text-align:center;vertical-align:top;" class="block-grid padding-10px-100px-10px-100px">
+       <div style="border:none;">
+        <div class="mj-column-per-21" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+         <div style="border-radius:0px;vertical-align:middle;padding:0 0 0 0;">
+          <div width="100%">
+           <div class="padding-0px-0px-0px-0px img-container" style="font-size:0px;padding:15px 0px 15px 0px;word-break:break-word;text-align:center;">
+            <div style="width:100%" elq-edit="true">
+             <a href="https://www.vmware.com/?elqTrackId=4349be582bf14b818a37bec16f35bc96&amp;elqaid=379&amp;elqat=2&amp;elqak=8AF5F6CD5F609E626BD54050A445FFF01105371605FEACD7D834FA7DDF55121A490F" target="_blank" style="text-decoration: none; color: #D31041;"><img alt="VMWare Logo" height="auto" src="https://images.sw.broadcom.com/EloquaImages/clients/CAInc2/%7B455773b6-242c-4084-a64a-b4359185622b%7D_VMware_by_Broadcom_Black.png" style="border:none;outline:none;text-decoration:none;height:auto;width:100%;max-width:140px;font-size:13px;margin:0 auto;display:block;" class="margin-0-auto-0-0"></a>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+        <div class="mj-column-per-79" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:middle;width:100%;">
+         <div style="border-radius:0px;vertical-align:middle;padding:0 0 0 0;">
+          <div width="100%">
+           <div class="social-container" style="font-size:0px;padding:10px 0px 10px 0px;word-break:break-word;text-align:center;">
+            <div style="float:none;display:flex;justify-content:center;flex-direction:row;flex-wrap:wrap;" class="justify-content-flex-end">
+             <div>
+              <div style="padding:4px;">
+               <div style="background:No;border-radius:50%;">
+                <div style="padding:0px;font-size:0;height:20px;vertical-align:middle;width:20px;">
+                 <div style="width:100%" elq-edit="true">
+                  <a href="https://go-vmware.broadcom.com/contact-us?elqTrackId=e511c0ea152d4c4b88e51437b89344bb&amp;elq=00000000000000000000000000000000&amp;elqaid=379&amp;elqat=2&amp;elqCampaignId=&amp;elqak=8AF5EE0050FDE3D58790AC1621F7401E520B98484A534B970ECB81EE193B5577FB21" target="_blank" style="text-decoration: none; color: #D31041;"><img alt="Email" height="20" src="https://images.sw.broadcom.com/EloquaImages/clients/CAInc2/%7B0a443c8b-cce4-492b-b33c-088e0db0efc8%7D_email-icon.png" style="border-radius:50%;display:block;" width="20"></a>
+                 </div>
+                </div>
+               </div>
+              </div>
+             </div>
+             <div>
+              <div style="padding:4px;">
+               <div style="background:No;border-radius:50%;">
+                <div style="padding:0px;font-size:0;height:20px;vertical-align:middle;width:20px;">
+                 <div style="width:100%" elq-edit="true">
+                  <a href="https://twitter.com/VMware?elqTrackId=6b661677b13546db9eade4cce3d0df17&amp;elqaid=379&amp;elqat=2&amp;elqak=8AF5C753137D47F2F611283D117A9C2854A5B172D7801811C95A3B7B9D86230A8CDF" target="_blank" style="text-decoration: none; color: #D31041;"><img alt="Twitter" height="20" src="https://images.sw.broadcom.com/EloquaImages/clients/CAInc2/%7B506d05ab-d3ac-4dac-b199-0226a6b9e26b%7D_twitter-icon.png" style="border-radius:50%;display:block;" width="20"></a>
+                 </div>
+                </div>
+               </div>
+              </div>
+             </div>
+             <div>
+              <div style="padding:4px;">
+               <div style="background:No;border-radius:50%;">
+                <div style="padding:0px;font-size:0;height:20px;vertical-align:middle;width:20px;">
+                 <div style="width:100%" elq-edit="true">
+                  <a href="https://www.youtube.com/user/vmwaretv?elqTrackId=68ba5d42eea94bc882ca24635726b6f8&amp;elqaid=379&amp;elqat=2&amp;elqak=8AF5D8B44AF9CB7C703E1A2DF2C3ADA83D2D02AFF6D4CEC374A41C0BD10CD39DBAD4" target="_blank" style="text-decoration: none; color: #D31041;"><img alt="YouTube" height="20" src="https://images.sw.broadcom.com/EloquaImages/clients/CAInc2/%7Bba3f84aa-a139-4ebd-9c99-f3258afed147%7D_youtube-icon.png" style="border-radius:50%;display:block;" width="20"></a>
+                 </div>
+                </div>
+               </div>
+              </div>
+             </div>
+             <div>
+              <div style="padding:4px;">
+               <div style="background:no;border-radius:50%;">
+                <div style="padding:0px;font-size:0;height:20px;vertical-align:middle;width:20px;">
+                 <div style="width:100%" elq-edit="true">
+                  <a href="https://www.facebook.com/vmware?elqTrackId=9ac16a1847b24a1f8789f5b13f3561e8&amp;elqaid=379&amp;elqat=2&amp;elqak=8AF55216035024189103CB1541814D7EFEC8CC227D4DC4AB67FCC2C835B9448171F8" target="_blank" style="text-decoration: none; color: #D31041;"><img alt="Facebook" height="20" src="https://images.sw.broadcom.com/EloquaImages/clients/CAInc2/%7Bc44e419b-3c27-476c-aeb2-37adfcf3d531%7D_facebook-icon.png" style="border-radius:50%;display:block;" width="20"></a>
+                 </div>
+                </div>
+               </div>
+              </div>
+             </div>
+             <div>
+              <div style="padding:4px;">
+               <div style="background:No;border-radius:50%;">
+                <div style="padding:0px;font-size:0;height:20px;vertical-align:middle;width:20px;">
+                 <div style="width:100%" elq-edit="true">
+                  <a href="https://www.linkedin.com/company/vmware/mycompany?elqTrackId=5cb6bf8070fe49c087c1c9e9260428ca&amp;elqaid=379&amp;elqat=2&amp;elqak=8AF580B599F19CD43B43B893C037E1C8294A100913D66E3E4455165FEB009676AEE0" target="_blank" style="text-decoration: none; color: #D31041;"><img alt="Linkedin" height="20" src="https://images.sw.broadcom.com/EloquaImages/clients/CAInc2/%7Be6ec71ce-8512-43ad-91a1-fca5835b81ef%7D_linkedin-icon.png" style="border-radius:50%;display:block;" width="20"></a>
+                 </div>
+                </div>
+               </div>
+              </div>
+             </div>
+            </div>
+           </div>
+           <div class="text-container" style="font-size:0px;padding:10px 0px 5px 0px;word-break:break-word;text-align:center;">
+            <div style="width:100%" elq-edit="true">
+             <div class="links-005C85">
+              <div style="font-family:'Metropolis', Arial, sans-serif;font-size:14px;letter-spacing:none;line-height:1.2;text-align:center;color:#000000;" class="text-align-right">
+               <p style="margin: 0 0;"><span style="font-family: Metropolis, Arial, sans-serif;"><a title="Accessibility" href="https://www.broadcom.com/company/legal/accessibility?elqTrackId=87a659b3ab3e4e5ba22feda730555e87&amp;elqaid=379&amp;elqat=2&amp;elqak=8AF5512D39F5EFB526C2D637D96F4399878999E33831425EC905BEF0939B5508B371" target="_blank" rel="noopener" style="color: rgb(0, 92, 133); text-decoration: none;">Accessibility</a></span> | <a title="Privacy" href="https://www.broadcom.com/company/legal/privacy?elqTrackId=877ae29f6f864e3fbb6846cb17bf0c01&amp;elqaid=379&amp;elqat=2&amp;elqak=8AF5F32C60B17FD7E6221B380B12672C61F286DAD6A06280EFBE5E5F1FFC7777E516" target="_blank" rel="noopener" style="color: rgb(0, 92, 133); text-decoration: none;">Privacy</a> | <a title="Contact Us" href="https://go-vmware.broadcom.com/contact-us?elqTrackId=2d4637a6a0ac4c668aecaf8d2517b312&amp;elq=00000000000000000000000000000000&amp;elqaid=379&amp;elqat=2&amp;elqCampaignId=&amp;elqak=8AF5919E96F8635B8EAAFBD11ADA3F90719098484A534B970ECB81EE193B5577FB21" target="_blank" rel="noopener" style="color: rgb(0, 92, 133); text-decoration: none;">Contact Us</a> | <a title="Terms of Use" href="https://www.broadcom.com/company/legal/terms-of-use?elqTrackId=98eff62956f249aca5d68d3cc0fb96c8&amp;elqaid=379&amp;elqat=2&amp;elqak=8AF595F66FC5A51D4556B51F19B24B6D9D5387502F878B616F2E2B489F1C26138654" target="_blank" rel="noopener" style="color: rgb(0, 92, 133); text-decoration: none;">Terms of Use</a></p>
+              </div>
+             </div>
+            </div>
+           </div>
+           <div class="text-container" style="font-size:0px;padding:5px 0px 10px 0px;word-break:break-word;text-align:center;">
+            <div style="width:100%" elq-edit="true">
+             <div class="links-D31041-underline">
+              <div style="font-family:'Metropolis', Arial, sans-serif;font-size:14px;letter-spacing:none;line-height:1.2;text-align:center;color:#000000;" class="text-align-right">
+               <p style="margin: 0 0;">Copyright © 2005-2025 Broadcom. All Rights Reserved. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries</p>
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </div>
+  <script>// Get references to the select elements
+const select1 = document.getElementById("fe12766");
+console.log(select1);
+const select2 = document.getElementById("fe12767");
+
+// Function to build the redirect URL based on selections
+function buildRedirectUrl() {
+  const value1 = select1.value;
+  const value2 = select2.value;
+ 
+  // Check if value2 is a specific support option
+  const isSupportOptionRedirect = ["Cloud Infrastructure",
+                          "Zero-trust Security and Software-Defined Load Balancing",
+                          "Edge Infrastructure"].includes(value2);
+ 
+ 
+ // Determine the target URL based on combinations of values
+if ((value1 === "I'd like to talk to Sales") && (value2 === "Carbon Black")) {
+    return "https://engage.broadcom.com/ESG-contact-us";
+} else if ((value1 === "I'd like to talk to Sales") && (value2 !== "Carbon Black")) {
+    return; // No redirection for Sales
+} else {
+    return "https://support.broadcom.com/web/ecx/software-contact-support";
+}
+ 
+ }
+
+
+// Add change event listeners to both select elements
+select1.addEventListener("change", function() {
+  const redirectUrl = buildRedirectUrl();
+  if (redirectUrl !== undefined) {
+    window.location.href=redirectUrl;
+  }
+});
+ 
+select2.addEventListener("change", function() {
+  const redirectUrl = buildRedirectUrl();
+  if (redirectUrl !== undefined) {
+    window.location.href=redirectUrl;
+  }
+});</script><img style="display:none" src="https://s3805888.t.eloqua.com/visitor/v200/svrGP?pps=60&amp;siteid=3805888&amp;PURLSiteID=11&amp;optin=disabled&amp;PURLSiteAlternateDNSID=0&amp;LandingPageID=379&amp;PURLRecordID=0&amp;PURLGUID=8E0A0BB5EB514F17A4A804E2DC9FAD91&amp;UseRelativePath=True&amp;elq={00000000-0000-0000-0000-000000000000}&amp;firstPartyCookieDomain=secure.sw.broadcom.com&amp;elqGUID=8e0a0bb5-eb51-4f17-a4a8-04e2dc9fad91&amp;elq_ck=0&amp;elqTrackId=e511c0ea152d4c4b88e51437b89344bb&amp;elqaid=379&amp;elqat=2&amp;elqCampaignId=&amp;elqak=8AF5EE0050FDE3D58790AC1621F7401E520B98484A534B970ECB81EE193B5577FB21" border="0" width="1" height="1" alt="">
+ </body>
+</html>

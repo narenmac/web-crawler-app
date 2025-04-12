@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="formPrefill" content="1">
+  <meta name="robots" content="index, nofollow">
+  <title></title>
+  <link rel="stylesheet" type="text/css" media="all" href="/css/mktLPSupportCompat.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <style type="text/css">
+
+#bodyId {
+	background: #cccccc;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	}
+
+div#outerWrapDiv {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	}
+
+div#innerWrapDiv {
+	position: relative;
+	background: #ffffff;
+	padding: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	text-align: left;
+	}
+
+</style>
+  <style>
+/* Note: You can also change these in the specific Landing Pages*/
+
+/* Width of Full Page */
+
+div#innerWrapDiv {
+ 	width: 960px;
+	padding:0px 20px;
+	box-shadow: 1px 8px 20px 6px rgba(120, 120, 120, .5);
+	-webkit-box-shadow: 1px 8px 20px 6px rgba(120, 120, 120, .5);
+    /*border-radius: 5px; 
+	-moz-border-radius: 5px; 
+    -webkit-border-radius: 5px;*/
+	}
+	
+/*a:link {
+	color:#000000;
+	text-decoration:none;
+	
+}
+
+a:visited {
+	color:#000000;
+	text-decoration:none;
+	
+}
+
+a:active {
+	color:#000000;
+	text-decoration:none;
+	
+}
+
+a:hover {
+	color:#000000;
+	text-decoration:underline;
+	
+}
+*/
+img {
+	border:none;	
+}
+
+/* Main Header Area  */
+
+div#mktHeader {
+	background: #ffffff;
+	border-bottom:3px solid #e0dfdf;
+	height: 100px;
+	position:relative;  
+	}
+	
+div#logo {
+	border: 0px;
+	left:10px;
+	position:absolute;
+	top:20px;
+	}
+
+/* Main Content Area - Controls height of page */
+
+div#mktContent {
+	background: #ffffff;
+	height: 650px;
+	position: relative;
+	}
+
+/* Footer Area */
+
+div#mktFooter {
+	background: #ffffff;
+	border-top:2px solid #e0dfdf;
+	color:#666666;
+	font-size:12px; 
+	height: 70px;
+	position: relative;
+    margin-bottom:25px;
+	}
+
+/* Footer links and Copyright */
+
+div#copyright{
+	left: 10px;
+	position: absolute;
+	top: 25px;
+	}
+
+
+div#footerlinks {
+	right: 10px;
+	position: absolute;
+	top: 25px;
+	}
+	
+div#footerlinks a {
+	color:#666666;
+	text-decoration:none;
+	margin:0px 10px;
+	}
+	
+div#footerlinks a:last-child {
+	margin-right:0px;	
+}
+	
+div#footerlinks a:hover {
+	color:#666666;
+	text-decoration:underline;
+	}
+
+</style><!--[if lt IE 7]>
+
+<style>
+img.png { behavior: url(/js/public/iepngfix.htc) }
+</style>
+
+  <![endif]-->
+  <script type="text/javascript">
+function fieldValidate(field) {
+  /* call Mkto.setError(field, message) and return false to mark a field value invalid */
+  /* return 'skip' to bypass the built-in validations */
+  return true;
+}
+function getRequiredFieldMessage(domElement, label) {
+  return "This field is required";
+}
+function getTelephoneInvalidMessage(domElement, label) {
+  return "Please enter a valid telephone number";
+}
+function getEmailInvalidMessage(domElement, label) {
+  return "Please enter a valid email address";
+}
+</script><!-- Jquery for fancy things!-->
+  <script>
+    // to make fancy buttons.  Uses noConflict just in case
+     var $jQ = jQuery.noConflict();
+
+     // Use jQuery via $j(...)
+     $jQ(document).ready(function(){
+
+       $jQ('input[id=mktFrmSubmit]').wrap("<div class='buttonSubmit'></div>");
+       $jQ(".buttonSubmit").prepend("<span></span>");
+
+     });
+</script>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <style id="mktoDesktopStyle">
+.lpeCElement {
+  position:absolute;
+}
+.imageSpan img{
+  width:100%; height:auto;
+}
+#lpeCDiv_3806 {display:none;}
+#lpeCDiv_3812 {display:none;}
+#lpeCDiv_3811 {display:none;}
+#lpeCDiv_3810 {display:none;}
+#lpeCDiv_3807 {display:none;}
+#lpeCDiv_3808 {display:none;}
+#lpeCDiv_3804 {height:76px; width:241px; z-index:10; background-color:#ffffff; border-style:solid; border-width:0; border-color:forestgreen; left:20px; top:17px; }
+#lpeCDiv_3805 {display:none;}
+#lpeCDiv_3809 {z-index:15; left:21px; top:180px; height:788px; }
+#lpeCDiv_3813 {height:120px; width:960px; z-index:15; left:17px; top:19px; }
+#lpeCDiv_3813 img.lpimg{width:100%; height:100%; }
+
+</style>
+  <style id="mktoMobileStyle">
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px), only screen and (max-device-height: 480px) {
+
+  .imageSpan{
+    display:block;
+  }
+
+  .imageSpan img{
+    width:100% height:auto;
+  }
+
+  #bodyId .lpeCElement {position:static;}
+
+  #bodyId .mktoMobileHide {display:none;}
+
+  #bodyId .mktoMobileShow {width:auto; height:auto; padding:0; margin:0; background:none; border:none; -webkit-box-shadow:none; -moz-box-shadow: none; box-shadow:none;}
+ 
+  body#bodyId {width:auto !important; height:auto !important; padding:10px; margin:0; max-width:100%;}
+
+  #bodyId .mktoForm .mktoButtonRow { display:block; text-align:right; }
+
+  #bodyId .mktoForm .mktoButtonRow .mktoButtonWrap { margin-left:0 !important; }
+ 
+  #lpeCDiv_3806 {display:block; width:auto; height:auto;}
+#lpeCDiv_3812 {display:block; width:auto; height:auto;}
+#lpeCDiv_3811 {display:block; width:auto; height:auto;}
+#lpeCDiv_3810 {display:block; width:auto; height:auto;}
+#lpeCDiv_3807 {display:block; width:auto; height:auto;}
+#lpeCDiv_3808 {display:block; width:auto; height:auto;}
+#lpeCDiv_3804 {display:none;}
+#lpeCDiv_3805 {display:none;}
+#lpeCDiv_3809 {display:none;}
+#lpeCDiv_3813 {display:block; width:auto; height:auto;}
+
+
+  
+}
+@media only screen and (max-device-width:  480px) and (min-aspect-ratio: 3/2),
+       only screen and (max-device-height: 480px) and (min-aspect-ratio: 3/2){
+  body#bodyId {padding:10px 10%;}
+}
+</style>
+  <style type="text/css">
+DIV#mktColumn{background-color: #EEEEEE; }
+DIV#mktContent{height: 1275px; }
+DIV#mktHeader{height: 150px; }
+BODY#bodyId{}
+DIV#innerWrapDiv{height: 1595px; }
+DIV#mktFooter{top: 95px; }
+DIV#copyright{}</style>
+  <style type="text/css">@media only screen and (max-width: 480px), only screen and (max-device-width: 480px), only screen and (max-device-height: 480px){
+BODY#bodyId{background-color: #ffffff; }}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+ </head>
+ <body id="bodyId" class="mktEditable mktoMobileShow" align="center">
+  <div id="outerWrapDiv" class="mktoMobileShow">
+   <div id="innerWrapDiv" class="mktEditable mktoMobileShow">
+    <div class="mktoContent mktoMobileShow">
+     <div id="lpeCDiv_3806" class="lpeCElement ICANN_Primary_Logo_RGBpng">
+      <span class="lpContentsItem imageSpan"><img class="lpimg" src="/rs/529-CRE-717/images/ICANN%20Primary%20Logo_RGB.png"></span>
+     </div>
+     <div id="lpeCDiv_3812" class="lpeCElement __">
+      <span class="lpContentsItem richTextSpan">
+       <div>
+        &nbsp;&nbsp;
+       </div></span>
+     </div>
+     <div id="lpeCDiv_3811" class="lpeCElement __">
+      <span class="lpContentsItem richTextSpan">
+       <div>
+        &nbsp;
+       </div>
+       <div>
+        &nbsp;
+       </div></span>
+     </div>
+     <div id="lpeCDiv_3810" class="lpeCElement FORM_MOBILE_-_Regional_Preferences_mkto_combined_bottom_monthly">
+      <span class="lpContentsItem formSpan">
+       <script src="/js/forms2/js/forms2.min.js"></script>
+       <form class="mktoForm" id="mktoForm_1308">
+       </form>
+       <script>
+  (function (){
+    var formDescriptor = {"Id":1308,"Vid":1308,"Status":"approved","Name":"FORM MOBILE - Regional Preferences mkto combined bottom (monthly)","Description":"","Layout":"above","GutterWidth":10,"OffsetWidth":10,"HasTwoButtons":true,"SubmitLabel":"Subscribe","ResetLabel":"Clear","ButtonLocation":"7","LabelWidth":100,"FieldWidth":150,"ToolTipType":"none","FontFamily":"Helvetica, Arial, sans-serif","FontSize":"13px","FontColor":"#333","FontUrl":null,"LineMargin":10,"ProcessorVersion":2,"CreatedByUserid":5548,"ProcessOptions":{"language":"English","locale":"en_US","profiling":{"isEnabled":false,"numberOfProfilingFields":3,"alwaysShowFields":[]},"socialSignOn":{"isEnabled":false,"enabledNetworks":[],"cfId":null,"codeSnippet":""}},"EnableDeferredMode":0,"EnableCaptcha":0,"ButtonType":null,"ButtonImageUrl":null,"ButtonText":null,"ButtonSubmissionText":"Please Wait","ButtonStyle":{"id":20,"className":"mktoDownloadButton","css":".mktoForm .mktoButtonWrap.mktoDownloadButton .mktoButton {\nposition: relative;\ndisplay: inline-block;\nvertical-align: top;\nheight: 36px;\nline-height: 35px;\npadding: 0 20px;\nfont-size: 13px;\ncolor: white;\ntext-align: center;\ntext-decoration: none;\ntext-shadow: 0 -1px rgba(0, 0, 0, 0.4);\nbackground-clip: padding-box;\nborder: 1px solid;\nborder-radius: 2px;\ncursor: pointer;\n-webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 1px 2px rgba(0, 0, 0, 0.25);\nbox-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 1px 2px rgba(0, 0, 0, 0.25);\nbackground: #3b5ca0;\nborder-color: #2d477b #2d477b #263c68;\nbackground-image: -webkit-linear-gradient(top, #4369b6, #3b5ca0 66%, #365391);\nbackground-image: -moz-linear-gradient(top, #4369b6, #3b5ca0 66%, #365391);\nbackground-image: -o-linear-gradient(top, #4369b6, #3b5ca0 66%, #365391);\nbackground-image: linear-gradient(to bottom, #4369b6, #3b5ca0 66%, #365391);\n}\n.mktoForm .mktoButtonWrap.mktoDownloadButton .mktoButton:before {\ncontent: \"\";\nposition: absolute;\ntop: 0;\nbottom: 0;\nleft: 0;\nright: 0;\npointer-events: none;\nbackground-image: -webkit-radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));\nbackground-image: -moz-radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));\nbackground-image: -o-radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));\nbackground-image: radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));\n}\n.mktoForm .mktoButtonWrap.mktoDownloadButton .mktoButton:hover:before {\nbackground-image: -webkit-radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));\nbackground-image: -moz-radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));\nbackground-image: -o-radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));\nbackground-image: radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));\n}\n.mktoForm .mktoButtonWrap.mktoDownloadButton .mktoButton:active {\nbackground: #3b5ca0;\nborder-color: #263c68 #2d477b #2d477b;\n-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);\nbox-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);\n}\n.mktoForm .mktoButtonWrap.mktoDownloadButton .mktoButton:active:before {\ncontent: none;\n}\n","buttonColor":null},"ThemeStyle":{"id":2,"displayOrder":1,"name":"Simple","backgroundColor":"#FFF","layout":"left","fontFamily":"Helvetica, Arial, sans-serif","fontSize":"13px","fontColor":"#333","offsetWidth":10,"gutterWidth":10,"labelWidth":100,"fieldWidth":150,"lineMargin":10,"useBackgroundColorOnPreview":false,"css":".mktoForm fieldset.mkt3-formEditorFieldContainer{border: solid 1px gray;}.mktoForm fieldset.mkt3-formEditorFieldContainer legend{padding:0 1em;}","href":"css\/forms2-theme-simple.css","buttonStyleId":11},"ThemeStyleOverride":"\/* Add your custom CSS below *\/\n.mktoLabel, .mktoAsterix {\n  display: none;\n}","rows":[[{"Id":7721,"Name":"HtmlText_2018-07-13T16:23:52.451Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":365,"ProfilingFieldNumber":0,"Htmltext":"\u003Cp style=\"text-align: left;\"\u003E\u003Cspan style=\"font-size: 14px;\"\u003E\u003Cspan style=\"font-family: arial, helvetica, sans-serif;\"\u003EThis site uses cookies to deliver an efficient user experience and to help us see how the site is used.\u00a0\u003Ca href=\"https:\/\/www.icann.org\/privacy\/cookies\"\u003ELearn more.\u003C\/a\u003E\u003C\/span\u003E\u003Cbr \/\u003E\u003C\/span\u003E\u003Cspan style=\"font-size: 14px;\"\u003E\u003Cstrong style=\"padding: 0;\"\u003E\u003Cspan style=\"font-size: 18px;\"\u003E\u003C\/span\u003E\u003C\/strong\u003E\u003C\/span\u003E\u003Cspan face=\"Arial, serif\" style=\"font-family: Arial, serif; font-size: 18px;\"\u003E\u003Cspan size=\"3\"\u003E\u003Cbr \/\u003E\u003Cstrong style=\"padding: 0;\"\u003EMonthly Regional Newsletters\u003C\/strong\u003E\u003C\/span\u003E\u003C\/span\u003E\u003C\/p\u003E\n\u003Cdiv class=\"western\" style=\"text-align: left;\"\u003E\u003Cbr \/\u003E\u003C\/div\u003E\n\u003Cdiv class=\"western\" style=\"text-align: left;\"\u003E\u003Cspan color=\"#000000\" style=\"color: #000000; font-size: 14px;\"\u003E\u003Cspan face=\"Arial, serif\" style=\"font-family: Arial, serif;\"\u003E\u003Cspan size=\"2\"\u003ESign up for monthly regional newsletters.\u00a0 These newsletters contain updates on ICANN policy, Public Comment, regional events, and other ICANN-related news.\u003C\/span\u003E\u003C\/span\u003E\u003C\/span\u003E\u003C\/div\u003E","IsLabelToLeft":true}],[{"Id":7716,"Name":"HtmlText_2016-01-19T16:53:44.618Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":365,"ProfilingFieldNumber":0,"Htmltext":"\u003Cspan style=\"font-size: 14px;\"\u003E\u003Cbr \/\u003EThe Regional Newsletters are currently available in the following languages:\u003C\/span\u003E\u003Cbr \/\u003E\u003Cbr \/\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Cspan style=\"font-size: 14px;\"\u003EAPAC (English)\u003C\/span\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Cspan style=\"font-size: 14px;\"\u003EEMEA (Arabic, English, French, Russian, Turkish)\u003C\/span\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Cspan style=\"font-size: 14px;\"\u003ELAC (English, Portuguese, Spanish)\u003C\/span\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Cspan style=\"font-size: 14px;\"\u003ENA (English)\u003C\/span\u003E\u003Cbr \/\u003E\u003C\/li\u003E\n\u003C\/ul\u003E\n\u003Cbr \/\u003E\u003Cbr \/\u003E\u003Cspan style=\"font-size: 14px;\"\u003ECheck the monthly regional newsletter(s) and language you would like to receive.\u00a0\u00a0\u003C\/span\u003E\u003Cbr \/\u003E","IsLabelToLeft":true}],[{"Id":7705,"Name":"HtmlText_2015-10-06T19:56:39.809Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":300,"ProfilingFieldNumber":0,"Htmltext":"\u003Cp style=\"padding-top: 20px;\"\u003E\u003Cspan style=\"font-size: 18px;\"\u003ERegional Newsletters\u003C\/span\u003E\u003Cbr \/\u003E\u003C\/p\u003E","IsLabelToLeft":true}],[{"Id":7706,"Name":"aPAC","Datatype":"checkbox","PicklistValues":[{"label":"APAC (Asia Pacific)","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required."}],[{"Id":7707,"Name":"eMEA","Datatype":"checkbox","PicklistValues":[{"label":"EMEA (Europe, Middle East, Africa)","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required."}],[{"Id":7708,"Name":"lAC","Datatype":"checkbox","PicklistValues":[{"label":"LAC (Latin America and the Caribbean)","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required."}],[{"Id":7709,"Name":"nA","Datatype":"checkbox","PicklistValues":[{"label":"NA (North America)","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required."}],[{"Id":7710,"Name":"HtmlText_2015-10-06T20:12:09.665Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":300,"ProfilingFieldNumber":0,"Htmltext":"\u003Cp style=\"padding-top: 20px;\"\u003E\u003Cspan style=\"font-size: 18px;\"\u003ELanguages\u003C\/span\u003E\u003C\/p\u003E","IsLabelToLeft":true}],[{"Id":7712,"Name":"languageArabic","Datatype":"checkbox","PicklistValues":[{"label":"Arabic","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required.","VisibilityRule":{"defaultVisibility":"hide","rules":[{"subjectField":"eMEA","operator":"equal","values":["yes"],"altLabel":"","picklistFilterValues":[{"label":"Arabic","value":"yes"}]}]}}],[{"Id":7711,"Name":"languageEnglish","Datatype":"checkbox","PicklistValues":[{"label":"English","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required."}],[{"Id":7713,"Name":"languageFrench","Datatype":"checkbox","PicklistValues":[{"label":"French","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required.","VisibilityRule":{"defaultVisibility":"hide","rules":[{"subjectField":"eMEA","fieldLabel":"","operator":"equal","values":["yes"],"altLabel":"","picklistFilterValues":[{"label":"French","value":"yes"}]}]}}],[{"Id":7717,"Name":"languagePortuguese","Datatype":"checkbox","PicklistValues":[{"label":"Portuguese","value":"Yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required.","VisibilityRule":{"defaultVisibility":"hide","rules":[{"subjectField":"lAC","operator":"equal","values":["yes"],"altLabel":"","picklistFilterValues":[{"label":"Portuguese","value":"Yes"}]}]}}],[{"Id":7715,"Name":"languageRussian","Datatype":"checkbox","PicklistValues":[{"label":"Russian","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required.","VisibilityRule":{"defaultVisibility":"hide","rules":[{"subjectField":"eMEA","operator":"equal","values":["yes"],"altLabel":"","picklistFilterValues":[{"label":"Russian","value":"yes"}]}]}}],[{"Id":7714,"Name":"languageSpanish","Datatype":"checkbox","PicklistValues":[{"label":"Spanish","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required.","VisibilityRule":{"defaultVisibility":"hide","rules":[{"subjectField":"lAC","fieldLabel":"","operator":"equal","values":["yes"],"altLabel":"","picklistFilterValues":[{"label":"Spanish","value":"yes"}]}]}}],[{"Id":7718,"Name":"languageTurkish","Datatype":"checkbox","PicklistValues":[{"label":"Turkish","value":"Yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required.","VisibilityRule":{"defaultVisibility":"hide","rules":[{"subjectField":"eMEA","operator":"equal","values":["yes"],"altLabel":"","picklistFilterValues":[{"label":"Turkish","value":"Yes"}]}]}}],[{"Id":7723,"Name":"HtmlText_2018-09-24T17:53:19.986Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":260,"ProfilingFieldNumber":0,"Htmltext":"","IsLabelToLeft":true}],[{"Id":7722,"Name":"HtmlText_2018-07-13T16:26:20.856Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":260,"ProfilingFieldNumber":0,"Htmltext":"\u003Cspan style=\"font-size: 14px;\"\u003EEmail Address:\u003C\/span\u003E","IsLabelToLeft":true}],[{"Id":7704,"Name":"Email","IsRequired":true,"Datatype":"email","Maxlength":255,"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":298,"LabelWidth":330,"ValidationMessage":"Must be valid email. \u003Cspan class='mktoErrorDetail'\u003Eexample@yourdomain.com\u003C\/span\u003E"},{"Id":7720,"Name":"HtmlText_2018-05-25T18:56:48.832Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":500,"ProfilingFieldNumber":0,"Htmltext":"\u003Cdiv style=\"height: 5px; font-size: 1px;\"\u003E\u00a0\u003C\/div\u003E","IsLabelToLeft":true}],[{"Id":7719,"Name":"acknowledgement","IsRequired":true,"Datatype":"checkbox","PicklistValues":[{"label":"By submitting my personal data, I consent to the processing of my personal data for purposes of receiving monthly regional newsletter(s) in accordance with the ICANN \u003Ca href=\"https:\/\/www.icann.org\/privacy\/policy\" target=\"_blank\"\u003EPrivacy Policy\u003C\/a\u003E and the website \u003Ca href=\"https:\/\/www.icann.org\/privacy\/tos\" target=\"_blank\"\u003ETerms of Service\u003C\/a\u003E.","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":500,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required."}]],"fieldsetRows":[],"action":"\/index.php\/leadCapture\/save3","munchkinId":"529-CRE-717","invalidInputMsg":"Invalid Input","formSubmitFailedMsg":"Submission failed, please try again later.","isPreview":null};
+    MktoForms2.setOptions({baseUrl:"/js/forms2/"});
+    var isDev = false;
+    if(isDev && window.console && window.JSON){
+      console.log(JSON.stringify(formDescriptor, null, "  "));
+    }
+    formDescriptor.lpId = 1368;
+    var form = MktoForms2.newForm(formDescriptor, function (form){
+      var lpFields = {"lpId":1368,"subId":310,"munchkinId":"529-CRE-717","lpurl":"\/\/info.icann.org\/LP---Regional-Newsletter.html?cr={creative}&kw={keyword}"};
+      var pageFields = MktoForms2.getPageFields();
+      form.addHiddenFields(lpFields);
+      form.addHiddenFields(pageFields);
+      if(window.mktoPreFillFields){
+        form.setValuesCoerced(mktoPreFillFields);
+      }
+      if(!form.EnableDeferredMode){
+        form.render();
+      }
+    });     
+  })()
+</script>
+       <noscript>
+        <form class="mktoForm mktoNoJS" action="/index.php/leadCapture/save3" method="post">
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="aPAC"> </label> <input type="text" class="mktoField mktoTextField" name="aPAC" id="aPAC">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="eMEA"> </label> <input type="text" class="mktoField mktoTextField" name="eMEA" id="eMEA">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="lAC"> </label> <input type="text" class="mktoField mktoTextField" name="lAC" id="lAC">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="nA"> </label> <input type="text" class="mktoField mktoTextField" name="nA" id="nA">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="languageArabic"> </label> <input type="text" class="mktoField mktoTextField" name="languageArabic" id="languageArabic">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="languageEnglish"> </label> <input type="text" class="mktoField mktoTextField" name="languageEnglish" id="languageEnglish">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="languageFrench"> </label> <input type="text" class="mktoField mktoTextField" name="languageFrench" id="languageFrench">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="languagePortuguese"> </label> <input type="text" class="mktoField mktoTextField" name="languagePortuguese" id="languagePortuguese">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="languageRussian"> </label> <input type="text" class="mktoField mktoTextField" name="languageRussian" id="languageRussian">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="languageSpanish"> </label> <input type="text" class="mktoField mktoTextField" name="languageSpanish" id="languageSpanish">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="languageTurkish"> </label> <input type="text" class="mktoField mktoTextField" name="languageTurkish" id="languageTurkish">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="Email"> </label> <input type="text" class="mktoField mktoTextField" name="Email" id="Email">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="acknowledgement"> </label> <input type="text" class="mktoField mktoTextField" name="acknowledgement" id="acknowledgement">
+          </div>
+         </div><span style="display:none;"><input type="text" name="_marketo_comments" value=""></span> <span class="mktoButtonWrap"><button type="submit" class="mktoButton">Submit</button></span> <input type="hidden" name="lpId" value="1368"> <input type="hidden" name="subId" value="310"> <input type="hidden" name="lpurl" value="//info.icann.org/LP---Regional-Newsletter.html?cr={creative}&amp;kw={keyword}"> <input type="hidden" name="formid" value="1308"> <input type="hidden" name="formVid" value="1308"> <input type="hidden" name="ret" value=""> <input type="hidden" name="munchkinId" value="529-CRE-717"> <input type="hidden" name="kw" value=""> <input type="hidden" name="cr" value=""> <input type="hidden" name="searchstr" value=""> <input type="hidden" name="_mkt_disp" value="return"> <input type="hidden" name="_mkt_trk" value="">
+        </form>
+       </noscript></span>
+     </div>
+     <div id="lpeCDiv_3807" class="lpeCElement HTML_1">
+      <div class="lpContentsItem rawHtmlSpan">
+       <div style="padding-top:20px">
+        &nbsp;
+       </div>
+      </div>
+     </div>
+     <div id="lpeCDiv_3808" class="lpeCElement Privacy_PolicyTerms_of_ServiceCookies_Policy">
+      <span class="lpContentsItem richTextSpan">
+       <p style="text-align: center;"><a href="https://www.icann.org/privacy/policy" target="_blank" id="">Privacy Policy</a></p>
+       <p style="text-align: center;"><a href="https://www.icann.org/privacy/tos" target="_blank" id="">Terms of Service</a></p>
+       <p style="text-align: center;"><a href="https://www.icann.org/privacy/cookies" target="_blank" id="">Cookies Policy</a></p></span>
+     </div>
+     <div id="lpeCDiv_3804" class="lpeCElement Rectangle_1">
+      <div class="lpContentsItem boxSpan"></div>
+     </div>
+     <div id="lpeCDiv_3805" class="lpeCElement Marketo_banner_00jpeg">
+      <span class="lpContentsItem imageSpan"><img class="lpimg" src="/rs/529-CRE-717/images/Marketo_banner_00.jpeg"></span>
+     </div>
+     <div id="lpeCDiv_3809" class="lpeCElement FORM_-_Regional_Preferences_mkto_combined_bottom_form_Monthly">
+      <span class="lpContentsItem formSpan">
+       <script src="/js/forms2/js/forms2.min.js"></script>
+       <form class="mktoForm" id="mktoForm_1306">
+       </form>
+       <script>
+  (function (){
+    var formDescriptor = {"Id":1306,"Vid":1306,"Status":"approved","Name":"FORM - Regional Preferences mkto combined bottom form (Monthly)","Description":"","Layout":"left","GutterWidth":10,"OffsetWidth":10,"HasTwoButtons":true,"SubmitLabel":"Subscribe","ResetLabel":"Clear","ButtonLocation":"26","LabelWidth":100,"FieldWidth":150,"ToolTipType":"none","FontFamily":"Helvetica, Arial, sans-serif","FontSize":"13px","FontColor":"#333","FontUrl":null,"LineMargin":10,"ProcessorVersion":2,"CreatedByUserid":5548,"ProcessOptions":{"language":"English","locale":"en_US","profiling":{"isEnabled":false,"numberOfProfilingFields":3,"alwaysShowFields":[]},"socialSignOn":{"isEnabled":false,"enabledNetworks":[],"cfId":null,"codeSnippet":""}},"EnableDeferredMode":0,"EnableCaptcha":0,"ButtonType":null,"ButtonImageUrl":null,"ButtonText":null,"ButtonSubmissionText":"Please Wait","ButtonStyle":{"id":20,"className":"mktoDownloadButton","css":".mktoForm .mktoButtonWrap.mktoDownloadButton .mktoButton {\nposition: relative;\ndisplay: inline-block;\nvertical-align: top;\nheight: 36px;\nline-height: 35px;\npadding: 0 20px;\nfont-size: 13px;\ncolor: white;\ntext-align: center;\ntext-decoration: none;\ntext-shadow: 0 -1px rgba(0, 0, 0, 0.4);\nbackground-clip: padding-box;\nborder: 1px solid;\nborder-radius: 2px;\ncursor: pointer;\n-webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 1px 2px rgba(0, 0, 0, 0.25);\nbox-shadow: inset 0 1px rgba(255, 255, 255, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 1px 2px rgba(0, 0, 0, 0.25);\nbackground: #3b5ca0;\nborder-color: #2d477b #2d477b #263c68;\nbackground-image: -webkit-linear-gradient(top, #4369b6, #3b5ca0 66%, #365391);\nbackground-image: -moz-linear-gradient(top, #4369b6, #3b5ca0 66%, #365391);\nbackground-image: -o-linear-gradient(top, #4369b6, #3b5ca0 66%, #365391);\nbackground-image: linear-gradient(to bottom, #4369b6, #3b5ca0 66%, #365391);\n}\n.mktoForm .mktoButtonWrap.mktoDownloadButton .mktoButton:before {\ncontent: \"\";\nposition: absolute;\ntop: 0;\nbottom: 0;\nleft: 0;\nright: 0;\npointer-events: none;\nbackground-image: -webkit-radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));\nbackground-image: -moz-radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));\nbackground-image: -o-radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));\nbackground-image: radial-gradient(center top, farthest-corner, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));\n}\n.mktoForm .mktoButtonWrap.mktoDownloadButton .mktoButton:hover:before {\nbackground-image: -webkit-radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));\nbackground-image: -moz-radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));\nbackground-image: -o-radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));\nbackground-image: radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));\n}\n.mktoForm .mktoButtonWrap.mktoDownloadButton .mktoButton:active {\nbackground: #3b5ca0;\nborder-color: #263c68 #2d477b #2d477b;\n-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);\nbox-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);\n}\n.mktoForm .mktoButtonWrap.mktoDownloadButton .mktoButton:active:before {\ncontent: none;\n}\n","buttonColor":null},"ThemeStyle":{"id":5,"displayOrder":3,"name":"Glow","backgroundColor":"#FFF","layout":"left","fontFamily":"Helvetica, Arial, sans-serif","fontSize":"13px","fontColor":"#333","offsetWidth":10,"gutterWidth":10,"labelWidth":100,"fieldWidth":150,"lineMargin":10,"useBackgroundColorOnPreview":false,"css":"","href":"css\/forms2-theme-glow.css","buttonStyleId":16},"ThemeStyleOverride":"\/* Add your custom CSS below *\/\n.mktoLabel, .mktoAsterix {\n  display: none;\n}","rows":[[{"Id":7700,"Name":"HtmlText_2018-07-12T14:04:55.402Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":720,"ProfilingFieldNumber":0,"Htmltext":"\u003Cp class=\"western\"\u003E\u003Cspan style=\"font-size: 14px;\"\u003EThis site uses cookies to deliver an efficient user experience and to help us see how the site is used.\u00a0\u003Ca href=\"https:\/\/www.icann.org\/privacy\/cookies\"\u003ELearn more.\u003C\/a\u003E\u003Cbr \/\u003E\u003C\/span\u003E\u003Cspan style=\"font-size: 14px;\"\u003E\u003Cbr \/\u003E\u003C\/span\u003E\u003Cstrong\u003E\u003Cspan face=\"Arial, serif\" style=\"font-family: Arial, serif; font-size: 18px;\"\u003E\u003Cspan size=\"3\"\u003E\u003C\/span\u003E\u003C\/span\u003E\u003C\/strong\u003E\u003Cspan face=\"Arial, serif\" style=\"font-family: Arial, serif; font-size: 18px;\"\u003E\u003Cspan size=\"3\"\u003E\u003Cbr \/\u003E\u003C\/span\u003E\u003C\/span\u003E\u003Cstrong\u003E\u003Cspan face=\"Arial, serif\" style=\"font-family: Arial, serif; font-size: 18px;\"\u003E\u003Cspan size=\"3\"\u003EMonthly Regional Newsletters\u003C\/span\u003E\u003C\/span\u003E\u003C\/strong\u003E\u003C\/p\u003E\n\u003Cp class=\"western\"\u003E\u003Cbr \/\u003E\u003C\/p\u003E\n\u003Cp class=\"western\"\u003E\u003Cspan color=\"#000000\" style=\"color: #000000; font-size: 14px;\"\u003E\u003Cspan face=\"Arial, serif\" style=\"font-family: Arial, serif;\"\u003E\u003Cspan size=\"2\"\u003ESign up for monthly regional newsletters.\u00a0 These newsletters contain updates on ICANN policy, Public Comment, regional events, and other ICANN-related news.\u003C\/span\u003E\u003C\/span\u003E\u003C\/span\u003E\u003C\/p\u003E","IsLabelToLeft":true}],[{"Id":7696,"Name":"HtmlText_2016-01-19T16:49:22.130Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":600,"ProfilingFieldNumber":0,"Htmltext":"\u003Cspan style=\"font-size: 14px;\"\u003E\u003Cbr \/\u003EThe Regional Newsletters are currently available in the following languages:\u003C\/span\u003E\u003Cbr \/\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Cspan style=\"font-size: 14px;\"\u003EAPAC (English)\u003C\/span\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Cspan style=\"font-size: 14px;\"\u003EEMEA (Arabic, English, French, Russian, Turkish)\u003C\/span\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Cspan style=\"font-size: 14px;\"\u003ELAC (English, Portuguese, Spanish)\u003C\/span\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Cspan style=\"font-size: 14px;\"\u003ENA (English)\u003C\/span\u003E\u003Cbr \/\u003E\u003C\/li\u003E\n\u003C\/ul\u003E\n\u003Cbr \/\u003E\u003Cspan style=\"font-size: 14px;\"\u003E\u003Cbr \/\u003ECheck the monthly regional newsletter(s) and language you would like to receive.\u00a0\u00a0\u003C\/span\u003E\u003Cbr \/\u003E","IsLabelToLeft":true}],[{"Id":7684,"Name":"HtmlText_2015-10-06T19:56:39.809Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":300,"ProfilingFieldNumber":0,"Htmltext":"\u003Cp style=\"padding-top: 20px;\"\u003E\u003Cspan style=\"font-size: 18px;\"\u003ERegional Newsletters\u003C\/span\u003E\u003Cbr \/\u003E\u003C\/p\u003E","IsLabelToLeft":true},{"Id":7689,"Name":"HtmlText_2015-10-06T20:12:09.665Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":310,"ProfilingFieldNumber":0,"Htmltext":"\u003Cp style=\"padding-top: 20px;\"\u003E\u003Cspan style=\"font-size: 18px;\"\u003E\u003Csup\u003E\u003C\/sup\u003E\u00a0 Languages\u003C\/span\u003E\u003C\/p\u003E","IsLabelToLeft":true}],[{"Id":7685,"Name":"aPAC","Datatype":"checkbox","PicklistValues":[{"label":"APAC (Asia Pacific)","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required."},{"Id":7690,"Name":"languageEnglish","Datatype":"checkbox","PicklistValues":[{"label":"English","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":290,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required."}],[{"Id":7686,"Name":"eMEA","Datatype":"checkbox","PicklistValues":[{"label":"EMEA (Europe, Middle East, Africa)","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required."},{"Id":7691,"Name":"languageArabic","Datatype":"checkbox","PicklistValues":[{"label":"Arabic","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required.","VisibilityRule":{"defaultVisibility":"hide","rules":[{"subjectField":"eMEA","operator":"equal","values":["yes"],"altLabel":"","picklistFilterValues":[{"label":"Arabic","value":"yes"}]}]}}],[{"Id":7687,"Name":"lAC","Datatype":"checkbox","PicklistValues":[{"label":"LAC (Latin America and the Caribbean)","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required."},{"Id":7692,"Name":"languageFrench","Datatype":"checkbox","PicklistValues":[{"label":"French","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required.","VisibilityRule":{"defaultVisibility":"hide","rules":[{"subjectField":"eMEA","fieldLabel":"","operator":"equal","values":["yes"],"altLabel":"","picklistFilterValues":[{"label":"French","value":"yes"}]}]}}],[{"Id":7688,"Name":"nA","Datatype":"checkbox","PicklistValues":[{"label":"NA (North America)","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required."},{"Id":7697,"Name":"languagePortuguese","Datatype":"checkbox","PicklistValues":[{"label":"Portuguese","value":"Yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required.","VisibilityRule":{"defaultVisibility":"hide","rules":[{"subjectField":"lAC","operator":"equal","values":["yes"],"altLabel":"","picklistFilterValues":[{"label":"Portuguese","value":"Yes"}]}]}}],[{"Id":7702,"Name":"HtmlText_2018-09-27T06:14:59.823Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":318,"ProfilingFieldNumber":0,"Htmltext":"","IsLabelToLeft":true},{"Id":7694,"Name":"languageRussian","Datatype":"checkbox","PicklistValues":[{"label":"Russian","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required.","VisibilityRule":{"defaultVisibility":"hide","rules":[{"subjectField":"eMEA","operator":"equal","values":["yes"],"altLabel":"","picklistFilterValues":[{"label":"Russian","value":"yes"}]}]}}],[{"Id":7703,"Name":"HtmlText_2018-09-27T06:15:30.492Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":318,"ProfilingFieldNumber":0,"Htmltext":"","IsLabelToLeft":true},{"Id":7693,"Name":"languageSpanish","Datatype":"checkbox","PicklistValues":[{"label":"Spanish","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required.","VisibilityRule":{"defaultVisibility":"hide","rules":[{"subjectField":"lAC","fieldLabel":"","operator":"equal","values":["yes"],"altLabel":"","picklistFilterValues":[{"label":"Spanish","value":"yes"}]}]}}],[{"Id":7695,"Name":"HtmlText_2016-01-14T14:47:48.091Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":318,"ProfilingFieldNumber":0,"Htmltext":"\u003Cbr \/\u003E\u003Cbr \/\u003E","IsLabelToLeft":true},{"Id":7698,"Name":"languageTurkish","Datatype":"checkbox","PicklistValues":[{"label":"Turkish","value":"Yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":300,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required.","VisibilityRule":{"defaultVisibility":"hide","rules":[{"subjectField":"eMEA","operator":"equal","values":["yes"],"altLabel":"","picklistFilterValues":[{"label":"Turkish","value":"Yes"}]}]}}],[{"Id":7701,"Name":"HtmlText_2018-07-17T20:50:16.184Z","Datatype":"htmltext","InputInitialValue":"","LabelWidth":260,"ProfilingFieldNumber":0,"Htmltext":"\u003Cspan style=\"font-size: 14px;\"\u003EEmail Address\u003C\/span\u003E","IsLabelToLeft":true}],[{"Id":7683,"Name":"Email","IsRequired":true,"Datatype":"email","Maxlength":255,"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","FieldWidth":263,"LabelWidth":10,"ValidationMessage":"Must be valid email. \u003Cspan class='mktoErrorDetail'\u003Eexample@yourdomain.com\u003C\/span\u003E"}],[{"Id":7699,"Name":"acknowledgement","IsRequired":true,"Datatype":"checkbox","PicklistValues":[{"label":"By submitting my personal data, I consent to the processing of my personal data for purposes of receiving monthly regional newsletter(s) in accordance with the ICANN \u003Ca href=\"https:\/\/www.icann.org\/privacy\/policy\" target=\"_blank\"\u003EPrivacy Policy\u003C\/a\u003E and the website \u003Ca href=\"https:\/\/www.icann.org\/privacy\/tos\" target=\"_blank\"\u003ETerms of Service\u003C\/a\u003E.","value":"yes"}],"InputLabel":"","InputInitialValue":"","InputSourceChannel":"constant","VisibleRows":1,"FieldWidth":659,"LabelWidth":0,"ProfilingFieldNumber":0,"ValidationMessage":"This field is required."}]],"fieldsetRows":[],"action":"\/index.php\/leadCapture\/save3","munchkinId":"529-CRE-717","invalidInputMsg":"Invalid Input","formSubmitFailedMsg":"Submission failed, please try again later.","isPreview":null};
+    MktoForms2.setOptions({baseUrl:"/js/forms2/"});
+    var isDev = false;
+    if(isDev && window.console && window.JSON){
+      console.log(JSON.stringify(formDescriptor, null, "  "));
+    }
+    formDescriptor.lpId = 1368;
+    var form = MktoForms2.newForm(formDescriptor, function (form){
+      var lpFields = {"lpId":1368,"subId":310,"munchkinId":"529-CRE-717","lpurl":"\/\/info.icann.org\/LP---Regional-Newsletter.html?cr={creative}&kw={keyword}"};
+      var pageFields = MktoForms2.getPageFields();
+      form.addHiddenFields(lpFields);
+      form.addHiddenFields(pageFields);
+      if(window.mktoPreFillFields){
+        form.setValuesCoerced(mktoPreFillFields);
+      }
+      if(!form.EnableDeferredMode){
+        form.render();
+      }
+    });     
+  })()
+</script>
+       <noscript>
+        <form class="mktoForm mktoNoJS" action="/index.php/leadCapture/save3" method="post">
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="aPAC"> </label> <input type="text" class="mktoField mktoTextField" name="aPAC" id="aPAC">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="languageEnglish"> </label> <input type="text" class="mktoField mktoTextField" name="languageEnglish" id="languageEnglish">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="eMEA"> </label> <input type="text" class="mktoField mktoTextField" name="eMEA" id="eMEA">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="languageArabic"> </label> <input type="text" class="mktoField mktoTextField" name="languageArabic" id="languageArabic">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="lAC"> </label> <input type="text" class="mktoField mktoTextField" name="lAC" id="lAC">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="languageFrench"> </label> <input type="text" class="mktoField mktoTextField" name="languageFrench" id="languageFrench">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="nA"> </label> <input type="text" class="mktoField mktoTextField" name="nA" id="nA">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="languagePortuguese"> </label> <input type="text" class="mktoField mktoTextField" name="languagePortuguese" id="languagePortuguese">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="languageRussian"> </label> <input type="text" class="mktoField mktoTextField" name="languageRussian" id="languageRussian">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="languageSpanish"> </label> <input type="text" class="mktoField mktoTextField" name="languageSpanish" id="languageSpanish">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="languageTurkish"> </label> <input type="text" class="mktoField mktoTextField" name="languageTurkish" id="languageTurkish">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="Email"> </label> <input type="text" class="mktoField mktoTextField" name="Email" id="Email">
+          </div>
+         </div>
+         <div class="mktoFormRow">
+          <div class="mktoFormCol">
+           <label class="mktoLabel" for="acknowledgement"> </label> <input type="text" class="mktoField mktoTextField" name="acknowledgement" id="acknowledgement">
+          </div>
+         </div><span style="display:none;"><input type="text" name="_marketo_comments" value=""></span> <span class="mktoButtonWrap"><button type="submit" class="mktoButton">Submit</button></span> <input type="hidden" name="lpId" value="1368"> <input type="hidden" name="subId" value="310"> <input type="hidden" name="lpurl" value="//info.icann.org/LP---Regional-Newsletter.html?cr={creative}&amp;kw={keyword}"> <input type="hidden" name="formid" value="1306"> <input type="hidden" name="formVid" value="1306"> <input type="hidden" name="ret" value=""> <input type="hidden" name="munchkinId" value="529-CRE-717"> <input type="hidden" name="kw" value=""> <input type="hidden" name="cr" value=""> <input type="hidden" name="searchstr" value=""> <input type="hidden" name="_mkt_disp" value="return"> <input type="hidden" name="_mkt_trk" value="">
+        </form>
+       </noscript></span>
+     </div>
+     <div id="lpeCDiv_3813" class="lpeCElement Marketo_banner_2022-06-06jpg">
+      <span class="lpContentsItem imageSpan"><img class="lpimg" src="/rs/529-CRE-717/images/Marketo_banner_2022-06-06.jpg"></span>
+     </div>
+    </div>
+    <div id="mktHeader" class="mktEditable mktoMobileHide">
+     <!-- Logo and Header -->
+     <div id="logo" class="mktEditable mktoMobileHide">
+      <a href="#" class="mktoMobileHide"><img src="https://529-CRE-717.mktoweb.com/rs/icann/images/logo.png" class="mktoMobileHide"></a>
+     </div>
+    </div>
+    <div id="mktContent" class="mktEditable mktoMobileHide">
+     <!-- Base of Landing Page Content -->
+    </div>
+    <div id="mktFooter" class="mktEditable mktoMobileHide">
+     <div id="copyright" class="mktEditable mktoMobileHide">
+      © Internet Corporation For Assigned Names and Numbers.
+     </div>
+     <div id="footerlinks" class="mktEditable mktoMobileHide">
+      <a href="https://www.icann.org/privacy/policy" class="mktoMobileHide">Privacy Policy</a> | <a href="https://www.icann.org/privacy/tos" class="mktoMobileHide">Terms of Service</a> | <a href="https://www.icann.org/privacy/cookies" class="mktoMobileHide">Cookies Policy</a>
+     </div>
+    </div>
+   </div>
+  </div><!-- GOOGLE ANALYTICS.  ENTER YOUR CODE and UNCOMMENT block --> <!--
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "YOURCODE";
+urchinTracker();
+</script>
+-->
+  <script type="text/javascript" src="//munchkin.marketo.net//munchkin.js"></script>
+  <script>Munchkin.init('529-CRE-717', {customName: 'LP---Regional-Newsletter', wsInfo: 'j1RR'});</script>
+  <script type="text/javascript" src="/js/stripmkttok.js"></script>
+ </body>
+</html>

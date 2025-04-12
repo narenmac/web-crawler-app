@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Spring Session :: Spring Session</title>
+  <link rel="canonical" href="https://docs.spring.io/spring-session/reference/index.html">
+  <link rel="next" href="whats-new.html">
+  <meta name="generator" content="Antora 3.2.0-alpha.8">
+  <script>
+!function (theme, navWidth) {
+  if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+  if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)')?.matches && 'dark'),
+  localStorage && localStorage.getItem('nav-width'))
+    </script>
+  <link rel="stylesheet" href="./_/css/site.css">
+  <link rel="stylesheet" href="./_/css/vendor/search.css">
+  <link rel="stylesheet" href="./_/css/vendor/page-search.css">
+  <link rel="stylesheet" href="./_/css/vendor/asciidoctor-tabs.css">
+  <meta name="antora-ui-version" content="v0.4.18">
+  <meta name="version" content="3.4.2">
+  <meta name="component" content="session">
+  <meta name="latest-version" content="true">
+  <link rel="icon" href="./_/img/favicon.ico" type="image/vnd.microsoft.icon">
+ </head>
+ <body class="article">
+  <header class="header">
+   <nav class="navbar">
+    <div class="navbar-brand">
+     <a class="navbar-item" href="https://spring.io"> <img id="springlogo" class="block" src="./_/img/spring-logo.svg" alt="Spring"> </a> <button class="navbar-burger" data-target="topbar-nav"> <span></span> <span></span> <span></span> </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+     <div class="navbar-end">
+      <div class="navbar-item has-dropdown is-hoverable">
+       <a class="navbar-link" href="#">Why Spring</a>
+       <div class="navbar-dropdown">
+        <a class="navbar-item" href="https://spring.io/why-spring">Overview</a> <a class="navbar-item" href="https://spring.io/microservices">Microservices</a> <a class="navbar-item" href="https://spring.io/reactive">Reactive</a> <a class="navbar-item" href="https://spring.io/event-driven">Event Driven</a> <a class="navbar-item" href="https://spring.io/cloud">Cloud</a> <a class="navbar-item" href="https://spring.io/web-applications">Web Applications</a> <a class="navbar-item" href="https://spring.io/serverless">Serverless</a> <a class="navbar-item" href="https://spring.io/batch">Batch</a>
+       </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+       <a class="navbar-link" href="#">Learn</a>
+       <div class="navbar-dropdown">
+        <a class="navbar-item" href="https://spring.io/learn">Overview</a> <a class="navbar-item" href="https://spring.io/quickstart">Quickstart</a> <a class="navbar-item" href="https://spring.io/guides">Guides</a> <a class="navbar-item" href="https://spring.io/blog">Blog</a>
+       </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+       <a class="navbar-link" href="#">Projects</a>
+       <div class="navbar-dropdown" style="min-width: 280px">
+        <a class="navbar-item" href="https://spring.io/projects">Overview</a> <a class="navbar-item" href="https://spring.io/projects/spring-boot">Spring Boot</a> <a class="navbar-item" href="https://spring.io/projects/spring-framework">Spring Framework</a> <a class="navbar-item" href="https://spring.io/projects/spring-cloud">Spring Cloud</a> <a class="navbar-item" href="https://spring.io/projects/spring-cloud-dataflow">Spring Cloud Data Flow</a> <a class="navbar-item" href="https://spring.io/projects/spring-data">Spring Data</a> <a class="navbar-item" href="https://spring.io/projects/spring-integration">Spring Integration</a> <a class="navbar-item" href="https://spring.io/projects/spring-batch">Spring Batch</a> <a class="navbar-item" href="https://spring.io/projects/spring-security">Spring Security</a> <a class="navbar-item navbar-item-special" href="https://spring.io/projects">View all projects</a>
+        <li class="navbar-item navbar-item-special-3">DEVELOPMENT TOOLS</li><a class="navbar-item" href="https://spring.io/tools">Spring Tools 4</a> <a class="navbar-item navbar-item-special-2" href="https://start.spring.io">Spring Initializr 
+         <svg class="external-link-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+          <polyline points="15 10.94 15 15 1 15 1 1 5.06 1" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></polyline><polyline points="8.93 1 15 1 15 7.07" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2"></polyline><line x1="15" y1="1" x2="8" y2="8" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2" />
+         </svg></a>
+       </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+       <a class="navbar-link" href="#">Academy</a>
+       <div class="navbar-dropdown">
+        <a class="navbar-item" href="https://spring.academy/courses">Courses</a> <a class="navbar-item" href="https://spring.academy/learning-path">Get Certified</a>
+       </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+       <a class="navbar-link" href="#">Solutions</a>
+       <div class="navbar-dropdown lg">
+        <a class="navbar-item" href="https://spring.io/solutions">Overview</a> <a class="navbar-item" href="https://spring.io/support">Spring Runtime</a> <a class="navbar-item" href="https://spring.io/consulting">Spring Consulting</a> <a class="navbar-item" href="https://spring.academy/teams">Spring Academy For Teams</a> <a class="navbar-item" href="https://spring.io/security">Security Advisories</a>
+       </div>
+      </div>
+      <div class="navbar-item has-dropdown is-hoverable is-community">
+       <a class="navbar-link" href="#">Community</a>
+       <div class="navbar-dropdown">
+        <a class="navbar-item" href="https://spring.io/community">Overview</a> <a class="navbar-item" href="https://spring.io/events">Events</a> <a class="navbar-item" href="https://spring.io/team">Team</a>
+       </div>
+      </div>
+     </div>
+    </div><label class="theme-toggler"> <input type="checkbox" id="switch-theme-checkbox" name="switch-theme-checkbox"> <span class="icon">
+      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="moon" class="svg-inline--fa fa-moon moon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+       <path fill="currentColor" d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z" />
+      </svg>
+      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sun" class="svg-inline--fa fa-sun sun" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+       <path fill="currentColor" d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z" />
+      </svg></span> <span class="text">light</span> </label>
+   </nav>
+  </header>
+  <script>
+!function (theme) {
+  if (theme === 'dark') {
+    document.getElementById('switch-theme-checkbox').parentElement.classList.add('active')
+  }
+}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)')?.matches && 'dark'))
+</script>
+  <div class="body">
+   <div class="nav-container" data-component="session" data-version="3.4.2">
+    <aside class="nav">
+     <div class="panels">
+      <div class="nav-panel-menu is-active" data-panel="menu">
+       <nav class="nav-menu">
+        <div class="context">
+         <span class="title">Spring Session</span> <span class="version">3.4.2</span> <button class="browse-version" id="browse-version">
+          <svg height="24px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="24px" xml:space="preserve">
+           <g>
+            <path d="M256,224c-17.7,0-32,14.3-32,32s14.3,32,32,32c17.7,0,32-14.3,32-32S273.7,224,256,224L256,224z" />
+            <path d="M128.4,224c-17.7,0-32,14.3-32,32s14.3,32,32,32c17.7,0,32-14.3,32-32S146,224,128.4,224L128.4,224z" />
+            <path d="M384,224c-17.7,0-32,14.3-32,32s14.3,32,32,32s32-14.3,32-32S401.7,224,384,224L384,224z" />
+           </g>
+          </svg></button>
+         <div class="search">
+          <button class="DocSearch-Button search-button">
+           <svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <path d="M27.414,24.586l-5.077-5.077C23.386,17.928,24,16.035,24,14c0-5.514-4.486-10-10-10S4,8.486,4,14  s4.486,10,10,10c2.035,0,3.928-0.614,5.509-1.663l5.077,5.077c0.78,0.781,2.048,0.781,2.828,0  C28.195,26.633,28.195,25.367,27.414,24.586z M7,14c0-3.86,3.14-7,7-7s7,3.14,7,7s-3.14,7-7,7S7,17.86,7,14z" id="XMLID_223_" />
+           </svg><span>Search</span> <span class="search-key"></span> </button>
+         </div>
+        </div>
+        <ul class="nav-list">
+         <li class="nav-item" data-depth="0">
+          <ul class="nav-list">
+           <li class="nav-item" data-depth="1"><a class="nav-link" href="whats-new.html">What’s New</a></li>
+           <li class="nav-item" data-depth="1"><button class="nav-item-toggle"></button> <a class="nav-link" href="samples.html">Samples &amp; Guides (Start Here)</a>
+            <ul class="nav-list">
+             <li class="nav-item" data-depth="2"><button class="nav-item-toggle"></button> <span class="nav-text">Boot Samples</span>
+              <ul class="nav-list">
+               <li class="nav-item" data-depth="3"><button class="nav-item-toggle"></button> <span class="nav-text">HttpSession</span>
+                <ul class="nav-list">
+                 <li class="nav-item" data-depth="4"><button class="nav-item-toggle"></button> <span class="nav-text">Redis</span>
+                  <ul class="nav-list">
+                   <li class="nav-item" data-depth="5"><a class="nav-link" href="https://github.com/spring-projects/spring-session/tree/3.4.2/spring-session-samples/spring-session-sample-boot-redis-json">JSON serialization</a></li>
+                   <li class="nav-item" data-depth="5"><a class="nav-link" href="guides/boot-redis.html">Redis with Events</a></li>
+                  </ul></li>
+                 <li class="nav-item" data-depth="4"><a class="nav-link" href="guides/boot-mongo.html">MongoDB</a></li>
+                 <li class="nav-item" data-depth="4"><a class="nav-link" href="guides/boot-jdbc.html">JDBC</a></li>
+                 <li class="nav-item" data-depth="4"><a class="nav-link" href="https://github.com/spring-projects/spring-session/tree/3.4.2/spring-session-samples/spring-session-sample-boot-hazelcast">HttpSession with Hazelcast</a></li>
+                </ul></li>
+               <li class="nav-item" data-depth="3"><a class="nav-link" href="guides/boot-findbyusername.html">Find by Username</a></li>
+               <li class="nav-item" data-depth="3"><a class="nav-link" href="guides/boot-websocket.html">WebSockets</a></li>
+              </ul></li>
+             <li class="nav-item" data-depth="2"><button class="nav-item-toggle"></button> <span class="nav-text">WebFlux</span>
+              <ul class="nav-list">
+               <li class="nav-item" data-depth="3"><a class="nav-link" href="https://github.com/spring-projects/spring-session/tree/3.4.2/spring-session-samples/spring-session-sample-boot-webflux">Redis</a></li>
+               <li class="nav-item" data-depth="3"><a class="nav-link" href="guides/boot-webflux-custom-cookie.html">Custom Cookie</a></li>
+              </ul></li>
+             <li class="nav-item" data-depth="2"><button class="nav-item-toggle"></button> <span class="nav-text">Java Configuration</span>
+              <ul class="nav-list">
+               <li class="nav-item" data-depth="3"><a class="nav-link" href="guides/java-custom-cookie.html">Custom Cookie</a></li>
+               <li class="nav-item" data-depth="3"><a class="nav-link" href="guides/java-redis.html">Redis</a></li>
+               <li class="nav-item" data-depth="3"><a class="nav-link" href="guides/java-jdbc.html">JDBC</a></li>
+               <li class="nav-item" data-depth="3"><a class="nav-link" href="guides/java-hazelcast.html">Hazelcast</a></li>
+               <li class="nav-item" data-depth="3"><a class="nav-link" href="guides/java-rest.html">REST</a></li>
+               <li class="nav-item" data-depth="3"><a class="nav-link" href="guides/java-security.html">Spring Security</a></li>
+              </ul></li>
+             <li class="nav-item" data-depth="2"><button class="nav-item-toggle"></button> <span class="nav-text">XML Configuration</span>
+              <ul class="nav-list">
+               <li class="nav-item" data-depth="3"><a class="nav-link" href="guides/xml-redis.html">Redis</a></li>
+               <li class="nav-item" data-depth="3"><a class="nav-link" href="guides/xml-jdbc.html">JDBC</a></li>
+              </ul></li>
+            </ul></li>
+           <li class="nav-item" data-depth="1"><button class="nav-item-toggle"></button> <a class="nav-link" href="configurations.html">Configurations</a>
+            <ul class="nav-list">
+             <li class="nav-item" data-depth="2"><button class="nav-item-toggle"></button> <span class="nav-text">Redis</span>
+              <ul class="nav-list">
+               <li class="nav-item" data-depth="3"><a class="nav-link" href="configuration/redis.html">Redis HTTP Session</a></li>
+               <li class="nav-item" data-depth="3"><a class="nav-link" href="configuration/reactive-redis-indexed.html">Redis Indexed Web Session</a></li>
+              </ul></li>
+             <li class="nav-item" data-depth="2"><a class="nav-link" href="configuration/jdbc.html">JDBC</a></li>
+             <li class="nav-item" data-depth="2"><a class="nav-link" href="configuration/common.html">Common Configurations</a></li>
+            </ul></li>
+           <li class="nav-item" data-depth="1"><a class="nav-link" href="http-session.html">HttpSession Integration</a></li>
+           <li class="nav-item" data-depth="1"><a class="nav-link" href="web-socket.html">WebSocket Integration</a></li>
+           <li class="nav-item" data-depth="1"><a class="nav-link" href="web-session.html">WebSession Integration</a></li>
+           <li class="nav-item" data-depth="1"><a class="nav-link" href="spring-security.html">Spring Security Integration</a></li>
+           <li class="nav-item" data-depth="1"><a class="nav-link" href="api.html">API Documentation</a></li>
+           <li class="nav-item" data-depth="1"><a class="nav-link" href="upgrading.html">Upgrading</a></li>
+          </ul></li>
+        </ul>
+        <div class="toggle-sm">
+         <button id="nav-toggle-2" class="nav-toggle"></button>
+        </div>
+       </nav>
+      </div>
+      <div class="nav-collapse">
+       <button id="nav-collapse-toggle"><span></span></button>
+      </div>
+     </div>
+     <div class="nav-resize"></div>
+    </aside>
+   </div>
+   <script>
+!function (sidebar) {
+  if (sidebar) {
+    document.body.classList.add('nav-sm')
+  }
+}(localStorage && localStorage.getItem('sidebar') === 'close')
+</script>
+   <main class="article">
+    <div class="toolbar" role="navigation">
+     <button id="nav-toggle-1" class="nav-toggle"></button>
+     <div class="search">
+      <button class="DocSearch-Button search-button">
+       <svg enable-background="new 0 0 32 32" id="Glyph" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <path d="M27.414,24.586l-5.077-5.077C23.386,17.928,24,16.035,24,14c0-5.514-4.486-10-10-10S4,8.486,4,14  s4.486,10,10,10c2.035,0,3.928-0.614,5.509-1.663l5.077,5.077c0.78,0.781,2.048,0.781,2.828,0  C28.195,26.633,28.195,25.367,27.414,24.586z M7,14c0-3.86,3.14-7,7-7s7,3.14,7,7s-3.14,7-7,7S7,17.86,7,14z" id="XMLID_223_" />
+       </svg><span>Search</span> <span class="search-key"></span> </button>
+     </div>
+    </div>
+    <div class="content">
+     <aside class="sidebar">
+      <div class="content">
+       <div class="toc" data-title="Spring Session" data-levels="2">
+        <div class="toc-menu"></div>
+       </div>
+       <div class="sidebar-links">
+        <a href="https://github.com/spring-projects/spring-session/blob/3.4.2/spring-session-docs/modules/ROOT/pages/index.adoc">
+         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+          <path d="m16 2.012 3 3L16.713 7.3l-3-3zM4 14v3h3l8.299-8.287-3-3zm0 6h16v2H4z" />
+         </svg> Edit this Page </a> <a href="https://github.com/spring-projects/spring-session" title="GitHub">
+         <svg xmlns="http://www.w3.org/2000/svg" height="512px" id="Layer_1" version="1.1" viewBox="0 0 512 512" width="512px">
+          <style type="text/css"><![CDATA[
+              .st0{fill-rule:evenodd;clip-rule:evenodd;} ]]>
+          </style><g>
+           <path class="st0" d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z" />
+          </g>
+         </svg> GitHub Project </a> <a href="https://stackoverflow.com/tags/spring-session">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+          <path d="M290.7 311L95 269.7 86.8 309l195.7 41zm51-87L188.2 95.7l-25.5 30.8 153.5 128.3zm-31.2 39.7L129.2 179l-16.7 36.5L293.7 300zM262 32l-32 24 119.3 160.3 32-24zm20.5 328h-200v39.7h200zm39.7 80H42.7V320h-40v160h359.5V320h-40z" />
+         </svg> Stack Overflow </a>
+       </div>
+      </div>
+     </aside>
+     <article class="doc">
+      <div class="breadcrumbs-container">
+       <nav class="breadcrumbs" aria-label="breadcrumbs">
+        <ul>
+         <li><a href="index.html">Spring Session</a></li>
+        </ul>
+       </nav>
+      </div>
+      <h1 id="page-title" class="page">Spring Session</h1>
+      <div id="preamble">
+       <div class="sectionbody">
+        <div class="paragraph">
+         <p>Rob Winch; Vedran Pavić; Jay Bryant; Eleftheria Stein-Kousathana</p>
+        </div>
+        <div id="abstract" class="paragraph">
+         <p>Spring Session provides an API and implementations for managing a user’s session information.</p>
+        </div>
+        <div id="introduction" class="paragraph">
+         <p>Spring Session provides an API and implementations for managing a user’s session information while also making it trivial to support clustered sessions without being tied to an application container-specific solution. It also provides transparent integration with:</p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p><a href="http-session.html#httpsession" class="xref page">HttpSession</a>: Allows replacing the <code>HttpSession</code> in an application container-neutral way, with support for providing session IDs in headers to work with RESTful APIs.</p></li>
+          <li>
+           <p><a href="web-socket.html#websocket" class="xref page">WebSocket</a>: Provides the ability to keep the <code>HttpSession</code> alive when receiving WebSocket messages</p></li>
+          <li>
+           <p><a href="web-session.html#websession" class="xref page">WebSession</a>: Allows replacing the Spring WebFlux’s <code>WebSession</code> in an application container-neutral way.</p></li>
+         </ul>
+        </div>
+       </div>
+      </div>
+      <div class="sect1">
+       <h2 id="_understanding_the_problem_that_spring_session_solves"><a class="anchor" href="#_understanding_the_problem_that_spring_session_solves"></a>Understanding the Problem That Spring Session Solves</h2>
+       <div class="sectionbody">
+        <div class="paragraph">
+         <p>When a user interacts with a web application, the server creates a session to keep track of their activity. This session may store information such as user preferences, login status, and shopping cart contents. However, sessions can be problematic in a distributed environment, as they are typically stored on the server’s memory.</p>
+        </div>
+        <div class="paragraph">
+         <p>To better understand the problem that Spring Session solves, let’s first visualize the following diagram:</p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img src="_images/inmemory-sessions.png" alt="In-Memory Sessions">
+         </div>
+         <div class="title">
+          Figure 1. In-Memory Sessions
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>In the diagram above, each Spring application is storing its sessions in a place where only themselves can access them, usually in the server’s memory, but this can be a problem in a distributed environment. Imagine a situation where Spring App #2 receives a request with Session #3, the application will not be able to read the session data because it is stored in Spring App #1’s memory. To solve this problem we need to implement some kind of Shared Session Storage as we can see in the diagram below:</p>
+        </div>
+        <div class="imageblock">
+         <div class="content">
+          <img src="_images/shared-session-storage.png" alt="Shared Session Storage">
+         </div>
+         <div class="title">
+          Figure 2. Shared Session Storage
+         </div>
+        </div>
+        <div class="paragraph">
+         <p>With the above setup, the sessions become available for every application that has access to the session storage.</p>
+        </div>
+        <div class="paragraph">
+         <p>Spring Session provides a layer of abstraction between the application and the session management. It allows the session data to be stored in various persistent stores, such as relational databases, NoSQL databases, and others.</p>
+        </div>
+        <div class="paragraph">
+         <p>With Spring Session, you can use the same API to manage sessions, regardless of the persistent store used. This makes it easier to switch between stores without changing the application code. Spring Session also provides features such as session expiry and cross-context communication between different web applications.</p>
+        </div>
+        <div class="paragraph">
+         <p>Overall, Spring Session simplifies the management of user sessions in web applications, making it easier for you to focus on building the core features of their applications.</p>
+        </div>
+        <div class="paragraph">
+         <p>Here are some common use cases for Spring Session:</p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>Distributed web applications: If you have a web application distributed across multiple servers, managing user sessions can be challenging. Spring Session can help by storing the session data in a shared database or Redis, allowing all servers to access and update session data.</p></li>
+          <li>
+           <p>Session scalability: In a large web application with many concurrent users, storing sessions in memory on the server can lead to scalability issues. Spring Session allows you to store session data in a persistent store, improving scalability and reducing the risk of out-of-memory errors.</p></li>
+          <li>
+           <p>Session backup and recovery: Storing session data in a persistent store can also provide a mechanism for backing up and recovering session data in case of server failure or downtime.</p></li>
+         </ul>
+        </div>
+       </div>
+      </div>
+      <div class="sect1">
+       <h2 id="community"><a class="anchor" href="#community"></a>Spring Session Community</h2>
+       <div class="sectionbody">
+        <div class="paragraph">
+         <p>We are glad to consider you a part of our community. The following sections provide additional about how to interact with the Spring Session community.</p>
+        </div>
+        <div class="sect2">
+         <h3 id="community-support"><a class="anchor" href="#community-support"></a>Support</h3>
+         <div class="paragraph">
+          <p>You can get help by asking questions on <a href="https://stackoverflow.com/questions/tagged/spring-session">Stack Overflow with the <code>spring-session</code> tag</a>. Similarly, we encourage helping others by answering questions on Stack Overflow.</p>
+         </div>
+        </div>
+        <div class="sect2">
+         <h3 id="community-source"><a class="anchor" href="#community-source"></a>Source Code</h3>
+         <div class="paragraph">
+          <p>You can find the source code on GitHub at <a href="https://github.com/spring-projects/spring-session/" class="bare">github.com/spring-projects/spring-session/</a></p>
+         </div>
+        </div>
+        <div class="sect2">
+         <h3 id="community-issues"><a class="anchor" href="#community-issues"></a>Issue Tracking</h3>
+         <div class="paragraph">
+          <p>We track issues in GitHub issues at <a href="https://github.com/spring-projects/spring-session/issues" class="bare">github.com/spring-projects/spring-session/issues</a></p>
+         </div>
+        </div>
+        <div class="sect2">
+         <h3 id="community-contributing"><a class="anchor" href="#community-contributing"></a>Contributing</h3>
+         <div class="paragraph">
+          <p>We appreciate <a href="https://help.github.com/articles/using-pull-requests/">pull requests</a>.</p>
+         </div>
+        </div>
+        <div class="sect2">
+         <h3 id="community-license"><a class="anchor" href="#community-license"></a>License</h3>
+         <div class="paragraph">
+          <p>Spring Session is Open Source software released under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 license</a>.</p>
+         </div>
+        </div>
+        <div class="sect2">
+         <h3 id="community-extensions"><a class="anchor" href="#community-extensions"></a>Community Extensions</h3>
+         <table class="tableblock frame-all grid-all stretch">
+          <colgroup>
+           <col style="width: 50%;">
+           <col style="width: 50%;">
+          </colgroup>
+          <thead>
+           <tr>
+            <th class="tableblock halign-left valign-top">Name</th>
+            <th class="tableblock halign-left valign-top">Location</th>
+           </tr>
+          </thead>
+          <tbody>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">Spring Session Infinispan</p></td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock"><a href="https://infinispan.org/docs/stable/titles/spring/spring.html" class="bare">infinispan.org/docs/stable/titles/spring/spring.html</a></p></td>
+           </tr>
+           <tr>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock">Spring Session Caffeine</p></td>
+            <td class="tableblock halign-left valign-top">
+             <p class="tableblock"><a href="https://github.com/gotson/spring-session-caffeine" class="bare">github.com/gotson/spring-session-caffeine</a></p></td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </div>
+      </div>
+      <div class="sect1">
+       <h2 id="minimum-requirements"><a class="anchor" href="#minimum-requirements"></a>Minimum Requirements</h2>
+       <div class="sectionbody">
+        <div class="paragraph">
+         <p>The minimum requirements for Spring Session are:</p>
+        </div>
+        <div class="ulist">
+         <ul>
+          <li>
+           <p>Java 17+.</p></li>
+          <li>
+           <p>If you run in a Servlet Container (not required), Servlet 3.1+.</p></li>
+          <li>
+           <p>If you use other Spring libraries (not required), the minimum required version is Spring 6.0.x.</p></li>
+          <li>
+           <p><code>@EnableRedisHttpSession</code> requires Redis 2.8+. This is necessary to support <a href="api.html#api-redisindexedsessionrepository-expiration" class="xref page">Session Expiration</a></p></li>
+          <li>
+           <p><code>@EnableHazelcastHttpSession</code> requires Hazelcast 3.6+. This is necessary to support <a href="api.html#api-enablehazelcasthttpsession-storage" class="xref page"><code>FindByIndexNameSessionRepository</code></a></p></li>
+         </ul>
+        </div>
+        <div class="admonitionblock note">
+         <table>
+          <tbody>
+           <tr>
+            <td class="icon"><i class="fa icon-note" title="Note"></i></td>
+            <td class="content">At its core, Spring Session has a required dependency only on <code>spring-jcl</code>. For an example of using Spring Session without any other Spring dependencies, see the <a href="samples.html#samples" class="xref page">hazelcast sample</a> application.</td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </div>
+      </div>
+      <nav class="pagination">
+       <span class="next"><a href="whats-new.html">What’s New</a></span>
+      </nav>
+     </article>
+    </div>
+   </main>
+   <div class="modal micromodal-slide" id="modal-versions" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+     <div class="modal__container" role="dialog" aria-modal="true">
+      <main class="modal__content" id="modal-versions-content">
+       <button data-micromodal-close class="modal-versions-close">
+        <svg width="28px" height="28px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+         <defs>
+          <style>.cls-1h{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}
+          </style>
+         </defs><title /><g id="cross">
+          <line class="cls-1h" x1="7" x2="25" y1="7" y2="25" />
+          <line class="cls-1h" x1="7" x2="25" y1="25" y2="7" />
+         </g>
+        </svg></button>
+       <div class="colset">
+        <div class="col-left">
+         <ul class="nav-versions">
+          <li class="component">
+           <div>
+            <a class="title" href="index.html">Documentation</a>
+           </div>
+           <div class="version-item is-active">
+            <div>
+             <button class="version-toggle" type="button"> <span></span> Stable </button>
+            </div>
+            <ul class="versions">
+             <li class="version"><a href="index.html"> 3.1.1 </a></li>
+             <li class="version"><a href="3.0/index.html"> 3.0.2 </a></li>
+             <li class="version"><a href="2.6/index.html"> 2.6.3 </a></li>
+            </ul>
+           </div>
+           <div class="version-item">
+            <div>
+             <button class="version-toggle" type="button"> <span></span> Snapshot </button>
+            </div>
+            <ul class="versions">
+             <li class="version"><a href="2.7-SNAPSHOT/index.html"> 2.7.2-SNAPSHOT </a></li>
+            </ul>
+           </div></li>
+          <li class="component">
+           <div>
+            <a class="title" href="index.html">Spring Session</a>
+           </div>
+           <div class="version-item is-active">
+            <div>
+             <button class="version-toggle" type="button"> <span></span> Stable </button>
+            </div>
+            <ul class="versions">
+             <li class="version"><a href="index.html"> 3.4.2 </a></li>
+             <li class="version"><a href="3.3/index.html"> 3.3.6 </a></li>
+             <li class="version"><a href="3.2/index.html"> 3.2.7 </a></li>
+             <li class="version"><a href="3.1/index.html"> 3.1.6 </a></li>
+             <li class="version"><a href="3.0/index.html"> 3.0.4 </a></li>
+             <li class="version"><a href="2.7/index.html"> 2.7.4 </a></li>
+             <li class="version"><a href="2.6/index.html"> 2.6.4 </a></li>
+            </ul>
+           </div>
+           <div class="version-item">
+            <div>
+             <button class="version-toggle" type="button"> <span></span> Snapshot </button>
+            </div>
+            <ul class="versions">
+             <li class="version"><a href="3.5-SNAPSHOT/index.html"> 3.5.0-SNAPSHOT </a></li>
+             <li class="version"><a href="3.4-SNAPSHOT/index.html"> 3.4.3-SNAPSHOT </a></li>
+             <li class="version"><a href="3.3-SNAPSHOT/index.html"> 3.3.7-SNAPSHOT </a></li>
+             <li class="version"><a href="3.2-SNAPSHOT/index.html"> 3.2.8-SNAPSHOT </a></li>
+             <li class="version"><a href="3.1-SNAPSHOT/index.html"> 3.1.7-SNAPSHOT </a></li>
+             <li class="version"><a href="3.0-SNAPSHOT/index.html"> 3.0.5-SNAPSHOT </a></li>
+             <li class="version"><a href="2.7-SNAPSHOT/index.html"> 2.7.5-SNAPSHOT </a></li>
+             <li class="version"><a href="2.6-SNAPSHOT/index.html"> 2.6.5-SNAPSHOT </a></li>
+            </ul>
+           </div></li>
+         </ul>
+        </div>
+        <div class="col-right">
+         <ul class="projects">
+          <li>Related Spring Documentation 
+           <ul class="projects-list">
+            <li><a href="https://docs.spring.io/spring-framework/reference/"> Spring Framework </a></li>
+            <li><a class="anchor"><i class="fa fa-angle-right" aria-hidden="true"></i></a> <a href="https://docs.spring.io/spring-security/reference/"> Spring Security </a>
+             <ul>
+              <li><a href="https://docs.spring.io/spring-authorization-server/reference/"> Spring Authorization Server </a></li>
+              <li><a href="https://docs.spring.io/spring-ldap/reference/"> Spring LDAP </a></li>
+              <li><a href="https://docs.spring.io/spring-security-kerberos/reference/"> Spring Security Kerberos </a></li>
+              <li><a href="https://docs.spring.io/spring-session/reference/"> Spring Session </a></li>
+              <li><a href="https://docs.spring.io/spring-vault/reference/"> Spring Vault </a></li>
+             </ul></li>
+           </ul></li>
+          <li><a href="spring-projects.html">All Docs...</a></li>
+         </ul>
+        </div>
+       </div>
+      </main>
+     </div>
+    </div>
+   </div>
+  </div>
+  <footer class="footer flex">
+   <div id="spring-links flex">
+    <img id="springlogo" src="./_/img/spring-logo.svg" alt="Spring">
+    <p class="smallest antialiased">Copyright © 2005 - 
+     <script>var d = new Date();
+        document.write(d.getFullYear());</script> Broadcom. All Rights Reserved. The term "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.<br><a href="https://www.vmware.com/help/legal.html">Terms of Use</a> • <a href="https://www.vmware.com/help/privacy.html" rel="noopener noreferrer">Privacy</a> • <a href="https://spring.io/trademarks">Trademark Guidelines</a> <span id="thank-you-mobile">• <a href="https://spring.io/thank-you">Thank you</a></span> • <a href="https://www.vmware.com/help/privacy/california-privacy-rights.html">Your California Privacy Rights</a> • <a class="ot-sdk-show-settings">Cookie Settings</a> <span id="teconsent"></span></p>
+    <p class="smallest antialiased has-gray-text">Apache®, Apache Tomcat®, Apache Kafka®, Apache Cassandra™, and Apache Geode™ are trademarks or registered trademarks of the Apache Software Foundation in the United States and/or other countries. Java™, Java™ SE, Java™ EE, and OpenJDK™ are trademarks of Oracle and/or its affiliates. Kubernetes® is a registered trademark of the Linux Foundation in the United States and other countries. Linux® is the registered trademark of Linus Torvalds in the United States and other countries. Windows® and Microsoft® Azure are registered trademarks of Microsoft Corporation. “AWS” and “Amazon Web Services” are trademarks or registered trademarks of Amazon.com Inc. or its affiliates. All other trademarks and copyrights are property of their respective owners and are only mentioned for informative purposes. Other names may be trademarks of their respective owners.</p>
+   </div>
+   <div id="social-icons" class="flex jc-between">
+    <a href="https://www.youtube.com/user/SpringSourceDev" title="Youtube">
+     <svg id="youtube-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+      <circle class="cls-1" cx="20" cy="20" r="20" /><path class="cls-2" d="M30.91,14.53a2.89,2.89,0,0,0-2-2C27.12,12,20,12,20,12s-7.12,0-8.9.47a2.9,2.9,0,0,0-2,2A30.56,30.56,0,0,0,8.63,20a30.44,30.44,0,0,0,.46,5.47,2.89,2.89,0,0,0,2,2C12.9,28,20,28,20,28s7.12,0,8.9-.47a2.87,2.87,0,0,0,2-2A30.56,30.56,0,0,0,31.37,20,28.88,28.88,0,0,0,30.91,14.53ZM17.73,23.41V16.59L23.65,20Z" />
+     </svg></a> <a href="https://github.com/spring-projects" title="GitHub">
+     <svg id="github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.93 75.93">
+      <path class="cls-1" d="M38,0a38,38,0,1,0,38,38A38,38,0,0,0,38,0Z" /><path class="cls-2" d="M38,15.59A22.95,22.95,0,0,0,30.71,60.3c1.15.21,1.57-.5,1.57-1.11s0-2,0-3.9c-6.38,1.39-7.73-3.07-7.73-3.07A6.09,6.09,0,0,0,22,48.86c-2.09-1.42.15-1.39.15-1.39a4.81,4.81,0,0,1,3.52,2.36c2,3.5,5.37,2.49,6.67,1.91a4.87,4.87,0,0,1,1.46-3.07c-5.09-.58-10.45-2.55-10.45-11.34a8.84,8.84,0,0,1,2.36-6.15,8.29,8.29,0,0,1,.23-6.07s1.92-.62,6.3,2.35a21.82,21.82,0,0,1,11.49,0c4.38-3,6.3-2.35,6.3-2.35a8.29,8.29,0,0,1,.23,6.07,8.84,8.84,0,0,1,2.36,6.15c0,8.81-5.37,10.75-10.48,11.32a5.46,5.46,0,0,1,1.56,4.25c0,3.07,0,5.54,0,6.29s.42,1.33,1.58,1.1A22.94,22.94,0,0,0,38,15.59Z" />
+     </svg></a> <a href="https://twitter.com/springcentral" title="Twitter">
+     <svg id="twitter-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.93 75.93">
+      <circle class="cls-1" cx="37.97" cy="37.97" r="37.97" /><path id="Twitter-2" data-name="Twitter" class="cls-2" d="M55.2,22.73a15.43,15.43,0,0,1-4.88,1.91,7.56,7.56,0,0,0-5.61-2.49A7.78,7.78,0,0,0,37,30a7.56,7.56,0,0,0,.2,1.79,21.63,21.63,0,0,1-15.84-8.23,8,8,0,0,0,2.37,10.52,7.66,7.66,0,0,1-3.48-1v.09A7.84,7.84,0,0,0,26.45,41a7.54,7.54,0,0,1-2,.28A7.64,7.64,0,0,1,23,41.09a7.71,7.71,0,0,0,7.18,5.47,15.21,15.21,0,0,1-9.55,3.37,15.78,15.78,0,0,1-1.83-.11,21.41,21.41,0,0,0,11.78,3.54c14.13,0,21.86-12,21.86-22.42,0-.34,0-.68,0-1a15.67,15.67,0,0,0,3.83-4.08,14.9,14.9,0,0,1-4.41,1.24A7.8,7.8,0,0,0,55.2,22.73Z" />
+     </svg></a>
+   </div>
+  </footer>
+  <script src="./_/js/vendor/import.js"></script>
+  <script src="./_/js/site.js"></script>
+  <script async src="./_/js/vendor/highlight.js"></script>
+  <script async src="./_/js/vendor/asciidoctor-tabs.js" data-sync-storage-key="docs:preferred-tab"></script>
+  <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+   <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+     <main class="modal__content" id="modal-1-content">
+      <div id="searchbox"></div>
+      <div id="counter"></div>
+      <div class="search-link-box">
+       <a class="search-link" href="search.html">Search in all Spring Docs</a>
+      </div>
+      <div class="search-by">
+       <a target="_blank" rel="noopener noreferrer" href="https://www.algolia.com/" aria-label="Search by Algolia"> <img class="light" width="140" src="./_/img/algolia-light.svg"> <img class="dark" width="140" src="./_/img/algolia-dark.svg"> </a>
+      </div>
+      <div id="hits"></div>
+     </main>
+    </div>
+   </div>
+  </div>
+  <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.17.0/dist/algoliasearch-lite.umd.js" integrity="sha256-Lf9DrpGmcRip6OQzbcL6lnvNmoZNSKpyQX5pMlwatWE=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.54.1/dist/instantsearch.production.min.js" integrity="sha256-xYsZPDeNjYNTBWLvqD2Lxe98hOxcDgOHyMPfz4tVAbk=" crossorigin="anonymous"></script>
+  <script async id="search-script" src="./_/js/vendor/search.js" data-app-id="WB1FQYI187" data-api-key="c2e84f15fa630d534f1c62b1c413bb77" data-index-name="springdocs" data-stylesheet="./_/css/vendor/search.css" data-page-version="3.4.2" data-page-component="session"></script>
+  <script>if (window.parent == window) {(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-2728886-23', 'auto', {'siteSpeedSampleRate': 100});ga('send', 'pageview');}</script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;92f3c4c5a82c2e8d&quot;,&quot;version&quot;:&quot;2025.3.0&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}},&quot;token&quot;:&quot;bffcb8a918ae4755926f76178bfbd26b&quot;,&quot;b&quot;:1}" crossorigin="anonymous"></script>
+ </body>
+</html>
