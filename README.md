@@ -1,12 +1,12 @@
 Functional Requirements
-  Start from a list of seed URLs.
-  Download web pages.
-  Extract links and metadata.
-  Recursively crawl discovered URLs (up to a depth or limit).
-  Store content and metadata in a database.
-  De-duplicate URLs (avoid revisits).
-  Handle failures and retries.
-  Control crawl rate (politeness, robots.txt).
+1. Start from a list of seed URLs.
+2. Download web pages.
+3. Extract links and metadata.
+4. Recursively crawl discovered URLs (up to a depth or limit).
+5. Store content and metadata in a database.
+6. De-duplicate URLs (avoid revisits).
+7. Handle failures and retries.
+8. Control crawl rate (politeness, robots.txt).
 
 
 HLD : https://imgur.com/a/XIHq5X7
