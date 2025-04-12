@@ -15,3 +15,7 @@ Handle failures and retries.
 
 Control crawl rate (politeness, robots.txt).
 
+
+HLD : https://imgur.com/a/XIHq5X7
+
+
